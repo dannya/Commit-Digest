@@ -1,0 +1,53 @@
+div#frame {
+  margin:116px 20px 20px 196px;
+}
+
+h1#frame-title {
+  display:inline;
+}
+
+img#spinner {
+  position:absolute;
+  top:5px;
+  left:300px;
+}
+
+
+div#options {
+  position:absolute;
+  top:6px;
+  right:0;
+  color:#666;
+  font-style:italic;
+}
+
+div#options input,
+div#options select {
+  font-size:14px;
+}
+
+div#recent-commits {
+  margin-top:24px;
+  position:relative;
+}
+
+
+span.timestamp {
+  font-style:italic;
+  color:#999;
+  margin-left:4px;
+}
+
+span.revision {
+  float:right;
+}
+
+
+div.prompt {
+  margin:200px 0;
+
+  color:#999;
+  font-style:italic;
+  font-size:22px;
+  text-align:center;
+}

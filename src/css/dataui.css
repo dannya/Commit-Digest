@@ -1,0 +1,29 @@
+div.row {
+  position:relative;
+  width:100%;
+}
+
+div.row div.left {
+  font-weight:bold;
+  width:100px;
+}
+div.row div.right {
+  position:relative;
+  width:800px;
+
+  left:100px;
+  top:-22px;
+}
+
+
+form#account {
+  width:286px;
+  margin:4px 0 16px 0;
+}
+
+
+p.terms {
+  padding:40px 40px 0 40px;
+  font-weight:bold;
+  text-align:center;
+}

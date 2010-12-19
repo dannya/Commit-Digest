@@ -1,0 +1,33 @@
+a#sort {
+  position:absolute;
+  right:0;
+  top:4px;
+
+  font-style:italic;
+  border-bottom:0;
+}
+
+
+p#attribution {
+  margin-bottom:22px;
+}
+
+
+div.container div.row {
+  margin-bottom:24px;
+}
+
+div.container div.row a.date {
+  display:block;
+  font-size:20px;
+  font-weight:bold;
+  border-bottom:0;
+  margin-bottom:6px;
+}
+div.container div.row a.text {
+  display:block;
+  border-bottom:0;
+  padding:8px 10px;
+  font-style:italic;
+  width:90%;
+}
