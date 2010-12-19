@@ -36,7 +36,7 @@ class DigestUi {
     }
 
     if (isset($_GET['issue'])) {
-      $issue = trim(str_replace($current . '/', null, $_GET['issue']));
+      $issue = trim(str_replace($current . '/', null, $_GET['issue']), '/');
     } else {
       $issue = null;
     }

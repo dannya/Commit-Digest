@@ -143,8 +143,8 @@ if (COMMAND_LINE) {
 
   putenv('LC_ALL=' . LANGUAGE);
   setlocale(LC_ALL, LANGUAGE . '.utf8');
-  bindtextdomain('messages', BASE_DIR . '/languages');
-  textdomain('messages');
+  bindtextdomain(APP_ID, BASE_DIR . '/languages');
+  textdomain(APP_ID);
 
   // add class dir to include path
   $classDirs = array(BASE_DIR . '/classes/core/',
