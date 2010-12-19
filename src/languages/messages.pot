@@ -1,0 +1,1084 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE Commit-Digest\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-16 00:44-0000\n"
+"PO-Revision-Date: 2010-12-16 00:44-0000\n"
+"Last-Translator: Danny Allen <dannya40uk@yahoo.co.uk>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: C:\\www\\digest\\src\n"
+
+#: C:\www\digest\src/classes/core/app.php:126
+#, php-format
+msgid "You need to have the permission \"%s\" to view this section"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:45
+msgid "Unknown"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:46
+msgid "Volunteer"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:47
+msgid "Commercial"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:49
+#: C:\www\digest\src/classes/core/chart.php:50
+msgid "Male"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:51
+#: C:\www\digest\src/classes/core/chart.php:52
+msgid "Female"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:54
+msgid "Under 18"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:55
+msgid "18 to 25"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:56
+msgid "25 to 35"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:57
+msgid "35 to 45"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:58
+msgid "45 to 55"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:59
+msgid "55 to 65"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:60
+msgid "65 to 75"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:61
+msgid "75 to 85"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/chart.php:62
+msgid "Over 85"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/date.php:32
+#, php-format
+msgid "%d seconds ago"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/date.php:33
+#, php-format
+msgid "%d minutes ago"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/date.php:34
+#, php-format
+msgid "%d hours ago"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/date.php:35
+#, php-format
+msgid "%d days ago"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/date.php:36
+#, php-format
+msgid "%d weeks ago"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/date.php:37
+#, php-format
+msgid "%d months ago"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/date.php:38
+#, php-format
+msgid "%d years ago"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/db.php:49
+#, php-format
+msgid "Couldn't connect to database: ensure you have set the correct values at the top of %s/autoload.php"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/db.php:64
+#: C:\www\digest\src/classes/core/db.php:148
+#: C:\www\digest\src/classes/core/db.php:196
+#: C:\www\digest\src/classes/core/db.php:219
+#: C:\www\digest\src/classes/core/db.php:243
+#: C:\www\digest\src/classes/core/db.php:264
+#: C:\www\digest\src/classes/core/db.php:283
+#: C:\www\digest\src/classes/core/db.php:297
+#: C:\www\digest\src/classes/core/db.php:508
+#: C:\www\digest\src/classes/core/db.php:526
+#: C:\www\digest\src/classes/core/digest.php:95
+#: C:\www\digest\src/classes/core/digest.php:127
+#: C:\www\digest\src/classes/core/digest.php:142
+#: C:\www\digest\src/classes/core/digest.php:166
+#: C:\www\digest\src/classes/core/digest.php:194
+#: C:\www\digest\src/classes/core/digest.php:208
+#: C:\www\digest\src/classes/core/digest.php:222
+#: C:\www\digest\src/classes/core/digest.php:233
+#: C:\www\digest\src/classes/core/digest.php:244
+#: C:\www\digest\src/classes/core/digest.php:260
+#: C:\www\digest\src/classes/core/digest.php:273
+#: C:\www\digest\src/classes/core/digest.php:304
+#: C:\www\digest\src/classes/core/digest.php:319
+#: C:\www\digest\src/classes/core/digest.php:329
+#: C:\www\digest\src/classes/core/digest.php:347
+#: C:\www\digest\src/classes/core/digest.php:393
+#: C:\www\digest\src/classes/core/digest.php:402
+#: C:\www\digest\src/classes/core/digest.php:418
+#: C:\www\digest\src/classes/core/enzyme.php:73
+#: C:\www\digest\src/classes/core/enzyme.php:446
+#: C:\www\digest\src/classes/core/enzyme.php:461
+#: C:\www\digest\src/classes/core/enzyme.php:487
+#: C:\www\digest\src/classes/core/enzyme.php:574
+#: C:\www\digest\src/classes/core/enzyme.php:588
+#, php-format
+msgid "Query failed: %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/db.php:378
+msgid "Query failed"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:435
+msgid "Issue"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:436
+msgid "Archive"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:441
+msgid "English"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:442
+msgid "Deutsch (German)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:443
+msgid "Français (French)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:444
+msgid "Español (Spanish)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:445
+msgid "Italiano (Italian)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:446
+msgid "Polski (Polish)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:447
+msgid "Português Brasileiro (Brazilian Portuguese)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:449
+msgid "Nederlands (Dutch)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:450
+msgid "Português (Portuguese)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:451
+msgid "Svenska (Swedish)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:452
+msgid "Ukrainian (Ukrainian)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:494
+#, php-format
+msgid "Revision %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:510
+#: C:\www\digest\src/classes/core/digest.php:529
+#, php-format
+msgid "%s committed changes in %s:"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:550
+#: C:\www\digest\src/classes/core/ui.php:218
+#, php-format
+msgid "Bug %d: %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:554
+#, php-format
+msgid "%d days"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:599
+#, php-format
+msgid "Diffs: %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:602
+#, php-format
+msgid "(+ %d more)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:611
+#: C:\www\digest\src/classes/core/enzyme.php:315
+msgid "Admin"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:613
+#: C:\www\digest\src/classes/core/enzyme.php:327
+msgid "Editor"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:615
+#: C:\www\digest\src/classes/core/enzyme.php:319
+msgid "Reviewer"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:617
+#: C:\www\digest\src/classes/core/enzyme.php:323
+msgid "Classifier"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/digest.php:619
+#: C:\www\digest\src/classes/core/enzyme.php:331
+#: C:\www\digest\src/classes/core/enzyme.php:332
+msgid "Translator"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:61
+#, php-format
+msgid "Fetched details for bug %d"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:85
+msgid "Accessibility"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:86
+msgid "Development Tools"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:87
+msgid "Educational"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:88
+msgid "Graphics"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:89
+msgid "KDE Base"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:90
+msgid "KDE-PIM"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:91
+msgid "KOffice"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:92
+msgid "Konqueror"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:93
+msgid "Multimedia"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:94
+msgid "Networking Tools"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:95
+msgid "User Interface"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:96
+msgid "Utilities"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:97
+msgid "Games"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:98
+#: C:\www\digest\src/classes/core/enzyme.php:114
+msgid "Other"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:110
+msgid "Bug Fixes"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:111
+msgid "Features"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:112
+msgid "Optimize"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:113
+msgid "Security"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:169
+msgid "Project Name"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:173
+msgid "Admin Email"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:177
+msgid "Enzyme URL"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:181
+msgid "Digest URL"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:185
+msgid "Help URL"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:189
+msgid "SMTP Mail Server"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:220
+msgid "Web Bug Tracker"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:224
+msgid "Web Bug Tracker XML"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:228
+msgid "I18n Stats URL"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:232
+msgid "I18n Teams URL"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:236
+msgid "Bug Stats URL"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:241
+msgid "Default Timezone"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:245
+msgid "Default Language"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:250
+msgid "Enable Legacy Import"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:251
+msgid "No"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:252
+msgid "Yes"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:255
+msgid "Existing Issues"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:259
+msgid "Existing Archive"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:263
+msgid "Existing Data"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:277
+msgid "Enzyme Settings"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:292
+msgid "Data Locations"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:299
+msgid "Display Defaults"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:303
+msgid "Legacy Import"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:316
+msgid "Enzyme Administrator"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:317
+msgid "Enzyme Administrators can manage all aspects of the system, including various import tools and user accounts."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:320
+msgid "Commit Reviewer"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:321
+msgid "Commit Reviewers look at all the recent commits, selecting those which are significant and interesting enough to be included into the weekly Commit-Digest."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:324
+msgid "Commit Classifier"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:325
+msgid "Commit Classifiers sort the selected commits into areas (which is partly automated), and by type (such as bug fix, feature, etc)."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:328
+msgid "Feature Editor"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:329
+msgid "Feature Editors contact people working on interesting projects and assist them in writing original pieces which are presented in the introduction of each Commit-Digest."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:333
+msgid "Translators increase the reach of the Commit-Digest and the work done across the project by making the weekly Commit-Digests available in the native language of people around the world."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:631
+#, php-format
+msgid "Retrieving from %s (%s)..."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:769
+#, php-format
+msgid "Commit data past %s has not been collected yet."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:775
+msgid "Getting revision data..."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:815
+msgid "Parsing revision data..."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:874
+msgid "Inserted people stats"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:893
+msgid "Inserted module stats"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:902
+msgid "Extracting extended statistics..."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:995
+msgid "Getting internationalization (i18n) stats..."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:1019
+msgid "Getting bug stats..."
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:1074
+msgid "Inserted general stats"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/enzyme.php:1265
+#, php-format
+msgid "Invalid data type in %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:262
+#, php-format
+msgid "Commit %s by %s (%s)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:305
+#, php-format
+msgid "Reviewed by %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:323
+msgid "Area"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:326
+msgid "Type"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:341
+#, php-format
+msgid "%s commits classified (%s total)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:346
+msgid "Mouse"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:347
+msgid "Keyboard"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:366
+#: C:\www\digest\src/classes/core/ui.php:375
+msgid "Save"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:369
+#, php-format
+msgid "Selected %s of %s commits reviewed (%s total)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:438
+#, php-format
+msgid " (%.1f percent of %d)"
+msgstr ""
+
+#: C:\www\digest\src/classes/core/ui.php:455
+#: C:\www\digest\src/classes/core/ui.php:457
+#, php-format
+msgid "Total: %d"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/commitspyui.php:27
+#: C:\www\digest\src/classes/ui/digestui.php:202
+msgid "Commit Spy"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/commitspyui.php:33
+msgid "(type)"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/commitspyui.php:34
+msgid "Account"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/commitspyui.php:35
+msgid "Path"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/commitspyui.php:36
+msgid "Message"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/commitspyui.php:47
+#: C:\www\digest\src/classes/ui/commitspyui.php:119
+#: C:\www\digest\src/classes/ui/commitspyui.php:182
+msgid "filter?"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/commitspyui.php:49
+#, php-format
+msgid "Update every %s minutes"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/commitspyui.php:153
+#, php-format
+msgid "%s (%s) committed changes in %s:"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/commitspyui.php:184
+#: C:\www\digest\src/classes/ui/commitspyui.php:186
+msgid "No commits found, maybe your filter is too restrictive..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:27
+#: C:\www\digest\src/classes/ui/digestui.php:205
+msgid "Contribute"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:38
+msgid "There are many ways to help the KDE Commit-Digest by contributing your time, effort, or money..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:42
+msgid "Time"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:49
+msgid "Apply!"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:61
+msgid "Money"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:63
+msgid "If you are unable to help the KDE Commit-Digest by donating your time and effort, you can still show your appreciation and support the ongoing work by donating money."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:70
+#: C:\www\digest\src/classes/ui/digestui.php:304
+msgid "Support Commit-Digest using PayPal"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:79
+msgid "And Finally..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:81
+msgid "Even if you can't contribute time, effort, or money in support, your enjoyment of the KDE Commit-Digest is contribution enough, and leaves us with a warm, fuzzy feeling inside!"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:83
+#, php-format
+msgid "Spread the word about KDE and the Commit-Digest by using the %s\"share\" links%s in the sidebar of each Digest."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/contributeui.php:85
+#, php-format
+msgid "Let us know your thoughts about our work at %shello@commit-digest.org%s"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:25
+#: C:\www\digest\src/classes/ui/digestui.php:209
+msgid "Data"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:40
+msgid "Step 1:"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:43
+msgid "Enter your SVN account name:"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:50
+msgid "An email will then be sent from this domain to the email address your SVN account is linked to."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:52
+msgid "(Please wait up to 48 hours for this email)"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:58
+msgid "Step 2:"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:61
+msgid "Reply to the email, following the instructions carefully."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:67
+msgid "Step 3:"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:70
+msgid "Thanks!"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:72
+msgid "You will soon be represented in the extended statistics."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/dataui.php:77
+msgid "I promise to keep your information confidentially, and to only use the data collected for KDE statistics purposes, unless further permission is granted."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:173
+msgid "Front Page"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:177
+#: C:\www\digest\src/classes/ui/indexui.php:55
+#: C:\www\digest\src/classes/ui/listui.php:33
+msgid "Issues"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:182
+msgid "Latest Issue"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:192
+#: C:\www\digest\src/classes/ui/indexui.php:73
+#: C:\www\digest\src/classes/ui/issueui.php:55
+msgid "Six Months Ago"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:195
+#: C:\www\digest\src/classes/ui/indexui.php:78
+#: C:\www\digest\src/classes/ui/issueui.php:52
+msgid "One Year Ago"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:198
+#: C:\www\digest\src/classes/ui/indexui.php:83
+msgid "Random Digest"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:224
+msgid "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</a>, 2006-2010"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:226
+msgid "All issues in <a href=\"/archive/\">archive</a> by <a href=\"mailto:dkite@shaw.ca\">Derek Kite</a>"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:321
+msgid "Subscribe to KDE Commit-Digest updates"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:322
+msgid "Send this issue by email..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:323
+msgid "Share this issue by Twitter..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:324
+msgid "Share this issue by Facebook..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/digestui.php:325
+msgid "Digg this issue..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/indexui.php:31
+msgid "Home"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/indexui.php:46
+msgid "Welcome"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/indexui.php:47
+msgid "...to the KDE Commit-Digest, a weekly overview of the development activity in KDE."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/indexui.php:50
+msgid "Read the latest issue!"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:116
+msgid "Issue cannot be found"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:171
+msgid "This Week..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:212
+#, php-format
+msgid "%d by %d developers, %d lines modified, %d new files"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:218
+#, php-format
+msgid "%d by %d developers"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:223
+#: C:\www\digest\src/classes/ui/statisticsui.php:27
+msgid "Statistics"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:228
+#: C:\www\digest\src/classes/ui/issueui.php:299
+#: C:\www\digest\src/classes/ui/issueui.php:308
+#: C:\www\digest\src/classes/ui/issueui.php:312
+msgid "Commits"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:232
+msgid "Open Bugs"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:236
+msgid "Open Wishes"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:240
+msgid "Bugs Opened"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:241
+#: C:\www\digest\src/classes/ui/issueui.php:245
+#, php-format
+msgid "%d in the last 7 days"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:244
+#: C:\www\digest\src/classes/ui/issueui.php:371
+msgid "Bugs Closed"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:252
+msgid "Commit Summary"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:259
+msgid "Internationalization (i18n) Status"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:265
+msgid "Bug Killers"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:267
+msgid "Bug Killers and Buzz"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:276
+msgid "Commit Countries"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:283
+msgid "Commit Demographics"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:298
+msgid "Module"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:306
+msgid "Lines"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:307
+#: C:\www\digest\src/classes/ui/issueui.php:311
+msgid "Developer"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:310
+msgid "Files"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:345
+msgid "Language"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:346
+msgid "Percentage Complete"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:370
+#: C:\www\digest\src/classes/ui/issueui.php:430
+msgid "Person"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:408
+msgid "Program"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:409
+#: C:\www\digest\src/classes/ui/issueui.php:431
+msgid "Buzz"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:510
+msgid "Click on the map regions to zoom in and zoom out..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:515
+msgid "North America"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:516
+msgid "South America"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:517
+msgid "Europe"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:518
+msgid "Africa"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:519
+msgid "Asia"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:520
+msgid "Oceania"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:522
+msgid "Click to zoom out..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:594
+msgid "View as list..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:595
+msgid "View as map..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:614
+msgid "Sex"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:618
+msgid "Motivation"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:622
+msgid "Age"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:643
+msgid "Contents"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:674
+#, php-format
+msgid "Jump to %s / %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:695
+#, php-format
+msgid "There are %d selections this week"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:736
+msgid "No commits found"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:745
+msgid "Thanks for reading the KDE Commit-Digest!"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:774
+#, php-format
+msgid "Download <b>%s</b> video (%s, %s)"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:807
+#, php-format
+msgid "Go to the previous digest issue (%s)"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:812
+#, php-format
+msgid "Go to the next digest issue (%s)"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:818
+#, php-format
+msgid "Issue %d"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:825
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:834
+#, php-format
+msgid "Located at %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/issueui.php:862
+msgid "Contributors"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/listui.php:43
+msgid "Sort by latest digest..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/listui.php:49
+msgid "Sort by earliest digest..."
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/listui.php:71
+#, php-format
+msgid "For %d issues, %s produced the KDE-CVS Digest. Here are the archives of his digests:"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/listui.php:86
+#, php-format
+msgid "Issue %d: %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/moreinfoui.php:36
+#: C:\www\digest\src/classes/ui/moreinfoui.php:130
+msgid "More Info"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/moreinfoui.php:110
+#: C:\www\digest\src/classes/ui/moreinfoui.php:115
+#, php-format
+msgid "Go to revision %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/moreinfoui.php:132
+msgid "(Back to digest)"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/moreinfoui.php:146
+#, php-format
+msgid "%s in %s"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/moreinfoui.php:163
+msgid "Added"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/moreinfoui.php:164
+msgid "Modified"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/moreinfoui.php:165
+msgid "Deleted"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/moreinfoui.php:169
+msgid "File Changes"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/moreinfoui.php:188
+#, php-format
+msgid "%d files"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/moreinfoui.php:216
+#, php-format
+msgid "%d files changed in total"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/optionsui.php:25
+msgid "Options"
+msgstr ""
+
+#: C:\www\digest\src/classes/ui/optionsui.php:32
+msgid "Coming soon!"
+msgstr ""
+
