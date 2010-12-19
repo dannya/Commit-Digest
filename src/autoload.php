@@ -123,29 +123,6 @@ if (COMMAND_LINE) {
   }
 
 } else {
-  // set language
-  if (isset($_GET['language'])) {
-    // load language from query string
-    define('LANGUAGE', $_REQUEST['language']);
-
-    // store in session
-    $_SESSION['language'] = LANGUAGE;
-
-  } else if (isset($_SESSION['language'])) {
-    // load language from cookie
-    define('LANGUAGE', $_SESSION['language']);
-
-  } else {
-    // use default language
-    define('LANGUAGE', DEFAULT_LANGUAGE);
-  }
-
-
-  putenv('LC_ALL=' . LANGUAGE);
-  setlocale(LC_ALL, LANGUAGE . '.utf8');
-  bindtextdomain(APP_ID, BASE_DIR . '/languages');
-  textdomain(APP_ID);
-
   // add class dir to include path
   $classDirs = array(BASE_DIR . '/classes/core/',
                      BASE_DIR . '/classes/ext/',
@@ -156,6 +133,9 @@ if (COMMAND_LINE) {
 
   // define autoloader
   spl_autoload_register();
+
+  // set language
+  App::setLanguage();
 }
 
 
