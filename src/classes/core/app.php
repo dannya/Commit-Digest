@@ -49,8 +49,8 @@ class App {
     // load language strings for set language
     putenv('LC_ALL=' . LANGUAGE);
     setlocale(LC_ALL, LANGUAGE . '.utf8');
-    bindtextdomain(APP_ID, BASE_DIR . '/languages');
-    textdomain(APP_ID);
+    bindtextdomain('commit-digest', BASE_DIR . '/languages');
+    textdomain('commit-digest');
   }
 
 
