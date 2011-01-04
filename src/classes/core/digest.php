@@ -42,7 +42,7 @@ class Digest {
   }
 
 
-  public static function getLastIssueDate($timewarp = null, $getValid = true) {
+  public static function getLastIssueDate($timewarp = null, $getValid = true, $onlyPublished = false) {
     // use a specific timewarp value (6 months, etc)?
     if ($timewarp) {
       $timewarp = '-' . $timewarp;
@@ -54,7 +54,13 @@ class Digest {
     // only get a valid date?
     if ($getValid) {
       // load list of issues
-      $issues = Cache::loadSave('issue_latest', 'Digest::loadDigests', array('issue', 'latest'));
+      if (!$onlyPublished) {
+        $issues = Cache::loadSave('issue_latest', 'Digest::loadDigests', array('issue', 'latest', true));
+      } else {
+        // only get published
+        $issues = Digest::loadDigests('issue', 'latest', true);
+      }
+
       $key    = self::findIssueDate($date, $issues);
 
       if ($key === false) {
@@ -62,7 +68,7 @@ class Digest {
         return $key['date'];
 
       } else {
-        return $key;
+        return $issues[$key]['date'];
       }
 
     } else {
@@ -161,9 +167,10 @@ class Digest {
 
 
     // load digest issue sections
-    $q = mysql_query('SELECT number, type, author, intro, body
+    $q = mysql_query('SELECT number, type, status, author, intro, body
                       FROM digest_intro_sections
-                      WHERE date = \'' . $date . '\'') or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
+                      WHERE date = \'' . $date . '\'
+                      AND status = \'selected\'') or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
 
     while ($row = mysql_fetch_assoc($q)) {
       $digest['sections'][$row['number']] = $row;
@@ -411,6 +418,26 @@ class Digest {
   }
 
 
+  public static function loadDigestFeatures($date = null, $status = null) {
+    if ($status) {
+      // load specific status
+      $filter = array('status' => $status);
+
+    } else {
+      // load all that aren't ideas or selected
+      $filter = array('status' => array('type'  => '!=',
+                                        'value' => array('idea', 'selected')));
+    }
+
+    // also filter by date?
+    if ($date) {
+      $filter['date'] = $date;
+    }
+
+    return Db::load('digest_intro_sections', $filter, null, '*', false);
+  }
+
+
   public static function getPeopleReferences($date) {
     // load digest issue people references
     $q = mysql_query('SELECT number, name, account
@@ -454,6 +481,16 @@ class Digest {
 
     // not yet ready for inclusion, here for translation purposes
     return array('sv_SE'  => _('Svenska (Swedish)'));
+  }
+
+
+  public static function getStatuses() {
+    return array('idea'        => _('1. Idea'),
+                 'contacting'  => _('2. Contacting'),
+                 'more-info'   => _('3. More information needed'),
+                 'proofread'   => _('4. Needs proofreading'),
+                 'ready'       => _('5. Ready for selection'),
+                 'selected'    => _('6. Selected'));
   }
 
 
@@ -512,13 +549,13 @@ class Digest {
   public static function getCommitTitle($commit) {
       if (empty($commit['format']) || ($commit['format'] == 'svn')) {
       $title  = sprintf(_('%s committed changes in %s:'),
-                '<a class="n" href="http://cia.vc/stats/author/' . $commit['author'] . '/">' . $commit['name'] . '</a>',
+                '<a class="n" href="http://cia.vc/stats/author/' . $commit['author'] . '/" target="_blank">' . $commit['name'] . '</a>',
                 Enzyme::drawBasePath($commit['basepath']));
 
     } else if ($commit['format'] == 'git') {
       // do we have the name of the committer?
       if (!empty($commit['name'])) {
-        $committer = '<a class="n" href="http://cia.vc/stats/author/' . $commit['author'] . '/">' . $commit['name'] . '</a>';
+        $committer = '<a class="n" href="http://cia.vc/stats/author/' . $commit['author'] . '/" target="_blank">' . $commit['name'] . '</a>';
       } else {
         $committer = Ui::displayEmailAddress($commit['author']);
       }
@@ -615,6 +652,8 @@ class Digest {
                                                 'title'  => _('Admin')),
                          'editor'      => array('string' => 'E',
                                                 'title'  => _('Editor')),
+                         'feature-editor'   => array('string' => 'F',
+                                                     'title'  => _('Feature editor')),
                          'reviewer'    => array('string' => 'R',
                                                 'title'  => _('Reviewer')),
                          'classifier'  => array('string' => 'C',

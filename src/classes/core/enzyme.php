@@ -88,7 +88,7 @@ class Enzyme {
                  'graphics'           => _('Graphics'),
                  'kde-base'           => _('KDE Base'),
                  'kde-pim'            => _('KDE-PIM'),
-                 'koffice'            => _('KOffice'),
+                 'koffice'            => _('Office'),
                  'konqueror'          => _('Konqueror'),
                  'multimedia'         => _('Multimedia'),
                  'networking-tools'   => _('Networking Tools'),
@@ -109,7 +109,7 @@ class Enzyme {
   public static function getTypes($spacer = false) {
     $buf = array('bug-fixes'  => _('Bug Fixes'),
                  'features'   => _('Features'),
-                 'optimize'   => _('Optimize'),
+                 'optimize'   => _('Optimization'),
                  'security'   => _('Security'),
                  'other'      => _('Other'));
 
@@ -190,33 +190,12 @@ class Enzyme {
                                       'valid'   => null,
                                       'default' => null,
                                       'example' => 'smtp.example.com');
+    $tmp['SHOW_INSERT']       = array('title'   => _('Show Insert'),
+                                      'valid'   => array('0'  => _('No'),
+                                                         '1'  => _('Yes')),
+                                      'default' => '1',
+                                      'example' => null);
 
-//    $tmp['REPOSITORY_TYPE']   = array('title'   => _('Repository Type'),
-//                                      'valid'   => array('svn' => _('Subversion')),
-//                                      'default' => 'svn',
-//                                      'example' => null);
-//    $tmp['REPOSITORY']        = array('title'   => _('Repository URL'),
-//                                      'valid'   => null,
-//                                      'default' => null,
-//                                      'example' => 'svn://anonsvn.kde.org/home/kde/');
-//    $tmp['REPOSITORY_USER']   = array('title'   => _('Repository Username'),
-//                                      'valid'   => null,
-//                                      'default' => null,
-//                                      'example' => null,
-//                                      'comment' => _('This password will be stored as plaintext. Consider setting up a separate, read-only repository user if security is important.'));
-//    $tmp['REPOSITORY_PASS']   = array('title'   => _('Repository Password'),
-//                                      'valid'   => null,
-//                                      'default' => null,
-//                                      'example' => null);
-//    $tmp['ACCOUNTS_FILE']     = array('title'   => _('Accounts File'),
-//                                      'valid'   => null,
-//                                      'default' => null,
-//                                      'example' => 'trunk/common/accounts.txt');
-
-//    $tmp['WEBSVN']            = array('title'   => _('Web Repository Viewer'),
-//                                      'valid'   => null,
-//                                      'default' => null,
-//                                      'example' => null);
     $tmp['WEBBUG']            = array('title'   => _('Web Bug Tracker'),
                                       'valid'   => null,
                                       'default' => null,
@@ -244,7 +223,7 @@ class Enzyme {
                                       'example' => null);
     $tmp['DEFAULT_LANGUAGE']  = array('title'   => _('Default Language'),
                                       'valid'   => Digest::getLanguages(),
-                                      'default' => null,
+                                      'default' => 'en_US',
                                       'example' => null);
 
     $tmp['ENABLE_LEGACY']     = array('title'   => _('Enable Legacy Import'),
@@ -280,14 +259,8 @@ class Enzyme {
                                              'ENZYME_URL'             => $tmp['ENZYME_URL'],
                                              'DIGEST_URL'             => $tmp['DIGEST_URL'],
                                              'HELP_URL'               => $tmp['HELP_URL'],
-                                             'SMTP'                   => $tmp['SMTP']));
-
-//    $settings[] = array('title'     => _('Repository'),
-//                        'settings'  => array('REPOSITORY_TYPE'        => $tmp['REPOSITORY_TYPE'],
-//                                             'REPOSITORY'             => $tmp['REPOSITORY'],
-//                                             'REPOSITORY_USER'        => $tmp['REPOSITORY_USER'],
-//                                             'REPOSITORY_PASS'        => $tmp['REPOSITORY_PASS'],
-//                                             'ACCOUNTS_FILE'          => $tmp['ACCOUNTS_FILE']));
+                                             'SMTP'                   => $tmp['SMTP'],
+                                             'SHOW_INSERT'            => $tmp['SHOW_INSERT']));
 
     $settings[] = array('title'     => _('Data Locations'),
                         'settings'  => array('WEBBUG'                 => $tmp['WEBBUG'],
@@ -393,7 +366,7 @@ class Enzyme {
       if (is_array($classifiedBy)) {
         $filter .= ' AND commits_reviewed.reviewer IN ("' . implode('","', $classifiedBy) . '")';
       } else {
-        $filter .= ' AND commits_reviewed.reviewer = ' . Db::quote($classifiedBy . 's');
+        $filter .= ' AND commits_reviewed.reviewer = ' . Db::quote($classifiedBy);
       }
     }
 
@@ -661,101 +634,105 @@ class Enzyme {
   }
 
 
-//  public static function generateStatsFromSvn($start, $end, $repoId) {
-//    // ensure script doesn't reach execution limits
-//    set_time_limit(0);
-//    ini_set('memory_limit', '256M');
-//
-//    // allow start and end to be passed in any order
-//    if ($start < $end) {
-//      $boundaries['start']  = $start;
-//      $boundaries['end']    = $end;
-//
-//    } else {
-//      $boundaries['start']  = $end;
-//      $boundaries['end']    = $start;
-//    }
-//
-//
-//    // get start and end revision numbers
-//    foreach ($boundaries as $boundary => $value) {
-//      if (is_numeric($value)) {
-//        // assume this is a revision number
-//        $revision[$boundary] = $value;
-//
-//      } else {
-//        // assume this is a date
-//        $cmd    = 'svn log --non-interactive ' . self::getRepoCmdAuth() . '--xml -v -r {' . $value . '} ' . REPOSITORY;
-//        $data   = shell_exec(escapeshellcmd($cmd));
-//        $data   = simplexml_load_string($data);
-//
-//        $revision[$boundary] = (int)$data->logentry->attributes()->revision;
-//      }
-//    }
-//
-//
-//    // get revision information
-//    Ui::displayMsg(_('Getting revision data...'));
-//
-//    $cmd    = 'svn log --non-interactive ' . self::getRepoCmdAuth() . '--xml -v -r ' . $revision['start'] . ':' . $revision['end'] . ' ' .
-//              REPOSITORY;
-//    $data   = shell_exec(escapeshellcmd($cmd));
-//    $data   = simplexml_load_string(utf8_encode($data));
-//
-//
-//    // initialise totals
-//    $stats                      = array();
-//    $stats['totalFiles']        = 0;
-//    $stats['totalCommits']      = 0;
-//    $stats['excludedCommits']   = 0;
-//    $stats['excludedAccounts']  = self::excludedAccounts();
-//
-//
-//    // process and store data
-//    Ui::displayMsg(_('Parsing revision data...'));
-//
-//    foreach ($data as $entry) {
-//      ++$stats['totalCommits'];
-//
-//      // skip if an excluded account!
-//      if (in_array((string)$entry->author, $stats['excludedAccounts'])) {
-//        ++$stats['excludedCommits'];
-//        continue;
-//      }
-//
-//      // set data into useful data structure
-//      if (!isset($stats['person'][(string)$entry->author]['commits'])) {
-//        // initialise counters
-//        $stats['person'][(string)$entry->author]['commits']  = 0;
-//        $stats['person'][(string)$entry->author]['files']    = 0;
-//      }
-//
-//      // increment commit counter
-//      ++$stats['person'][(string)$entry->author]['commits'];
-//
-//      // increment files counter
-//      $numFiles             = count($entry->paths->path);
-//      $stats['totalFiles'] += $numFiles;
-//
-//      $stats['person'][(string)$entry->author]['files'] += $numFiles;
-//
-//
-//      // extract module
-//      $basepath = self::getBasePath($entry->paths->path, 2);
-//
-//
-//      // increment module counter
-//      if (!isset($stats['module'][$basepath])) {
-//        $stats['module'][$basepath] = 1;
-//      } else {
-//        ++$stats['module'][$basepath];
-//      }
-//    }
-//
-//
-//    // process data into extended statistics
-//    self::processExtendedStats($boundaries['end'], $stats, $revision);
-//  }
+  public static function generateStatsFromSvn($start, $end, $repoId) {
+    // ensure script doesn't reach execution limits
+    set_time_limit(0);
+    ini_set('memory_limit', '256M');
+
+    // allow start and end to be passed in any order
+    if ($start < $end) {
+      $boundaries['start']  = $start;
+      $boundaries['end']    = $end;
+
+    } else {
+      $boundaries['start']  = $end;
+      $boundaries['end']    = $start;
+    }
+
+
+    // load repository
+    $repo = Connector::getRepository($repoId);
+
+
+    // get start and end revision numbers
+    foreach ($boundaries as $boundary => $value) {
+      if (is_numeric($value)) {
+        // assume this is a revision number
+        $revision[$boundary] = $value;
+
+      } else {
+        // assume this is a date
+        $cmd    = 'svn log --non-interactive --xml -v -r {' . $value . '} ' . $repo['hostname'];
+        $data   = shell_exec(escapeshellcmd($cmd));
+        $data   = simplexml_load_string($data);
+
+        $revision[$boundary] = (int)$data->logentry->attributes()->revision;
+      }
+    }
+
+
+    // get revision information
+    Ui::displayMsg(_('Getting revision data...'));
+
+    $cmd    = 'svn log --non-interactive --xml -v -r ' . $revision['start'] . ':' . $revision['end'] . ' ' .
+              $repo['hostname'];
+    $data   = shell_exec(escapeshellcmd($cmd));
+    $data   = simplexml_load_string(utf8_encode($data));
+
+
+    // initialise totals
+    $stats                      = array();
+    $stats['totalFiles']        = 0;
+    $stats['totalCommits']      = 0;
+    $stats['excludedCommits']   = 0;
+    $stats['excludedAccounts']  = self::excludedAccounts();
+
+
+    // process and store data
+    Ui::displayMsg(_('Parsing revision data...'));
+
+    foreach ($data as $entry) {
+      ++$stats['totalCommits'];
+
+      // skip if an excluded account!
+      if (in_array((string)$entry->author, $stats['excludedAccounts'])) {
+        ++$stats['excludedCommits'];
+        continue;
+      }
+
+      // set data into useful data structure
+      if (!isset($stats['person'][(string)$entry->author]['commits'])) {
+        // initialise counters
+        $stats['person'][(string)$entry->author]['commits']  = 0;
+        $stats['person'][(string)$entry->author]['files']    = 0;
+      }
+
+      // increment commit counter
+      ++$stats['person'][(string)$entry->author]['commits'];
+
+      // increment files counter
+      $numFiles             = count($entry->paths->path);
+      $stats['totalFiles'] += $numFiles;
+
+      $stats['person'][(string)$entry->author]['files'] += $numFiles;
+
+
+      // extract module
+      $basepath = self::getBasePath($entry->paths->path, 2);
+
+
+      // increment module counter
+      if (!isset($stats['module'][$basepath])) {
+        $stats['module'][$basepath] = 1;
+      } else {
+        ++$stats['module'][$basepath];
+      }
+    }
+
+
+    // process data into extended statistics
+    self::processExtendedStats($boundaries['end'], $stats, $revision);
+  }
 
 
   public static function generateStatsFromDb($start, $end) {
@@ -799,6 +776,13 @@ class Enzyme {
                       '*',
                       true,
                       'date ASC');
+
+
+    // sanity check
+    if (!$data) {
+      echo _('Not enough data to generate statistics.');
+      return false;
+    }
 
 
     // set revision boundaries
@@ -1216,7 +1200,7 @@ class Enzyme {
 
   public static function processCommitMsg($revision, $msg) {
     // remove email addresses
-    $msg = preg_replace('/[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/', null, $msg);
+    $msg = preg_replace('/(CCMAIL)?[: ]*[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/', null, $msg);
 
 
     // extract bugs
@@ -1378,6 +1362,18 @@ class Enzyme {
     } else {
       // no digest / synopsis found
       return false;
+    }
+  }
+
+
+  public static function getFreeFeatureArticleNum($date) {
+    $features = Db::load('digest_intro_sections', array('date' => $date), 1, 'number', true, 'number DESC');
+
+    if (!empty($features['number'])) {
+      return $features['number'] + 1;
+
+    } else {
+      return 1;
     }
   }
 }
