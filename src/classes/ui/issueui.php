@@ -291,6 +291,10 @@ class IssueUi {
 
 
   private function chartSummary() {
+    if (!isset($this->data['stats']['developer'])) {
+      return null;
+    }
+
     // set general options
     $options['barwidth'] = 140;
 
@@ -340,23 +344,25 @@ class IssueUi {
 
 
   private function chartI18n() {
-    if (isset($this->data['stats']['i18n'])) {
-      // set options
-      $options['header']    = array(_('Language'),
-                                    _('Percentage Complete'));
-      $options['barwidth']  = 360;
-      $options['percent']   = true;
-
-      // process data into correct format for charting
-      foreach ($this->data['stats']['i18n'] as $value) {
-        $data[$value['language'] . ' (' . $value['code'] . ')'] = $value['value'];
-      }
-
-      // draw
-      $statsI18n = new Chart('stats-i18n', $data, null, null, $options);
-
-      return $statsI18n->drawBar(true);
+    if (!isset($this->data['stats']['i18n'])) {
+      return null;
     }
+
+    // set options
+    $options['header']    = array(_('Language'),
+                                  _('Percentage Complete'));
+    $options['barwidth']  = 360;
+    $options['percent']   = true;
+
+    // process data into correct format for charting
+    foreach ($this->data['stats']['i18n'] as $value) {
+      $data[$value['language'] . ' (' . $value['code'] . ')'] = $value['value'];
+    }
+
+    // draw
+    $statsI18n = new Chart('stats-i18n', $data, null, null, $options);
+
+    return $statsI18n->drawBar(true);
   }
 
 
