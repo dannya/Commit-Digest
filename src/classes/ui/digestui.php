@@ -223,7 +223,7 @@ class DigestUi {
     $buf = '<div id="footer">' .
               _('KDE Commit-Digest by <a href="mailto:danny@commit-digest.org">Danny Allen</a>, 2006-2011') .
               '<br />' .
-              _('All issues in <a href="/archive/">archive</a> by <a href="mailto:dkite@shaw.ca">Derek Kite</a>') .
+              _('All issues in <a href="/archive/">archive</a> by Derek Kite') .
            '  <a id="enzyme-credit" href="http://enzyme-project.org/" target="_blank">&nbsp;</a>
             </div>';
 

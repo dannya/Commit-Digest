@@ -70,7 +70,7 @@ class ListUi {
       $buf .= '<p id="attribution">' .
                 sprintf(_('For %d issues, %s produced the KDE-CVS Digest. Here are the archives of his digests:'),
                         129,
-                        '<a href="mailto:dkite@shaw.ca">Derek Kite</a>') .
+                        'Derek Kite') .
               '</p>';
     }
 
