@@ -2,7 +2,7 @@
 
 /*-------------------------------------------------------+
 | KDE Commit-Digest
-| Copyright 2010 Danny Allen <danny@commit-digest.org>
+| Copyright 2010-2011 Danny Allen <danny@commit-digest.org>
 | http://www.commit-digest.org/
 +--------------------------------------------------------+
 | This program is released as free software under the
@@ -23,6 +23,7 @@ class Db {
                                   'commits_reviewed',
                                   'commit_bugs',
                                   'commit_files',
+                                  'commit_path_filters',
                                   'countries',
                                   'digests',
                                   'digest_intro_people',
@@ -89,6 +90,20 @@ class Db {
     $schema = mysql_fetch_row($query);
 
     return array_pop($schema);
+  }
+
+
+  public static function getDataSql($table) {
+    // check specified table is valid
+    if (!in_array($table, self::$tables)) {
+      return null;
+    }
+
+    // load data
+    $values = self::load($table, false, null, '*', false);
+
+    // fake insertion (don't execute) to get data SQL
+    return self::insert($table, $values, false, false, false);
   }
 
 

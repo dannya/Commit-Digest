@@ -1,6 +1,6 @@
 /*-------------------------------------------------------+
 | KDE Commit-Digest
-| Copyright 2010 Danny Allen <danny@commit-digest.org>
+| Copyright 2010-2011 Danny Allen <danny@commit-digest.org>
 | http://www.commit-digest.org/
 +--------------------------------------------------------+
 | This program is released as free software under the

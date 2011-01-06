@@ -2,7 +2,7 @@
 
 /*-------------------------------------------------------+
 | KDE Commit-Digest
-| Copyright 2010 Danny Allen <danny@commit-digest.org>
+| Copyright 2010-2011 Danny Allen <danny@commit-digest.org>
 | http://www.commit-digest.org/
 +--------------------------------------------------------+
 | This program is released as free software under the
@@ -35,7 +35,7 @@ define('DB_DATABASE',       'enzyme');
 // define app constants
 define('APP_ID',            'digest');
 define('APP_NAME',          'KDE Commit-Digest');
-define('VERSION',           '0.99.1');
+define('VERSION',           '0.99.2');
 
 define('META_AUTHOR',       'Danny Allen');
 define('META_DESCRIPTION',  'A weekly overview of the development activity in KDE.');
