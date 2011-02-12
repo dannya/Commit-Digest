@@ -211,7 +211,7 @@ class Digest {
 
     // load digest issue video references
     $q = mysql_query('SELECT number, name, file, youtube
-                      FROM digest_intro_videos
+                      FROM digest_intro_media
                       WHERE date = \'' . $date . '\'') or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
 
     while ($row = mysql_fetch_assoc($q)) {
@@ -477,6 +477,7 @@ class Digest {
                  'pt_BR'  => _('Português Brasileiro (Brazilian Portuguese)'),
                  'hu_HU'  => _('Magyar (Hungarian)'),
                  'uk_UA'  => _('Ukrainian (Ukrainian)'),
+                 'cs_CZ'  => _('Czech (Čeština)'),
                  'nds'    => _('Low Saxon (Low Saxon)'));
 
     // not yet ready for inclusion, here for translation purposes
@@ -488,6 +489,7 @@ class Digest {
     return array('idea'        => _('1. Idea'),
                  'contacting'  => _('2. Contacting'),
                  'more-info'   => _('3. More information needed'),
+                 ''            => '--------',
                  'proofread'   => _('4. Needs proofreading'),
                  'ready'       => _('5. Ready for selection'),
                  'selected'    => _('6. Selected'));

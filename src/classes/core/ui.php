@@ -283,9 +283,12 @@ class Ui {
     if ($type == 'classify') {
       // search for basepath in common area classifications, so we can prefill value
       if ($classifications) {
-        foreach ($classifications as $thePath => $theArea) {
-          if (strpos($data['basepath'], $thePath) !== false) {
-            $data['area'] = $theArea;
+        foreach ($classifications as $filter) {
+          if ((($filter['target'] == 'path') && (strpos($data['basepath'], $filter['matched']) !== false)) ||
+              (($filter['target'] == 'repository') && (strpos($data['repository'], $filter['matched']) !== false))) {
+
+            $data['area'] = $filter['area'];
+
             break;
           }
         }
@@ -344,9 +347,13 @@ class Ui {
   public static function statusArea($type, $user = null) {
     // determine interface elements
     if ($type == 'classify') {
-      $display = sprintf(_('%s commits classified (%s total)'),
+      // get total number of commits available to classify
+      $total   = Enzyme::getProcessedRevisions('marked', null, null, null, true);
+
+      $display = sprintf(_('%s commits classified (%s displayed, %s total)'),
                          '<span id="commit-counter">0</span>',
-                         '<span id="commit-total">0</span>');
+                         '<span id="commit-displayed">0</span>',
+                         '<span id="commit-total">' . $total . '</span>');
 
       // interface selector
       $interface = array('mouse'    => _('Mouse'),
@@ -361,9 +368,9 @@ class Ui {
           $selected = null;
         }
 
-        $interfaceSelector  .= '<label>
-                                  <input id="interface-' . $key . '" name="interface" value="' . $key . '" type="radio" onclick="changeInterface(\'' . $key . '\');"' . $selected . ' /> ' . $value .
-                                '</label>';
+        $interfaceSelector  .= '<label title="' . $value . '" class="' . $key . '">
+                                  <input id="interface-' . $key . '" name="interface" value="' . $key . '" type="radio" onclick="changeInterface(\'' . $key . '\');"' . $selected . ' /> <i>&nbsp;</i>
+                                </label>';
       }
 
 
@@ -374,9 +381,9 @@ class Ui {
         $userFilterChecked = null;
       }
 
-      $interfaceSelector  .= '  <label id="classify-user-filter">
-                                  <input type="checkbox" onchange="setClassifyUserFilter(event);"' . $userFilterChecked . ' /> ' . _('Only show commits I reviewed') .
-                             '  </label>
+      $interfaceSelector  .= '  <label id="classify-user-filter" title="' . _('Only show commits I reviewed') . '">
+                                  <input type="checkbox" onchange="setClassifyUserFilter(event);"' . $userFilterChecked . ' /> <i>&nbsp;</i>
+                                </label>
                               </div>';
 
 
@@ -385,10 +392,14 @@ class Ui {
 
 
     } else if ($type == 'review') {
-      $display = sprintf('<span class="bold">' . _('Selected %s of %s commits reviewed (%s total)'),
+      // get total number of commits available to review
+      $total   = Enzyme::getProcessedRevisions('unreviewed', true, null, null, true);
+
+      $display = sprintf('<span class="bold">' . _('Selected %s of %s commits reviewed (%s displayed, %s total)'),
                          '<span id="commit-selected">0</span></span>',
                          '<span id="commit-counter">0</span>',
-                         '<span id="commit-total">0</span>');
+                         '<span id="commit-displayed">0</span>',
+                         '<span id="commit-total">' . $total . '</span>');
 
       $interfaceSelector = null;
       $buttons = '<input id="review-save" type="button" disabled="disabled" onclick="save(\'' . $type . '\');" value="' . _('Save') . '" title="' . _('Save') . '" />';

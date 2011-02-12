@@ -28,7 +28,7 @@ class Db {
                                   'digests',
                                   'digest_intro_people',
                                   'digest_intro_sections',
-                                  'digest_intro_videos',
+                                  'digest_intro_media',
                                   'digest_stats',
                                   'digest_stats_bugfixers',
                                   'digest_stats_buzz',
@@ -168,7 +168,11 @@ class Db {
 
     // limit?
     if (isset($limit)) {
+      if (is_array($limit)) {
+        $selectQuery .= ' LIMIT ' . intval($limit[0]) . ' ,' . intval($limit[1]);
+      } else {
       $selectQuery .= ' LIMIT ' . intval($limit);
+    }
     }
 
 
@@ -539,7 +543,15 @@ class Db {
 
     foreach ($array as $item) {
       if ($processKey) {
+        if (is_string($processKey)) {
+          // use specified function to process key
+          $theKey = call_user_func($processKey, $item[$key]);
+
+        } else {
+          // use standard key processing function
         $theKey = self::key($item[$key]);
+        }
+
       } else {
         $theKey = $item[$key];
       }

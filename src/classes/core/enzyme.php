@@ -122,6 +122,14 @@ class Enzyme {
   }
 
 
+  public static function getFilterTargets() {
+    $buf = array('path'         => _('Path'),
+                 'repository'   => _('Repository'));
+
+    return $buf;
+  }
+
+
   public static function loadSettings($cacheIfEmpty = true, $getKey = false) {
     // load settings (from cache if possible)
     $existingSettings = Cache::load('settings');
@@ -144,7 +152,7 @@ class Enzyme {
 
     // set defaults if unset
     if (empty($existingSettings['HELP_URL']['value'])) {
-      $existingSettings['HELP_URL']['value'] = 'http://github.com/dannyakakong/Enzyme/wiki';
+      $existingSettings['HELP_URL']['value'] = 'https://github.com/dannyakakong/Enzyme/wiki';
     }
 
 
@@ -185,7 +193,7 @@ class Enzyme {
     $tmp['HELP_URL']          = array('title'   => _('Help URL'),
                                       'valid'   => null,
                                       'default' => null,
-                                      'example' => 'http://github.com/dannyakakong/Enzyme/wiki');
+                                      'example' => 'https://github.com/dannyakakong/Enzyme/wiki');
     $tmp['SMTP']              = array('title'   => _('SMTP Mail Server'),
                                       'valid'   => null,
                                       'default' => null,
@@ -345,7 +353,8 @@ class Enzyme {
   }
 
 
-  public static function getProcessedRevisions($type = null, $exclude = null, $classifiedBy = null, $limit = ' LIMIT 100') {
+  public static function getProcessedRevisions($type = null, $exclude = null, $classifiedBy = null,
+                                               $limit = ' LIMIT 100', $getCount = false) {
     $filter             = ' WHERE 1';
     $revisions          = null;
     $existingRevisions  = null;
@@ -424,15 +433,34 @@ class Enzyme {
       $table    = 'commits';
     }
 
+
+    // get count instead?
+    if ($getCount) {
+      $fields = 'COUNT(commits.revision) as count';
+      $limit  = null;
+    }
+
+
     // execute query
     $selectQuery  = 'SELECT ' . $fields . ' FROM ' . $table . $filter . ' ORDER BY date ASC' . $limit;
     $q            = mysql_query($selectQuery) or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
 
+
+    // get and return data
+    if ($getCount) {
+      $row = mysql_fetch_assoc($q);
+
+      return $row['count'];
+
+    } else {
     while ($row = mysql_fetch_assoc($q)) {
       $existingRevisions[$row['revision']] = $row;
     }
 
     return $existingRevisions;
+  }
+
+
   }
 
 
@@ -487,7 +515,7 @@ class Enzyme {
       if ($indexById) {
         $classifications[$item['id']]   = $item;
       } else {
-        $classifications[$item['path']] = $item['area'];
+        $classifications[$item['matched']] = $item;
       }
     }
 
@@ -549,23 +577,14 @@ class Enzyme {
   }
 
 
-  public static function loadLinks($lowercase = false) {
-    $links = array();
-
-    // load from db
-    $q = mysql_query('SELECT * FROM links') or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
-
-    while ($row = mysql_fetch_assoc($q)) {
+  public static function loadLinks($lowercase = false, $indexBy = 'name') {
+    // lowercase key names?
       if ($lowercase) {
-        // lowercase word to aid comparisons
-        $links[strtolower($row['name'])] = $row;
-
-      } else {
-        $links[$row['name']] = $row;
-      }
+      $lowercase = 'strtolower';
     }
 
-    return $links;
+    // load from db
+    return Db::reindex(Db::load('links', false), $indexBy, $lowercase, false);
   }
 
 
@@ -1086,6 +1105,10 @@ class Enzyme {
       if (!isset($stats[$item['reviewer']])) {
         $stats[$item['reviewer']]['reviewed']['total']    = 0;
           $stats[$item['reviewer']]['reviewed']['week']     = 0;
+          $stats[$item['reviewer']]['selected']['total']          = 0;
+          $stats[$item['reviewer']]['selected']['week']           = 0;
+          $stats[$item['reviewer']]['selectedPercent']['total']   = 0;
+          $stats[$item['reviewer']]['selectedPercent']['week']    = 0;
         $stats[$item['reviewer']]['classified']['total']  = 0;
         $stats[$item['reviewer']]['classified']['week']   = 0;
       }
@@ -1096,6 +1119,15 @@ class Enzyme {
       } else {
         ++$stats[$item['reviewer']]['reviewed']['total'];
       }
+
+        // also record selections
+        if (!empty($item['marked'])) {
+          if (!isset($stats[$item['reviewer']]['selected']['total'])) {
+            $stats[$item['reviewer']]['selected']['total'] = 1;
+          } else {
+            ++$stats[$item['reviewer']]['selected']['total'];
+          }
+        }
       }
 
 
@@ -1105,6 +1137,10 @@ class Enzyme {
         if (!isset($stats[$item['classifier']])) {
           $stats[$item['classifier']]['reviewed']['total']    = 0;
           $stats[$item['classifier']]['reviewed']['week']     = 0;
+          $stats[$item['classifier']]['selected']['total']          = 0;
+          $stats[$item['classifier']]['selected']['week']           = 0;
+          $stats[$item['classifier']]['selectedPercent']['total']   = 0;
+          $stats[$item['classifier']]['selectedPercent']['week']    = 0;
           $stats[$item['classifier']]['classified']['total']  = 0;
           $stats[$item['classifier']]['classified']['week']   = 0;
         }
@@ -1117,6 +1153,7 @@ class Enzyme {
         }
       }
     }
+
 
 
     // get number of reviewed (week)
@@ -1135,6 +1172,34 @@ class Enzyme {
     }
 
 
+      // get number of selected (week)
+      $tmp   = Db::sql('SELECT * FROM commits_reviewed
+                        WHERE marked = 1
+                        AND reviewed > "' . $start . '"
+                        AND reviewed <= "' . $end . '"', true);
+
+      foreach ($tmp as $item) {
+        // selected
+        if (!isset($stats[$item['reviewer']]['selected']['week'])) {
+          $stats[$item['reviewer']]['selected']['week'] = 1;
+        } else {
+          ++$stats[$item['reviewer']]['selected']['week'];
+        }
+      }
+
+
+      // calculate selected percentages
+      foreach ($stats as &$item) {
+        if ($item['reviewed']['week']) {
+          $item['selectedPercent']['week']  = (($item['selected']['week'] / $item['reviewed']['week']) * 100);
+        }
+
+        if ($item['reviewed']['total']) {
+          $item['selectedPercent']['total'] = (($item['selected']['total'] / $item['reviewed']['total']) * 100);
+        }
+      }
+
+
     // get number of classified (week)
     $tmp   = Db::sql('SELECT * FROM commits_reviewed
                       WHERE classified IS NOT NULL
@@ -1145,7 +1210,8 @@ class Enzyme {
       // classified
       if (!isset($stats[$item['classifier']]['classified']['week'])) {
         $stats[$item['classifier']]['classified']['week'] = 1;
-      } else {
+
+        } else if (is_array($stats[$item['classifier']]['classified'])) {
         ++$stats[$item['classifier']]['classified']['week'];
       }
     }
@@ -1185,12 +1251,11 @@ class Enzyme {
 
   public static function processCommitMsg($revision, $msg) {
     // remove email addresses
-    $msg = preg_replace('/(CCMAIL)?[: ]*[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/', null, $msg);
-
+    $msg = preg_replace('/[<]?(CCMAIL)?[: ]*[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}[>]?/', null, $msg);
 
     // extract bugs
     do {
-      preg_match('/(BUG|BUGS|CCBUG|FEATURE)[:]?[ ]?[0-9]{4,6}/', $msg, $matches);
+      preg_match('/(BUG|BUGS|CCBUG|FEATURE)[:]?[=]?[ ]?[#]?[0-9]{4,6}/', $msg, $matches);
 
       if (isset($matches[0])) {
         // remove bug from msg

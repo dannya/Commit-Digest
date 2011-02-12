@@ -192,8 +192,19 @@ class User {
   }
 
 
-  public function hasPermission($permission) {
-    return in_array($permission, $this->permissions);
+  public function hasPermission($permissions) {
+    if (!is_array($permissions)) {
+      // convert to array for iteration
+      $permissions = array($permissions);
+    }
+
+    foreach ($permissions as $permission) {
+      if (in_array($permission, $this->permissions)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
 
@@ -253,6 +264,25 @@ class User {
                       AND reviewed <= "' . $end . '"', true);
 
     $stats['reviewed']['week'] = $tmp[0]['count'];
+
+
+    // get number of selected
+    $tmp   = Db::sql('SELECT COUNT(revision) AS count FROM commits_reviewed
+                      WHERE reviewer = "' . $this->data['username'] . '"
+                      AND marked = 1', true);
+
+    $stats['selected']['total']         = $tmp[0]['count'];
+    $stats['selectedPercent']['total']  = (($stats['selected']['total'] / ($stats['reviewed']['total'] ? $stats['reviewed']['total'] : 1)) * 100);
+
+    // get number of selected (week)
+    $tmp   = Db::sql('SELECT COUNT(revision) AS count FROM commits_reviewed
+                      WHERE reviewer = "' . $this->data['username'] . '"
+                      AND marked = 1
+                      AND reviewed > "' . $start . '"
+                      AND reviewed <= "' . $end . '"', true);
+
+    $stats['selected']['week']          = $tmp[0]['count'];
+    $stats['selectedPercent']['week']   = (($stats['selected']['week'] / ($stats['reviewed']['week'] ? $stats['reviewed']['week'] : 1)) * 100);
 
 
     // get number of classified

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: KDE Commit-Digest 0.99\n"
+"Project-Id-Version: KDE Commit-Digest 0.99.2\n"
 "Report-Msgid-Bugs-To: danny@commit-digest.org\n"
-"POT-Creation-Date: 2010-12-20 00:17+0000\n"
-"PO-Revision-Date: 2010-12-20 00:23-0000\n"
-"Last-Translator: Danny Allen <dannya40uk@yahoo.co.uk>\n"
+"POT-Creation-Date: 2011-01-12 00:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,19 +104,37 @@ msgstr ""
 msgid "...to the KDE Commit-Digest, a weekly overview of the development activity in KDE."
 msgstr ""
 
+msgid "1. Idea"
+msgstr ""
+
 msgid "18 to 25"
+msgstr ""
+
+msgid "2. Contacting"
 msgstr ""
 
 msgid "25 to 35"
 msgstr ""
 
+msgid "3. More information needed"
+msgstr ""
+
 msgid "35 to 45"
+msgstr ""
+
+msgid "4. Needs proofreading"
 msgstr ""
 
 msgid "45 to 55"
 msgstr ""
 
+msgid "5. Ready for selection"
+msgstr ""
+
 msgid "55 to 65"
+msgstr ""
+
+msgid "6. Selected"
 msgstr ""
 
 msgid "65 to 75"
@@ -142,10 +161,16 @@ msgstr ""
 msgid "Africa"
 msgstr ""
 
+msgid "Afrikaans (Afrikaans)"
+msgstr ""
+
 msgid "Age"
 msgstr ""
 
 msgid "All issues in <a href=\"/archive/\">archive</a> by <a href=\"mailto:dkite@shaw.ca\">Derek Kite</a>"
+msgstr ""
+
+msgid "All issues in <a href=\"/archive/\">archive</a> by Derek Kite"
 msgstr ""
 
 msgid "An email will then be sent from this domain to the email address your SVN account is linked to."
@@ -261,6 +286,9 @@ msgstr ""
 msgid "Couldn't connect to database: ensure you have set the correct values at the top of %s/autoload.php"
 msgstr ""
 
+msgid "Czech (Čeština)"
+msgstr ""
+
 msgid "Data"
 msgstr ""
 
@@ -361,6 +389,9 @@ msgid "Feature Editor"
 msgstr ""
 
 msgid "Feature Editors contact people working on interesting projects and assist them in writing original pieces which are presented in the introduction of each Commit-Digest."
+msgstr ""
+
+msgid "Feature editor"
 msgstr ""
 
 msgid "Features"
@@ -483,6 +514,9 @@ msgstr ""
 msgid "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</a>, 2006-2010"
 msgstr ""
 
+msgid "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</a>, 2006-2011"
+msgstr ""
+
 msgid "KDE-PIM"
 msgstr ""
 
@@ -566,7 +600,13 @@ msgstr ""
 msgid "North America"
 msgstr ""
 
+msgid "Not enough data to generate statistics."
+msgstr ""
+
 msgid "Oceania"
+msgstr ""
+
+msgid "Office"
 msgstr ""
 
 msgid "One Year Ago"
@@ -579,6 +619,9 @@ msgid "Open Bugs"
 msgstr ""
 
 msgid "Open Wishes"
+msgstr ""
+
+msgid "Optimization"
 msgstr ""
 
 msgid "Optimize"
@@ -678,6 +721,9 @@ msgid "Share this issue by Facebook..."
 msgstr ""
 
 msgid "Share this issue by Twitter..."
+msgstr ""
+
+msgid "Show Insert"
 msgstr ""
 
 msgid "Six Months Ago"
@@ -811,4 +857,3 @@ msgstr ""
 
 msgid "Русский язык (Russian)"
 msgstr ""
-
