@@ -776,26 +776,7 @@ class IssueUi {
   private function replaceVideoReferences($text) {
     if (isset($this->data['video'])) {
       foreach ($this->data['video'] as $video) {
-        $size    = $video['size'];
-        $string  = sprintf(_('Download <b>%s</b> video (%s, %s)'), $video['name'], $size, $video['type']);
-
-        // create HTML representation of video
-        $html =  '<div class="video">
-                    <div class="v">
-                      <object height="350" width="425">
-                        <param value="http://www.youtube.com/v/' . $video['youtube'] . '" name="movie">
-                        <embed height="350" width="425" type="application/x-shockwave-flash" src="http://www.youtube.com/v/' . $video['youtube'] . '"></embed>
-                      </object>
-                    </div>
-
-                    <div class="link">
-                      <a href="' . BASE_URL . $video['file'] . '" title="' . strip_tags($string) . '">' .
-                        $string .
-                 '    </a>
-                    </div>
-                  </div>';
-
-        $text = str_replace('[video' . $video['number'] . ']', $html, $text);
+        $text = str_replace('[video' . $video['number'] . ']', Media::draw($video), $text);
       }
     }
 

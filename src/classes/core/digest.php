@@ -215,10 +215,6 @@ class Digest {
                       WHERE date = \'' . $date . '\'') or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
 
     while ($row = mysql_fetch_assoc($q)) {
-      // get filesize and filetype
-      $row['type'] = 'AVI';
-      $row['size'] = '2048';
-
       $digest['video'][$row['number']] = $row;
     }
 
@@ -438,6 +434,28 @@ class Digest {
   }
 
 
+  public static function loadDigestMedia($date = null, $type = null, $order = 'date DESC') {
+    if ($type) {
+      // load specific media type
+      $filter = array('type' => $type);
+
+    } else {
+      // load all media
+      $filter = false;
+    }
+
+    // also filter by date?
+    if ($date) {
+      $filter['date'] = $date;
+    }
+
+    return Db::reindex(Db::load('digest_intro_media', $filter, null, '*', false, $order),
+                       'date',
+                       false,
+                       false);
+  }
+
+
   public static function getPeopleReferences($date) {
     // load digest issue people references
     $q = mysql_query('SELECT number, name, account
@@ -467,17 +485,17 @@ class Digest {
   public static function getLanguages() {
     return array('en_US'  => _('English'),
                  'de_DE'  => _('Deutsch (German)'),
-                 'fr_FR'  => _('Français (French)'),
-                 'es_ES'  => _('Español (Spanish)'),
+                 'fr_FR'  => _('FranÃ§ais (French)'),
+                 'es_ES'  => _('EspaÃ±ol (Spanish)'),
                  'nl_NL'  => _('Nederlands (Dutch)'),
                  'it_IT'  => _('Italiano (Italian)'),
-                 'ru_RU'  => _('Русский язык (Russian)'),
+                 'ru_RU'  => _('Ð ÑƒÑ�Ñ�ÐºÐ¸Ð¹ Ñ�Ð·Ñ‹Ðº (Russian)'),
                  'pl_PL'  => _('Polski (Polish)'),
-                 'pt_PT'  => _('Português (Portuguese)'),
-                 'pt_BR'  => _('Português Brasileiro (Brazilian Portuguese)'),
+                 'pt_PT'  => _('PortuguÃªs (Portuguese)'),
+                 'pt_BR'  => _('PortuguÃªs Brasileiro (Brazilian Portuguese)'),
                  'hu_HU'  => _('Magyar (Hungarian)'),
                  'uk_UA'  => _('Ukrainian (Ukrainian)'),
-                 'cs_CZ'  => _('Czech (Čeština)'),
+                 'cs_CZ'  => _('Czech (ÄŒeÅ¡tina)'),
                  'nds'    => _('Low Saxon (Low Saxon)'));
 
     // not yet ready for inclusion, here for translation purposes
