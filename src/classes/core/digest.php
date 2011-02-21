@@ -104,7 +104,9 @@ class Digest {
   }
 
 
-  public static function loadDigests($type, $sort = 'latest', $onlyPublished = true, $limit = null) {
+  public static function loadDigests($type, $sort = 'latest', $onlyPublished = true, $limit = null, $filter = null) {
+    $table = 'digests';
+
     // determine sorting
     if (($sort == 'earliest') || ($sort == 'ASC')) {
       $sort = ' ASC';
@@ -114,22 +116,28 @@ class Digest {
       return false;
     }
 
-    // limit results?
-    if ($limit) {
-      $limit = ' LIMIT ' . $limit;
-    }
+    // use specified filter?
+    if ($filter) {
+      $filter = ' AND ' . Db::createFilter($table, $filter) . ' ';
 
+    } else {
     // only get published?
     if ($onlyPublished) {
-      $published = ' AND published = 1 ';
+        $filter = ' AND published = 1 ';
     } else {
-      $published = null;;
+        $filter = null;
+      }
+    }
+
+    // limit results?
+    if ($limit) {
+      $limit = ' LIMIT ' . intval($limit);
     }
 
     // get data
-    $q = mysql_query('SELECT * FROM digests
-                      WHERE type = "' . $type . '"' .
-                      $published .
+    $q = mysql_query('SELECT * FROM ' . $table . ' ' .
+                     'WHERE type = "' . $type . '"' .
+                      $filter .
                      'ORDER BY date' . $sort . $limit) or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
 
     $digests = array();
@@ -209,10 +217,22 @@ class Digest {
     }
 
 
-    // load digest issue video references
-    $q = mysql_query('SELECT number, name, file, youtube
+      // load digest issue image references
+    $q = mysql_query('SELECT type, number, name, file, thumbnail
                       FROM digest_intro_media
-                      WHERE date = \'' . $date . '\'') or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
+                      WHERE type = \'image\'
+                      AND date = \'' . $date . '\'') or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
+
+    while ($row = mysql_fetch_assoc($q)) {
+      $digest['image'][$row['number']] = $row;
+    }
+
+
+    // load digest issue video references
+    $q = mysql_query('SELECT type, number, name, file, youtube
+                      FROM digest_intro_media
+                      WHERE type = \'video\'
+                      AND date = \'' . $date . '\'') or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
 
     while ($row = mysql_fetch_assoc($q)) {
       $digest['video'][$row['number']] = $row;

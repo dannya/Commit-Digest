@@ -17,6 +17,7 @@
 
 // define digest settings
 define('ADMIN_EMAIL',       'danny@commit-digest.org');
+define('DIGEST_URL',        'http://digest');
 define('ENZYME_URL',        'http://enzyme.commit-digest.org');
 define('WEBSVN',            'http://websvn.kde.org');
 define('WEBBUG',            'http://bugs.kde.org/show_bug.cgi?id=');

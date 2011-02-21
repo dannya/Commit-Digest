@@ -760,23 +760,31 @@ class IssueUi {
 
 
   private function formatIntroText($text) {
+    // change links
+    $text = str_replace('/issues/', BASE_URL . '/issues/', $text);
+
     // replace people references
     $text = Digest::replacePeopleReferences($this->data, $text);
 
-    // replace video references
-    $text = $this->replaceVideoReferences($text);
-
-    // change links
-    $text = str_replace('/issues/', BASE_URL . '/issues/', $text);
+    // replace media references
+    $text = $this->replaceMediaReferences($text);
 
     return $text;
   }
 
 
-  private function replaceVideoReferences($text) {
+  private function replaceMediaReferences($text) {
+    // images
+    if (isset($this->data['image'])) {
+      foreach ($this->data['image'] as $media) {
+        $text = str_replace('[image' . $media['number'] . ']', Media::draw($media), $text);
+      }
+    }
+
+    // videos
     if (isset($this->data['video'])) {
-      foreach ($this->data['video'] as $video) {
-        $text = str_replace('[video' . $video['number'] . ']', Media::draw($video), $text);
+      foreach ($this->data['video'] as $media) {
+        $text = str_replace('[video' . $media['number'] . ']', Media::draw($media), $text);
       }
     }
 
