@@ -61,7 +61,7 @@ class Digest {
         $issues = Digest::loadDigests('issue', 'latest', true);
       }
 
-      $key    = self::findIssueDate($date, $issues);
+      $key = self::findIssueDate($date, $issues);
 
       if ($key === false) {
         $key = reset($issues);
