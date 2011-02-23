@@ -537,7 +537,7 @@ class Ui {
     // determine power to select correct units
     $power = floor(log($bytes) / log($base));
 
-    return ($bytes / pow($base, floor($power))) . ' ' . $units[$power];
+    return round(($bytes / pow($base, floor($power))), 2) . ' ' . $units[$power];
   }
 }
 

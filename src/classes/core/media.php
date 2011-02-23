@@ -26,11 +26,11 @@ class Media {
                               'height'  => 600);
 
   private static $allowed   = array('image' => array('png'   => 1,
-                                               'gif'   => 1,
-                                               'jpg'   => 1),
+                                                     'gif'   => 1,
+                                                     'jpg'   => 1),
 
-                              'video' => array('avi'   => 1,
-                                               'mpeg'  => 1));
+                                    'video' => array('avi'   => 1,
+                                                     'mpeg'  => 1));
 
 
   public function __construct($type) {
@@ -189,19 +189,19 @@ class Media {
              '</div>';
 
     if ($media['type'] == 'video') {
-    if (is_file(BASE_DIR . $media['file'])) {
-      $media['size'] = Ui::filesize(filesize(BASE_DIR . $media['file']));
-    } else {
-      $media['size'] = false;
-    }
+      if (is_file(BASE_DIR . $media['file'])) {
+        $media['size'] = Ui::filesize(filesize(BASE_DIR . $media['file']), 1000);
+      } else {
+        $media['size'] = false;
+      }
 
-    // show link?
-    if ($media['size']) {
-      $link  = '<div class="link">
-                  <a href="' . BASE_URL . $media['file'] . '" title="' . strip_tags($string) . '">' .
-                      sprintf(_('Download <b>%s</b> video (%s, %s)'), $media['name'], $size, $media['ext']) .
-               '  </a>
-                </div>';
+      // show link?
+      if ($media['size']) {
+        $link  = '<div class="link">
+                    <a href="' . BASE_URL . $media['file'] . '" title="' . strip_tags($string) . '">' .
+                        sprintf(_('Download <b>%s</b> video (%s, %s)'), $media['name'], $media['size'], $media['ext']) .
+                 '  </a>
+                  </div>';
       }
     }
 
