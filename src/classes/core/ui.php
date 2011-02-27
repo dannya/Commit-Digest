@@ -28,8 +28,10 @@ class Ui {
   }
 
 
-  public static function drawHtmlPage($content, $title = null, array $css = array(), array $js = array()) {
-    $buf = self::drawHtmlPageStart($title, $css, $js) .
+  public static function drawHtmlPage($content, $title = null, array $css = array(),
+                                      array $js = array(), $bodyClass = null) {
+
+    $buf = self::drawHtmlPageStart($title, $css, $js, $bodyClass) .
            $content .
            self::drawHtmlPageEnd();
 
@@ -37,9 +39,14 @@ class Ui {
   }
 
 
-  public static function drawHtmlPageStart($title = null, array $css = array(), array $js = array()) {
+  public static function drawHtmlPageStart($title = null, array $css = array(),
+                                           array $js = array(), $bodyClass = null) {
     $style   = null;
     $script  = null;
+
+    if ($bodyClass) {
+      $bodyClass = ' class="' . $bodyClass . '"';
+    }
 
     // draw css and js
     if ($css) {
@@ -66,7 +73,7 @@ class Ui {
                 $script .
            '  </head>
 
-              <body id="body-iframe">';
+              <body id="body-iframe"' . $bodyClass . '>';
 
     return $buf;
   }
@@ -310,7 +317,7 @@ class Ui {
         $types = array_values(Enzyme::getTypes(true));
 
         $buf  .= '<div class="commit-panel">
-                    <div class="commit-blame">' .
+                    <div class="commit-blame' . (($data['reviewer'] == $user->data['username']) ? ' me' : '') . '">' .
                       sprintf(_('Reviewed by %s'), $data['reviewer']) .
                  '  </div>
                     <div class="commit-classify mouse">
@@ -388,7 +395,7 @@ class Ui {
 
 
       // buttons
-      $buttons = '<input id="review-save" type="button" onclick="save(\'' . $type . '\');" value="' . _('Save') . '" title="' . _('Save') . '" />';
+      $buttons = '<input id="review-save" type="button" onclick="save(\'' . $type . '\', this);" value="' . _('Save') . '" title="' . _('Save') . '" />';
 
 
     } else if ($type == 'review') {
@@ -402,7 +409,7 @@ class Ui {
                          '<span id="commit-total">' . $total . '</span>');
 
       $interfaceSelector = null;
-      $buttons = '<input id="review-save" type="button" disabled="disabled" onclick="save(\'' . $type . '\');" value="' . _('Save') . '" title="' . _('Save') . '" />';
+      $buttons = '<input id="review-save" type="button" disabled="disabled" onclick="save(\'' . $type . '\', this);" value="' . _('Save') . '" title="' . _('Save') . '" />';
     }
 
 
@@ -414,7 +421,8 @@ class Ui {
               </div>' .
               $interfaceSelector .
            '  <div id="status-area-actions">
-                <div id="status-area-info" style="display:none;"></div>' .
+                <div id="status-area-info" style="display:none;">&nbsp;</div>
+                <img id="status-area-spinner" style="display:none;" src="' . BASE_URL . '/img/spinner-dark-small.gif" alt="" />' .
                 $buttons .
              '</div>
             </div>';

@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: KDE Commit-Digest 0.99.2\n"
+"Project-Id-Version: KDE Commit-Digest 1.00\n"
 "Report-Msgid-Bugs-To: danny@commit-digest.org\n"
-"POT-Creation-Date: 2011-01-12 00:26+0000\n"
+"POT-Creation-Date: 2011-02-23 00:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,6 +74,10 @@ msgstr ""
 
 #, php-format
 msgid "%s (%s) committed changes in %s:"
+msgstr ""
+
+#, php-format
+msgid "%s commits classified (%s displayed, %s total)"
 msgstr ""
 
 #, php-format
@@ -225,6 +229,9 @@ msgstr ""
 msgid "Click to zoom out..."
 msgstr ""
 
+msgid "Close preview"
+msgstr ""
+
 msgid "Coming soon!"
 msgstr ""
 
@@ -284,6 +291,9 @@ msgstr ""
 
 #, php-format
 msgid "Couldn't connect to database: ensure you have set the correct values at the top of %s/autoload.php"
+msgstr ""
+
+msgid "Czech (ÄŒeÅ¡tina)"
 msgstr ""
 
 msgid "Czech (Čeština)"
@@ -364,6 +374,9 @@ msgstr ""
 msgid "Enzyme URL"
 msgstr ""
 
+msgid "EspaÃ±ol (Spanish)"
+msgstr ""
+
 msgid "Español (Spanish)"
 msgstr ""
 
@@ -411,7 +424,14 @@ msgid "Files"
 msgstr ""
 
 #, php-format
+msgid "Filetype %s not allowed"
+msgstr ""
+
+#, php-format
 msgid "For %d issues, %s produced the KDE-CVS Digest. Here are the archives of his digests:"
+msgstr ""
+
+msgid "FranÃ§ais (French)"
 msgstr ""
 
 msgid "Français (French)"
@@ -466,6 +486,9 @@ msgid "I18n Teams URL"
 msgstr ""
 
 msgid "If you are unable to help the KDE Commit-Digest by donating your time and effort, you can still show your appreciation and support the ongoing work by donating money."
+msgstr ""
+
+msgid "Image"
 msgstr ""
 
 msgid "Inserted general stats"
@@ -651,10 +674,19 @@ msgstr ""
 msgid "Polski (Polish)"
 msgstr ""
 
+msgid "PortuguÃªs (Portuguese)"
+msgstr ""
+
+msgid "PortuguÃªs Brasileiro (Brazilian Portuguese)"
+msgstr ""
+
 msgid "Português (Portuguese)"
 msgstr ""
 
 msgid "Português Brasileiro (Brazilian Portuguese)"
+msgstr ""
+
+msgid "Preview"
 msgstr ""
 
 #, php-format
@@ -683,6 +715,9 @@ msgstr ""
 msgid "Reply to the email, following the instructions carefully."
 msgstr ""
 
+msgid "Repository"
+msgstr ""
+
 #, php-format
 msgid "Retrieving from %s (%s)..."
 msgstr ""
@@ -705,6 +740,10 @@ msgid "Save"
 msgstr ""
 
 msgid "Security"
+msgstr ""
+
+#, php-format
+msgid "Selected %s of %s commits reviewed (%s displayed, %s total)"
 msgstr ""
 
 #, php-format
@@ -811,6 +850,9 @@ msgstr ""
 msgid "Updating translation strings..."
 msgstr ""
 
+msgid "Upload type not valid"
+msgstr ""
+
 msgid "Uploading translation strings..."
 msgstr ""
 
@@ -818,6 +860,9 @@ msgid "User Interface"
 msgstr ""
 
 msgid "Utilities"
+msgstr ""
+
+msgid "Video"
 msgstr ""
 
 msgid "View as list..."
@@ -853,6 +898,9 @@ msgid "by %s"
 msgstr ""
 
 msgid "filter?"
+msgstr ""
+
+msgid "Ð ÑƒÑ�Ñ�ÐºÐ¸Ð¹ Ñ�Ð·Ñ‹Ðº (Russian)"
 msgstr ""
 
 msgid "Русский язык (Russian)"

@@ -19,10 +19,15 @@ class IssueUi {
   public $id            = null;
   public $title         = null;
   public $issue         = null;
+  public $review       = false;
 
   private $data         = null;
+
   private $prevIssue    = null;
   private $nextIssue    = null;
+
+  private $prevIssueUrl = null;
+  private $nextIssueUrl = null;
 
   private $showUrl      = false;
 
@@ -34,11 +39,29 @@ class IssueUi {
     // set id
     $this->id = $id;
 
+
+    // review?
+    if (isset($_GET['review'])) {
+      $this->review = true;
+    }
+
+
     // load list of issues
-    if ($this->id == 'issues') {
-      $issues = Cache::loadSave('issue_latest', 'Digest::loadDigests', array('issue', 'latest'));
-    } else if ($this->id == 'archive') {
-      $issues = Cache::loadSave('archive_latest', 'Digest::loadDigests', array('archive', 'latest'));
+    if ($this->review) {
+      // if review, look at all issues
+      if ($this->id == 'issues') {
+        $issues = Cache::loadSave('issue_latest_unpublished', 'Digest::loadDigests', array('issue', 'latest', false));
+      } else if ($this->id == 'archive') {
+        $issues = Cache::loadSave('archive_latest_unpublished', 'Digest::loadDigests', array('archive', 'latest', false));
+      }
+
+    } else {
+      // if not review, only look at published issues
+      if ($this->id == 'issues') {
+        $issues = Cache::loadSave('issue_latest', 'Digest::loadDigests', array('issue', 'latest', true));
+      } else if ($this->id == 'archive') {
+        $issues = Cache::loadSave('archive_latest', 'Digest::loadDigests', array('archive', 'latest', true));
+      }
     }
 
 
@@ -91,17 +114,35 @@ class IssueUi {
     // determine dates of previous / next issues
     $key = Digest::findIssueDate($this->issue, $issues);
 
-    if (($key !== false) || isset($_GET['review'])) {
+    if (($key !== false) || $this->review) {
+      // select dates
       if (isset($issues[$key + 1])) {
-        $this->prevIssue = $issues[$key + 1]['date'];
+        $this->prevIssue    = $issues[$key + 1]['date'];
+        $this->prevIssueUrl = BASE_URL . '/' . $this->id . '/' . $this->prevIssue . '/';
+
+        if (!$issues[$key + 1]['published']) {
+          $this->prevIssueUrl .= '?review';
+        }
       }
 
       if (isset($issues[$key - 1])) {
-        $this->nextIssue = $issues[$key - 1]['date'];
+        $this->nextIssue    = $issues[$key - 1]['date'];
+        $this->nextIssueUrl = BASE_URL . '/' . $this->id . '/' . $this->nextIssue . '/';
+
+        if (!$issues[$key - 1]['published']) {
+          $this->nextIssueUrl .= '?review';
+        }
       }
+
 
       // load issue data
       $this->data = Digest::loadDigest($this->issue);
+
+      // review / published sanity check
+      if ($this->review && $this->data['published']) {
+        // issue has been published. redirect
+        Ui::redirect('/issues/' . $this->issue . '/');
+      }
 
       // get areas and types
       $this->areas = Enzyme::getAreas();
@@ -799,12 +840,12 @@ class IssueUi {
 
     // previous issue button?
     if ($this->prevIssue) {
-      $prev = '<a class="left n" href="' . BASE_URL . '/' . $this->id . '/' . $this->prevIssue . '/" title="' . sprintf(_('Go to the previous digest issue (%s)'), $this->prevIssue) . '">&nbsp;</a>';
+      $prev = '<a class="left n" href="' . $this->prevIssueUrl . '" title="' . sprintf(_('Go to the previous digest issue (%s)'), $this->prevIssue) . '">&nbsp;</a>';
     }
 
     // next issue button?
     if ($this->nextIssue) {
-      $next = '<a class="right n" href="' . BASE_URL . '/' . $this->id . '/' . $this->nextIssue . '/" title="' . sprintf(_('Go to the next digest issue (%s)'), $this->nextIssue) . '">&nbsp;</a>';
+      $next = '<a class="right n" href="' . $this->nextIssueUrl . '" title="' . sprintf(_('Go to the next digest issue (%s)'), $this->nextIssue) . '">&nbsp;</a>';
     }
 
     // show issue number?

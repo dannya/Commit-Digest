@@ -13,8 +13,9 @@
 +--------------------------------------------------------*/
 
 
-var BASE_URL = '<?php echo BASE_URL; ?>';
-var LANGUAGE = '<?php echo LANGUAGE; ?>';
+var BASE_URL    = '<?php echo BASE_URL; ?>';
+var ENZYME_URL  = '<?php echo ENZYME_URL; ?>';
+var LANGUAGE    = '<?php echo LANGUAGE; ?>';
 
 
 // move sidebar with page scroll
@@ -33,10 +34,20 @@ document.observe('dom:loaded', function() {
 
 function checkPositioning() {
   // position sidebar
-  if (document.viewport.getScrollOffsets().top < 66) {
-    var yPos = 66 - document.viewport.getScrollOffsets().top;
+  if ($('header-review')) {
+    // accomodate review banner
+    if (document.viewport.getScrollOffsets().top < 66) {
+      var yPos = 100 - document.viewport.getScrollOffsets().top;
+    } else {
+      var yPos = 34;
+    }
+
   } else {
-    var yPos = 0;
+    if (document.viewport.getScrollOffsets().top < 66) {
+      var yPos = 66 - document.viewport.getScrollOffsets().top;
+    } else {
+      var yPos = 0;
+    }
   }
 
   $('sidebar').style.top = yPos + 'px';

@@ -147,22 +147,67 @@ class DigestUi {
   }
 
 
-  public function drawHeader() {
-    $buf = '<div id="header">
-              <div id="header-bar">
-                <div id="logo" onclick="top.location=\'' . BASE_URL . '/\';">&nbsp;</div>
-              </div>
+  public function getBodyClasses() {
+    $class = null;
 
-              <div id="language-selector">' .
-                Ui::htmlSelector('language', Digest::getLanguages(), LANGUAGE, 'changeLanguage(event);') .
-           '  </div>
-            </div>';
+    if (($this->frame instanceof IssueUi) && $this->frame->review) {
+      // showing review warning banner
+      $class .= ' class="review"';
+    }
+
+    return $class;
+  }
+
+
+  public function drawHeader() {
+    $buf = null;
+
+    // show review warning banner
+    if (($this->frame instanceof IssueUi) && $this->frame->review) {
+      $buf  .= '<div id="header-review">' .
+                  _('This issue has not been published yet') .
+               '  <input type="button" value="' . _('Publish') . '" onclick="setPublished(\'' . $this->frame->issue . '\', true);" />
+                </div>
+
+                <iframe id="header-review-target" src="http://www.something.com/" style="display:none;"></iframe>
+
+                <script type="text/javascript">
+                  function setPublished(date, state) {
+                    if ((typeof date == "undefined") || (typeof state == "undefined")) {
+                      return false;
+                    }
+
+                    // send request through iframe
+                    $("header-review-target").src = "' . ENZYME_URL . '/get/publish.php?date=" + date + "&state=" + state;
+
+                    // remove header
+                    if ($("header-review")) {
+                      $("header-review").remove();
+                      $("body").removeClassName("review");
+                      $("sidebar").style.top = (parseInt($("sidebar").style.top) - 34) + "px";
+                    }
+                  }
+                </script>';
+    }
+
+
+    // draw default header elements
+    $buf  .= '<div id="header">
+                <div id="header-bar">
+                  <div id="logo" onclick="top.location=\'' . BASE_URL . '/\';">&nbsp;</div>
+                </div>
+
+                <div id="language-selector">' .
+                  Ui::htmlSelector('language', Digest::getLanguages(), LANGUAGE, 'changeLanguage(event);') .
+             '  </div>
+              </div>';
 
     return $buf;
   }
 
 
   public function drawSidebar() {
+    // draw
     $buf = '<div id="sidebar">
               <a id="sidebar-logo" class="n" style="display:none;" href="' . BASE_URL . '/">
                 &nbsp;

@@ -16,14 +16,8 @@
 
 
 // define digest settings
-define('ADMIN_EMAIL',       'danny@commit-digest.org');
-define('DIGEST_URL',        'http://digest');
-define('ENZYME_URL',        'http://enzyme.commit-digest.org');
-define('WEBSVN',            'http://websvn.kde.org');
-define('WEBBUG',            'http://bugs.kde.org/show_bug.cgi?id=');
-define('WEBBUG_XML',        'http://bugs.kde.org/show_bug.cgi?ctype=xml&id=');
-define('RECENT_COMMITS',    'http://cia.vc/stats/project/KDE/.rss?ver=2&medium=plaintext&limit=10');
-define('GENERATE_MAPS',     'http://grafin.enzyme-project.org/index.php');
+//define('RECENT_COMMITS',    'http://cia.vc/stats/project/KDE/.rss?ver=2&medium=plaintext&limit=10');
+//define('GENERATE_MAPS',     'http://grafin.enzyme-project.org/index.php');
 
 
 // define database settings
@@ -33,18 +27,17 @@ define('DB_PASSWORD',       'hello1');
 define('DB_DATABASE',       'enzyme');
 
 
+// ------- YOU SHOULDN'T NEED TO MODIFY BELOW HERE --------
+
+
 // define app constants
 define('APP_ID',            'digest');
 define('APP_NAME',          'KDE Commit-Digest');
-define('VERSION',           '1.00');
+define('VERSION',           '1.02');
 
 define('META_AUTHOR',       'Danny Allen');
 define('META_DESCRIPTION',  'A weekly overview of the development activity in KDE.');
 define('META_KEYWORDS',     'kde, commit-digest, danny allen, dannya, plasma, akonadi, decibel, oxygen, solid, phonon, strigi');
-
-define('DEFAULT_LOCATION',  'uk');
-define('DEFAULT_LANGUAGE',  'en_US');
-define('DATE_FORMAT',       'Y-m-d');
 
 
 if (empty($_SERVER['DOCUMENT_ROOT'])) {
@@ -105,10 +98,6 @@ if (LIVE_SITE) {
 }
 
 
-// set timezone
-date_default_timezone_set('Europe/London');
-
-
 if (COMMAND_LINE) {
   ini_set('display_errors', true);
 
@@ -134,13 +123,35 @@ if (COMMAND_LINE) {
 
   // define autoloader
   spl_autoload_register();
-
-  // set language
-  App::setLanguage();
 }
 
 
 // connect to database
 Db::connect();
+
+
+// load settings
+$settings = Enzyme::loadSettings(true);
+
+if (!$settings) {
+  // show message about configuration
+  echo Ui::drawHtmlPage(_('Enzyme backend instance needs to be configured.'),
+                        _('Setup'),
+                        array('/css/common.css'));
+  exit;
+
+} else {
+  // define settings for app access
+  foreach ($settings as $setting) {
+    define($setting['setting'], $setting['value']);
+  }
+}
+
+
+// set language
+App::setLanguage();
+
+// set timezone
+date_default_timezone_set(DEFAULT_TIMEZONE);
 
 ?>

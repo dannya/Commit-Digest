@@ -55,10 +55,10 @@ class Digest {
     if ($getValid) {
       // load list of issues
       if (!$onlyPublished) {
-        $issues = Cache::loadSave('issue_latest', 'Digest::loadDigests', array('issue', 'latest', true));
+        $issues = Cache::loadSave('issue_latest_unpublished', 'Digest::loadDigests', array('issue', 'latest', false));
       } else {
         // only get published
-        $issues = Digest::loadDigests('issue', 'latest', true);
+        $issues = Cache::loadSave('issue_latest', 'Digest::loadDigests', array('issue', 'latest', true));
       }
 
       $key = self::findIssueDate($date, $issues);
@@ -505,17 +505,17 @@ class Digest {
   public static function getLanguages() {
     return array('en_US'  => _('English'),
                  'de_DE'  => _('Deutsch (German)'),
-                 'fr_FR'  => _('FranÃ§ais (French)'),
-                 'es_ES'  => _('EspaÃ±ol (Spanish)'),
+                 'fr_FR'  => _('Français (French)'),
+                 'es_ES'  => _('Español (Spanish)'),
                  'nl_NL'  => _('Nederlands (Dutch)'),
                  'it_IT'  => _('Italiano (Italian)'),
-                 'ru_RU'  => _('Ð ÑƒÑ�Ñ�ÐºÐ¸Ð¹ Ñ�Ð·Ñ‹Ðº (Russian)'),
+                 'ru_RU'  => _('Русский язык (Russian)'),
                  'pl_PL'  => _('Polski (Polish)'),
-                 'pt_PT'  => _('PortuguÃªs (Portuguese)'),
-                 'pt_BR'  => _('PortuguÃªs Brasileiro (Brazilian Portuguese)'),
+                 'pt_PT'  => _('Português (Portuguese)'),
+                 'pt_BR'  => _('Português Brasileiro (Brazilian Portuguese)'),
                  'hu_HU'  => _('Magyar (Hungarian)'),
                  'uk_UA'  => _('Ukrainian (Ukrainian)'),
-                 'cs_CZ'  => _('Czech (ÄŒeÅ¡tina)'),
+                 'cs_CZ'  => _('Czech (Čeština)'),
                  'nds'    => _('Low Saxon (Low Saxon)'));
 
     // not yet ready for inclusion, here for translation purposes
@@ -643,6 +643,16 @@ class Digest {
       $buf .= '</div>';
 
       return $buf;
+    }
+  }
+
+
+  public static function quoteRevision($revision, $char = "'") {
+    if (is_numeric($revision)) {
+      return $revision;
+
+    } else {
+      return $char . $revision . $char;
     }
   }
 

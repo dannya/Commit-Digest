@@ -253,6 +253,43 @@ div#sidebar-bottom {
 }
 
 
+
+
+
+div#header-review {
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:6px 10px 8px 10px;
+
+  font-size:14px;
+  z-index:1002;
+  font-style:italic;
+  background-color:#E1EAF3;
+  border-bottom:2px solid #6B97C4;
+}
+div#header-review input[type="button"] {
+  position:absolute;
+  right:20px;
+  top:1px;
+  padding:4px 8px 5px 8px;
+
+  border-radius:0;
+  -moz-border-radius:0;
+  -webkit-border-radius:0;
+}
+
+body.review div#header {
+  top:34px;
+}
+body.review div#frame {
+  margin-top:170px;
+}
+
+
+
+
+
 div#content {
   height:100%;
 }

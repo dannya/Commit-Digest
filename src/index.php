@@ -46,7 +46,7 @@ $ui = new DigestUi();
     ?>
   </head>
 
-  <body id="body">
+  <body id="body"<?php echo $ui->getBodyClasses(); ?>>
     <div id="content">
       <?php
         echo $ui->drawHeader();
