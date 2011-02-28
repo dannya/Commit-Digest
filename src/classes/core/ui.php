@@ -225,6 +225,10 @@ class Ui {
 
     // show bugs (as icons) if available
     if (isset($data['bug'])) {
+      if ($type == 'review') {
+        $bugs = Digest::drawBugs($data, 'bugs');
+
+      } else if ($type == 'classify') {
       $bugs = '<div class="bugs">';
 
       foreach ($data['bug'] as $bug) {
@@ -234,6 +238,7 @@ class Ui {
       }
 
       $bugs  .= '</div>';
+      }
 
     } else {
       $bugs = null;
@@ -270,7 +275,7 @@ class Ui {
 
 
     // draw commit
-    $buf = '<div id="' . $id . '" class="item normal ' . $itemClass . '">
+    $buf = '<div id="' . $id . '" class="item normal ' . $type . ' ' . $itemClass . '">
               <div class="commit-title">' .
                 sprintf(_('Commit %s by %s (%s)'),
                   $revisionLink,
@@ -280,8 +285,10 @@ class Ui {
                 $repository . Enzyme::drawBasePath($data['basepath']) .
                 $date .
            '  </div>
-              <div class="commit-msg">' .
+              <div class="commit-msg">
+                <span>' .
                 Enzyme::formatMsg($data['msg']) .
+           '    </span>' .
                 $bugs .
            '  </div>';
 
@@ -395,7 +402,8 @@ class Ui {
 
 
       // buttons
-      $buttons = '<input id="review-save" type="button" onclick="save(\'' . $type . '\', this);" value="' . _('Save') . '" title="' . _('Save') . '" />';
+      $buttons = '<input id="review-save" type="button" onclick="save(\'' . $type . '\', this);" value="' . _('Save') . '" title="' . _('Save') . '" />
+                  <input id="review-cancel" class="cancel" type="button" onclick="location.reload(true); return false;" value="' . _('Cancel') . '" title="' . _('Cancel') . '" />';
 
 
     } else if ($type == 'review') {
@@ -409,7 +417,8 @@ class Ui {
                          '<span id="commit-total">' . $total . '</span>');
 
       $interfaceSelector = null;
-      $buttons = '<input id="review-save" type="button" disabled="disabled" onclick="save(\'' . $type . '\', this);" value="' . _('Save') . '" title="' . _('Save') . '" />';
+      $buttons = '<input id="review-save" type="button" disabled="disabled" onclick="save(\'' . $type . '\', this);" value="' . _('Save') . '" title="' . _('Save') . '" />
+                  <input id="review-cancel" class="cancel" type="button" onclick="location.reload(true); return false;" value="' . _('Cancel') . '" title="' . _('Cancel') . '" />';
     }
 
 
