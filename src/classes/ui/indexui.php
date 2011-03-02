@@ -35,8 +35,8 @@ class IndexUi {
 
     // find 6 months ago, 1 year ago, random digests
     if ($this->issues) {
-      $this->sixMonthsAgo = $this->issues[Digest::getLastIssueDate('6 months', true)];
-      $this->oneYearAgo   = $this->issues[Digest::getLastIssueDate('1 year', true)];
+      $this->sixMonthsAgo = $this->issues[Digest::getLastIssueDate('6 months', true, true)];
+      $this->oneYearAgo   = $this->issues[Digest::getLastIssueDate('1 year', true, true)];
       $this->random       = $this->issues[array_rand($this->issues)];
     }
   }

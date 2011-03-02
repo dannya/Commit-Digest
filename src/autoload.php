@@ -15,11 +15,6 @@
 +--------------------------------------------------------*/
 
 
-// define digest settings
-//define('RECENT_COMMITS',    'http://cia.vc/stats/project/KDE/.rss?ver=2&medium=plaintext&limit=10');
-//define('GENERATE_MAPS',     'http://grafin.enzyme-project.org/index.php');
-
-
 // define database settings
 define('DB_HOST',           'localhost');
 define('DB_USER',           'root');
@@ -33,7 +28,7 @@ define('DB_DATABASE',       'enzyme');
 // define app constants
 define('APP_ID',            'digest');
 define('APP_NAME',          'KDE Commit-Digest');
-define('VERSION',           '1.02');
+define('VERSION',           '1.03');
 
 define('META_AUTHOR',       'Danny Allen');
 define('META_DESCRIPTION',  'A weekly overview of the development activity in KDE.');

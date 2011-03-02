@@ -79,7 +79,7 @@ class IssueUi {
       }
 
       // calculate date
-      $this->issue = Digest::getLastIssueDate($timewarp, true);
+      $this->issue = Digest::getLastIssueDate($timewarp, true, true);
 
     } else {
       if (strpos($issue, '/') !== false) {
