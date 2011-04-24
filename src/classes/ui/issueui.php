@@ -19,7 +19,7 @@ class IssueUi {
   public $id            = null;
   public $title         = null;
   public $issue         = null;
-  public $review       = false;
+  public $review        = false;
 
   private $data         = null;
 

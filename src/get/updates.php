@@ -43,16 +43,6 @@ $buf = '<?xml version="1.0" encoding="utf-8"?>
             <language>en</language>
             <atom:link href="' . BASE_URL . '/updates/" rel="self" type="application/rss+xml" />';
 
-//// add call for volunteers
-//$buf  .= '<item>
-//            <title>KDE Commit-Digest Needs You!</title>
-//            <link>http://enzyme.commit-digest.org/</link>
-//            <guid>http://enzyme.commit-digest.org/</guid>
-//            <dc:creator>Danny Allen</dc:creator>
-//            <description><![CDATA[The KDE Commit-Digest is relaunching with a new distributed participant model, which means that you can volunteer to help produce the weekly Digest!<br /><br />There are <a href="http://enzyme.commit-digest.org/">jobs in 4 main areas available</a>:<br /><br /><b><u><a href="http://enzyme.commit-digest.org/#reviewer">Commit Reviewer</a></u></b><br />Commit Reviewers look at all the recent commits, selecting those which are significant and interesting enough to be included into the weekly Commit-Digest.<br /><br /><b><u><a href="http://enzyme.commit-digest.org/#classifier">Commit Classifier</a></u></b><br />Commit Classifiers sort the selected commits into areas (which is partly automated), and by type (such as bug fix, feature, etc).<br /><br /><b><u><a href="http://enzyme.commit-digest.org/#editor">Feature Editor</a></u></b><br />Feature Editors contact people working on interesting projects and assist them in writing original pieces which are presented in the introduction of each Commit-Digest.<br /><br /><b><u><a href="http://enzyme.commit-digest.org/#translator">Translator</a></u></b><br />Translators increase the reach of the Commit-Digest and the work done across the project by making the weekly Commit-Digests (and the website interfaces) available in the native language of people around the world.<br /><br />The KDE Commit-Digest can only return if there are enough volunteers, so please think about joining if you can spare some time out of each week.<br /><br />Thanks for your contribution,<br />Danny]]></description>
-//            <pubDate>Sun, 03 Oct 2010 12:00:00 +0000</pubDate>
-//          </item>' . "\n";
-
 // draw posts
 $counter = 0;
 

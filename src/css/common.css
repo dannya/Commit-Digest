@@ -152,6 +152,13 @@ input.prompt {
   padding:3px 4px;
 }
 
+input[disabled] {
+  background-color:#e6e6e6 !important;
+  opacity:0.4 !important;
+  color:#000 !important;
+  cursor:default !important;
+}
+
 
 
 div#header {

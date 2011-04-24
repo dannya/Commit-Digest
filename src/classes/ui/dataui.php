@@ -43,8 +43,8 @@ class DataUi {
                 _('Enter your SVN account name:') .
 
            '    <form id="account" method="post" action="">
-                  <input type="text" name="name" />
-                  <input type="button" value="Send!" onclick="alert(\'Coming soon!\');" />
+                  <input id="account-name" type="text" name="name" />
+                  <input id="account-send" type="button" value="Send!" onclick="accountData();" disabled="disabled" />
                 </form>' .
 
                 _('An email will then be sent from this domain to the email address your SVN account is linked to.') .
@@ -82,7 +82,7 @@ class DataUi {
 
 
   public function getScript() {
-    return array();
+    return array('/js/frame/dataui.js');
   }
 
 
