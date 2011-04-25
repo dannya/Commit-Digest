@@ -1,9 +1,9 @@
 <?php
 
 /*-------------------------------------------------------+
-| KDE Commit-Digest
-| Copyright 2010-2011 Danny Allen <danny@commit-digest.org>
-| http://www.commit-digest.org/
+| Enzyme
+| Copyright 2010-2011 Danny Allen <danny@enzyme-project.org>
+| http://www.enzyme-project.org/
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
@@ -17,7 +17,6 @@
 
 class Db {
   private static $tables  = array('applications',
-                                  'authors',
                                   'bugfixers',
                                   'commits',
                                   'commits_reviewed',
@@ -25,6 +24,7 @@ class Db {
                                   'commit_files',
                                   'commit_path_filters',
                                   'countries',
+                                  'developers',
                                   'digests',
                                   'digest_intro_people',
                                   'digest_intro_sections',
@@ -39,7 +39,6 @@ class Db {
                                   'filetypes',
                                   'languages',
                                   'links',
-                                  'people',
                                   'repositories',
                                   'settings',
                                   'users');

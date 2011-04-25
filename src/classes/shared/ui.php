@@ -1,9 +1,9 @@
 <?php
 
 /*-------------------------------------------------------+
-| KDE Commit-Digest
-| Copyright 2010-2011 Danny Allen <danny@commit-digest.org>
-| http://www.commit-digest.org/
+| Enzyme
+| Copyright 2010-2011 Danny Allen <danny@enzyme-project.org>
+| http://www.enzyme-project.org/
 +--------------------------------------------------------+
 | This program is released as free software under the
 | Affero GPL license. You can redistribute it and/or
@@ -204,7 +204,7 @@ class Ui {
   }
 
 
-  public static function displayRevision($type, $id, $data, &$authors, &$user = null, &$classifications = null) {
+  public static function displayRevision($type, $id, $data, &$developers, &$user = null, &$classifications = null) {
     // show date and buttons?
     if ($type == 'review') {
       $date = '<div class="date">' .
@@ -279,8 +279,8 @@ class Ui {
               <div class="commit-title">' .
                 sprintf(_('Commit %s by %s (%s)'),
                   $revisionLink,
-                  '<span>' . Enzyme::getAuthorInfo('name', $data['author']) . '</span>',
-                  '<span>' . $data['author'] . '</span>') .
+                  '<span>' . Enzyme::getDeveloperInfo('name', $data['developer']) . '</span>',
+                  '<span>' . $data['developer'] . '</span>') .
            '    <br />' .
                 $repository . Enzyme::drawBasePath($data['basepath']) .
                 $date .
@@ -453,6 +453,11 @@ class Ui {
   }
 
 
+  // Valid classes:
+  //  - 'error'
+  //  - 'msg_skip'
+  //  - 'msg_fetch'
+  //  - 'msg_title'
   public static function displayMsg($msg, $class = null) {
     if (COMMAND_LINE) {
       // command-line, no need for fancy formatting!
@@ -491,6 +496,11 @@ class Ui {
         $total += $entry['value'];
       }
 
+
+    $buf = null;
+
+
+    if ($total > 0) {
     // process values
     foreach ($summary as $entry) {
       // show totals inline
@@ -516,6 +526,7 @@ class Ui {
       } else {
         $buf .= '<span class="bold">' . sprintf(_('Total: %d'), $total) . '</span>';
     }
+      }
     }
 
 

@@ -108,7 +108,7 @@ class CommitSpyUi {
         $theDetails[1] = explode(' ', rtrim($theDetails[1], '):'));
       }
 
-      $commit['author']     = $theDetails[0][0];
+      $commit['developer']  = $theDetails[0][0];
       $commit['revision']   = ltrim($theDetails[0][2], 'r');
       $commit['basepath']   = '/trunk/KDE/' . rtrim(ltrim($theDetails[0][3], '/'), ':');
       $commit['timestamp']  = strtotime($item->pubDate) - $systemOffset;
@@ -117,7 +117,7 @@ class CommitSpyUi {
 
       // filter?
       if (!empty($_REQUEST['filter_type']) && !empty($_REQUEST['filter']) && ($_REQUEST['filter'] != _('filter?'))) {
-        if ( (($_REQUEST['filter_type'] == 'account')  && (stripos($commit['author'], $_REQUEST['filter']) === false)) ||
+        if ( (($_REQUEST['filter_type'] == 'account')  && (stripos($commit['developer'], $_REQUEST['filter']) === false)) ||
              (($_REQUEST['filter_type'] == 'path')     && (stripos($commit['basepath'], $_REQUEST['filter']) === false)) ||
              (($_REQUEST['filter_type'] == 'message')  && (stripos($commit['msg'], $_REQUEST['filter']) === false)) ) {
 
@@ -132,18 +132,18 @@ class CommitSpyUi {
     }
 
 
-    // load authors
+    // load developers
     if ($commits) {
-      $authors = Enzyme::getAuthors($commits);
+      $developers = Enzyme::getDevelopers($commits);
 
       // draw commits
       $buf = null;
 
       foreach ($commits as $commit) {
-        if (isset($authors[$commit['author']]['name'])) {
-          $theAuthor = $authors[$commit['author']]['name'];
+        if (isset($developers[$commit['developer']]['name'])) {
+          $theDeveloper = $developers[$commit['developer']]['name'];
         } else {
-          $theAuthor = $commit['author'];
+          $theDeveloper = $commit['developer'];
         }
 
         // set basepath
@@ -151,8 +151,8 @@ class CommitSpyUi {
         $buf .=  '<div class="commit">
                     <span class="intro">' .
                       sprintf(_('%s (%s) committed changes in %s:'),
-                      '<a class="n" href="http://cia.vc/stats/author/' . $commit['author'] . '/">' . $theAuthor . '</a>',
-                      $commit['author'],
+                      '<a class="n" href="http://cia.vc/stats/author/' . $commit['developer'] . '/">' . $theDeveloper . '</a>',
+                      $commit['developer'],
                       Enzyme::drawBasePath($commit['basepath'])) .
                  '  </span>
 

@@ -26,9 +26,9 @@ define('DB_DATABASE',       'enzyme');
 
 
 // define app constants
-define('APP_ID',            'digest');
+define('APP_ID',            'commit-digest');
 define('APP_NAME',          'KDE Commit-Digest');
-define('VERSION',           '1.03');
+define('VERSION',           '1.06');
 
 define('META_AUTHOR',       'Danny Allen');
 define('META_DESCRIPTION',  'A weekly overview of the development activity in KDE.');
@@ -109,7 +109,8 @@ if (COMMAND_LINE) {
 
 } else {
   // add class dir to include path
-  $classDirs = array(BASE_DIR . '/classes/core/',
+  $classDirs = array(BASE_DIR . '/classes/shared/',
+                     BASE_DIR . '/classes/specific/',
                      BASE_DIR . '/classes/ext/',
                      BASE_DIR . '/classes/ext/cacheLite/',
                      BASE_DIR . '/classes/ui/');
