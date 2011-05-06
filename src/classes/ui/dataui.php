@@ -158,7 +158,7 @@ class DataUi {
     // display as special type, or using regular input element?
     if (isset(Developer::$fields[$key]) && (Developer::$fields[$key]['type'] == 'enum')) {
       return Ui::htmlSelector('data-' . $key,
-                              Enzyme::enumToString('category', $key),
+                              Developer::enumToString('category', $key),
                               $this->developer->data[$key]);
 
     } else {

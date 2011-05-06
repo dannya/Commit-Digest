@@ -28,7 +28,7 @@ define('DB_DATABASE',       'enzyme');
 // define app constants
 define('APP_ID',            'commit-digest');
 define('APP_NAME',          'KDE Commit-Digest');
-define('VERSION',           '1.07');
+define('VERSION',           '1.08');
 
 define('META_AUTHOR',       'Danny Allen');
 define('META_DESCRIPTION',  'A weekly overview of the development activity in KDE.');
