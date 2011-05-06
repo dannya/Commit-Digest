@@ -18,18 +18,46 @@
 class Developer {
   public $data                  = null;
 
-  public static $displayFields  = array('account'     => array('type' => 'string'),
-                                        'nickname'    => array('type' => 'string'),
-                                        'dob'         => array('type' => 'date'),
-                                        'gender'      => array('type' => 'enum'),
-                                        'continent'   => array('type' => 'enum'),
-                                        'country'     => array('type' => 'string'),
-                                        'location'    => array('type' => 'string'),
-                                        'latitude'    => array('type' => 'float'),
-                                        'longitude'   => array('type' => 'float'),
-                                        'motivation'  => array('type' => 'enum'),
-                                        'employer'    => array('type' => 'string'),
-                                        'colour'      => array('type' => 'enum'));
+  public static $fieldSections  = array('core'            => array('account', 'nickname', 'dob', 'gender', 'motivation', 'employer', 'colour'),
+                                        'geographic'      => array('continent', 'country', 'location', 'latitude', 'longitude'),
+                                        'social'          => array('homepage', 'blog', 'lastfm', 'microblog_type', 'microblog_user'));
+
+  public static $fields         = array('account'         => array('type'   => 'string',
+                                                                   'public' => true),
+                                        'nickname'        => array('type'   => 'string',
+                                                                   'public' => true),
+                                        'dob'             => array('type'   => 'date',
+                                                                   'public' => true),
+                                        'gender'          => array('type'   => 'enum',
+                                                                   'public' => true),
+                                        'motivation'      => array('type'   => 'enum',
+                                                                   'public' => true),
+                                        'employer'        => array('type'   => 'string',
+                                                                   'public' => true),
+                                        'colour'          => array('type'   => 'enum',
+                                                                   'public' => true),
+
+                                        'continent'       => array('type'   => 'enum',
+                                                                   'public' => true),
+                                        'country'         => array('type'   => 'string',
+                                                                   'public' => true),
+                                        'location'        => array('type'   => 'string',
+                                                                   'public' => true),
+                                        'latitude'        => array('type'   => 'float',
+                                                                   'public' => true),
+                                        'longitude'       => array('type'   => 'float',
+                                                                   'public' => true),
+
+                                        'homepage'        => array('type'   => 'string',
+                                                                   'public' => true),
+                                        'blog'            => array('type'   => 'string',
+                                                                   'public' => true),
+                                        'lastfm'          => array('type'   => 'string',
+                                                                   'public' => true),
+                                        'microblog_type'  => array('type'   => 'enum',
+                                                                   'public' => true),
+                                        'microblog_user'  => array('type'   => 'string',
+                                                                   'public' => true));
 
 
   public function __construct($value = null, $field = 'account') {
@@ -88,18 +116,25 @@ class Developer {
 
 
   public static function getFieldStrings() {
-    $fields  = array('account'    => _('Account'),
-                     'nickname'   => _('Nickname'),
-                     'dob'        => _('DOB'),
-                     'gender'     => _('Gender'),
-                     'continent'  => _('Continent'),
-                     'country'    => _('Country'),
-                     'location'   => _('Location'),
-                     'latitude'   => _('Latitude'),
-                     'longitude'  => _('Longitude'),
-                     'motivation' => _('Motivation'),
-                     'employer'   => _('Employer'),
-                     'colour'     => _('Colour'));
+    $fields  = array('account'        => _('Account'),
+                     'nickname'       => _('Nickname'),
+                     'dob'            => _('DOB'),
+                     'gender'         => _('Gender'),
+                     'motivation'     => _('Motivation'),
+                     'employer'       => _('Employer'),
+                     'colour'         => _('Colour'),
+
+                     'continent'      => _('Continent'),
+                     'country'        => _('Country'),
+                     'location'       => _('Location'),
+                     'latitude'       => _('Latitude'),
+                     'longitude'      => _('Longitude'),
+
+                     'homepage'       => _('Homepage URL'),
+                     'blog'           => _('Blog URL'),
+                     'lastfm'         => _('Last.fm username'),
+                     'microblog_type' => _('Microblog service'),
+                     'microblog_user' => _('Microblog username'));
 
     return $fields;
   }

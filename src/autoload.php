@@ -76,18 +76,21 @@ if (COMMAND_LINE) {
   } else {
     define('LIVE_SITE', true);
   }
-
-  // path and ID for Piwik installation
-  define('WEBSTATS_URL',  'allmyfriendsarecakes.com/piwik');
-  define('WEBSTATS_ID',   6);
 }
 
 
 // set live site vars
 if (LIVE_SITE) {
+  // error handling (log to file)
   ini_set('display_errors', false);
   ini_set('log_errors', true);
+
+  // path and ID for Piwik installation
+  define('WEBSTATS_URL',  'allmyfriendsarecakes.com/piwik');
+  define('WEBSTATS_ID',   6);
+
 } else {
+  // error handling (show on page)
   ini_set('display_errors', true);
   ini_set('log_errors', false);
 }

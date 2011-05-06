@@ -126,8 +126,9 @@ class DataUi {
     $buf   = '<h1>' . $this->title . '</h1>
 
               <p class="intro">' .
+                sprintf(_('This is the information used to represent you in the %s.'), PROJECT_NAME) . '<br />' .
                 _('Please review and add/amend where appropriate.') . '<br />' .
-                _('Please review and add/amend where appropriate.') .
+                '<i>' . _('All fields are optional.') . '</i>' .
              '</p>
 
               <form id="data" method="post" action="">
@@ -155,7 +156,7 @@ class DataUi {
 
   private function drawField($key) {
     // display as special type, or using regular input element?
-    if (isset(Developer::$displayFields[$key]) && (Developer::$displayFields[$key]['type'] == 'enum')) {
+    if (isset(Developer::$fields[$key]) && (Developer::$fields[$key]['type'] == 'enum')) {
       return Ui::htmlSelector('data-' . $key,
                               Enzyme::enumToString('category', $key),
                               $this->developer->data[$key]);

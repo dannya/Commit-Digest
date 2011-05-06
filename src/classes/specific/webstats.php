@@ -18,21 +18,21 @@
 class Webstats {
   public static function track() {
     if (defined('WEBSTATS_URL') && defined('WEBSTATS_ID')) {
-      $buf =     '<script type="text/javascript">
-                    var pkBaseURL = (("https:" == document.location.protocol) ? "https://' . WEBSTATS_URL . '/" : "http://' . WEBSTATS_URL . '/");
-                    document.write(unescape("%3Cscript src=\'" + pkBaseURL + "piwik.js\' type=\'text/javascript\'%3E%3C/script%3E"));
+      $buf = '<script type="text/javascript">
+                var pkBaseURL = (("https:" == document.location.protocol) ? "https://' . WEBSTATS_URL . '/" : "http://' . WEBSTATS_URL . '/");
+                document.write(unescape("%3Cscript src=\'" + pkBaseURL + "piwik.js\' type=\'text/javascript\'%3E%3C/script%3E"));
 
-                    try {
-                      var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", ' . WEBSTATS_ID . ');
-                      piwikTracker.trackPageView();
-                      piwikTracker.enableLinkTracking();
-                    } catch( err ) {}
-                  </script>
-                  <noscript>
-                    <p>
-                      <img src="http://' . WEBSTATS_URL . '/piwik.php?idsite=' . WEBSTATS_ID . '" style="border:0" alt="" />
-                    </p>
-                  </noscript>';
+                try {
+                  var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", ' . WEBSTATS_ID . ');
+                  piwikTracker.trackPageView();
+                  piwikTracker.enableLinkTracking();
+                } catch( err ) {}
+              </script>
+              <noscript>
+                <p>
+                  <img src="http://' . WEBSTATS_URL . '/piwik.php?idsite=' . WEBSTATS_ID . '" style="border:0" alt="" />
+                </p>
+              </noscript>';
 
       return $buf;
     }
