@@ -16,8 +16,10 @@
 
 
 class DataUi {
-  public $id      = 'data';
-  public $title   = null;
+  public $id          = 'data';
+  public $title       = null;
+
+  private $developer  = null;
 
 
   public function __construct() {
@@ -27,13 +29,42 @@ class DataUi {
 
 
   public function draw() {
+    // if code given, validate
+    if (!empty($_REQUEST['code'])) {
+      $this->developer = new Developer($_REQUEST['code'], 'access_code');
+
+      if ($this->developer->data) {
+        // draw data management interface
+        return $this->drawData();
+
+      } else {
+        // invalid code
+        return 'b';
+      }
+
+    } else {
+      return $this->drawIntro();
+    }
+  }
+
+
+  public function getScript() {
+    return array('/js/frame/dataui.js');
+  }
+
+
+  public function getStyle() {
+    return array('/css/dataui.css');
+  }
+
+
+  private function drawIntro() {
     $buf = '<h1>' . $this->title . '</h1>
 
-            <tr>
-              <td class="content_body" align="left">
-                The KDE Commit-Digest features <a class="u_" href="/issues/latest/statistics/">extended statistics</a>.<br />To generate exciting visualisations now and in the future, new information is needed from KDE contributors...<br /><br />
-              </td>
-            </tr>
+            <p class="intro">' .
+              sprintf(_('The %s features <a class="u_" href="%s">extended statistics</a>.'), PROJECT_NAME, BASE_URL . '/issues/latest/statistics/') . '<br />' .
+              _('To generate exciting visualisations now and in the future, new information is needed from KDE contributors...') .
+           '</p>
 
             <div class="row">
               <div class="left">' .
@@ -81,13 +112,64 @@ class DataUi {
   }
 
 
-  public function getScript() {
-    return array('/js/frame/dataui.js');
+  private function drawData() {
+    if (!$this->developer) {
+      return false;
+    }
+
+
+    // get field/string mappings
+    $fields = Developer::getFieldStrings();
+
+
+    // draw fields
+    $buf   = '<h1>' . $this->title . '</h1>
+
+              <p class="intro">' .
+                _('Please review and add/amend where appropriate.') . '<br />' .
+                _('Please review and add/amend where appropriate.') .
+             '</p>
+
+              <form id="data" method="post" action="">
+                <table>
+                  <tbody>';
+
+    foreach ($fields as $id => $string) {
+      $buf  .= '<tr>
+                  <td class="title">' .
+                    $string .
+               '  </td>
+                  <td class="value">' .
+                    $this->drawField($id) .
+               '  </td>
+                </tr>';
+    }
+
+    $buf  .= '    </tbody>
+                </table>
+              </form>';
+
+    return $buf;
   }
 
 
-  public function getStyle() {
-    return array('/css/dataui.css');
+  private function drawField($key) {
+    // display as special type, or using regular input element?
+    if (isset(Developer::$displayFields[$key]) && (Developer::$displayFields[$key]['type'] == 'enum')) {
+      return Ui::htmlSelector('data-' . $key,
+                              Enzyme::enumToString('category', $key),
+                              $this->developer->data[$key]);
+
+    } else {
+      // input
+      if ($key == 'account') {
+        $readonly = ' disabled="disabled"';
+      } else {
+        $readonly = null;
+      }
+
+      return '<input id="data-' . $key . '" type="text" value="' . $this->developer->data[$key] . '"' . $readonly . ' />';
+    }
   }
 }
 

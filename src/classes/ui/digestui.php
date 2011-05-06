@@ -266,7 +266,7 @@ class DigestUi {
 
   public function drawFooter() {
     $buf = '<div id="footer">' .
-              _('KDE Commit-Digest by <a href="mailto:danny@commit-digest.org">Danny Allen</a>, 2006-2011') .
+              sprintf(_('%s by <a href="mailto:%s">%s</a>, %s'), PROJECT_NAME, 'danny@commit-digest.org', 'Danny Allen', '2006-2011') .
               '<br />' .
               _('All issues in <a href="/archive/">archive</a> by Derek Kite') .
            '  <a id="enzyme-credit" href="http://enzyme-project.org/" target="_blank">&nbsp;</a>
@@ -363,7 +363,7 @@ class DigestUi {
            '  </script>
 
               <div id="share-buttons">
-                <a id="button-rss" class="button" target="_blank" href="' . $button['rss'] . '" title="' . _('Subscribe to KDE Commit-Digest updates') . '">&nbsp;</a>
+                <a id="button-rss" class="button" target="_blank" href="' . $button['rss'] . '" title="' . sprintf(_('Subscribe to %s updates'), PROJECT_NAME) . '">&nbsp;</a>
                 <a id="button-email" class="button" target="_blank" href="' . $button['email'] . '" title="' . _('Send this issue by email...') . '">&nbsp;</a>
                 <a id="button-twitter" class="button" target="_blank" href="' . $button['twitter'] . '" title="' . _('Share this issue by Twitter...') . '">&nbsp;</a>
                 <a id="button-facebook" class="button" target="_blank" href="' . $button['facebook'] . '" title="' . _('Share this issue by Facebook...') . '">&nbsp;</a>

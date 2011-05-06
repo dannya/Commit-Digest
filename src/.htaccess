@@ -22,12 +22,14 @@ RewriteRule ^issues/(.*)/ /index.php?page=issues&issue=$1 [QSA,L]
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^archive/(.*)/ /index.php?page=archive&issue=$1 [QSA,L]
 
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^data/(.*) /index.php?page=data&code=$1 [QSA,L]
+
 RewriteCond %{REQUEST_URI} issues/ [OR]
 RewriteCond %{REQUEST_URI} archive/ [OR]
 RewriteCond %{REQUEST_URI} six-months-ago/ [OR]
 RewriteCond %{REQUEST_URI} one-year-ago/ [OR]
 RewriteCond %{REQUEST_URI} commit-spy/ [OR]
-RewriteCond %{REQUEST_URI} contribute/ [OR]
-RewriteCond %{REQUEST_URI} data/
+RewriteCond %{REQUEST_URI} contribute/
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule (.*)/ /index.php?page=$1 [QSA,L]

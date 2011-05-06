@@ -1448,7 +1448,7 @@ class Enzyme {
       $digest['synopsis'] = preg_split('/\.\s+/', $digest['synopsis']);
 
       // combine blurb text
-      $buf = 'In <a href="' . DIGEST_URL . '/issues/' . $date . '/">this week\'s KDE Commit-Digest</a>:
+      $buf = 'In <a href="' . DIGEST_URL . '/issues/' . $date . '/">this week\'s ' . PROJECT_NAME . '</a>:
 
               <ul>';
 
@@ -1502,7 +1502,7 @@ class Enzyme {
     $keys['motivation'] = array('volunteer'       => _('Volunteer'),
                                 'commercial'      => _('Commercial'));
 
-    $keys['colours']    = array('red'             => _('Red'),
+    $keys['colour']     = array('red'             => _('Red'),
                                 'blue'            => _('Blue'),
                                 'green'           => _('Green'),
                                 'black'           => _('Black'),

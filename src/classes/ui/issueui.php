@@ -789,7 +789,7 @@ class IssueUi {
 
 
   private function drawMessage() {
-    $buf = '<p class="message">' . _('Thanks for reading the KDE Commit-Digest!') . '</p>';
+    $buf = '<p class="message">' . sprintf(_('Thanks for reading the %s!'), PROJECT_NAME) . '</p>';
 
     return $buf;
   }

@@ -37,9 +37,9 @@ $digests = Digest::loadDigests('issue', 'latest', true, 5);
 $buf = '<?xml version="1.0" encoding="utf-8"?>
         <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xml:base="' . BASE_URL . '/" xmlns:dc="http://purl.org/dc/elements/1.1/">
           <channel>
-            <title>KDE Commit-Digest Updates</title>
+            <title>' . sprintf(_('%s Updates'), PROJECT_NAME) . '</title>
             <link>' . BASE_URL . '/</link>
-            <description>A weekly overview of the development activity in KDE.</description>
+            <description>' . _('A weekly overview of the development activity in KDE.') . '</description>
             <language>en</language>
             <atom:link href="' . BASE_URL . '/updates/" rel="self" type="application/rss+xml" />';
 

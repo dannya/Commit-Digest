@@ -16,14 +16,14 @@
 
 
 class User {
-  public $auth = false;
-  public $data = null;
+  public $auth        = false;
+  public $data        = null;
 
   public $paths       = null;
   public $permissions = null;
 
-  public $authFail = null;
-  public $fillFail = null;
+  public $authFail    = null;
+  public $fillFail    = null;
 
   private $userField  = 'login-username';
   private $passField  = 'login-password';

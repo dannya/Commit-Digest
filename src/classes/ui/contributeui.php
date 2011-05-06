@@ -35,7 +35,7 @@ class ContributeUi {
     $buf = '<h1>' . $this->title . '</h1>
 
             <p>' .
-              _('There are many ways to help the KDE Commit-Digest by contributing your time, effort, or money...') .
+              sprintf(_('There are many ways to help the %s by contributing your time, effort, or money...'), PROJECT_NAME) .
            '</p>
 
             <div class="column">
@@ -60,7 +60,7 @@ class ContributeUi {
             <div class="column">
               <h2>' . _('Money') . '</h2>
               <p>' .
-                _('If you are unable to help the KDE Commit-Digest by donating your time and effort, you can still show your appreciation and support the ongoing work by donating money.') .
+                sprintf(_('If you are unable to help the %s by donating your time and effort, you can still show your appreciation and support the ongoing work by donating money.'), PROJECT_NAME) .
            '  </p>
 
               <div id="donate-box">
@@ -78,7 +78,7 @@ class ContributeUi {
 
               <h2>' . _('And Finally...') . '</h2>
               <p>' .
-                _('Even if you can\'t contribute time, effort, or money in support, your enjoyment of the KDE Commit-Digest is contribution enough, and leaves us with a warm, fuzzy feeling inside!') .
+                sprintf(_('Even if you can\'t contribute time, effort, or money in support, your enjoyment of the %s is contribution enough, and leaves us with a warm, fuzzy feeling inside!'), PROJECT_NAME) .
            '    <br /><br />' .
                 sprintf(_('Spread the word about KDE and the Commit-Digest by using the %s"share" links%s in the sidebar of each Digest.'), '<a href="#" onclick="highlightShareBox(event);">', '</a>') .
            '    <br /><br />' .
@@ -88,8 +88,8 @@ class ContributeUi {
 
     // draw share / donate box
     $theUrl         = BASE_URL . '/contribute/';
-    $theTitle       = 'KDE Commit Digest - Contribute';
-    $theDescription = 'Support the work of the KDE Commit-Digest.';
+    $theTitle       = PROJECT_NAME . ' - Contribute';
+    $theDescription = 'Support the work of the ' . PROJECT_NAME . '.';
 
     $buf .= DigestUi::drawShareBox($theUrl, $theTitle, $theDescription);
 

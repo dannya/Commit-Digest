@@ -176,8 +176,8 @@ class Db {
       if (is_array($limit)) {
         $selectQuery .= ' LIMIT ' . intval($limit[0]) . ' ,' . intval($limit[1]);
       } else {
-      $selectQuery .= ' LIMIT ' . intval($limit);
-    }
+        $selectQuery .= ' LIMIT ' . intval($limit);
+      }
     }
 
 

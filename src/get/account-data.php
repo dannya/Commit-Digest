@@ -18,27 +18,22 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/autoload.php');
 
 
-// load list of developers
-$developers = Enzyme::getDevelopers();
-print_R($developers);
-exit;
-
-
-// check that account name is given and is valid
-$account = trim($_REQUEST['account']);
-
-if (empty($account) || !isset($developers[$account])) {
+// check that account name is given
+if (empty($_REQUEST['account'])) {
   App::returnHeaderJson(true, array('missing' => true));
-
-} else {
-  $accountData = $developers[$account];
-  unset($developers);
 }
 
 
+// check that the account name is valid (by attempting to load into $account)
+$filter = array('account' => trim($_REQUEST['account']));
 
-// determine actions to take
-if (!empty($_REQUEST['code']) && !empty($_REQUEST['new_password'])) {
+if (!($account = Db::load('developers', $filter, 1))) {
+  App::returnHeaderJson(true, array('invalid' => true));
+}
+
+
+// determine action to take
+if (!empty($_REQUEST['code'])) {
 //  // check code is valid
 //  if (($user->data['reset_code'] != $_REQUEST['code']) ||
 //      (time() > strtotime($user->data['reset_timeout']))) {
@@ -60,51 +55,33 @@ if (!empty($_REQUEST['code']) && !empty($_REQUEST['new_password'])) {
 
 } else {
   // generate and save access code to be sent via email
+  $data                     = array();
+  $data['access_ip']        = $_SERVER['REMOTE_ADDR'];
+  $data['access_code']      = App::randomString(20);
+  $data['access_timeout']   = Date('Y-m-d H:i:s', strtotime('Now + 6 hours'));
 
+  $success = Db::save('developers', $filter, $data);
 
-  // define email message
-  $to       = array('name'    => $accountData['name'],
-                    'address' => $accountData['email']);
+  if ($success) {
+    // define email message
+    $to       = array('name'    => $account['name'],
+                      'address' => $account['email']);
 
-  $message  = sprintf(_('A new application for %s has been made by %s (%s).'), $fields['job'], $fields['firstname'] . ' ' . $fields['lastname'], $fields['email']) . "\n";
-              sprintf(_('Login at %s to decline or approve this application.'), ENZYME_URL);
+    $message  = sprintf(_('%s, someone at the IP address %s has requested to view/modify the identifying information used to represent you in the %s.'), $account['name'], $data['access_ip'], PROJECT_NAME) . "\n\n" .
+                sprintf(_('If you have made this request, please go to %s'), BASE_URL . '/data/' . $data['access_code']) . "\n" .
+                        _('This link is valid for 6 hours.') . "\n\n" .
+                        _('If you have not made this request, please ignore this email.') . "\n" .
+                sprintf(_('If you get any more unrequested messages, please contact %s'), ADMIN_EMAIL) . "\n\n" .
+                sprintf(_('Thanks, the %s team'), PROJECT_NAME);
 
+    // send email
+    $email            = new Email($to, sprintf('%s Information Access Request', PROJECT_NAME), $message);
+    $json['success']  = $email->send();
 
-  // send email
-  $email            = new Email($to, sprintf('New Application at %s', PROJECT_NAME), $message);
-  $json['success']  = $email->send();
-
-//  // generate and store "change password" link
-//  $user->data['reset_ip']       = $_SERVER['REMOTE_ADDR'];
-//  $user->data['reset_code']     = App::randomString(20);
-//  $user->data['reset_timeout']  = Date('Y-m-d H:i:s', strtotime('Now + 6 hours'));
-//
-//  $user->save();
-//
-//
-//  // define email message
-//  $to       = array('name'    => $user->getName(),
-//                    'address' => $user->data['email']);
-//
-//  $message  = sprintf(_('%s, someone at the IP address %s has requested a password reset on your account.'), $user->data['firstname'], $user->data['reset_ip']) . "\n\n" .
-//              sprintf(_('If you have requested the password reset, please go to %s'), BASE_URL . '/reset/' . $user->data['reset_code']) . "\n" .
-//                      _('This link is valid for 6 hours, and one password change only.') . "\n\n" .
-//                      _('Be sure to change your password immediately after logging in by going to "Settings" at the top right.') . "\n\n" .
-//                      _('If you have not requested the password reset, please ignore this email.') . "\n" .
-//              sprintf(_('If you get any more unrequested reset messages, please contact %s'), ADMIN_EMAIL) . "\n\n" .
-//              sprintf(_('Thanks, the %s team'), PROJECT_NAME);
-//
-//
-//  // send email
-//  $email            = new Email($to, sprintf('%s Reset Password', PROJECT_NAME), $message);
-//  $json['success']  = $email->send();
+  } else {
+    $json['success'] = $success;
+  }
 }
-
-
-
-
-
-
 
 
 // return success
