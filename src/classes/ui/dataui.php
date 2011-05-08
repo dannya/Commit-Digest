@@ -66,34 +66,39 @@ class DataUi {
               _('To generate exciting visualisations now and in the future, new information is needed from KDE contributors...') .
            '</p>
 
-            <div class="row">
+            <div id="step_1" class="row">
               <div class="left">' .
                 _('Step 1:') .
            '  </div>
               <div class="right">' .
-                _('Enter your SVN account name:') .
+                _('Enter your developer account name:') .
 
            '    <form id="account" method="post" action="">
                   <input id="account-name" type="text" name="name" />
-                  <input id="account-send" type="button" value="Send!" onclick="accountData();" disabled="disabled" />
+                  <input id="account-send" type="button" value="' . _('Send!') . '" onclick="accountData();" disabled="disabled" />
                 </form>' .
 
-                _('An email will then be sent from this domain to the email address your SVN account is linked to.') .
-           '    <br />
-                <i>' . _('(Please wait up to 48 hours for this email)') . '</i>
-              </div>
+                _('An email will then be sent from this domain to the email address your developer account is linked to.') .
+           '  </div>
             </div>
 
-            <div class="row">
+            <div id="step_2" class="row">
               <div class="left">' .
                 _('Step 2:') .
            '  </div>
-              <div class="right">' .
-                _('Reply to the email, following the instructions carefully.') .
-           '  </div>
+              <div class="right">
+                <div id="step_2-before">' .
+                  _('Reply to the email, following the instructions carefully.') .
+           '    </div>
+                <div id="step_2-after" style="display:none;">' .
+                  _('Visit the link contained in the email.') . '<br />' .
+                  _('Alternatively, enter the access code from the email here:') . '<br />
+                  <input id="step_2-code" type="text" class="success" value="" />
+                </div>
+              </div>
             </div>
 
-            <div class="row">
+            <div id="step_3" class="row">
               <div class="left">' .
                 _('Step 3:') .
            '  </div>
@@ -118,6 +123,12 @@ class DataUi {
     }
 
 
+    // define section titles
+    $titles = array('core'        => _('Core'),
+                    'geographic'  => _('Geographic'),
+                    'social'      => _('Social'));
+
+
     // get field/string mappings
     $fields = Developer::getFieldStrings();
 
@@ -127,30 +138,79 @@ class DataUi {
 
               <p class="intro">' .
                 sprintf(_('This is the information used to represent you in the %s.'), PROJECT_NAME) . '<br />' .
-                _('Please review and add/amend where appropriate.') . '<br />' .
-                '<i>' . _('All fields are optional.') . '</i>' .
+                _('Please review and add/amend where appropriate.') .
              '</p>
 
-              <form id="data" method="post" action="">
-                <table>
-                  <tbody>';
+              <form id="data" method="post" action="">';
 
-    foreach ($fields as $id => $string) {
-      $buf  .= '<tr>
-                  <td class="title">' .
-                    $string .
-               '  </td>
-                  <td class="value">' .
-                    $this->drawField($id) .
-               '  </td>
-                </tr>';
+    foreach (Developer::$fieldSections as $section => $sectionFields) {
+      $str = null;
+
+      foreach ($sectionFields as $id) {
+        // show this field?
+        if (Developer::$fields[$id]['display'] != 'all') {
+          continue;
+        }
+
+        // set data-privacy field
+        if (is_string(Developer::$fields[$id]['privacy'])) {
+          $privacy = ' data-privacy="' . Developer::$fields[$id]['privacy'] . '"';
+        } else if (is_array(Developer::$fields[$id]['privacy'])) {
+          $privacy = ' data-privacy="' . reset(Developer::$fields[$id]['privacy']) . '"';
+        } else {
+          $privacy = null;
+        }
+
+        // draw row
+        $str  .= '<tr class="' . $this->getPrivacyClass($id) . '"' . $privacy . '>
+                    <td class="title">' .
+                      $fields[$id] .
+                 '  </td>
+                    <td class="value">' .
+                      $this->drawField($id) .
+                 '  </td>
+                    <td class="privacy">' .
+                      $this->drawPrivacy($id) .
+                 '  </td>
+                  </tr>';
+      }
+
+      // only draw section if we have at least one row!
+      if ($str) {
+        $buf  .= '<h3>' .
+                    $titles[$section] .
+                 '</h3>
+
+                  <table class="data">
+                    <tbody>' .
+                      $str .
+                 '  </tbody>
+                  </table>';
+      }
     }
 
-    $buf  .= '    </tbody>
-                </table>
-              </form>';
+    // add access code into form
+    $buf  .= '  <input id="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />';
+
+    $buf  .= '</form>';
 
     return $buf;
+  }
+
+
+  private function getPrivacyClass($key) {
+    if (!empty(Developer::$fields[$key]['privacy'])) {
+      if (($this->developer->privacy[$key] === true) || ($this->developer->privacy[$key] === 1)) {
+        return 'privacy-private';
+
+      } else {
+        // anything else is public (or at least to some degree if enum-based)
+        return 'privacy-public';
+      }
+
+    } else {
+      return 'privacy-always';
+    }
   }
 
 
@@ -159,7 +219,8 @@ class DataUi {
     if (isset(Developer::$fields[$key]) && (Developer::$fields[$key]['type'] == 'enum')) {
       return Ui::htmlSelector('data-' . $key,
                               Developer::enumToString('category', $key),
-                              $this->developer->data[$key]);
+                              $this->developer->data[$key],
+                              null, null, null, true);
 
     } else {
       // input
@@ -171,6 +232,62 @@ class DataUi {
 
       return '<input id="data-' . $key . '" type="text" value="' . $this->developer->data[$key] . '"' . $readonly . ' />';
     }
+  }
+
+
+  private function drawPrivacy($key) {
+    if (($key == 'latitude') || ($key == 'longitude') || ($key == 'microblog_user')) {
+      return null;
+    }
+
+    // draw
+    if (!empty(Developer::$fields[$key]['privacy'])) {
+      if ($key == 'dob') {
+        // enum-based privacy
+        $enum = array(1           => _('Nothing'),
+                      'age'       => _('Age (Years)'),
+                      'birthday'  => _('Birthday (Month and day)'),
+                      0           => _('Birthdate (Day/Month/Year)'));
+
+        // draw radio buttons
+        $buf = '<b>' . _('Currently public:') . '</b>';
+
+        foreach ($enum as $level => $string) {
+          if ($level === $this->developer->privacy[reset(Developer::$fields[$key]['privacy'])]) {
+            $checked = ' checked="checked"';
+          } else {
+            $checked = null;
+          }
+
+          $buf  .= '<label>
+                      <input id="privacy_' . $key . '_' . $level . '" type="radio" name="privacy_' . $key . '" value="' . $level . '" onchange="changePrivacy(event);"' . $checked . ' />
+                      <span>' . $string . '</span>
+                    </label>';
+        }
+
+      } else {
+        // checkbox
+        if ((bool)$this->developer->privacy[$key]) {
+          $checked  = ' checked="checked"';
+          $string   = _('This field is currently <b>private</b>');
+
+        } else {
+          $checked = null;
+          $string   = _('This field is currently <b>public</b>');
+        }
+
+        $buf = '<label>
+                  <input id="privacy_' . $key . '" type="checkbox" value="1" onchange="changePrivacy(event);"' . $checked . ' />
+                  <span>' . $string . '</span>
+                </label>';
+      }
+
+    } else {
+      // privacy cannot be modified by user
+      $buf = _('This field is <b>always public</b>');
+    }
+
+    return $buf;
   }
 }
 

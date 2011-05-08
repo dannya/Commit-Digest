@@ -63,8 +63,87 @@ function accountData() {
     onSuccess: function(transport) {
       var data = transport.headerJSON; 
 
+      if ((typeof data.success != 'undefined') && data.success) {      
+        // show code entry box
+        if ($('step_2-before') && $('step_2-after') && $('step_2-code')) {
+        	$('step_2-before').hide();
+        	$('step_2-after').show();
+        }
+        
+        // focus code entry box and observe changes
+        if ($('step_2-code')) {
+        	$('step_2-code').focus();
+
+        	$('step_2-code').observe('keyup', function(event) {
+        		var value = Event.element(event).value.trim();
+
+            // redirect once a likely code has been entered
+        		if (value.length == 20) {
+        			top.location.href = BASE_URL + '/data/' + value;
+        		}
+        	});
+        }
+
+        // hide later instructions on page
+        if ($('step_3')) {
+          $('step_3').hide();
+        }
+
+	    } else if ((typeof data.invalid != 'undefined') && data.invalid) {
+	    	// account name given is not valid
+	      alert(strings.account_invalid);
+
+	      // enable inputs
+			  $('account-name').enable();
+			  $('account-send').enable();
+	    }
+    }
+  });
+}
+
+
+function changePrivacy(event) {
+	if ((typeof event != 'object') || !$('access_code')) {
+		return false;
+	}
+
+	var theElement = Event.element(event);
+
+  // send off change
+  new Ajax.Request(BASE_URL + '/get/account-data.php', {
+    method:     'post',
+    parameters: {
+      access_code:  $('access_code').value.trim()
+    },
+    onSuccess: function(transport) {
+      var data = transport.headerJSON; 
+
       if ((typeof data.success != 'undefined') && data.success) {
-        alert('email sent');
+			  var theParent  = theElement.up('tr');
+			  var affected   = theParent.up('form').select('tr[data-privacy="' + theParent.readAttribute('data-privacy') + '"]');
+			  
+			  if (theElement.checked) {
+			    // private:
+			    affected.each(function(row) {
+			      // change privacy class
+			      row.removeClassName('privacy-public');
+			      row.addClassName('privacy-private');
+			    });
+			
+			    // change privacy text
+			    theElement.next('span').update(strings.privacy_private);
+			
+			  } else {
+			    // public:
+			    affected.each(function(row) {
+			      // change privacy class
+			      row.removeClassName('privacy-private');
+			      row.addClassName('privacy-public');
+			    });
+			
+			    // change privacy text
+			    theElement.next('span').update(strings.privacy_public);
+			  }
       }
     }
   });

@@ -182,7 +182,7 @@ class DigestUi {
 
                     // remove header
                     if ($("header-review")) {
-                      $("header-review").remove();
+                      Element.remove($("header-review"));
                       $("body").removeClassName("review");
                       $("sidebar").style.top = (parseInt($("sidebar").style.top) - 34) + "px";
                     }

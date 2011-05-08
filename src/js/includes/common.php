@@ -13,9 +13,21 @@
 +--------------------------------------------------------*/
 
 
+// globally-available script variables
 var BASE_URL    = '<?php echo BASE_URL; ?>';
 var ENZYME_URL  = '<?php echo ENZYME_URL; ?>';
 var LANGUAGE    = '<?php echo LANGUAGE; ?>';
+
+
+
+// define translatable strings
+var strings  = {};
+
+strings.account_invalid         = '<?php echo _("Error: Account not found"); ?>';
+
+strings.privacy_public          = '<?php echo _("This field is currently <b>public</b>"); ?>';
+strings.privacy_private         = '<?php echo _("This field is currently <b>private</b>"); ?>';
+
 
 
 // move sidebar with page scroll

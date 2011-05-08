@@ -16,19 +16,94 @@ div.row div.right {
 }
 
 
+
 form#account {
   width:286px;
   margin:4px 0 16px 0;
 }
 
+#step_2-code {
+  margin-top:4px;
+}
+
+
+
+form#data {
+  margin-bottom:48px;
+}
+
+form#data h3 {
+  margin:28px 0 8px 0;
+}
+
+
+
+form#data table {
+  margin-left:16px;
+  border-collapse:collapse;
+}
+form#data tr.privacy-private {
+  background-color:#dbffbf;
+}
+
+form#data td {
+  padding:4px 0;
+}
 
 form#data td.title {
-  padding-right:40px;
+  min-width:160px;
+  padding-right:10px;
+  text-align:right;
 }
 
-form#data td.value select {
-  width:215px;
+
+form#data td.value {
+  padding-right:32px;
 }
+form#data td.value input {
+  width:222px;
+}
+form#data td.value select {
+  width:230px;
+}
+
+
+form#data td.privacy {
+  padding-right:12px;
+  font-size:14px;
+  font-style:italic;
+  color:#666;
+}
+
+form#data tr.privacy-always td.privacy {
+  padding-left:20px;
+}
+
+form#data td.privacy label {
+  display:block;
+  cursor:pointer;
+  padding:2px 0;
+}
+form#data td.privacy label input {
+  margin:0 7px 0 0;
+}
+
+
+form#data tr[data-privacy="dob"] td {
+  vertical-align:top;
+}
+form#data tr[data-privacy="dob"] td.title {
+  padding-top:8px;
+}
+form#data tr[data-privacy="dob"] td.privacy {
+  padding-top:10px;
+  padding-bottom:10px;
+}
+form#data tr[data-privacy="dob"] td.privacy b {
+  display:inline-block;
+  margin:0 0 4px 24px;
+}
+
 
 
 p.intro {
