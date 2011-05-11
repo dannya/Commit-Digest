@@ -241,8 +241,8 @@ class Db {
       return mysql_query($updateQuery);
 
     } else {
-    return mysql_query($updateQuery) or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
-  }
+      return mysql_query($updateQuery) or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
+    }
   }
 
 
@@ -263,6 +263,21 @@ class Db {
     // create appropriate update query
     $updateQuery = 'INSERT INTO ' . $table . ' ' . self::sanitise($fields) . ' VALUES ' . self::createValues('updateMulti', $values) .
                    ' ON DUPLICATE KEY UPDATE ' . self::sanitise(implode(', ', $update)) . ';';
+
+    // save data
+    return mysql_query($updateQuery) or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
+  }
+
+
+  public static function saveSingleField($table, $filter, $values, $isEnum = false) {
+    // check if table is valid, and filter is provided
+    if (!in_array($table, self::$tables) || (count($filter) == 0) || (count($values) != 1)) {
+      return null;
+    }
+
+    // create appropriate update query
+    $updateQuery = 'UPDATE ' . $table . ' SET ' . self::createValues('update', $values, $isEnum) .
+                   ' WHERE ' . self::createFilter($table, $filter);
 
     // save data
     return mysql_query($updateQuery) or trigger_error(sprintf(_('Query failed: %s'), mysql_error()));
@@ -482,7 +497,7 @@ class Db {
   }
 
 
-  private static function createValues($context, $values) {
+  private static function createValues($context, $values, $isEnum = false) {
     if (empty($values) || !is_array($values)) {
       trigger_error(_('Query failed'));
       return null;
@@ -507,11 +522,11 @@ class Db {
 
           foreach ($tmpValue as $tmp) {
             // add quotes?
-            $value[] = self::quote($tmp);
+            $value[] = self::quote($tmp, false, $isEnum);
           }
 
         } else {
-          $value = self::quote($tmpValue);
+          $value = self::quote($tmpValue, false, $isEnum);
         }
       }
 
@@ -547,7 +562,7 @@ class Db {
   }
 
 
-  private static function createValuesMulti($context, $values) {
+  private static function createValuesMulti($context, $values, $isEnum = false) {
     if (empty($values) || !is_array($values)) {
       trigger_error(_('Query failed'));
       return null;
@@ -570,7 +585,7 @@ class Db {
       $tmpValues = array();
 
       foreach ($row as $key => $tmpValue) {
-        $tmpValues[] = self::quote($tmpValue);
+        $tmpValues[] = self::quote($tmpValue, false, $isEnum);
       }
 
       // add to array
@@ -671,7 +686,7 @@ class Db {
   }
 
 
-  public static function quote($value, $sanitised = false) {
+  public static function quote($value, $sanitised = false, $isEnum = false) {
     // sanitise first?
     if (!$sanitised) {
       $value = self::sanitise($value);
@@ -681,9 +696,9 @@ class Db {
       return 1;
     } else if ($value === 'false') {
       return 0;
-    } else if (is_numeric($value)) {
+    } else if (is_numeric($value) && !$isEnum) {
       return $value;
-    } else if (is_string($value) && ($value != 'NOW()')) {
+    } else if ($isEnum || (is_string($value) && ($value != 'NOW()'))) {
       return "'" . $value . "'";
     } else {
       return $value;

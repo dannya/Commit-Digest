@@ -63,26 +63,24 @@ if (!empty($_REQUEST['account'])) {
 
 
 } else if (!empty($_REQUEST['access_code'])) {
-  print_R($_REQUEST);
-  exit;
+  // ensure needed variables are present
+  if (empty($_REQUEST['context']) || empty($_REQUEST['field']) || !isset($_REQUEST['value'])) {
+    App::returnHeaderJson(true, array('missing' => true));
+  }
 
-//  // check code is valid
-//  if (($user->data['reset_code'] != $_REQUEST['code']) ||
-//      (time() > strtotime($user->data['reset_timeout']))) {
-//
-//    App::returnHeaderJson(true, array('success' => false));
-//  }
-//
-//  // change password
-//  $user->data['password']       = $user->getHash(trim($_REQUEST['new_password']));
-//
-//  // unset reset details
-//  $user->data['reset_ip']       = null;
-//  $user->data['reset_code']     = null;
-//  $user->data['reset_timeout']  = null;
-//
-//  // save details
-//  $json['success'] = $user->save();
+
+  // attempt to load developer data
+  $developer = new Developer($_REQUEST['access_code'], 'access_code');
+
+  if ($developer->data) {
+    // make requested change + save
+    if ($_REQUEST['context'] == 'value') {
+      $json['success'] = $developer->changeValue($_REQUEST['field'], $_REQUEST['value'], true);
+
+    } else if ($_REQUEST['context'] == 'privacy') {
+      $json['success'] = $developer->changePrivacy($_REQUEST['field'], $_REQUEST['value'], true);
+    }
+  }
 
 
 } else {

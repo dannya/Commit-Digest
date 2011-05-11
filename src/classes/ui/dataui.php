@@ -49,12 +49,14 @@ class DataUi {
 
 
   public function getScript() {
-    return array('/js/frame/dataui.js');
+    return array('/js/lightwindow.js',
+                 '/js/frame/dataui.js');
   }
 
 
   public function getStyle() {
-    return array('/css/dataui.css');
+    return array('/css/lightwindow.css',
+                 '/css/dataui.css');
   }
 
 
@@ -134,11 +136,18 @@ class DataUi {
 
 
     // draw fields
-    $buf   = '<h1>' . $this->title . '</h1>
+    $buf   = '<h1>' .
+                $this->title . '
+                <i>' .
+                  sprintf(_('This data is held under <a href="%s" target="_blank" onclick="openInLightbox(event);">version %2.1f of the data usage terms</a>'),
+                          BASE_URL . '/data/terms/' . $this->developer->privacy['terms_accepted'],
+                          $this->developer->privacy['terms_accepted']) .
+             '  </i>
+              </h1>
 
               <p class="intro">' .
                 sprintf(_('This is the information used to represent you in the %s.'), PROJECT_NAME) . '<br />' .
-                _('Please review and add/amend where appropriate.') .
+                _('Please review and add/change details where appropriate.') .
              '</p>
 
               <form id="data" method="post" action="">';
@@ -162,7 +171,7 @@ class DataUi {
         }
 
         // draw row
-        $str  .= '<tr class="' . $this->getPrivacyClass($id) . '"' . $privacy . '>
+        $str  .= '<tr class="' . $this->getPrivacyClass($id) . '" data-field="' . $id . '"' . $privacy . '>
                     <td class="title">' .
                       $fields[$id] .
                  '  </td>
@@ -192,7 +201,23 @@ class DataUi {
     // add access code into form
     $buf  .= '  <input id="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />';
 
-    $buf  .= '</form>';
+    // form buttons
+    if ($this->developer->privacy['terms_accepted'] != DATA_TERMS_VERSION) {
+      $dataTermsAlert  = '<label id="terms_accepted_container">
+                            <input id="terms_accepted" type="checkbox" value="1" />' .
+                            sprintf(_('I allow this data to be used under <a href="%s" target="_blank" onclick="openInLightbox(event);">version %2.1f of the data usage terms</a>'),
+                                    BASE_URL . '/data/terms/' . DATA_TERMS_VERSION,
+                                    DATA_TERMS_VERSION) .
+                         '</label>';
+    } else {
+      $dataTermsAlert  = null;
+    }
+
+    $buf  .= '  <div class="buttons">
+                  <input type="submit" value="' . ('Save') . '" onclick="save(event);" />' .
+                  $dataTermsAlert .
+             '  </div>
+              </form>';
 
     return $buf;
   }

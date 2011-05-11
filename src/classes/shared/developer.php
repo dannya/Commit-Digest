@@ -121,6 +121,10 @@ class Developer {
                                                                    'editable' => true,
                                                                    'stored'   => 'privacy'));
 
+  // use internal data (that cannot be modified externally) when saving
+  private $internalData     = null;
+  private $internalPrivacy  = null;
+
 
   public function __construct($value = null, $field = 'account') {
     // load in constructor?
@@ -157,41 +161,49 @@ class Developer {
 
 
     // load developer data
-    $this->data = Db::load('developers', array('account' => $privacy['account']), 1);
-
-
-    // set privacy settings to each data value
-    foreach (self::$fields as $id => $spec) {
-      if (!isset($spec['privacy'])) {
-        continue;
-      }
-
-      if ($spec['privacy'] === false) {
-        // set privacy as irrelevant for this field
-        $this->privacy[$id] = null;
-
-      } else if (is_array($spec['privacy'])) {
-        $spec['privacy'] = reset($spec['privacy']);
-
-        // note that we cast to int here if possible (not bool, as done below)!
-        if (is_numeric($privacy[$spec['privacy']])) {
-          $this->privacy[$id] = (int)$privacy[$spec['privacy']];
-        } else {
-          $this->privacy[$id] = $privacy[$spec['privacy']];
+    if ($this->data = Db::load('developers', array('account' => $privacy['account']), 1)) {
+      // set privacy settings to each data value
+      foreach (self::$fields as $id => $spec) {
+        if (!isset($spec['privacy'])) {
+          continue;
         }
 
-      } else {
-        // cast to boolean for ease of use
-        $this->privacy[$id] = (bool)$privacy[$spec['privacy']];
+        if ($spec['privacy'] === false) {
+          // set privacy as irrelevant for this field
+          $this->privacy[$id] = null;
+
+        } else if (is_array($spec['privacy'])) {
+          $spec['privacy'] = reset($spec['privacy']);
+
+          // note that we cast to int here if possible (not bool, as done below)!
+          if (is_numeric($privacy[$spec['privacy']])) {
+            $this->privacy[$id] = (int)$privacy[$spec['privacy']];
+          } else {
+            $this->privacy[$id] = $privacy[$spec['privacy']];
+          }
+
+        } else {
+          // cast to boolean for ease of use
+          $this->privacy[$id] = (bool)$privacy[$spec['privacy']];
+        }
       }
-    }
+
+      // make terms_accepted version available too
+      $this->privacy['terms_accepted'] = $privacy['terms_accepted'];
 
 
-    // set access details (if this method of loading was used)
-    if ($field == 'access_code') {
-      $this->access = array('ip'      => $privacy['access_ip'],
-                            'code'    => $privacy['access_code'],
-                            'timeout' => $privacy['access_timeout']);
+      // set immutable data for use when saving
+      // (privacy is raw, true db representation - not mapped onto data values like $this->privacy)
+      $this->internalData     = $this->data;
+      $this->internalPrivacy  = $privacy;
+
+
+      // set access details (if this method of loading was used)
+      if ($field == 'access_code') {
+        $this->access = array('ip'      => $privacy['access_ip'],
+                              'code'    => $privacy['access_code'],
+                              'timeout' => $privacy['access_timeout']);
+      }
     }
 
 
@@ -201,20 +213,75 @@ class Developer {
 
 
   public function save() {
-//    if (!isset($this->data['account'])) {
-//      return false;
-//    }
-//
-//    // serialise arrays as strings for storage
-//    if (!empty($this->paths)) {
-//      $this->data['paths']        = App::combineCommaList($this->paths);
-//    }
-//    if (!empty($this->permissions)) {
-//      $this->data['permissions']  = App::combineCommaList($this->permissions);
-//    }
-//
-//    // save changes in database
-//    return Db::save('developers', array('account' => $this->data['account']), $this->data);
+    // save changes to internal data structures into database
+    return Db::save('developers', array('account' => $this->internalData['account']), $this->internalData);
+  }
+
+
+  public function changeValue($field, $newValue, $save = false) {
+    // check that field is valid, and is a sane field to change
+    if (!isset(self::$fields[$field]) ||
+        ($field == 'account') || ($field == 'access_ip') || ($field == 'access_code') || ($field == 'access_timeout')) {
+
+      return false;
+    }
+
+
+    // change privacy value
+    $this->internalData[$field] = $newValue;
+
+
+    if ($save) {
+      // save new value to database
+      return $this->save();
+
+    } else {
+      return true;
+    }
+  }
+
+
+  public function changePrivacy($field, $newValue, $save = false) {
+    // check that privacy can be changed for this field
+    if (!isset(self::$fields[$field]) ||
+        !isset(self::$fields[$field]['privacy']) || (self::$fields[$field]['privacy'] === false)) {
+
+      return false;
+    }
+
+
+    // ensure field is a sane field to change
+    if (($field == 'account') || ($field == 'access_ip') || ($field == 'access_code') || ($field == 'access_timeout')) {
+      return false;
+    }
+
+
+    // set "real" privacy field name
+    if (is_array(self::$fields[$field]['privacy'])) {
+      $isEnum   = true;
+      $field    = reset(self::$fields[$field]['privacy']);
+
+    } else {
+      $isEnum   = false;
+      $field    = self::$fields[$field]['privacy'];
+      $newValue = Db::quote($newValue);
+    }
+
+
+    // change privacy value
+    $this->internalPrivacy[$field] = $newValue;
+
+
+    if ($save) {
+      // save new value to database
+      return Db::saveSingleField('developer_privacy',
+                                 array('account' => $this->internalPrivacy['account']),
+                                 array($field => $newValue),
+                                 $isEnum);
+
+    } else {
+      return true;
+    }
   }
 
 

@@ -107,22 +107,36 @@ function changePrivacy(event) {
 		return false;
 	}
 
+  // get involved elements
 	var theElement = Event.element(event);
+  var theParent  = theElement.up('tr');
+  var theField   = theParent.readAttribute('data-field').trim();
+  
+  if (theElement.type == 'checkbox') {
+    var theValue = theElement.checked;
+  } else {
+  	var theValue = theElement.value;
+  }
+
 
   // send off change
   new Ajax.Request(BASE_URL + '/get/account-data.php', {
     method:     'post',
     parameters: {
+    	context:      'privacy',
+    	field:        theField,
+    	value:        theValue,
       access_code:  $('access_code').value.trim()
     },
     onSuccess: function(transport) {
       var data = transport.headerJSON; 
 
       if ((typeof data.success != 'undefined') && data.success) {
-			  var theParent  = theElement.up('tr');
-			  var affected   = theParent.up('form').select('tr[data-privacy="' + theParent.readAttribute('data-privacy') + '"]');
-			  
-			  if (theElement.checked) {
+    	  var affected = theParent.up('form').select('tr[data-privacy="' + theParent.readAttribute('data-privacy') + '"]');
+
+			  if (((typeof theValue == 'boolean') && (theValue == true)) || 
+			      ((typeof theValue == 'string') && (theValue == '1'))) {
+
 			    // private:
 			    affected.each(function(row) {
 			      // change privacy class
@@ -131,7 +145,9 @@ function changePrivacy(event) {
 			    });
 			
 			    // change privacy text
-			    theElement.next('span').update(strings.privacy_private);
+			    if (theField != 'dob') {
+            theElement.next('span').update(strings.privacy_private);
+			    }
 			
 			  } else {
 			    // public:
@@ -142,9 +158,38 @@ function changePrivacy(event) {
 			    });
 			
 			    // change privacy text
-			    theElement.next('span').update(strings.privacy_public);
+			    if (theField != 'dob') {
+			      theElement.next('span').update(strings.privacy_public);
+			    }
 			  }
       }
     }
   });
+}
+
+
+function save(event) {
+	Event.stop(event);
+	
+	// sanity check
+	if (!$('terms_accepted_container') || !$('terms_accepted') || !$('data')) {
+		return false;
+	}
+	
+	// check that data terms have been accepted
+	if (!$('terms_accepted').checked) {
+		// highlight terms checkbox
+    new Effect.Highlight($('terms_accepted_container'), {
+      startcolor: '#d40000',
+      duration:   0.5
+    });
+
+    return false;
+	}
+	
+	
+	// send off data
+	alert('a');
+
+	return false;
 }

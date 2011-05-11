@@ -23,6 +23,11 @@ var LANGUAGE    = '<?php echo LANGUAGE; ?>';
 // define translatable strings
 var strings  = {};
 
+strings.failure                 = '<?php echo _("Error"); ?>';
+strings.close                   = '<?php echo _("Close"); ?>';
+strings.loading                 = '<?php echo _("Loading"); ?>';
+strings.cancel                  = '<?php echo _("Cancel"); ?>';
+
 strings.account_invalid         = '<?php echo _("Error: Account not found"); ?>';
 
 strings.privacy_public          = '<?php echo _("This field is currently <b>public</b>"); ?>';
@@ -261,4 +266,24 @@ function highlightShareBox(event) {
                                  afterFinish: function() {
                                     $('share-box').highlight();
                                  } });
+}
+
+
+function openInLightbox(event) {
+	if (typeof event != 'object') {
+    return false;		
+	}
+
+  Event.stop(event);
+
+  // load in lightbox
+  lightbox.activateWindow({
+    href:    event.element().readAttribute('href'),
+    type:    'page', 
+    title:   '',
+    width:   800,
+    height:  600
+  });
+
+  return false;
 }

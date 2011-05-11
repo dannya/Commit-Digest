@@ -67,6 +67,9 @@ if (COMMAND_LINE) {
 
   define('BASE_URL',  'http://' . $_SERVER['HTTP_HOST']);
 
+  // start user session
+  session_start();
+
   // set environment (live / development)
   if ($_SERVER['HTTP_HOST'] == 'digest') {
     define('LIVE_SITE', false);

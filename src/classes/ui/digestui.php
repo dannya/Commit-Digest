@@ -71,6 +71,12 @@ class DigestUi {
     } else if ($current == 'data') {
       $this->frame = new DataUi();
 
+    } else if ($current == 'terms') {
+      $this->frame = new DataTermsUi();
+
+    } else if ($current == 'developer') {
+      $this->frame = new DeveloperProfileUi();
+
     } else {
       $this->frame = new IndexUi();
     }

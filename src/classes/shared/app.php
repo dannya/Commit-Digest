@@ -29,6 +29,9 @@ class App {
       // load language from query string
       define('LANGUAGE', $_REQUEST['language']);
 
+      // store in session
+      $_SESSION['language'] = LANGUAGE;
+
     } else if (isset($_SESSION['language'])) {
       // load language from cookie
       define('LANGUAGE', $_SESSION['language']);
