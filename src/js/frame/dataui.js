@@ -42,6 +42,10 @@ document.observe('dom:loaded', function() {
 
 			return false;
 		});
+
+  } else {
+  	// data management UI
+  	changeContinent(true);
   }
 });
 
@@ -168,6 +172,30 @@ function changePrivacy(event) {
 }
 
 
+function changeContinent(onload) {
+  if (!$('data-continent') || !$('data-country')) {
+    return false;
+  }
+
+  // get selected continent
+  var continent = $('data-continent').value;
+
+  // show all options
+  $('data-country').select('option').invoke('show');
+
+  // hide options for other continents
+  $('data-country').select('option[class!="' + continent + '"]').invoke('hide');
+  
+  // re-show empty option
+  $('data-country').select('option[value="0"]').invoke('show'); 
+
+  // set country select to blank option?
+  if (!((typeof onload == 'boolean') && onload)) {
+    $('data-country').selectedIndex = 0;
+  }
+}
+
+
 function save(event) {
 	Event.stop(event);
 	
@@ -189,7 +217,21 @@ function save(event) {
 	
 	
 	// send off data
-	alert('a');
+  new Ajax.Request(BASE_URL + '/get/account-data.php', {
+    method:     'post',
+    parameters: $('data').serialize(true),
+    onSuccess: function(transport) {
+      var data = transport.headerJSON; 
+
+      if ((typeof data.success != 'undefined') && data.success) {      
+        alert('success');
+
+      } else {
+      	// failure
+      	alert('error');
+      }
+    }
+  });
 
 	return false;
 }

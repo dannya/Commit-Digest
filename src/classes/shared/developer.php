@@ -241,6 +241,28 @@ class Developer {
   }
 
 
+  public function changeValues($data, $save = false) {
+    // ensure we only try and save valid fields
+    foreach ($data as $field => $value) {
+      if (!isset(self::$fields[$field]) ||
+        ($field == 'account') || ($field == 'access_ip') || ($field == 'access_code') || ($field == 'access_timeout')) {
+
+        continue;
+      }
+
+      $this->internalData[$field] = $value;
+    }
+
+    if ($save) {
+      // save new value to database
+      return $this->save();
+
+    } else {
+      return true;
+    }
+  }
+
+
   public function changePrivacy($field, $newValue, $save = false) {
     // check that privacy can be changed for this field
     if (!isset(self::$fields[$field]) ||
@@ -349,7 +371,7 @@ class Developer {
                                     'north-america'   => _('North America'),
                                     'south-america'   => _('South America'));
 
-    $keys['country']        = Digest::getCountries('basic');
+    $keys['country']        = Digest::getCountries('simple');
 
     $keys['microblog_type'] = array('twitter'         => _('twitter.com'),
                                     'identica'        => _('identi.ca'));

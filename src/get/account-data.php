@@ -63,22 +63,38 @@ if (!empty($_REQUEST['account'])) {
 
 
 } else if (!empty($_REQUEST['access_code'])) {
-  // ensure needed variables are present
-  if (empty($_REQUEST['context']) || empty($_REQUEST['field']) || !isset($_REQUEST['value'])) {
-    App::returnHeaderJson(true, array('missing' => true));
-  }
-
-
   // attempt to load developer data
   $developer = new Developer($_REQUEST['access_code'], 'access_code');
 
   if ($developer->data) {
-    // make requested change + save
-    if ($_REQUEST['context'] == 'value') {
-      $json['success'] = $developer->changeValue($_REQUEST['field'], $_REQUEST['value'], true);
+    if (!empty($_REQUEST['context'])) {
+      // ensure needed variables are present
+      if (empty($_REQUEST['field']) || !isset($_REQUEST['value'])) {
+        App::returnHeaderJson(true, array('missing' => true));
+      }
 
-    } else if ($_REQUEST['context'] == 'privacy') {
-      $json['success'] = $developer->changePrivacy($_REQUEST['field'], $_REQUEST['value'], true);
+      // change and save
+      if ($_REQUEST['context'] == 'value') {
+        $json['success'] = $developer->changeValue($_REQUEST['field'], $_REQUEST['value'], true);
+
+      } else if ($_REQUEST['context'] == 'privacy') {
+        $json['success'] = $developer->changePrivacy($_REQUEST['field'], $_REQUEST['value'], true);
+      }
+
+    } else {
+      // make passed data keys match storage keys
+      $data = array();
+
+      foreach ($_REQUEST as $key => $value) {
+        if (strpos($key, 'data-') === false) {
+          continue;
+        }
+
+        $data[str_replace('data-', null, $key)] = $value;
+      }
+
+      // save multiple values (whole form)
+      $json['success'] = $developer->changeValues($data, true);
     }
   }
 

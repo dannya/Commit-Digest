@@ -199,7 +199,7 @@ class DataUi {
     }
 
     // add access code into form
-    $buf  .= '  <input id="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />';
+    $buf  .= '  <input id="access_code" name="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />';
 
     // form buttons
     if ($this->developer->privacy['terms_accepted'] != DATA_TERMS_VERSION) {
@@ -242,10 +242,17 @@ class DataUi {
   private function drawField($key) {
     // display as special type, or using regular input element?
     if (isset(Developer::$fields[$key]) && (Developer::$fields[$key]['type'] == 'enum')) {
+      // add onchange function?
+      if ($key == 'continent') {
+        $onchange = 'changeContinent();';
+      } else {
+        $onchange = null;
+      }
+
       return Ui::htmlSelector('data-' . $key,
                               Developer::enumToString('category', $key),
                               $this->developer->data[$key],
-                              null, null, null, true);
+                              $onchange, null, null, true);
 
     } else {
       // input
