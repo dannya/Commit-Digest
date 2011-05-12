@@ -255,7 +255,7 @@ class DataUi {
         $readonly = null;
       }
 
-      return '<input id="data-' . $key . '" type="text" value="' . $this->developer->data[$key] . '"' . $readonly . ' />';
+      return '<input id="data-' . $key . '" name="data-' . $key . '" type="text" value="' . $this->developer->data[$key] . '"' . $readonly . ' />';
     }
   }
 

@@ -543,7 +543,12 @@ class Db {
 
       } else if ($context == 'insert') {
         $theKeys[]   = $key;
-        $theValues[] = $value;
+
+        if ($value === null) {
+          $theValues[] = 'NULL';
+        } else {
+          $theValues[] = $value;
+        }
 
       } else if ($context == 'updateMulti') {
         $query[] = '(' . App::implode(',', $value, false, true) . ')';

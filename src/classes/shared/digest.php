@@ -726,18 +726,46 @@ class Digest {
   }
 
 
-  public static function getCountries() {
-    $countries = Cache::load('countries');
+  public static function getCountries($type = 'full') {
+    // return data in requested format
+    if ($type == 'basic') {
+      // basic
+      $countries = Cache::load('countries_basic');
 
-    if (empty($countries)) {
-      // get countries from database
-      $countries = Db::reindex(Db::load('countries', false), 'code');
+      if (empty($countries)) {
+        // get countries from database
+        $tmp = Db::load('countries', false, null, 'code, name');
 
-      // cache
-      Cache::save('countries', $countries);
+        // reindex
+        $countries = array();
+
+        foreach ($tmp as $country) {
+          $countries[$country['code']] = $country['name'];
+        }
+
+        // sort by country name
+        asort($countries, SORT_LOCALE_STRING);
+
+        // cache
+        Cache::save('countries_basic', $countries);
+      }
+
+      return $countries;
+
+    } else {
+      // full
+      $countries = Cache::load('countries');
+
+      if (empty($countries)) {
+        // get countries from database
+        $countries = Db::reindex(Db::load('countries', false), 'code');
+
+        // cache
+        Cache::save('countries', $countries);
+      }
+
+      return $countries;
     }
-
-    return $countries;
   }
 
 

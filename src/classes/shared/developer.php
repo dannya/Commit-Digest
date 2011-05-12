@@ -70,7 +70,7 @@ class Developer {
                                                                    'display'  => 'all',
                                                                    'editable' => true,
                                                                    'privacy'  => 'continent'),
-                                        'country'         => array('type'     => 'string',
+                                        'country'         => array('type'     => 'enum',
                                                                    'display'  => 'all',
                                                                    'editable' => true,
                                                                    'privacy'  => 'country'),
@@ -348,6 +348,8 @@ class Developer {
                                     'oceania'         => _('Oceania'),
                                     'north-america'   => _('North America'),
                                     'south-america'   => _('South America'));
+
+    $keys['country']        = Digest::getCountries('basic');
 
     $keys['microblog_type'] = array('twitter'         => _('twitter.com'),
                                     'identica'        => _('identi.ca'));
