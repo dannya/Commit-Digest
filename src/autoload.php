@@ -65,7 +65,16 @@ if (COMMAND_LINE) {
   // set general site vars
   error_reporting(E_ALL|E_STRICT);
 
-  define('BASE_URL',  'http://' . $_SERVER['HTTP_HOST']);
+  // set protocol
+  if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on')) {
+    define('PROTOCOL',  'https://');
+  } else {
+    define('PROTOCOL',  'http://');
+  }
+
+  define('BASE_URL',        PROTOCOL . $_SERVER['HTTP_HOST']);
+  define('BASE_URL_HTTP',   'https://' . $_SERVER['HTTP_HOST']);
+  define('BASE_URL_HTTPS',  'https://' . $_SERVER['HTTP_HOST']);
 
   // start user session
   session_start();
