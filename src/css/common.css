@@ -537,3 +537,27 @@ span.msg_skip {
   font-style:italic;
   color:#999;
 }
+
+
+
+
+div#terms h1 {
+  margin:0 0 16px 0;
+}
+
+div#terms h1 i {
+  display:inline-block;
+  float:right;
+  font-size:16px;
+  font-weight:normal;
+  color:#999;
+  padding:6px;
+}
+
+div#terms p {
+  padding:0 0 16px 0;
+}
+
+div#terms ul {
+  margin-top:0;
+}

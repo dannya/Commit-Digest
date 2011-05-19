@@ -137,7 +137,7 @@ class DataUi {
     $buf   = '<h1>' .
                 $this->title . '
                 <i>' .
-                  sprintf(_('This data is held under <a href="%s" target="_blank" onclick="openInLightbox(event, { \'append\': \'?noFrame\' });">version %2.1f of the data usage terms</a>'),
+                  sprintf(_('This data is held under <a href="%s" target="_blank" onclick="openInLightbox(event, { \'append\': \'?onlyContent&noFrame\' });">version %2.1f of the data usage terms</a>'),
                           BASE_URL . '/data/terms/' . $this->developer->privacy['terms_accepted'],
                           $this->developer->privacy['terms_accepted']) .
              '  </i>
@@ -204,7 +204,7 @@ class DataUi {
     if ($this->developer->privacy['terms_accepted'] != DATA_TERMS_VERSION) {
       $dataTermsAlert  = '<label id="terms_accepted_container">
                             <input id="terms_accepted" type="checkbox" value="1" />' .
-                            sprintf(_('I allow this data to be used under <a href="%s" target="_blank" onclick="openInLightbox(event, { \'append\': \'?noFrame\' });">version %2.1f of the data usage terms</a>'),
+                            sprintf(_('I allow this data to be used under <a href="%s" target="_blank" onclick="openInLightbox(event, { \'append\': \'?onlyContent&noFrame\' });">version %2.1f of the data usage terms</a>'),
                                     BASE_URL . '/data/terms/' . DATA_TERMS_VERSION,
                                     DATA_TERMS_VERSION) .
                          '</label>';

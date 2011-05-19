@@ -784,7 +784,7 @@ class Enzyme {
 
   public static function generateStatsFromDb($start, $end) {
     // ensure script doesn't reach execution limits
-    set_time_limit(0);
+    set_time_limit(3500);
     ini_set('memory_limit', '256M');
 
     // allow start and end to be passed in any order

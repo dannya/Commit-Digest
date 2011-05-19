@@ -51,7 +51,11 @@ class DataTermsUi {
 
 
   public function draw() {
-    $buf   = '<h1>' . $this->title . '</h1>';
+    $buf   = '<div id="terms">
+                <h1>' .
+                  $this->title .
+             '    <i>' . sprintf(_('Version %2.1f'), $this->version) . '</i>
+                </h1>';
 
     if ($this->error) {
       // terms could not be loaded, draw prominent message informing user at top of latest terms
@@ -63,7 +67,8 @@ class DataTermsUi {
 
 
     // draw terms
-    $buf  .= $this->drawTerms();
+    $buf  .=   $this->drawTerms() .
+             '</div>';
 
 
     return $buf;
@@ -73,14 +78,20 @@ class DataTermsUi {
   private function drawTerms() {
     $buf   = null;
 
-    $terms = explode("\n", $this->terms['content']);
+    if (!empty($this->terms['parse'])) {
+      $terms = explode("\n", $this->terms['content']);
 
-    foreach ($terms as $item) {
-      $item = trim($item);
+      foreach ($terms as $item) {
+        $item = trim($item);
 
-      if (!empty($item)) {
-        $buf  .= '<p>' . $item . '</p>';
+        if (!empty($item)) {
+          $buf  .= '<p>' . $item . '</p>';
+        }
       }
+
+    } else {
+      // just output given text/html
+      $buf  .= $this->terms['content'];
     }
 
     return $buf;
