@@ -19,6 +19,8 @@ class DataTermsUi {
   public $id        = 'data-terms';
   public $title     = null;
 
+  public $noFrame   = false;
+
   private $terms    = null;
   private $version  = null;
   private $error    = false;
@@ -27,6 +29,11 @@ class DataTermsUi {
   public function __construct() {
     // set title
     $this->title = _('Data Usage Terms');
+
+    // hide frame?
+    if (isset($_REQUEST['noFrame'])) {
+      $this->noFrame = true;
+    }
 
     // load specific version of terms, or latest terms if not specified
     if (!empty($_REQUEST['version'])) {

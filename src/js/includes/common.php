@@ -269,21 +269,65 @@ function highlightShareBox(event) {
 }
 
 
-function openInLightbox(event) {
-	if (typeof event != 'object') {
-    return false;		
+function openInLightbox(event, options) {
+	if (typeof event == 'object') {
+    Event.stop(event);
+    var theLink = event.element().readAttribute('href');
+
+	} else if (typeof event == 'string') {
+    var theLink = event;
+
+	} else {
+		return false;
 	}
 
-  Event.stop(event);
+
+	// append to link?
+	if (typeof options['append'] == 'string') {
+		theLink += options['append'];
+	}
+	
+  // set and extend options
+  var theOptions = Object.extend({
+    href:       theLink,
+    type:       'page',
+    title:      '',
+    width:      1000,
+    height:     500,
+    clickClose: true
+  }, options || {});
+
 
   // load in lightbox
-  lightbox.activateWindow({
-    href:    event.element().readAttribute('href'),
-    type:    'page', 
-    title:   '',
-    width:   800,
-    height:  600
-  });
+  lightbox.activateWindow(theOptions);
 
   return false;
+}
+
+
+function scrollToOffset(id, offset, container) {
+  if (!$(id) || (typeof offset == 'undefined')) {
+    return false;
+  }
+
+  // make sure current item is visible in browser viewport!
+  if ((typeof container == 'object') && $(container)) {
+    var pos = $(id).positionedOffset();
+  } else {
+  	var pos = $(id).cumulativeOffset();
+  }
+
+  var newPos = pos[1] + offset;
+  if (newPos < 0) {
+    newPos = 0;
+  }
+
+  // perform scroll
+  if ((typeof container == 'object') && $(container)) {
+    $(container).scrollTop  = newPos;
+    $(container).scrollLeft = pos[0];
+
+  } else {
+  	window.scrollTo(pos[0], newPos);
+  }
 }

@@ -71,6 +71,9 @@ class DigestUi {
     } else if ($current == 'data') {
       $this->frame = new DataUi();
 
+    } else if ($current == 'survey') {
+      $this->frame = new SurveyUi();
+
     } else if ($current == 'terms') {
       $this->frame = new DataTermsUi();
 
@@ -166,6 +169,10 @@ class DigestUi {
 
 
   public function drawHeader() {
+    if (isset($this->frame->noFrame) && $this->frame->noFrame) {
+      return null;
+    }
+
     $buf = null;
 
     // show review warning banner
@@ -213,6 +220,10 @@ class DigestUi {
 
 
   public function drawSidebar() {
+    if (isset($this->frame->noFrame) && $this->frame->noFrame) {
+      return null;
+    }
+
     // draw
     $buf = '<div id="sidebar">
               <a id="sidebar-logo" class="n" style="display:none;" href="' . BASE_URL . '/">
@@ -270,7 +281,26 @@ class DigestUi {
   }
 
 
+  public function drawContent() {
+    $buf = $this->frame->draw();
+
+    if (isset($this->frame->noFrame) && $this->frame->noFrame) {
+      return $buf;
+
+    } else {
+      // wrap in frame div
+      return '<div id="frame">' .
+                $buf .
+             '</div>';
+    }
+  }
+
+
   public function drawFooter() {
+    if (isset($this->frame->noFrame) && $this->frame->noFrame) {
+      return null;
+    }
+
     $buf = '<div id="footer">' .
               sprintf(_('%s by <a href="mailto:%s">%s</a>, %s'), PROJECT_NAME, 'danny@commit-digest.org', 'Danny Allen', '2006-2011') .
               '<br />' .

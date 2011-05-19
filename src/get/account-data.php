@@ -53,8 +53,8 @@ if (!empty($_REQUEST['account'])) {
                 sprintf(_('Thanks, the %s team'), PROJECT_NAME);
 
     // send email
-//    $email            = new Email($to, sprintf('%s Information Access Request', PROJECT_NAME), $message);
-//    $json['success']  = $email->send();
+    $email            = new Email($to, sprintf('%s Information Access Request', PROJECT_NAME), $message);
+    $json['success']  = $email->send();
     $json['success'] = true;
 
   } else {

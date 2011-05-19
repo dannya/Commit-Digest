@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: KDE Commit-Digest 1.00\n"
+"Project-Id-Version: KDE Commit-Digest 1.10\n"
 "Report-Msgid-Bugs-To: danny@commit-digest.org\n"
-"POT-Creation-Date: 2011-02-23 00:31+0000\n"
+"POT-Creation-Date: 2011-05-19 20:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,6 +77,14 @@ msgid "%s (%s) committed changes in %s:"
 msgstr ""
 
 #, php-format
+msgid "%s Updates"
+msgstr ""
+
+#, php-format
+msgid "%s by <a href=\"mailto:%s\">%s</a>, %s"
+msgstr ""
+
+#, php-format
 msgid "%s commits classified (%s displayed, %s total)"
 msgstr ""
 
@@ -93,6 +101,10 @@ msgid "%s in %s"
 msgstr ""
 
 #, php-format
+msgid "%s, someone at the IP address %s has requested to view/modify the identifying information used to represent you in the %s."
+msgstr ""
+
+#, php-format
 msgid "(+ %d more)"
 msgstr ""
 
@@ -103,6 +115,10 @@ msgid "(Please wait up to 48 hours for this email)"
 msgstr ""
 
 msgid "(type)"
+msgstr ""
+
+#, php-format
+msgid "...to the %s, a weekly overview of the development activity in KDE."
 msgstr ""
 
 msgid "...to the KDE Commit-Digest, a weekly overview of the development activity in KDE."
@@ -147,6 +163,18 @@ msgstr ""
 msgid "75 to 85"
 msgstr ""
 
+msgid "A weekly overview of the development activity in KDE."
+msgstr ""
+
+msgid "Access IP"
+msgstr ""
+
+msgid "Access code"
+msgstr ""
+
+msgid "Access timeout"
+msgstr ""
+
 msgid "Accessibility"
 msgstr ""
 
@@ -171,13 +199,22 @@ msgstr ""
 msgid "Age"
 msgstr ""
 
+msgid "Age (Years)"
+msgstr ""
+
 msgid "All issues in <a href=\"/archive/\">archive</a> by <a href=\"mailto:dkite@shaw.ca\">Derek Kite</a>"
 msgstr ""
 
 msgid "All issues in <a href=\"/archive/\">archive</a> by Derek Kite"
 msgstr ""
 
+msgid "Alternatively, enter the access code from the email here:"
+msgstr ""
+
 msgid "An email will then be sent from this domain to the email address your SVN account is linked to."
+msgstr ""
+
+msgid "An email will then be sent from this domain to the email address your developer account is linked to."
 msgstr ""
 
 msgid "And Finally..."
@@ -193,6 +230,24 @@ msgid "Area"
 msgstr ""
 
 msgid "Asia"
+msgstr ""
+
+msgid "Birthdate (Day/Month/Year)"
+msgstr ""
+
+msgid "Birthday (Month and day)"
+msgstr ""
+
+msgid "Black"
+msgstr ""
+
+msgid "Blog URL"
+msgstr ""
+
+msgid "Blue"
+msgstr ""
+
+msgid "Brown"
 msgstr ""
 
 #, php-format
@@ -220,6 +275,9 @@ msgstr ""
 msgid "Buzz"
 msgstr ""
 
+msgid "Cancel"
+msgstr ""
+
 msgid "Classifier"
 msgstr ""
 
@@ -229,7 +287,13 @@ msgstr ""
 msgid "Click to zoom out..."
 msgstr ""
 
+msgid "Close"
+msgstr ""
+
 msgid "Close preview"
+msgstr ""
+
+msgid "Colour"
 msgstr ""
 
 msgid "Coming soon!"
@@ -276,6 +340,9 @@ msgstr ""
 msgid "Contents"
 msgstr ""
 
+msgid "Continent"
+msgstr ""
+
 msgid "Contribute"
 msgstr ""
 
@@ -289,8 +356,17 @@ msgstr ""
 msgid "Converting translations..."
 msgstr ""
 
+msgid "Core"
+msgstr ""
+
 #, php-format
 msgid "Couldn't connect to database: ensure you have set the correct values at the top of %s/autoload.php"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Currently public:"
 msgstr ""
 
 msgid "Czech (ÄŒeÅ¡tina)"
@@ -303,6 +379,15 @@ msgid "Data"
 msgstr ""
 
 msgid "Data Locations"
+msgstr ""
+
+msgid "Data Terms Version"
+msgstr ""
+
+msgid "Data Usage Terms"
+msgstr ""
+
+msgid "Date of Birth"
 msgstr ""
 
 msgid "Default Language"
@@ -353,6 +438,12 @@ msgstr ""
 msgid "Educational"
 msgstr ""
 
+msgid "Email"
+msgstr ""
+
+msgid "Employer"
+msgstr ""
+
 msgid "Enable Legacy Import"
 msgstr ""
 
@@ -360,6 +451,9 @@ msgid "English"
 msgstr ""
 
 msgid "Enter your SVN account name:"
+msgstr ""
+
+msgid "Enter your developer account name:"
 msgstr ""
 
 msgid "Enzyme Administrator"
@@ -374,6 +468,12 @@ msgstr ""
 msgid "Enzyme URL"
 msgstr ""
 
+msgid "Error"
+msgstr ""
+
+msgid "Error: Account not found"
+msgstr ""
+
 msgid "EspaÃ±ol (Spanish)"
 msgstr ""
 
@@ -381,6 +481,10 @@ msgid "Español (Spanish)"
 msgstr ""
 
 msgid "Europe"
+msgstr ""
+
+#, php-format
+msgid "Even if you can't contribute time, effort, or money in support, your enjoyment of the %s is contribution enough, and leaves us with a warm, fuzzy feeling inside!"
 msgstr ""
 
 msgid "Even if you can't contribute time, effort, or money in support, your enjoyment of the KDE Commit-Digest is contribution enough, and leaves us with a warm, fuzzy feeling inside!"
@@ -443,6 +547,12 @@ msgstr ""
 msgid "Games"
 msgstr ""
 
+msgid "Gender"
+msgstr ""
+
+msgid "Geographic"
+msgstr ""
+
 msgid "Getting available translations..."
 msgstr ""
 
@@ -470,10 +580,26 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
+msgid "Green"
+msgstr ""
+
+msgid "Grey"
+msgstr ""
+
+msgid "Help Container Element"
+msgstr ""
+
 msgid "Help URL"
 msgstr ""
 
 msgid "Home"
+msgstr ""
+
+msgid "Homepage URL"
+msgstr ""
+
+#, php-format
+msgid "I allow this data to be used under <a href=\"%s\" target=\"_blank\" onclick=\"openInLightbox(event, { 'append': '?noFrame' });\">version %2.1f of the data usage terms</a>"
 msgstr ""
 
 msgid "I promise to keep your information confidentially, and to only use the data collected for KDE statistics purposes, unless further permission is granted."
@@ -485,7 +611,22 @@ msgstr ""
 msgid "I18n Teams URL"
 msgstr ""
 
+#, php-format
+msgid "If you are unable to help the %s by donating your time and effort, you can still show your appreciation and support the ongoing work by donating money."
+msgstr ""
+
 msgid "If you are unable to help the KDE Commit-Digest by donating your time and effort, you can still show your appreciation and support the ongoing work by donating money."
+msgstr ""
+
+#, php-format
+msgid "If you get any more unrequested messages, please contact %s"
+msgstr ""
+
+#, php-format
+msgid "If you have made this request, please go to %s"
+msgstr ""
+
+msgid "If you have not made this request, please ignore this email."
 msgstr ""
 
 msgid "Image"
@@ -555,7 +696,13 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
+msgid "Last.fm username"
+msgstr ""
+
 msgid "Latest Issue"
+msgstr ""
+
+msgid "Latitude"
 msgstr ""
 
 msgid "Legacy Import"
@@ -568,8 +715,17 @@ msgstr ""
 msgid "Lines"
 msgstr ""
 
+msgid "Loading"
+msgstr ""
+
 #, php-format
 msgid "Located at %s"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Longitude"
 msgstr ""
 
 msgid "Low Saxon (Low Saxon)"
@@ -581,7 +737,16 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
+msgid "Map Generation Service URL"
+msgstr ""
+
 msgid "Message"
+msgstr ""
+
+msgid "Microblog service"
+msgstr ""
+
+msgid "Microblog username"
 msgstr ""
 
 msgid "Modified"
@@ -605,10 +770,16 @@ msgstr ""
 msgid "Multimedia"
 msgstr ""
 
+msgid "Name"
+msgstr ""
+
 msgid "Nederlands (Dutch)"
 msgstr ""
 
 msgid "Networking Tools"
+msgstr ""
+
+msgid "Nickname"
 msgstr ""
 
 msgid "No"
@@ -624,6 +795,9 @@ msgid "North America"
 msgstr ""
 
 msgid "Not enough data to generate statistics."
+msgstr ""
+
+msgid "Nothing"
 msgstr ""
 
 msgid "Oceania"
@@ -653,6 +827,9 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
+msgid "Orange"
+msgstr ""
+
 msgid "Other"
 msgstr ""
 
@@ -669,6 +846,12 @@ msgid "Percentage Complete"
 msgstr ""
 
 msgid "Person"
+msgstr ""
+
+msgid "Pink"
+msgstr ""
+
+msgid "Please review and add/change details where appropriate."
 msgstr ""
 
 msgid "Polski (Polish)"
@@ -699,6 +882,12 @@ msgstr ""
 msgid "Project Name"
 msgstr ""
 
+msgid "Publish"
+msgstr ""
+
+msgid "Purple"
+msgstr ""
+
 msgid "Query failed"
 msgstr ""
 
@@ -710,6 +899,12 @@ msgid "Random Digest"
 msgstr ""
 
 msgid "Read the latest issue!"
+msgstr ""
+
+msgid "Recent Commits RSS URL"
+msgstr ""
+
+msgid "Red"
 msgstr ""
 
 msgid "Reply to the email, following the instructions carefully."
@@ -736,6 +931,9 @@ msgstr ""
 msgid "SMTP Mail Server"
 msgstr ""
 
+msgid "SMTP mail server has not been set!"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 
@@ -753,6 +951,9 @@ msgstr ""
 msgid "Send this issue by email..."
 msgstr ""
 
+msgid "Send!"
+msgstr ""
+
 msgid "Sex"
 msgstr ""
 
@@ -766,6 +967,9 @@ msgid "Show Insert"
 msgstr ""
 
 msgid "Six Months Ago"
+msgstr ""
+
+msgid "Social"
 msgstr ""
 
 msgid "Sort by earliest digest..."
@@ -793,13 +997,27 @@ msgstr ""
 msgid "Step 3:"
 msgstr ""
 
+#, php-format
+msgid "Subscribe to %s updates"
+msgstr ""
+
 msgid "Subscribe to KDE Commit-Digest updates"
 msgstr ""
 
 msgid "Support Commit-Digest using PayPal"
 msgstr ""
 
+msgid "Survey"
+msgstr ""
+
+msgid "Survey Active"
+msgstr ""
+
 msgid "Svenska (Swedish)"
+msgstr ""
+
+#, php-format
+msgid "Thanks for reading the %s!"
 msgstr ""
 
 msgid "Thanks for reading the KDE Commit-Digest!"
@@ -809,7 +1027,19 @@ msgid "Thanks!"
 msgstr ""
 
 #, php-format
+msgid "Thanks, the %s team"
+msgstr ""
+
+#, php-format
+msgid "The %s features <a class=\"u_\" href=\"%s\">extended statistics</a>."
+msgstr ""
+
+#, php-format
 msgid "There are %d selections this week"
+msgstr ""
+
+#, php-format
+msgid "There are many ways to help the %s by contributing your time, effort, or money..."
 msgstr ""
 
 msgid "There are many ways to help the KDE Commit-Digest by contributing your time, effort, or money..."
@@ -818,7 +1048,33 @@ msgstr ""
 msgid "This Week..."
 msgstr ""
 
+#, php-format
+msgid "This data is held under <a href=\"%s\" target=\"_blank\" onclick=\"openInLightbox(event, { 'append': '?noFrame' });\">version %2.1f of the data usage terms</a>"
+msgstr ""
+
+msgid "This field is <b>always public</b>"
+msgstr ""
+
+msgid "This field is currently <b>private</b>"
+msgstr ""
+
+msgid "This field is currently <b>public</b>"
+msgstr ""
+
+#, php-format
+msgid "This is the information used to represent you in the %s."
+msgstr ""
+
+msgid "This issue has not been published yet"
+msgstr ""
+
+msgid "This link is valid for 6 hours."
+msgstr ""
+
 msgid "Time"
+msgstr ""
+
+msgid "To generate exciting visualisations now and in the future, new information is needed from KDE contributors..."
 msgstr ""
 
 #, php-format
@@ -843,6 +1099,9 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
+msgid "Unselect this commit?"
+msgstr ""
+
 #, php-format
 msgid "Update every %s minutes"
 msgstr ""
@@ -862,6 +1121,10 @@ msgstr ""
 msgid "Utilities"
 msgstr ""
 
+#, php-format
+msgid "Version %2.1f of the data usage terms could not be found"
+msgstr ""
+
 msgid "Video"
 msgstr ""
 
@@ -869,6 +1132,9 @@ msgid "View as list..."
 msgstr ""
 
 msgid "View as map..."
+msgstr ""
+
+msgid "Visit the link contained in the email."
 msgstr ""
 
 msgid "Volunteer"
@@ -881,6 +1147,12 @@ msgid "Web Bug Tracker XML"
 msgstr ""
 
 msgid "Welcome"
+msgstr ""
+
+msgid "White"
+msgstr ""
+
+msgid "Yellow"
 msgstr ""
 
 msgid "Yes"
@@ -898,6 +1170,12 @@ msgid "by %s"
 msgstr ""
 
 msgid "filter?"
+msgstr ""
+
+msgid "identi.ca"
+msgstr ""
+
+msgid "twitter.com"
 msgstr ""
 
 msgid "Ð ÑƒÑ�Ñ�ÐºÐ¸Ð¹ Ñ�Ð·Ñ‹Ðº (Russian)"

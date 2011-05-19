@@ -129,10 +129,18 @@ form#data div.buttons {
   margin-top:32px;
   height:32px;
 }
-form#data div.buttons label,
-form#data div.buttons input[type="submit"] {
+form#data div.buttons label {
   float:none;
 }
+
+form#data div.buttons input[type="submit"] {
+  float:left;
+}
+form#data div.buttons img#spinner {
+  float:left;
+  margin:-3px 0 0 12px;
+}
+
 form#data div.buttons label {
   display:inline-block;
   margin:0 0 0 130px;
@@ -147,10 +155,4 @@ form#data div.buttons label input {
 
 p.intro {
   padding:0 0 22px 0;
-}
-
-p.terms {
-  padding:40px 40px 0 40px;
-  font-weight:bold;
-  text-align:center;
 }

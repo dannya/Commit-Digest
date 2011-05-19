@@ -217,6 +217,11 @@ function save(event) {
 	
 	
 	// send off data
+	Event.element(event).disabled = true;
+	if ($('spinner')) {
+	  $('spinner').show();
+	}
+
   new Ajax.Request(BASE_URL + '/get/account-data.php', {
     method:     'post',
     parameters: $('data').serialize(true),
@@ -224,11 +229,29 @@ function save(event) {
       var data = transport.headerJSON; 
 
       if ((typeof data.success != 'undefined') && data.success) {      
-        alert('success');
+        // show survey?
+        if ($('survey_done') && ($('survey_done').value == 0)) {
+        	var options              = {};
+        	options['append']        = '?onlyContent&noFrame';
+        	options['title']         = 'Survey';
+
+        	openInLightbox(BASE_URL + '/data/survey/' + $('access_code').value.trim(), options);
+        }
+
+        // hide spinner
+        Event.element(event).disabled = false;
+        if ($('spinner')) {
+          $('spinner').hide();
+        }
 
       } else {
       	// failure
-      	alert('error');
+        Event.element(event).disabled = false;
+        if ($('spinner')) {
+          $('spinner').hide();
+        }
+
+      	alert(strings.error);
       }
     }
   });

@@ -1,0 +1,191 @@
+#survey {
+  position:relative;
+}
+
+
+#survey h1 {
+  margin:0 0 14px 0;
+}
+
+#survey h3 {
+  margin:0 0 10px 0;
+  padding:0;
+}
+
+#survey p.intro {
+  padding:0;
+  margin:0 0 22px 0;
+  font-style:italic;
+}
+
+
+
+
+#survey div.section {
+  padding:16px 16px 40px 16px;
+  border-bottom:2px dotted #999;
+}
+
+#survey div#section-0 {
+  padding:10px 10px 10px 10px;
+}
+#survey div#section-0 p.intro {
+  font-style:normal;
+}
+
+#survey div#section-1 {
+  background-color:#EFF8FB;
+}
+#survey div#section-2 {
+  background-color:#E3F3F7;
+}
+#survey div#section-3 {
+  padding:16px;
+  margin:0 0 22px 0;
+  background-color:#DBF0F5;
+}
+
+
+
+#survey div.section input[type="button"] {
+  float:none;
+}
+
+
+#survey table {
+  width:950px;
+  border-collapse:collapse;
+  margin:0 0 16px 0;
+}
+
+
+#survey th {
+  text-align:left;
+  vertical-align:bottom;
+  padding:0 4px 4px 2px;
+}
+
+#survey td {
+  text-align:left;
+  vertical-align:top;
+}
+
+
+
+#survey table .i {
+  width:170px;
+}
+
+#survey table .padding {
+  padding-right:16px;
+}
+
+#survey table tbody td select {
+  width:96%;
+}
+
+
+
+#survey table#projects .a {
+  width:150px;
+}
+
+#survey table#projects .q {
+  padding-top:5px;
+  padding-bottom:10px;
+}
+
+#survey table#projects tbody td {
+  vertical-align:middle;
+}
+#survey table#projects tbody td.i {
+  vertical-align:top;
+}
+
+
+
+#survey table#contributors .a {
+  width:151px;
+}
+#survey table#contributors tbody td {
+  padding-bottom:4px;
+}
+
+
+
+#survey table#motivation {
+  margin:0;
+}
+
+#survey table#motivation tbody tr:hover td {
+  background-color:#fff;
+}
+#survey table#motivation tbody tr:hover td label {
+  background-color:#fff;
+  border:1px solid #fff;
+}
+
+#survey table#motivation tbody td {
+  padding:0;
+}
+
+#survey table#motivation tbody td.q {
+  padding:5px 0 5px 5px;
+}
+
+#survey table#motivation tbody td label {
+  display:inline-block;
+  padding:9px;
+  cursor:pointer;
+  border:1px solid #DBF0F5;
+}
+#survey table#motivation tbody td label:hover,
+#survey table#motivation tbody td label.selected {
+  border:1px solid #666 !important;
+}
+
+#survey table#motivation tbody td label.r1:hover,
+#survey table#motivation tbody td label.r1.selected {
+  background-color:#D3A6A6;
+}
+#survey table#motivation tbody td label.r2:hover,
+#survey table#motivation tbody td label.r2.selected {
+  background-color:#FFA6A6;
+}
+#survey table#motivation tbody td label.r3:hover,
+#survey table#motivation tbody td label.r3.selected {
+  background-color:#FFFFA6;
+}
+#survey table#motivation tbody td label.r4:hover,
+#survey table#motivation tbody td label.r4.selected {
+  background-color:#A6FFA6;
+}
+#survey table#motivation tbody td label.r5:hover,
+#survey table#motivation tbody td label.r5.selected {
+  background-color:#A6D3A6;
+}
+
+#survey table#motivation tbody td label input {
+  padding:0;
+  margin:0;
+  cursor:pointer;
+}
+
+
+
+#survey #tooltip {
+  position:absolute;
+  padding:5px 7px;
+  border:1px solid #666;
+  background-color:#fff;
+
+  -moz-box-shadow:3px 3px 3px #999;
+  -webkit-box-shadow:3px 3px 3px #999;
+  box-shadow:3px 3px 3px #999;
+}
+
+
+
+#survey input#submit {
+  margin:0 6px 6px 0;
+}

@@ -31,7 +31,7 @@ class DataUi {
   public function draw() {
     // if code given, validate
     if (!empty($_REQUEST['code'])) {
-      $this->developer = new Developer($_REQUEST['code'], 'access_code');
+      $this->developer = new Developer($_REQUEST['code'], 'access_code', true);
 
       if ($this->developer->data) {
         // draw data management interface
@@ -39,7 +39,7 @@ class DataUi {
 
       } else {
         // invalid code
-        return 'b';
+        return 'Invalid access code';
       }
 
     } else {
@@ -50,13 +50,15 @@ class DataUi {
 
   public function getScript() {
     return array('/js/lightwindow.js',
-                 '/js/frame/dataui.js');
+                 '/js/frame/dataui.js',
+                 '/js/frame/surveyui.js');
   }
 
 
   public function getStyle() {
     return array('/css/lightwindow.css',
-                 '/css/dataui.css');
+                 '/css/dataui.css',
+                 '/css/surveyui.css');
   }
 
 
@@ -109,11 +111,7 @@ class DataUi {
                 <br />' .
                 _('You will soon be represented in the extended statistics.') .
            '  </div>
-            </div>
-
-            <p class="terms">' .
-              _('I promise to keep your information confidentially, and to only use the data collected for KDE statistics purposes, unless further permission is granted.') .
-           '</p>';
+            </div>';
 
     return $buf;
   }
@@ -139,7 +137,7 @@ class DataUi {
     $buf   = '<h1>' .
                 $this->title . '
                 <i>' .
-                  sprintf(_('This data is held under <a href="%s" target="_blank" onclick="openInLightbox(event);">version %2.1f of the data usage terms</a>'),
+                  sprintf(_('This data is held under <a href="%s" target="_blank" onclick="openInLightbox(event, { \'append\': \'?noFrame\' });">version %2.1f of the data usage terms</a>'),
                           BASE_URL . '/data/terms/' . $this->developer->privacy['terms_accepted'],
                           $this->developer->privacy['terms_accepted']) .
              '  </i>
@@ -199,13 +197,14 @@ class DataUi {
     }
 
     // add access code into form
-    $buf  .= '  <input id="access_code" name="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />';
+    $buf  .= '  <input id="access_code" name="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />
+                <input id="survey_done" name="survey_done" type="hidden" value="' . (int)($this->developer->surveyDone || !SURVEY_ACTIVE) . '" />';
 
     // form buttons
     if ($this->developer->privacy['terms_accepted'] != DATA_TERMS_VERSION) {
       $dataTermsAlert  = '<label id="terms_accepted_container">
                             <input id="terms_accepted" type="checkbox" value="1" />' .
-                            sprintf(_('I allow this data to be used under <a href="%s" target="_blank" onclick="openInLightbox(event);">version %2.1f of the data usage terms</a>'),
+                            sprintf(_('I allow this data to be used under <a href="%s" target="_blank" onclick="openInLightbox(event, { \'append\': \'?noFrame\' });">version %2.1f of the data usage terms</a>'),
                                     BASE_URL . '/data/terms/' . DATA_TERMS_VERSION,
                                     DATA_TERMS_VERSION) .
                          '</label>';
@@ -214,7 +213,8 @@ class DataUi {
     }
 
     $buf  .= '  <div class="buttons">
-                  <input type="submit" value="' . ('Save') . '" onclick="save(event);" />' .
+                  <input type="submit" value="' . ('Save') . '" onclick="save(event);" />
+                  <img id="spinner" src="' . BASE_URL . '/img/spinner.gif" alt="" style="display:none;" />' .
                   $dataTermsAlert .
              '  </div>
               </form>';
@@ -250,7 +250,7 @@ class DataUi {
       }
 
       return Ui::htmlSelector('data-' . $key,
-                              Developer::enumToString('category', $key),
+                              Developer::enumToString('category', $key, true),
                               $this->developer->data[$key],
                               $onchange, null, null, true);
 

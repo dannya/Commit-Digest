@@ -41,6 +41,30 @@ a.n:hover {
 }
 
 
+
+.clearfix:after {
+  content:".";
+  display:block;
+  clear:both;
+  visibility:hidden;
+  line-height:0;
+  height:0;
+}
+ 
+.clearfix {
+  display:inline-block;
+}
+ 
+html[xmlns] .clearfix {
+  display:block;
+}
+ 
+* html .clearfix {
+  height:1%;
+}
+
+
+
 .r {
   border-radius:5px;
   -moz-border-radius:5px;
@@ -99,14 +123,10 @@ textarea {
   font-family:'Segoe UI','Trebuchet MS','Helvetica',sans-serif;
 }
 
-input.failure,
-select.failure,
-textarea.failure {
+.failure {
   border:1px solid red !important;
 }
-input.success,
-select.success,
-textarea.success {
+.success {
   border:1px solid green !important;
 }
 

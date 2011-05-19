@@ -32,6 +32,14 @@ if (!empty($cacheOptions['caching']) && LIVE_SITE) {
 // manage UI
 $ui = new DigestUi();
 
+
+// draw
+if (!empty($ui->frame->onlyContent)) {
+  // only draw frame content, not HTML
+  echo $ui->drawContent();
+
+} else {
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -51,25 +59,22 @@ $ui = new DigestUi();
       <?php
         echo $ui->drawHeader();
         echo $ui->drawSidebar();
-
-        echo '<div id="frame">' .
-                $ui->frame->draw() .
-             '</div>';
-
+        echo $ui->drawContent();
         echo $ui->drawFooter();
       ?>
     </div>
 <?php
 
-// track webstats
-echo Webstats::track();
-
-
-// finish page caching?
-if (isset($cache)) {
-  $cache->end();
-}
+  // finish page caching?
+  if (isset($cache)) {
+    $cache->end();
+  }
 
 ?>
   </body>
 </html>
+<?php
+
+}
+
+?>
