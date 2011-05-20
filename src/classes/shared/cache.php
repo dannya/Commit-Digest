@@ -4,15 +4,15 @@
  | Enzyme
  | Copyright 2010-2011 Danny Allen <danny@enzyme-project.org>
  | http://www.enzyme-project.org/
-+--------------------------------------------------------+
-| This program is released as free software under the
-| Affero GPL license. You can redistribute it and/or
-| modify it under the terms of this license which you
-| can read by viewing the included agpl.txt or online
-| at www.gnu.org/licenses/agpl.html. Removal of this
-| copyright header is strictly prohibited without
-| written permission from the original author(s).
-+--------------------------------------------------------*/
+ +--------------------------------------------------------+
+ | This program is released as free software under the
+ | Affero GPL license. You can redistribute it and/or
+ | modify it under the terms of this license which you
+ | can read by viewing the included agpl.txt or online
+ | at www.gnu.org/licenses/agpl.html. Removal of this
+ | copyright header is strictly prohibited without
+ | written permission from the original author(s).
+ +--------------------------------------------------------*/
 
 
 class Cache {
@@ -126,7 +126,7 @@ class Cache {
   }
 
 
-  public static function getMinJs($key, $script) {
+  public static function getMinJs($key, $script, $minScript = null) {
     // output filename
     $filename = '/js/min/' . $key . '.js';
 
@@ -148,6 +148,13 @@ class Cache {
 
       // minify
       $min = MinifyJs::minify($buf);
+
+      // append script already minified
+      if (is_array($minScript) && $minScript) {
+        foreach ($minScript as $file) {
+          $min .= file_get_contents($base . $file) . "\n\n";
+        }
+      }
 
       // write to file
       file_put_contents(BASE_DIR . $filename, $min);

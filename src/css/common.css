@@ -554,6 +554,11 @@ div#terms h1 i {
   padding:6px;
 }
 
+div#terms p#terms-error {
+  border-bottom:2px dotted #666;
+  margin-bottom:16px;
+}
+
 div#terms p {
   padding:0 0 16px 0;
 }
