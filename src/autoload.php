@@ -16,6 +16,7 @@
 
 
 // define database settings
+define('DB_TYPE',           'Mysql');
 define('DB_HOST',           'localhost');
 define('DB_USER',           'root');
 define('DB_PASSWORD',       'hello1');
@@ -28,7 +29,7 @@ define('DB_DATABASE',       'enzyme');
 // define app constants
 define('APP_ID',            'commit-digest');
 define('APP_NAME',          'KDE Commit-Digest');
-define('VERSION',           '1.10');
+define('VERSION',           '1.11');
 
 define('META_AUTHOR',       'Danny Allen');
 define('META_DESCRIPTION',  'A weekly overview of the development activity in KDE.');
@@ -73,7 +74,7 @@ if (COMMAND_LINE) {
   }
 
   define('BASE_URL',        PROTOCOL . $_SERVER['HTTP_HOST']);
-  define('BASE_URL_HTTP',   'https://' . $_SERVER['HTTP_HOST']);
+  define('BASE_URL_HTTP',   'http://' . $_SERVER['HTTP_HOST']);
   define('BASE_URL_HTTPS',  'https://' . $_SERVER['HTTP_HOST']);
 
   // start user session
@@ -121,7 +122,8 @@ if (COMMAND_LINE) {
 
 } else {
   // add class dir to include path
-  $classDirs = array(BASE_DIR . '/classes/shared/',
+  $classDirs = array(BASE_DIR . '/classes/db/',
+                     BASE_DIR . '/classes/shared/',
                      BASE_DIR . '/classes/specific/',
                      BASE_DIR . '/classes/ext/',
                      BASE_DIR . '/classes/ext/cacheLite/',
