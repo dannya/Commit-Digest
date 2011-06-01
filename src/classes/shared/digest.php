@@ -561,7 +561,7 @@ class Digest {
 
               <div class="details">
                 <p class="msg">' .
-                  Enzyme::formatMsg($commit['msg']) .
+                  Enzyme::formatMsg($commit['msg'], true) .
            '    </p>';
 
     // show diff / bug box?
@@ -613,7 +613,7 @@ class Digest {
 
       // show name of repository?
       if (!empty($commit['repository'])) {
-        $repository = Ui::formatRepositoryName($commit['repository']);
+        $repository = Enzyme::formatRepositoryName($commit['repository']);
       } else {
         $repository = null;
       }
@@ -636,7 +636,15 @@ class Digest {
 
       foreach ($commit['bug'] as $bug) {
         // work out time to fix (in days)
+        if (!empty($bug['date'])) {
         $fixTime = floor((($commitDate + 3600) - strtotime($bug['date'])) / 86400);
+
+        } else {
+          $fixTime = 0;
+
+          // log the error
+          Log::error('Invalid date for ' . $bug['bug']);
+        }
 
         $buf .= '<div class="bug">
                    <a class="n" href="' . WEBBUG . $bug['bug'] . '" target="_blank">' . sprintf(_('Bug %d: %s'), $bug['bug'], App::truncate(htmlentities($bug['title']), 90, true)) . '</a>

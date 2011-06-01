@@ -152,7 +152,7 @@ class Enzyme {
 
     // set defaults if unset
     if (empty($existingSettings['HELP_URL']['value'])) {
-      $existingSettings['HELP_URL']['value'] 		= 'https://github.com/dannyakakong/Enzyme/wiki';
+      $existingSettings['HELP_URL']['value']        = 'https://github.com/dannyakakong/Enzyme/wiki';
       $existingSettings['HELP_CONTAINER']['value']  = 'div#wiki-content';
     }
 
@@ -320,25 +320,29 @@ class Enzyme {
 
   public static function getAllJobs() {
     // define available jobs / i18n strings
-    $possible['admin']      = array('string'      => _('Admin'),
-                                    'title'       => _('Enzyme Administrator'),
-                                    'description' => _('Enzyme Administrators can manage all aspects of the system, including various import tools and user accounts.'));
+    $possible['admin']          = array('string'      => _('Admin'),
+                                        'title'       => _('Enzyme Administrator'),
+                                        'description' => _('Enzyme Administrators can manage all aspects of the system, including various import tools and user accounts.'));
 
-    $possible['reviewer']   = array('string'      => _('Reviewer'),
-                                    'title'       => _('Commit Reviewer'),
-                                    'description' => _('Commit Reviewers look at all the recent commits, selecting those which are significant and interesting enough to be included into the weekly Commit-Digest.'));
+    $possible['editor']         = array('string'      => _('Editor'),
+                                        'title'       => _('Editor'),
+                                        'description' => _('Editors finalise selected commits, format them for presentation, and write the weekly synopsis.'));
 
-    $possible['classifier'] = array('string'      => _('Classifier'),
-                                    'title'       => _('Commit Classifier'),
-                                    'description' => _('Commit Classifiers sort the selected commits into areas (which is partly automated), and by type (such as bug fix, feature, etc).'));
+    $possible['feature-editor'] = array('string'      => _('Feature Editor'),
+                                        'title'       => _('Feature Editor'),
+                                        'description' => _('Feature Editors contact people working on interesting projects and assist them in writing original pieces which are presented in the introduction of each Commit-Digest.'));
 
-    $possible['editor']     = array('string'      => _('Editor'),
-                                    'title'       => _('Feature Editor'),
-                                    'description' => _('Feature Editors contact people working on interesting projects and assist them in writing original pieces which are presented in the introduction of each Commit-Digest.'));
+    $possible['reviewer']       = array('string'      => _('Reviewer'),
+                                        'title'       => _('Commit Reviewer'),
+                                        'description' => _('Commit Reviewers look at all the recent commits, selecting those which are significant and interesting enough to be included into the weekly Commit-Digest.'));
 
-    $possible['translator'] = array('string'      => _('Translator'),
-                                    'title'       => _('Translator'),
-                                    'description' => _('Translators increase the reach of the Commit-Digest and the work done across the project by making the weekly Commit-Digests available in the native language of people around the world.'));
+    $possible['classifier']     = array('string'      => _('Classifier'),
+                                        'title'       => _('Commit Classifier'),
+                                        'description' => _('Commit Classifiers sort the selected commits into areas (which is partly automated), and by type (such as bug fix, feature, etc).'));
+
+    $possible['translator']     = array('string'      => _('Translator'),
+                                        'title'       => _('Translator'),
+                                        'description' => _('Translators increase the reach of the Commit-Digest and the work done across the project by making the weekly Commit-Digests available in the native language of people around the world.'));
 
     return $possible;
   }
@@ -375,8 +379,15 @@ class Enzyme {
   }
 
 
-  public static function formatMsg($msg) {
-    return str_ireplace(array('<br>', "\n", '&'), array('<br />', '<br />', '&amp;'), $msg);
+  public static function formatMsg($msg, $htmlLiteral = false) {
+    if ($htmlLiteral) {
+      $msg = htmlspecialchars($msg, ENT_NOQUOTES, 'UTF-8', false);
+
+      return str_ireplace(array('<br>', "\n"), array('<br />', '<br />'), $msg);
+
+    } else {
+      return str_ireplace(array('<br>', "\n", '&'), array('<br />', '<br />', '&amp;'), $msg);
+    }
   }
 
 
@@ -480,12 +491,12 @@ class Enzyme {
       return $row['count'];
 
     } else {
-    while ($row = mysql_fetch_assoc($q)) {
-      $existingRevisions[$row['revision']] = $row;
-    }
+      while ($row = mysql_fetch_assoc($q)) {
+        $existingRevisions[$row['revision']] = $row;
+      }
 
-    return $existingRevisions;
-  }
+      return $existingRevisions;
+    }
 
 
   }
@@ -619,7 +630,7 @@ class Enzyme {
 
   public static function loadLinks($lowercase = false, $indexBy = 'name') {
     // lowercase key names?
-      if ($lowercase) {
+    if ($lowercase) {
       $lowercase = 'strtolower';
     }
 
@@ -665,12 +676,12 @@ class Enzyme {
 
       // do insert
       $repository->insertRevisions();
-        }
+    }
 
 
     // display summary
     if (isset($repository)) {
-    echo Ui::processSummary($repository->summary, true);
+      echo Ui::processSummary($repository->summary, true);
     }
 
     // clear bugs list cache
@@ -1160,29 +1171,29 @@ class Enzyme {
 
 
     // get number of reviewed / classified (total)
-    $tmp   = Db::sql('SELECT * FROM commits_reviewed', true);
+    $tmp    = Db::sql('SELECT * FROM commits_reviewed', true);
 
     foreach ($tmp as $item) {
       // reviewed
       if (!empty($item['reviewer'])) {
-      // initialise values
-      if (!isset($stats[$item['reviewer']])) {
-        $stats[$item['reviewer']]['reviewed']['total']    = 0;
-          $stats[$item['reviewer']]['reviewed']['week']     = 0;
+        // initialise values
+        if (!isset($stats[$item['reviewer']])) {
+          $stats[$item['reviewer']]['reviewed']['total']          = 0;
+          $stats[$item['reviewer']]['reviewed']['week']           = 0;
           $stats[$item['reviewer']]['selected']['total']          = 0;
           $stats[$item['reviewer']]['selected']['week']           = 0;
           $stats[$item['reviewer']]['selectedPercent']['total']   = 0;
           $stats[$item['reviewer']]['selectedPercent']['week']    = 0;
-        $stats[$item['reviewer']]['classified']['total']  = 0;
-        $stats[$item['reviewer']]['classified']['week']   = 0;
-      }
+          $stats[$item['reviewer']]['classified']['total']        = 0;
+          $stats[$item['reviewer']]['classified']['week']         = 0;
+        }
 
         // increment
-      if (!isset($stats[$item['reviewer']]['reviewed']['total'])) {
-        $stats[$item['reviewer']]['reviewed']['total'] = 1;
-      } else {
-        ++$stats[$item['reviewer']]['reviewed']['total'];
-      }
+        if (!isset($stats[$item['reviewer']]['reviewed']['total'])) {
+          $stats[$item['reviewer']]['reviewed']['total'] = 1;
+        } else {
+          ++$stats[$item['reviewer']]['reviewed']['total'];
+        }
 
         // also record selections
         if (!empty($item['marked'])) {
@@ -1199,14 +1210,14 @@ class Enzyme {
       if (!empty($item['classifier'])) {
         // initialise values
         if (!isset($stats[$item['classifier']])) {
-          $stats[$item['classifier']]['reviewed']['total']    = 0;
-          $stats[$item['classifier']]['reviewed']['week']     = 0;
+          $stats[$item['classifier']]['reviewed']['total']          = 0;
+          $stats[$item['classifier']]['reviewed']['week']           = 0;
           $stats[$item['classifier']]['selected']['total']          = 0;
           $stats[$item['classifier']]['selected']['week']           = 0;
           $stats[$item['classifier']]['selectedPercent']['total']   = 0;
           $stats[$item['classifier']]['selectedPercent']['week']    = 0;
-          $stats[$item['classifier']]['classified']['total']  = 0;
-          $stats[$item['classifier']]['classified']['week']   = 0;
+          $stats[$item['classifier']]['classified']['total']        = 0;
+          $stats[$item['classifier']]['classified']['week']         = 0;
         }
 
         // increment
@@ -1226,14 +1237,14 @@ class Enzyme {
                       AND reviewed <= "' . $end . '"', true);
 
     if ($tmp) {
-    foreach ($tmp as $item) {
-      // reviewed
-      if (!isset($stats[$item['reviewer']]['reviewed']['week'])) {
-        $stats[$item['reviewer']]['reviewed']['week'] = 1;
-      } else {
-        ++$stats[$item['reviewer']]['reviewed']['week'];
+      foreach ($tmp as $item) {
+        // reviewed
+        if (!isset($stats[$item['reviewer']]['reviewed']['week'])) {
+          $stats[$item['reviewer']]['reviewed']['week'] = 1;
+        } else {
+          ++$stats[$item['reviewer']]['reviewed']['week'];
+        }
       }
-    }
 
 
       // get number of selected (week)
@@ -1264,27 +1275,27 @@ class Enzyme {
       }
 
 
-    // get number of classified (week)
-    $tmp   = Db::sql('SELECT * FROM commits_reviewed
-                      WHERE classified IS NOT NULL
-                      AND classified > "' . $start . '"
-                      AND classified <= "' . $end . '"', true);
+      // get number of classified (week)
+      $tmp   = Db::sql('SELECT * FROM commits_reviewed
+                        WHERE classified IS NOT NULL
+                        AND classified > "' . $start . '"
+                        AND classified <= "' . $end . '"', true);
 
-    foreach ($tmp as $item) {
-      // classified
-      if (!isset($stats[$item['classifier']]['classified']['week'])) {
-        $stats[$item['classifier']]['classified']['week'] = 1;
+      foreach ($tmp as $item) {
+        // classified
+        if (!isset($stats[$item['classifier']]['classified']['week'])) {
+          $stats[$item['classifier']]['classified']['week'] = 1;
 
         } else if (is_array($stats[$item['classifier']]['classified'])) {
-        ++$stats[$item['classifier']]['classified']['week'];
+          ++$stats[$item['classifier']]['classified']['week'];
+        }
       }
-    }
 
 
-    // sort?
+      // sort?
       if ($sort && $stats) {
-      uasort($stats, array('Enzyme', 'sortParticipationStats'));
-    }
+        uasort($stats, array('Enzyme', 'sortParticipationStats'));
+      }
 
 
       // save data in cache
@@ -1373,7 +1384,7 @@ class Enzyme {
 
       } else if (count($tmpPaths) == 1) {
         // return first element
-      return array_pop($tmpPaths);
+        return array_pop($tmpPaths);
 
       } else {
         foreach ($tmpPaths as $key => $value) {
@@ -1489,6 +1500,260 @@ class Enzyme {
     } else {
       return 1;
     }
+  }
+
+
+  public static function displayRevision($type, $id, $data, &$developers, &$user = null, &$classifications = null) {
+    // show date and buttons?
+    if ($type == 'review') {
+      $date = '<div class="date">' .
+                 $data['date'] .
+              '</div>
+               <div class="buttons">
+                 <div class="yes" onclick="actionSelect(event);">&nbsp;</div>
+                 <div class="no" onclick="actionNext(event);">&nbsp;</div>
+               </div>';
+    } else {
+      $date = null;
+    }
+
+
+    // set path
+    $data['basepath'] = Enzyme::drawBasePath($data['basepath']);
+
+
+    // show bugs (as icons) if available
+    if (isset($data['bug'])) {
+      if ($type == 'review') {
+        $bugs = Digest::drawBugs($data, 'bugs');
+
+      } else if ($type == 'classify') {
+        $bugs = '<div class="bugs">';
+
+        foreach ($data['bug'] as $bug) {
+          $bugs  .= '<div onclick="window.open(\'' . WEBBUG . $bug['bug'] . '\');" title="' . sprintf(_('Bug %d: %s'), $bug['bug'], App::truncate(htmlentities($bug['title']), 90, true)) . '">
+                       &nbsp;
+                     </div>';
+        }
+
+        $bugs  .= '</div>';
+      }
+
+    } else {
+      $bugs = null;
+    }
+
+
+    // set item class
+    if ($user && ($user->data['interface'] == 'mouse')) {
+      $itemClass = 'mouse';
+    } else {
+      $itemClass = 'keyboard';
+    }
+
+
+    // show repository name? (for Git commits)
+    $repository = null;
+
+    if (!empty($data['format']) && ($data['format'] == 'git')) {
+      // Git
+      if (!empty($data['repository'])) {
+        $repository = self::formatRepositoryName($data['repository']);
+      }
+
+      $revisionLink  = '<i id="r::' . $data['revision'] . '" class="revision">' .
+                          Digest::getShortGitRevision($data['revision']) .
+                       '</i>';
+
+    } else {
+      // SVN
+      $revisionLink  = '<a id="r::' . $data['revision'] . '" class="revision" href="' . WEBSVN . '?view=revision&amp;revision=' . $data['revision'] . '" target="_blank" tabindex="0">' .
+                          $data['revision'] .
+                       '</a>';
+    }
+
+
+    // draw commit
+    $buf = '<div id="' . $id . '" class="item normal ' . $type . ' ' . $itemClass . '">
+              <div class="commit-title">' .
+                sprintf(_('Commit %s by %s (%s)'),
+                  $revisionLink,
+                  '<span>' . Enzyme::getDeveloperInfo('name', $data['developer']) . '</span>',
+                  '<span>' . $data['developer'] . '</span>') .
+           '    <br />' .
+                $repository . Enzyme::drawBasePath($data['basepath']) .
+                $date .
+           '  </div>
+              <div class="commit-msg">
+                <span>' .
+                  Enzyme::formatMsg($data['msg'], true) .
+           '    </span>' .
+                $bugs .
+           '  </div>';
+
+
+    // add classification input fields?
+    if ($type == 'classify') {
+      // search for basepath in common area classifications, so we can prefill value
+      if ($classifications) {
+        foreach ($classifications as $filter) {
+          if ((($filter['target'] == 'path') && (strpos($data['basepath'], $filter['matched']) !== false)) ||
+              (($filter['target'] == 'repository') && (strpos($data['repository'], $filter['matched']) !== false))) {
+
+            $data['area'] = $filter['area'];
+
+            break;
+          }
+        }
+      }
+
+      // show values as blank if set as 0
+      if ($data['area'] == 0) {
+        $data['area'] = null;
+      }
+      if ($data['type'] == 0) {
+        $data['type'] = null;
+      }
+
+
+      // show remove button? (if user is admin, or reviewed this commit)
+      if ($user && ($user->hasPermission(array('editor')) || ($data['reviewer'] == $user->data['username']))) {
+        $removeButton  = '<div onclick="removeCommit(' . Digest::quoteRevision($data['revision']) . ', callbackRemoveCommit);" title="' . _('Unselect this commit?') . '" class="remove">
+                            &nbsp;
+                          </div>';
+      } else {
+        $removeButton  = null;
+      }
+
+
+      // use mouse-oriented or keyboard-oriented interface?
+      if ($user && ($user->data['interface'] == 'mouse')) {
+        // mouse
+        $areas = array_values(Enzyme::getAreas(true));
+        $types = array_values(Enzyme::getTypes(true));
+
+        $buf  .= '<div class="commit-panel">
+                    <div class="commit-blame' . (($data['reviewer'] == $user->data['username']) ? ' me' : '') . '">' .
+                      sprintf(_('Reviewed by %s'), $data['reviewer']) .
+                 '  </div>' .
+
+                    $removeButton .
+
+                 '  <div class="commit-classify mouse">
+                      <div>
+                        <label>Area</label>' .
+                        Ui::htmlSelector($id . '-area', $areas, $data['area'], 'setCurrentItem(\'' . $id . '\');') .
+                 '    </div>
+                      <div>
+                        <label>Type</label>' .
+                        Ui::htmlSelector($id . '-type', $types, $data['type'], 'setCurrentItem(\'' . $id . '\');') .
+                 '    </div>
+                    </div>
+                  </div>';
+
+      } else {
+        // keyboard
+        $buf  .= '<div class="commit-classify keyboard">
+                    <label>' .
+                      _('Area') . ' <input id="' . $id . '-area" type="text" onblur="setCurrentItem(\'' . $id . '\');" onfocus="scrollItem(\'' . $id . '\');" value="' . $data['area'] . '" />
+                  </label>
+                    <label>' .
+                      _('Type') . ' <input id="' . $id . '-type" type="text" onblur="setCurrentItem(\'' . $id . '\');" onfocus="scrollItem(\'' . $id . '\');" value="' . $data['type'] . '" />
+                  </label>
+                </div>';
+    }
+    }
+
+    $buf .=  '</div>';
+
+    return $buf;
+  }
+
+
+  public static function statusArea($type, $user = null) {
+    // determine interface elements
+    if ($type == 'classify') {
+      // get total number of commits available to classify
+      $total   = Enzyme::getProcessedRevisions('marked', null, null, null, true);
+
+      $display = sprintf(_('%s commits classified (%s displayed, %s total)'),
+                         '<span id="commit-counter">0</span>',
+                         '<span id="commit-displayed">0</span>',
+                         '<span id="commit-total">' . $total . '</span>');
+
+      // interface selector
+      $interface = array('mouse'    => _('Mouse'),
+                         'keyboard' => _('Keyboard'));
+
+      $interfaceSelector = '<div id="interface-selector">';
+
+      foreach ($interface as $key => $value) {
+        if ($user && ($user->data['interface'] == $key)) {
+          $selected = ' checked="checked"';
+        } else {
+          $selected = null;
+        }
+
+        $interfaceSelector  .= '<label title="' . $value . '" class="' . $key . '">
+                                  <input id="interface-' . $key . '" name="interface" value="' . $key . '" type="radio" onclick="changeInterface(\'' . $key . '\');"' . $selected . ' /> <i>&nbsp;</i>
+                                </label>';
+      }
+
+
+      // allow users to only see commits they have reviewed
+      if (isset($user->data['classify_user_filter']) && ($user->data['classify_user_filter'] == 'Y')) {
+        $userFilterChecked = ' checked="checked"';
+      } else {
+        $userFilterChecked = null;
+      }
+
+      $interfaceSelector  .= '  <label id="classify-user-filter" title="' . _('Only show commits I reviewed') . '">
+                                  <input type="checkbox" onchange="setClassifyUserFilter(event);"' . $userFilterChecked . ' /> <i>&nbsp;</i>
+                                </label>
+                              </div>';
+
+
+      // buttons
+      $buttons = '<input id="review-save" type="button" onclick="save(\'' . $type . '\', this);" value="' . _('Save') . '" title="' . _('Save') . '" />
+                  <input id="review-cancel" class="cancel" type="button" onclick="if (confirm(strings.confirm_dataloss)) { location.reload(true); } return false;" value="' . _('Cancel') . '" title="' . _('Cancel') . '" />';
+
+
+    } else if ($type == 'review') {
+      // get total number of commits available to review
+      $total   = Enzyme::getProcessedRevisions('unreviewed', true, null, null, true);
+
+      $display = sprintf('<span class="bold">' . _('Selected %s of %s commits reviewed (%s displayed, %s total)'),
+                         '<span id="commit-selected">0</span></span>',
+                         '<span id="commit-counter">0</span>',
+                         '<span id="commit-displayed">0</span>',
+                         '<span id="commit-total">' . $total . '</span>');
+
+      $interfaceSelector = null;
+      $buttons = '<input id="review-save" type="button" disabled="disabled" onclick="save(\'' . $type . '\', this);" value="' . _('Save') . '" title="' . _('Save') . '" />
+                  <input id="review-cancel" class="cancel" type="button" onclick="if (confirm(strings.confirm_dataloss)) { location.reload(true); } return false;" value="' . _('Cancel') . '" title="' . _('Cancel') . '" />';
+    }
+
+
+    // draw
+    $buf = '<div id="status-area">
+              <div id="status-area-text">' .
+                $display .
+                '<input type="button" style="visibility:hidden;" />
+              </div>' .
+              $interfaceSelector .
+           '  <div id="status-area-actions">
+                <div id="status-area-info" style="display:none;">&nbsp;</div>
+                <img id="status-area-spinner" style="display:none;" src="' . BASE_URL . '/img/spinner-dark-small.gif" alt="" />' .
+                $buttons .
+             '</div>
+            </div>';
+
+    return $buf;
+  }
+
+
+  public static function formatRepositoryName($repositoryName) {
+    return '[' . $repositoryName . '] ';
   }
 }
 

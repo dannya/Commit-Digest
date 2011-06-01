@@ -16,37 +16,39 @@
 
 
 // define database settings
-define('DB_TYPE',           'Mysql');
-define('DB_HOST',           'localhost');
-define('DB_USER',           'root');
-define('DB_PASSWORD',       'hello1');
-define('DB_DATABASE',       'enzyme');
+define('DB_TYPE',             'Mysql');
+define('DB_HOST',             'localhost');
+define('DB_USER',             'root');
+define('DB_PASSWORD',         'hello1');
+define('DB_DATABASE',         'enzyme');
 
 
 // ------- YOU SHOULDN'T NEED TO MODIFY BELOW HERE --------
 
 
 // define app constants
-define('APP_ID',            'commit-digest');
-define('APP_NAME',          'KDE Commit-Digest');
-define('VERSION',           '1.11');
+define('APP_ID',              'commit-digest');
+define('APP_NAME',            'KDE Commit-Digest');
+define('VERSION',             '1.12');
 
-define('META_AUTHOR',       'Danny Allen');
-define('META_DESCRIPTION',  'A weekly overview of the development activity in KDE.');
-define('META_KEYWORDS',     'kde, commit-digest, danny allen, dannya, plasma, akonadi, decibel, oxygen, solid, phonon, strigi');
+define('JAVASCRIPT_LIBRARY',  'prototype');
+
+define('META_AUTHOR',         'Danny Allen');
+define('META_DESCRIPTION',    'A weekly overview of the development activity in KDE.');
+define('META_KEYWORDS',       'kde, commit-digest, danny allen, dannya, plasma, akonadi, decibel, oxygen, solid, phonon, strigi');
 
 
 if (empty($_SERVER['DOCUMENT_ROOT'])) {
-  define('COMMAND_LINE',    true);
-  define('BASE_DIR',        dirname(__FILE__));
+  define('COMMAND_LINE',      true);
+  define('BASE_DIR',          dirname(__FILE__));
 } else {
-  define('BASE_DIR',        rtrim($_SERVER['DOCUMENT_ROOT'], '/'));
-  define('COMMAND_LINE',    false);
+  define('BASE_DIR',          rtrim($_SERVER['DOCUMENT_ROOT'], '/'));
+  define('COMMAND_LINE',      false);
 }
 
 
 // define caching settings
-define('CACHE_DIR',         BASE_DIR . '/cache/');
+define('CACHE_DIR',           BASE_DIR . '/cache/');
 
 $cacheOptions = array('caching'             => false,
                       'cacheDir'            => CACHE_DIR,
@@ -68,9 +70,9 @@ if (COMMAND_LINE) {
 
   // set protocol
   if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on')) {
-    define('PROTOCOL',  'https://');
+    define('PROTOCOL',      'https://');
   } else {
-    define('PROTOCOL',  'http://');
+    define('PROTOCOL',      'http://');
   }
 
   define('BASE_URL',        PROTOCOL . $_SERVER['HTTP_HOST']);
@@ -93,16 +95,17 @@ if (COMMAND_LINE) {
 if (LIVE_SITE) {
   // error handling (log to file)
   ini_set('display_errors', false);
-  ini_set('log_errors', true);
+  ini_set('log_errors',     true);
 
   // path and ID for Piwik installation
-  define('WEBSTATS_URL',  'allmyfriendsarecakes.com/piwik');
-  define('WEBSTATS_ID',   6);
+  define('WEBSTATS_TYPE',   'piwik');
+  define('WEBSTATS_URL',    'allmyfriendsarecakes.com/piwik');
+  define('WEBSTATS_ID',     6);
 
 } else {
   // error handling (show on page)
   ini_set('display_errors', true);
-  ini_set('log_errors', false);
+  ini_set('log_errors',     false);
 }
 
 
