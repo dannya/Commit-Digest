@@ -29,18 +29,27 @@ define('DB_DATABASE',         'enzyme');
 // define app constants
 define('APP_ID',              'commit-digest');
 define('APP_NAME',            'KDE Commit-Digest');
-define('VERSION',             '1.12');
+define('VERSION',             '1.13');
 
-define('JAVASCRIPT_LIBRARY',  'prototype');
 
+// define meta tags
 define('META_AUTHOR',         'Danny Allen');
 define('META_DESCRIPTION',    'A weekly overview of the development activity in KDE.');
 define('META_KEYWORDS',       'kde, commit-digest, danny allen, dannya, plasma, akonadi, decibel, oxygen, solid, phonon, strigi');
 
 
+// make APP_ID's consistently available
+define('DIGEST_APP_ID',       APP_ID);
+define('ENZYME_APP_ID',       'enzyme');
+
+define('JAVASCRIPT_LIBRARY',  'prototype');
+
+
+// set initial values
 if (empty($_SERVER['DOCUMENT_ROOT'])) {
   define('COMMAND_LINE',      true);
   define('BASE_DIR',          dirname(__FILE__));
+
 } else {
   define('BASE_DIR',          rtrim($_SERVER['DOCUMENT_ROOT'], '/'));
   define('COMMAND_LINE',      false);

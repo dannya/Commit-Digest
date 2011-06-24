@@ -706,6 +706,29 @@ abstract class DbMysql extends Db {
     // remove & and _
     return str_replace(array('%', '_'), null, $value);
   }
+
+
+  public static function objectify($class, $data) {
+    if (!$data) {
+      return $data;
+    }
+
+    if (isset($data[0])) {
+      // numerically-indexed, create list of objects
+      $list = array();
+
+      foreach ($data as $item) {
+         $list[] = new $class($item);
+      }
+
+      return $list;
+
+    } else {
+      // create single object
+      return new $class($data);
+    }
+
+  }
 }
 
 ?>
