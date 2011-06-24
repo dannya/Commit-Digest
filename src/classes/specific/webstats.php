@@ -60,6 +60,9 @@ class Webstats {
                 })();
               </script>';
 
+    } else if (WEBSTATS_TYPE === false) {
+      $buf = null;
+
     } else {
       throw new Exception('WEBSTATS_TYPE unset in ' . __CLASS__ . '::' . __METHOD__);
     }
@@ -72,9 +75,13 @@ class Webstats {
 
   // piwik
   public static function manual($params = null) {
-    if (!defined('WEBSTATS_TYPE') || (WEBSTATS_TYPE != 'piwik')) {
+    if (!defined('WEBSTATS_TYPE') || ((WEBSTATS_TYPE != 'piwik') && (WEBSTATS_TYPE !== false))) {
       throw new Exception(__CLASS__ . '::' . __METHOD__ . ' can only be used if WEBSTATS_TYPE == "piwik"');
+
+    } else if (WEBSTATS_TYPE === false) {
+      return false;
     }
+
 
     if (defined('WEBSTATS_URL') && defined('WEBSTATS_ID')) {
       $t = new PiwikTracker(WEBSTATS_ID, PROTOCOL . WEBSTATS_URL);
@@ -100,18 +107,25 @@ class Webstats {
 
   // google analytics
   public static function image() {
-    if (!defined('WEBSTATS_TYPE') || (WEBSTATS_TYPE != 'google')) {
+    if (!defined('WEBSTATS_TYPE') || ((WEBSTATS_TYPE != 'google') && (WEBSTATS_TYPE !== false))) {
       throw new Exception(__CLASS__ . '::' . __METHOD__ . ' can only be used if WEBSTATS_TYPE == "google"');
+
+    } else if (WEBSTATS_TYPE === false) {
+      return false;
     }
+
 
     return '<img src="' . self::imageUrl() . '" onload="alert(\'boo\');" style="display:none;" />';
   }
 
 
   public static function imageUrl() {
-    if (!defined('WEBSTATS_TYPE') || (WEBSTATS_TYPE != 'google')) {
+    if (!defined('WEBSTATS_TYPE') || ((WEBSTATS_TYPE != 'google') && (WEBSTATS_TYPE !== false))) {
       throw new Exception(__CLASS__ . '::' . __METHOD__ . ' can only be used if WEBSTATS_TYPE == "google"');
+    } else if (WEBSTATS_TYPE === false) {
+      return false;
     }
+
 
     if (defined('WEBSTATS_ID')) {
       $url    = BASE_URL . '/get/ga.php?utmac=' . WEBSTATS_ID . '&utmn=' . rand(0, 0x7fffffff);

@@ -177,7 +177,7 @@ class IssueUi {
     // draw share / donate box
     $theUrl         = BASE_URL . '/issue/' . $this->data['date'] . '/';
     $theTitle       = 'KDE Commit Digest - Issue ' . $this->data['id'];
-    $theDescription = App::truncate(addslashes(strip_tags($this->data['synopsis'])), 995, true);
+    $theDescription = App::truncate(addslashes(str_replace("\n", ' ', strip_tags($this->data['synopsis']))), 995, true);
 
     $buf .= DigestUi::drawShareBox($theUrl, $theTitle, $theDescription);
 
