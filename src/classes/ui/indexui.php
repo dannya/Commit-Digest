@@ -31,7 +31,12 @@ class IndexUi {
     $this->title = _('Home');
 
     // load data
-    $this->issues = Db::reindex(Cache::loadSave('issue_latest', 'Digest::loadDigests', array('issue', 'latest')), 'date');
+    $this->issues = Db::reindex(Cache::loadSave(array('base'  => DIGEST_APP_ID,
+                                                      'id'    => 'issue_latest'),
+                                                'Digest::loadDigests',
+                                                array('issue',
+                                                      'latest')),
+                                                'date');
 
     // find 6 months ago, 1 year ago, random digests
     if ($this->issues) {

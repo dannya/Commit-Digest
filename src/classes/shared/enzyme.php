@@ -208,6 +208,12 @@ class Enzyme {
                                                            '1'  => _('Yes')),
                                         'default' => '1',
                                         'example' => null);
+    $tmp['AUTO_DISCARD_COMMITS']  = array('title'   => _('Auto Discard Commits'),
+                                          'valid'   => array('0'  => _('No'),
+                                                             '1'  => _('Yes')),
+                                          'default' => '1',
+                                          'example' => null);
+
     $tmp['DATA_TERMS_VERSION']  = array('title'   => _('Data Terms Version'),
                                         'valid'   => null,
                                         'default' => 0.1,
@@ -292,6 +298,7 @@ class Enzyme {
                                              'HELP_CONTAINER'         => $tmp['HELP_CONTAINER'],
                                              'SMTP'                   => $tmp['SMTP'],
                                              'SHOW_INSERT'            => $tmp['SHOW_INSERT'],
+                                             'AUTO_DISCARD_COMMITS'   => $tmp['AUTO_DISCARD_COMMITS'],
                                              'DATA_TERMS_VERSION'     => $tmp['DATA_TERMS_VERSION'],
                                              'SURVEY_ACTIVE'          => $tmp['SURVEY_ACTIVE']));
 

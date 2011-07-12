@@ -50,17 +50,39 @@ class IssueUi {
     if ($this->review) {
       // if review, look at all issues
       if ($this->id == 'issues') {
-        $issues = Cache::loadSave('issue_latest_unpublished', 'Digest::loadDigests', array('issue', 'latest', false));
+        $issues = Cache::loadSave(array('base'  => DIGEST_APP_ID,
+                                        'id'    => 'issue_latest_unpublished'),
+                                  'Digest::loadDigests',
+                                  array('issue',
+                                        'latest',
+                                        false));
+
       } else if ($this->id == 'archive') {
-        $issues = Cache::loadSave('archive_latest_unpublished', 'Digest::loadDigests', array('archive', 'latest', false));
+        $issues = Cache::loadSave(array('base'  => DIGEST_APP_ID,
+                                        'id'    => 'archive_latest_unpublished'),
+                                  'Digest::loadDigests',
+                                  array('archive',
+                                        'latest',
+                                        false));
       }
 
     } else {
       // if not review, only look at published issues
       if ($this->id == 'issues') {
-        $issues = Cache::loadSave('issue_latest', 'Digest::loadDigests', array('issue', 'latest', true));
+        $issues = Cache::loadSave(array('base'  => DIGEST_APP_ID,
+                                        'id'    => 'issue_latest'),
+                                  'Digest::loadDigests',
+                                  array('issue',
+                                        'latest',
+                                        true));
+
       } else if ($this->id == 'archive') {
-        $issues = Cache::loadSave('archive_latest', 'Digest::loadDigests', array('archive', 'latest', true));
+        $issues = Cache::loadSave(array('base'  => DIGEST_APP_ID,
+                                        'id'    => 'archive_latest'),
+                                  'Digest::loadDigests',
+                                  array('archive',
+                                        'latest',
+                                        true));
       }
     }
 

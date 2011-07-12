@@ -57,7 +57,11 @@ class ListUi {
       $type = 'issue';
     }
 
-    $this->data = Cache::loadSave($type . '_' . $this->sortType, 'Digest::loadDigests', array($type, $this->sortType));
+    $this->data = Cache::loadSave(array('base'  => DIGEST_APP_ID,
+                                        'id'    => $type . '_' . $this->sortType),
+                                  'Digest::loadDigests',
+                                  array($type,
+                                        $this->sortType));
   }
 
 
