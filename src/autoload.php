@@ -29,7 +29,7 @@ define('DB_DATABASE',         'enzyme');
 // define app constants
 define('APP_ID',              'commit-digest');
 define('APP_NAME',            'KDE Commit-Digest');
-define('VERSION',             '1.15');
+define('VERSION',             '1.16');
 
 
 // define meta tags
