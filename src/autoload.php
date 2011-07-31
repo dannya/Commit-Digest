@@ -15,36 +15,6 @@
  +--------------------------------------------------------*/
 
 
-// define database settings
-define('DB_TYPE',             'Mysql');
-define('DB_HOST',             'localhost');
-define('DB_USER',             'root');
-define('DB_PASSWORD',         'hello1');
-define('DB_DATABASE',         'enzyme');
-
-
-// ------- YOU SHOULDN'T NEED TO MODIFY BELOW HERE --------
-
-
-// define app constants
-define('APP_ID',              'commit-digest');
-define('APP_NAME',            'KDE Commit-Digest');
-define('VERSION',             '1.16');
-
-
-// define meta tags
-define('META_AUTHOR',         'Danny Allen');
-define('META_DESCRIPTION',    'A weekly overview of the development activity in KDE.');
-define('META_KEYWORDS',       'kde, commit-digest, danny allen, dannya, plasma, akonadi, decibel, oxygen, solid, phonon, strigi');
-
-
-// make APP_ID's consistently available
-define('DIGEST_APP_ID',       APP_ID);
-define('ENZYME_APP_ID',       'enzyme');
-
-define('JAVASCRIPT_LIBRARY',  'prototype');
-
-
 // set initial values
 if (empty($_SERVER['DOCUMENT_ROOT'])) {
   define('COMMAND_LINE',      true);
@@ -54,18 +24,6 @@ if (empty($_SERVER['DOCUMENT_ROOT'])) {
   define('BASE_DIR',          rtrim($_SERVER['DOCUMENT_ROOT'], '/'));
   define('COMMAND_LINE',      false);
 }
-
-
-// define caching settings
-define('CACHE_DIR',           BASE_DIR . '/cache/');
-
-$cacheOptions = array('caching'             => false,
-                      'cacheDir'            => CACHE_DIR,
-                      'lifetime'            => 3600,
-                      'fileNameProtection'  => true,
-                      'writeControl'        => true,
-                      'readControl'         => false,
-                      'readControlType'     => 'md5');
 
 
 if (COMMAND_LINE) {
@@ -137,15 +95,38 @@ if (COMMAND_LINE) {
   $classDirs = array(BASE_DIR . '/classes/db/',
                      BASE_DIR . '/classes/shared/',
                      BASE_DIR . '/classes/specific/',
+                     BASE_DIR . '/classes/ui/',
                      BASE_DIR . '/classes/ext/',
-                     BASE_DIR . '/classes/ext/cacheLite/',
-                     BASE_DIR . '/classes/ui/');
+                     BASE_DIR . '/classes/ext/cacheLite/');
 
   set_include_path(get_include_path() . PATH_SEPARATOR . implode(PATH_SEPARATOR, $classDirs));
 
   // define autoloader
   spl_autoload_register();
 }
+
+
+// make APP_ID's consistently available
+define('DIGEST_APP_ID',       Config::$app['id']);
+define('ENZYME_APP_ID',       'enzyme');
+
+define('JAVASCRIPT_LIBRARY',  'prototype');
+
+
+// stop APC cache slam errors
+ini_set('apc.slam_defense', 'Off');
+
+
+// define caching settings
+define('CACHE_DIR',           BASE_DIR . '/cache/');
+
+$cacheOptions = array('caching'             => false,
+                      'cacheDir'            => CACHE_DIR,
+                      'lifetime'            => 3600,
+                      'fileNameProtection'  => true,
+                      'writeControl'        => true,
+                      'readControl'         => false,
+                      'readControlType'     => 'md5');
 
 
 // connect to database
