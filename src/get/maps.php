@@ -31,7 +31,7 @@ if (empty($_REQUEST['date']) || !isset($_REQUEST['data'])) {
 
 
 // send off generate request
-$request = file_get_contents(GENERATE_MAPS . '?type=map&regions=all&values=' . $data);
+$request = file_get_contents(Config::getSetting('data', 'GENERATE_MAPS') . '?type=map&regions=all&values=' . $data);
 
 
 // decode map image locations
@@ -72,7 +72,7 @@ foreach ($request->img as $image) {
 
 
 // send remote delete command
-$delete = file_get_contents(GENERATE_MAPS . '?type=delete&dir=' . $filename[5]);
+$delete = file_get_contents(Config::getSetting('data', 'GENERATE_MAPS') . '?type=delete&dir=' . $filename[5]);
 
 
 // return success

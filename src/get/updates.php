@@ -37,7 +37,7 @@ $digests = Digest::loadDigests('issue', 'latest', true, 5);
 $buf = '<?xml version="1.0" encoding="utf-8"?>
         <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xml:base="' . BASE_URL . '/" xmlns:dc="http://purl.org/dc/elements/1.1/">
           <channel>
-            <title>' . sprintf(_('%s Updates'), PROJECT_NAME) . '</title>
+            <title>' . sprintf(_('%s Updates'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '</title>
             <link>' . BASE_URL . '/</link>
             <description>' . _('A weekly overview of the development activity in KDE.') . '</description>
             <language>en</language>

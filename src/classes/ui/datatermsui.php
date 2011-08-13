@@ -39,13 +39,13 @@ class DataTermsUi {
     if (!empty($_REQUEST['version'])) {
       $this->version = rtrim(trim($_REQUEST['version']), '/');
     } else {
-      $this->version = DATA_TERMS_VERSION;
+      $this->version = Config::getSetting('enzyme', 'DATA_TERMS_VERSION');
     }
 
     if (!$this->terms = Db::load('data_terms', array('version' => $this->version), 1)) {
       // terms could not be loaded, note this and load latest version
       $this->error  = true;
-      $this->terms  = Db::load('data_terms', array('version' => DATA_TERMS_VERSION), 1);
+      $this->terms  = Db::load('data_terms', array('version' => Config::getSetting('enzyme', 'DATA_TERMS_VERSION')), 1);
     }
   }
 
@@ -62,7 +62,7 @@ class DataTermsUi {
       $buf  .= '<p id="terms-error">' .
                   sprintf(_('Version %2.1f of the data usage terms could not be found, below is the latest version (version %2.1f)'),
                           $this->version,
-                          DATA_TERMS_VERSION) .
+                          Config::getSetting('enzyme', 'DATA_TERMS_VERSION')) .
                '</p>';
     }
 

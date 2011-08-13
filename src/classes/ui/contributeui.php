@@ -35,7 +35,7 @@ class ContributeUi {
     $buf = '<h1>' . $this->title . '</h1>
 
             <p>' .
-              sprintf(_('There are many ways to help the %s by contributing your time, effort, or money...'), PROJECT_NAME) .
+              sprintf(_('There are many ways to help the %s by contributing your time, effort, or money...'), Config::getSetting('enzyme', 'PROJECT_NAME')) .
            '</p>
 
             <div class="column">
@@ -46,7 +46,7 @@ class ContributeUi {
       $buf  .= '<h3>' .
                   $jobData['title'] .
                '  <span>
-                    <input type="button" onclick="top.location=\'' . ENZYME_URL . '/#' . $job . '\';" value="' . _('Apply!') . '" />
+                    <input type="button" onclick="top.location=\'' . Config::getSetting('enzyme', 'ENZYME_URL') . '/#' . $job . '\';" value="' . _('Apply!') . '" />
                   </span>
                 </h3>
                 <p>' .
@@ -60,7 +60,7 @@ class ContributeUi {
             <div class="column">
               <h2>' . _('Money') . '</h2>
               <p>' .
-                sprintf(_('If you are unable to help the %s by donating your time and effort, you can still show your appreciation and support the ongoing work by donating money.'), PROJECT_NAME) .
+                sprintf(_('If you are unable to help the %s by donating your time and effort, you can still show your appreciation and support the ongoing work by donating money.'), Config::getSetting('enzyme', 'PROJECT_NAME')) .
            '  </p>
 
               <div id="donate-box">
@@ -78,7 +78,7 @@ class ContributeUi {
 
               <h2>' . _('And Finally...') . '</h2>
               <p>' .
-                sprintf(_('Even if you can\'t contribute time, effort, or money in support, your enjoyment of the %s is contribution enough, and leaves us with a warm, fuzzy feeling inside!'), PROJECT_NAME) .
+                sprintf(_('Even if you can\'t contribute time, effort, or money in support, your enjoyment of the %s is contribution enough, and leaves us with a warm, fuzzy feeling inside!'), Config::getSetting('enzyme', 'PROJECT_NAME')) .
            '    <br /><br />' .
                 sprintf(_('Spread the word about KDE and the Commit-Digest by using the %s"share" links%s in the sidebar of each Digest.'), '<a href="#" onclick="highlightShareBox(event);">', '</a>') .
            '    <br /><br />' .
@@ -88,8 +88,8 @@ class ContributeUi {
 
     // draw share / donate box
     $theUrl         = BASE_URL . '/contribute/';
-    $theTitle       = PROJECT_NAME . ' - Contribute';
-    $theDescription = 'Support the work of the ' . PROJECT_NAME . '.';
+    $theTitle       = Config::getSetting('enzyme', 'PROJECT_NAME') . ' - Contribute';
+    $theDescription = 'Support the work of the ' . Config::getSetting('enzyme', 'PROJECT_NAME') . '.';
 
     $buf .= DigestUi::drawShareBox($theUrl, $theTitle, $theDescription);
 

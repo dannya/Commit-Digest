@@ -15,7 +15,7 @@
 
 // globally-available script variables
 var BASE_URL    = '<?php echo BASE_URL; ?>';
-var ENZYME_URL  = '<?php echo ENZYME_URL; ?>';
+var ENZYME_URL  = '<?php echo Config::getSetting("enzyme", "ENZYME_URL"); ?>';
 var LANGUAGE    = '<?php echo LANGUAGE; ?>';
 
 

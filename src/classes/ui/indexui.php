@@ -49,7 +49,7 @@ class IndexUi {
 
   public function draw() {
     $buf = '<h1>' . _('Welcome') . '</h1>
-            <p>' . sprintf(_('...to the %s, a weekly overview of the development activity in KDE.'), PROJECT_NAME) . '</p>
+            <p>' . sprintf(_('...to the %s, a weekly overview of the development activity in KDE.'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '</p>
 
             <div id="latest-box" class="filled" onclick="top.location=\'' . BASE_URL . '/issues/latest/\';">
               <h1>' . _('Read the latest issue!') . '</h1>

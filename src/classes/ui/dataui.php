@@ -66,7 +66,7 @@ class DataUi {
     $buf = '<h1>' . $this->title . '</h1>
 
             <p class="intro">' .
-              sprintf(_('The %s features <a class="u_" href="%s">extended statistics</a>.'), PROJECT_NAME, BASE_URL . '/issues/latest/statistics/') . '<br />' .
+              sprintf(_('The %s features <a class="u_" href="%s">extended statistics</a>.'), Config::getSetting('enzyme', 'PROJECT_NAME'), BASE_URL . '/issues/latest/statistics/') . '<br />' .
               _('To generate exciting visualisations now and in the future, new information is needed from KDE contributors...') .
            '</p>
 
@@ -144,7 +144,7 @@ class DataUi {
               </h1>
 
               <p class="intro">' .
-                sprintf(_('This is the information used to represent you in the %s.'), PROJECT_NAME) . '<br />' .
+                sprintf(_('This is the information used to represent you in the %s.'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '<br />' .
                 _('Please review and add/change details where appropriate.') .
              '</p>
 
@@ -198,15 +198,15 @@ class DataUi {
 
     // add access code into form
     $buf  .= '  <input id="access_code" name="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />
-                <input id="survey_done" name="survey_done" type="hidden" value="' . (int)($this->developer->surveyDone || !SURVEY_ACTIVE) . '" />';
+                <input id="survey_done" name="survey_done" type="hidden" value="' . (int)($this->developer->surveyDone || !Config::getSetting('enzyme', 'SURVEY_ACTIVE')) . '" />';
 
     // form buttons
-    if ($this->developer->privacy['terms_accepted'] != DATA_TERMS_VERSION) {
+    if ($this->developer->privacy['terms_accepted'] != Config::getSetting('enzyme', 'DATA_TERMS_VERSION')) {
       $dataTermsAlert  = '<label id="terms_accepted_container">
                             <input id="terms_accepted" type="checkbox" value="1" />' .
                             sprintf(_('I allow this data to be used under <a href="%s" target="_blank" onclick="openInLightbox(event, { \'append\': \'?onlyContent&noFrame\' });">version %2.1f of the data usage terms</a>'),
-                                    BASE_URL . '/data/terms/' . DATA_TERMS_VERSION,
-                                    DATA_TERMS_VERSION) .
+                                    BASE_URL . '/data/terms/' . Config::getSetting('enzyme', 'DATA_TERMS_VERSION'),
+                                    Config::getSetting('enzyme', 'DATA_TERMS_VERSION')) .
                          '</label>';
     } else {
       $dataTermsAlert  = null;

@@ -79,7 +79,7 @@ class CommitSpyUi {
     $this->commits = Cache::load('recent-commits', true);
 
     if (!$this->commits) {
-      $this->commits = file_get_contents(RECENT_COMMITS);
+      $this->commits = file_get_contents(Config::getSetting('data', 'RECENT_COMMITS'));
 
       // store in cache for 60 seconds to prevent hammering
       Cache::save('recent-commits', $this->commits, true, 60);

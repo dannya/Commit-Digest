@@ -104,10 +104,16 @@ class DigestUi {
       $buf = null;
     }
 
-    $buf .=  '<meta name="description" content="' . Config::$meta['description'] . '" />
+    $buf .=  '<meta charset="utf-8" />
+
+              <meta name="description" content="' . Config::$meta['description'] . '" />
               <meta name="keywords" content="' . Config::$meta['keywords'] . '" />
+
+              <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
               <link rel="shortcut icon" href="' . BASE_URL .'/favicon.ico" type="image/x-icon" />
               <link rel="icon" href="' . BASE_URL . '/favicon.ico" type="image/x-icon" />
+
               <link rel="alternate" type="application/rss+xml" title="" href="' . BASE_URL . '/updates/" />';
 
     return $buf;
@@ -189,7 +195,7 @@ class DigestUi {
                     }
 
                     // send request through iframe
-                    $("header-review-target").src = "' . ENZYME_URL . '/get/publish.php?date=" + date + "&state=" + state;
+                    $("header-review-target").src = "' . Config::getSetting('enzyme', 'ENZYME_URL') . '/get/publish.php?date=" + date + "&state=" + state;
 
                     // remove header
                     if ($("header-review")) {
@@ -300,7 +306,7 @@ class DigestUi {
     }
 
     $buf = '<div id="footer">' .
-              sprintf(_('%s by <a href="mailto:%s">%s</a>, %s'), PROJECT_NAME, 'danny@commit-digest.org', 'Danny Allen', '2006-2011') .
+              sprintf(_('%s by <a href="mailto:%s">%s</a>, %s'), Config::getSetting('enzyme', 'PROJECT_NAME'), 'danny@commit-digest.org', 'Danny Allen', '2006-2011') .
               '<br />' .
               _('All issues in <a href="/archive/">archive</a> by Derek Kite') .
            '  <a id="enzyme-credit" href="http://enzyme-project.org/" target="_blank">&nbsp;</a>
@@ -397,7 +403,7 @@ class DigestUi {
            '  </script>
 
               <div id="share-buttons">
-                <a id="button-rss" class="button" target="_blank" href="' . $button['rss'] . '" title="' . sprintf(_('Subscribe to %s updates'), PROJECT_NAME) . '">&nbsp;</a>
+                <a id="button-rss" class="button" target="_blank" href="' . $button['rss'] . '" title="' . sprintf(_('Subscribe to %s updates'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '">&nbsp;</a>
                 <a id="button-email" class="button" target="_blank" href="' . $button['email'] . '" title="' . _('Send this issue by email...') . '">&nbsp;</a>
                 <a id="button-twitter" class="button" target="_blank" href="' . $button['twitter'] . '" title="' . _('Share this issue by Twitter...') . '">&nbsp;</a>
                 <a id="button-facebook" class="button" target="_blank" href="' . $button['facebook'] . '" title="' . _('Share this issue by Facebook...') . '">&nbsp;</a>

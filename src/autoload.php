@@ -114,7 +114,7 @@ define('JAVASCRIPT_LIBRARY',  'prototype');
 
 
 // stop APC cache slam errors
-ini_set('apc.slam_defense', 'Off');
+ini_set('apc.slam_defense',   'Off');
 
 
 // define caching settings
@@ -142,12 +142,6 @@ if (!$settings) {
                         _('Setup'),
                         array('/css/common.css'));
   exit;
-
-} else {
-  // define settings for app access
-  foreach ($settings as $setting) {
-    define($setting['setting'], $setting['value']);
-  }
 }
 
 
@@ -155,6 +149,6 @@ if (!$settings) {
 App::setLanguage();
 
 // set timezone
-date_default_timezone_set(DEFAULT_TIMEZONE);
+date_default_timezone_set(Config::getSetting('locale', 'TIMEZONE'));
 
 ?>

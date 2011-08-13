@@ -45,15 +45,15 @@ if (!empty($_REQUEST['account'])) {
     $to       = array('name'    => $account['name'],
                       'address' => $account['email']);
 
-    $message  = sprintf(_('%s, someone at the IP address %s has requested to view/modify the identifying information used to represent you in the %s.'), $account['name'], $data['access_ip'], PROJECT_NAME) . "\n\n" .
+    $message  = sprintf(_('%s, someone at the IP address %s has requested to view/modify the identifying information used to represent you in the %s.'), $account['name'], $data['access_ip'], Config::getSetting('enzyme', 'PROJECT_NAME')) . "\n\n" .
                 sprintf(_('If you have made this request, please go to %s'), BASE_URL_HTTPS . '/data/' . $data['access_code']) . "\n" .
                         _('This link is valid for 6 hours.') . "\n\n" .
                         _('If you have not made this request, please ignore this email.') . "\n" .
-                sprintf(_('If you get any more unrequested messages, please contact %s'), ADMIN_EMAIL) . "\n\n" .
-                sprintf(_('Thanks, the %s team'), PROJECT_NAME);
+                sprintf(_('If you get any more unrequested messages, please contact %s'), Config::getSetting('enzyme', 'ADMIN_EMAIL')) . "\n\n" .
+                sprintf(_('Thanks, the %s team'), Config::getSetting('enzyme', 'PROJECT_NAME'));
 
     // send email
-    $email            = new Email($to, sprintf('%s Information Access Request', PROJECT_NAME), $message);
+    $email            = new Email($to, sprintf('%s Information Access Request', Config::getSetting('enzyme', 'PROJECT_NAME')), $message);
     $json['success']  = $email->send();
     $json['success'] = true;
 

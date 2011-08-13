@@ -811,7 +811,7 @@ class IssueUi {
 
 
   private function drawMessage() {
-    $buf = '<p class="message">' . sprintf(_('Thanks for reading the %s!'), PROJECT_NAME) . '</p>';
+    $buf = '<p class="message">' . sprintf(_('Thanks for reading the %s!'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '</p>';
 
     return $buf;
   }
