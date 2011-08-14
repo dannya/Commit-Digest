@@ -16,7 +16,7 @@
 
 
 final class Config {
-  public static $framework  = array('version'     => '20110801');
+  public static $framework  = array('version'     => '20110814');
 
 
   // define app constants
@@ -32,8 +32,6 @@ final class Config {
 
 
   // define locale information
-//  public static $locale     = array('language'    => DEFAULT_LANGUAGE,
-//                                    'timezone'    => DEFAULT_TIMEZONE);
   public static $locale     = array('language'    => 'en_US',
                                     'timezone'    => 'Europe/London');
 
@@ -74,7 +72,6 @@ final class Config {
                                                            'links',
                                                            'repositories',
                                                            'settings',
-                                                           'settings2',
                                                            'tmp_commits',
                                                            'users'));
 
