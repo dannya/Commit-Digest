@@ -22,7 +22,7 @@ div#contributors-box {
   top:4px;
   right:0;
   width:280px;
-  opacity:0.5;
+  opacity:0.6;
 }
 div#contributors-box:hover {
   opacity:1;
@@ -58,7 +58,7 @@ a.right {
   position:absolute;
   height:32px;
   width:30px;
-  background:url('../img/sprite.png') no-repeat;
+  background:url('../../img/sprite.png') no-repeat;
   text-decoration:none;
 }
 
@@ -210,7 +210,7 @@ table#contents-table tbody td a {
   height:20px;
   margin:0 auto;
 
-  background:url('../img/sprite.png') no-repeat;
+  background:url('../../img/sprite.png') no-repeat;
   cursor:pointer;
 }
 
@@ -393,7 +393,7 @@ div.commit div.details div.info div.b div.bug div div {
 
   width:20px;
   height:20px;
-  background:url('../img/sprite.png') no-repeat;
+  background:url('../../img/sprite.png') no-repeat;
   background-position:-100px -40px;
 }
 div.commit div.details div.info div.b div.bug div span {
@@ -451,7 +451,7 @@ div.diffs div.path div {
   width:20px;
   height:20px;
 
-  background:url('../img/sprite.png') no-repeat;
+  background:url('../../img/sprite.png') no-repeat;
   background-position:-0px -64px;
 }
 div.diffs div.path:last-child div {
@@ -554,7 +554,7 @@ div#mappy-container div.mappy-hover div {
   height:20px;
   margin:0 auto;
 
-  background:url('../img/sprite.png') no-repeat;
+  background:url('../../img/sprite.png') no-repeat;
 }
 
 div#mappy-container div.mappy-vert {
@@ -708,7 +708,7 @@ div.flag {
   height:15px;
   margin:4px 6px;
 
-  background:url('../img/flags.png') no-repeat;
+  background:url('../../img/flags.png') no-repeat;
   background-position: -1378px 0;
 }
 

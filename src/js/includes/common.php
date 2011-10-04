@@ -91,23 +91,23 @@ function checkPositioning() {
       }
 
       // fade in box (when at bottom of page)?
-      if ($('share-box').getOpacity() == 0.5) {
-        new Effect.Fade("share-box", { duration:0.2,
-                                       from:0.5,
-                                       to:1 });
-      }
+      //if ($('share-box').getOpacity() == 0.5) {
+      //  new Effect.Fade("share-box", { duration:0.2,
+      //                                 from:0.5,
+      //                                 to:1 });
+      //}
 
     } else {
       $('share-box').style.bottom = '0px';
 
       // fade out box (no longer at bottom of page)?
-      if ((document.viewport.getScrollOffsets().top > Math.min(300, $('frame').getHeight())) &&
-          ($('share-box').getOpacity() == 1)) {
-
-        new Effect.Fade('share-box', { duration:0.2,
-                                       from:1,
-                                       to:0.5 });
-      }
+      //if ((document.viewport.getScrollOffsets().top > Math.min(300, $('frame').getHeight())) &&
+      //    ($('share-box').getOpacity() == 1)) {
+      //
+      //  new Effect.Fade('share-box', { duration:0.2,
+      //                                 from:1,
+      //                                 to:0.5 });
+      //}
     }
   }
 }
@@ -260,12 +260,12 @@ function highlightShareBox(event) {
   Event.stop(event);
 
   // highlight share box
-  new Effect.Fade('share-box', { duration:0.2,
-                                 from:0.5,
-                                 to:1,
-                                 afterFinish: function() {
-                                    $('share-box').highlight();
-                                 } });
+  //new Effect.Fade('share-box', { duration:0.2,
+  //                               from:0.5,
+  //                               to:1,
+  //                               afterFinish: function() {
+  //                                  $('share-box').highlight();
+  //                               } });
 }
 
 

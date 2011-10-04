@@ -70,7 +70,8 @@ class CommitSpyUi {
 
 
   public function getStyle() {
-    return array('/css/issueui.css', '/css/commitspyui.css');
+    return array('/css/frame/issueui.css',
+                 '/css/frame/commitspyui.css');
   }
 
 

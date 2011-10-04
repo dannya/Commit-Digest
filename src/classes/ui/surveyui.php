@@ -315,7 +315,7 @@ class SurveyUi {
 
 
   public function getStyle() {
-    return array('/css/surveyui.css');
+    return array('/css/frame/surveyui.css');
   }
 }
 

@@ -18,7 +18,7 @@
 class DigestUi {
   public $frame             = null;
 
-  private $style            = array('/css/common.css');
+  private $style            = array('/css/includes/common.css');
   private $appScript        = array('/js/prototype.js',
                                     '/js/effects.js');
 
@@ -121,10 +121,19 @@ class DigestUi {
 
 
   public function drawStyle() {
+    // compile
+    $theStyle = $this->style;
+
+    if (LIVE_SITE) {
+      $theStyle = array(Cache::getMinCss('web_' . get_class($this->frame), $theStyle));
+    }
+
+
+    // draw
     $buf = null;
 
-    foreach ($this->style as $style) {
-      $buf .= '<link rel="stylesheet" href="' . BASE_URL . $style . '?version=' . Config::$app['version'] . '" type="text/css" media="screen" />' . "\n";
+    foreach ($theStyle as $style) {
+      $buf .= '<link rel="stylesheet" href="' . BASE_URL . $style . '" type="text/css" media="screen" />' . "\n";
     }
 
     return $buf;
@@ -323,7 +332,7 @@ class DigestUi {
 
     $button['rss']      = BASE_URL . '/updates/';
     $button['email']    = 'http://www.addtoany.com/add_to/email?linkurl=' . $theUrlEncode . '&amp;linkname=' . $theTitleEncode;
-    $button['digg']     = 'http://www.addtoany.com/add_to/digg?linkurl=' . $theUrlEncode . '&amp;type=page&amp;linkname=' . $theTitleEncode;
+    $button['identica'] = 'http://www.addtoany.com/add_to/identi_ca?linkurl=' . $theUrlEncode . '&amp;type=page&amp;linkname=' . $theTitleEncode;
     $button['twitter']  = 'http://www.addtoany.com/add_to/twitter?linkurl=' . $theUrlEncode . '&amp;type=page&amp;linkname=' . $theTitleEncode;
     $button['facebook'] = 'http://www.addtoany.com/add_to/facebook?linkurl=' . $theUrlEncode . '&amp;type=page&amp;linkname=' . $theTitleEncode;
 
@@ -371,12 +380,12 @@ class DigestUi {
                   }, "flattr", "replace");
 
                   // fade out share / donate section?
-                  if ($("share-box").hasClassName("share-sidebar")) {
-                    new Effect.Fade("share-box", { duration:0.5,
-                                                   from:1,
-                                                   to:0.5,
-                                                   delay:5 });
-                  }
+                  //if ($("share-box").hasClassName("share-sidebar")) {
+                  //  new Effect.Fade("share-box", { duration:0.5,
+                  //                                 from:1,
+                  //                                 to:0.5,
+                  //                                 delay:5 });
+                  //}
                 });';
 
 
@@ -405,9 +414,9 @@ class DigestUi {
               <div id="share-buttons">
                 <a id="button-rss" class="button" target="_blank" href="' . $button['rss'] . '" title="' . sprintf(_('Subscribe to %s updates'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '">&nbsp;</a>
                 <a id="button-email" class="button" target="_blank" href="' . $button['email'] . '" title="' . _('Send this issue by email...') . '">&nbsp;</a>
-                <a id="button-twitter" class="button" target="_blank" href="' . $button['twitter'] . '" title="' . _('Share this issue by Twitter...') . '">&nbsp;</a>
-                <a id="button-facebook" class="button" target="_blank" href="' . $button['facebook'] . '" title="' . _('Share this issue by Facebook...') . '">&nbsp;</a>
-                <a id="button-digg" class="button" target="_blank" href="' . $button['digg'] . '" title="' . _('Digg this issue...') . '">&nbsp;</a>
+                <a id="button-twitter" class="button" target="_blank" href="' . $button['twitter'] . '" title="' . _('Share this issue on Twitter...') . '">&nbsp;</a>
+                <a id="button-facebook" class="button" target="_blank" href="' . $button['facebook'] . '" title="' . _('Share this issue on Facebook...') . '">&nbsp;</a>
+                <a id="button-identica" class="button" target="_blank" href="' . $button['identica'] . '" title="' . _('Share this issue on Identica...') . '">&nbsp;</a>
               </div>
             </div>';
 

@@ -148,7 +148,7 @@ select {
 
 input[type="button"],
 input[type="submit"] {
-  background:url("../img/bgd.png") repeat scroll 0 0 transparent;
+  background:url("../../img/bgd.png") repeat scroll 0 0 transparent;
   color:#fff;
   cursor:pointer;
   float:right;
@@ -203,7 +203,7 @@ div#header-bar {
   z-index:1000;
 }
 div#header-bar div#logo {
-  background:url("../img/logo.png") no-repeat transparent;
+  background:url("../../img/logo.png") no-repeat transparent;
   width:497px;
   height:68px;
   margin:8px 10px;
@@ -238,7 +238,7 @@ div#sidebar {
 
 a#sidebar-logo {
   float:left;
-  background:url("../img/logo-sidebar.png") repeat scroll 0 0 transparent;
+  background:url("../../img/logo-sidebar.png") repeat scroll 0 0 transparent;
   width:168px;
   height:36px;
 }
@@ -360,7 +360,7 @@ div#footer a#enzyme-credit {
   right:6px;
   top:6px;
 
-  background:url('../img/enzyme.png') no-repeat;
+  background:url('../../img/enzyme.png') no-repeat;
   opacity:0.5;
 }
 div#footer a#enzyme-credit:hover {
@@ -431,10 +431,11 @@ div#share-box div#share-buttons a.button {
   height:32px;
   margin-left:1px;
 
-  background:url('../img/sprite2.png') no-repeat;
+  background:url('../../img/sprite2.png') no-repeat;
   border-bottom:0;
 }
-div#share-box:hover div#share-buttons a.button {
+/*div#share-box:hover div#share-buttons a.button {*/
+div#share-box div#share-buttons a.button {
   opacity:0.5;
 }
 
@@ -445,7 +446,7 @@ div#share-box div#share-buttons a.button:first-child {
   margin-left:0;
 }
 
-div#share-box div#share-buttons a#button-digg {
+div#share-box div#share-buttons a#button-identica {
   background-position:-64px -0px;
 }
 div#share-box div#share-buttons a#button-email {

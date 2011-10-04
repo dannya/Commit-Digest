@@ -140,7 +140,7 @@ if (!$settings) {
   // show message about configuration
   echo Ui::drawHtmlPage(_('Enzyme backend instance needs to be configured.'),
                         _('Setup'),
-                        array('/css/common.css'));
+                        array('/css/includes/common.css'));
   exit;
 }
 

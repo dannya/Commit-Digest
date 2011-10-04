@@ -52,7 +52,7 @@ class StatisticsUi {
 
 
   public function getStyle() {
-    return array('/css/issueui.css');
+    return array('/css/frame/issueui.css');
   }
 }
 

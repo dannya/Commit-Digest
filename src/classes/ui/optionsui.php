@@ -41,7 +41,7 @@ class OptionsUi {
 
 
   public function getStyle() {
-    return array('/css/optionsui.css');
+    return array('/css/frame/optionsui.css');
   }
 }
 

@@ -27,7 +27,7 @@ class ListUi {
 
   public function __construct($id) {
     // set id and title
-    $this->id    = $id;
+    $this->id = $id;
 
     if ($this->id == 'issues') {
       $this->title = _('Issues');
@@ -112,7 +112,7 @@ class ListUi {
 
 
   public function getStyle() {
-    return array('/css/listui.css');
+    return array('/css/frame/listui.css');
   }
 }
 

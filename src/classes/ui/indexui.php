@@ -102,7 +102,7 @@ class IndexUi {
 
 
   public function getStyle() {
-    return array('/css/indexui.css');
+    return array('/css/frame/indexui.css');
   }
 
 

@@ -56,9 +56,9 @@ class DataUi {
 
 
   public function getStyle() {
-    return array('/css/lightwindow.css',
-                 '/css/dataui.css',
-                 '/css/surveyui.css');
+    return array('/css/includes/lightwindow.css',
+                 '/css/frame/dataui.css',
+                 '/css/frame/surveyui.css');
   }
 
 
