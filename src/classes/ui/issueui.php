@@ -197,7 +197,7 @@ class IssueUi {
     $buf .= $this->container('commits', $this->drawCommits());
 
     // draw share / donate box
-    $theUrl         = BASE_URL . '/issue/' . $this->data['date'] . '/';
+    $theUrl         = BASE_URL . '/issues/' . $this->data['date'] . '/';
     $theTitle       = 'KDE Commit Digest - Issue ' . $this->data['id'];
     $theDescription = App::truncate(addslashes(str_replace("\n", ' ', strip_tags($this->data['synopsis']))), 995, true);
 
