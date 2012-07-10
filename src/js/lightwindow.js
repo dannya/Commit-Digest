@@ -335,7 +335,7 @@ lightwindow.prototype = {
 
 		// close on click?
 		if (this.element.clickClose) {
-      Event.observe($('lightwindow_overlay'), 'click', this.deactivate.bindAsEventListener(this), false);
+			Event.observe($('lightwindow_overlay'), 'click', this.deactivate.bindAsEventListener(this), false);
 		} else {
 			Event.stopObserving($('lightwindow_overlay'), 'click');
 		}
@@ -1345,7 +1345,7 @@ lightwindow.prototype = {
 						this.resizeTo.height = $('lightwindow_contents').scrollHeight+(this.options.contentOffset.height);
 						this.resizeTo.width = $('lightwindow_contents').scrollWidth+(this.options.contentOffset.width);
 
-            // eval inline script
+						// eval inline script
 						response.responseText.evalScripts();
 
 						this._processWindow();

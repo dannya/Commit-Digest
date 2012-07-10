@@ -94,7 +94,7 @@ class App {
           }
         }
 
-    } else {
+      } else {
         // use PHP implode
         $str = implode($delimiter, $content);
       }
@@ -165,8 +165,8 @@ class App {
 
     // check for required permission
     foreach ($permissions as $permission) {
-    if (!$user->hasPermission($permission)) {
-      $message = sprintf(_('You need to have the permission "%s" to view this section'), $permission);
+      if (!$user->hasPermission($permission)) {
+        $message = sprintf(_('You need to have the permission "%s" to view this section'), $permission);
 
       } else {
         // user has permission, stop check

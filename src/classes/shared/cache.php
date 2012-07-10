@@ -279,7 +279,7 @@ class Cache {
       $tmp['id']    = $key;
     }
 
-    $tmp['full']    = $tmp['base'] . '_' . $tmp['id'];
+    $tmp['full'] = $tmp['base'] . '_' . $tmp['id'];
 
     // set
     $key = $tmp;

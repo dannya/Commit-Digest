@@ -246,15 +246,15 @@ class Ui {
       }
 
     } else {
-    if ($class) {
-      $class = ' class="' . $class . '"';
+      if ($class) {
+        $class = ' class="' . $class . '"';
+      }
+
+      echo '<span' . $class . '>' . $msg . "</span><br />\n";
+
+      @ob_flush();
+      @flush();
     }
-
-    echo '<span' . $class . '>' . $msg . "</span><br />\n";
-
-    @ob_flush();
-    @flush();
-  }
   }
 
 
@@ -270,40 +270,40 @@ class Ui {
 
 
     // pre-calculate totals
-      foreach ($summary as $entry) {
-        $total += $entry['value'];
-      }
+    foreach ($summary as $entry) {
+      $total += $entry['value'];
+    }
 
 
     $buf = null;
 
 
     if ($total > 0) {
-    // process values
-    foreach ($summary as $entry) {
-      // show totals inline
-      $percent = round((($entry['value'] / $total) * 100), 1);
-      $values[] = sprintf($entry['title'] . _(' (%.1f percent of %d)'), $entry['value'], $percent, $total);
+      // process values
+      foreach ($summary as $entry) {
+        // show totals inline
+        $percent = round((($entry['value'] / $total) * 100), 1);
+        $values[] = sprintf($entry['title'] . _(' (%.1f percent of %d)'), $entry['value'], $percent, $total);
 
-      // add to total
-      if (!$total) {
-        $total += $entry['value'];
+        // add to total
+        if (!$total) {
+          $total += $entry['value'];
+        }
       }
-    }
 
 
-    // draw
-    $buf = implode($glue, $values);
+      // draw
+      $buf = implode($glue, $values);
 
-    // show total?
-    if ($showTotal) {
-      $buf .= $glue;
+      // show total?
+      if ($showTotal) {
+        $buf .= $glue;
 
-      if (COMMAND_LINE) {
-        $buf .= sprintf(_('Total: %d'), $total);
-      } else {
-        $buf .= '<span class="bold">' . sprintf(_('Total: %d'), $total) . '</span>';
-    }
+        if (COMMAND_LINE) {
+          $buf .= sprintf(_('Total: %d'), $total);
+        } else {
+          $buf .= '<span class="bold">' . sprintf(_('Total: %d'), $total) . '</span>';
+        }
       }
     }
 

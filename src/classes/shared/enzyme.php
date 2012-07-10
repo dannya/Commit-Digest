@@ -177,118 +177,118 @@ class Enzyme {
 
   public static function getAvailableSettings() {
     // define each setting
-    $tmp['PROJECT_NAME']        = array('title'   => _('Project Name'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => 'My Project');
-    $tmp['ADMIN_EMAIL']         = array('title'   => _('Admin Email'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => 'admin@example.com');
-    $tmp['ENZYME_URL']          = array('title'   => _('Enzyme URL'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => 'http://enzyme.commit-digest.org/');
-    $tmp['DIGEST_URL']          = array('title'   => _('Digest URL'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => 'http://commit-digest.org/');
-    $tmp['HELP_URL']            = array('title'   => _('Help URL'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => 'https://github.com/dannyakakong/Enzyme/wiki');
-    $tmp['HELP_CONTAINER']      = array('title'   => _('Help Container Element'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => 'div#wiki-content');
-    $tmp['SMTP']                = array('title'   => _('SMTP Mail Server'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => 'smtp.example.com');
-    $tmp['SHOW_INSERT']         = array('title'   => _('Show Insert'),
-                                        'valid'   => array('0'  => _('No'),
-                                                           '1'  => _('Yes')),
-                                        'default' => '1',
-                                        'example' => null);
+    $tmp['PROJECT_NAME']          = array('title'   => _('Project Name'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => 'My Project');
+    $tmp['ADMIN_EMAIL']           = array('title'   => _('Admin Email'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => 'admin@example.com');
+    $tmp['ENZYME_URL']            = array('title'   => _('Enzyme URL'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => 'http://enzyme.commit-digest.org/');
+    $tmp['DIGEST_URL']            = array('title'   => _('Digest URL'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => 'http://commit-digest.org/');
+    $tmp['HELP_URL']              = array('title'   => _('Help URL'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => 'https://github.com/dannyakakong/Enzyme/wiki');
+    $tmp['HELP_CONTAINER']        = array('title'   => _('Help Container Element'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => 'div#wiki-content');
+    $tmp['SMTP']                  = array('title'   => _('SMTP Mail Server'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => 'smtp.example.com');
+    $tmp['SHOW_INSERT']           = array('title'   => _('Show Insert'),
+                                          'valid'   => array('0'  => _('No'),
+                                                             '1'  => _('Yes')),
+                                          'default' => '1',
+                                          'example' => null);
     $tmp['AUTO_REVIEW_COMMITS']   = array('title'   => _('Auto Review Commits'),
                                           'valid'   => array('0'  => _('No'),
                                                              '1'  => _('Yes')),
                                           'default' => '1',
                                           'example' => null);
 
-    $tmp['DATA_TERMS_VERSION']  = array('title'   => _('Data Terms Version'),
-                                        'valid'   => null,
-                                        'default' => 0.1,
-                                        'example' => null);
-    $tmp['SURVEY_ACTIVE']       = array('title'   => _('Survey Active'),
-                                        'valid'   => array('0'  => _('No'),
-                                                           '1'  => _('Yes')),
-                                        'default' => '0',
-                                        'example' => null);
+    $tmp['DATA_TERMS_VERSION']    = array('title'   => _('Data Terms Version'),
+                                          'valid'   => null,
+                                          'default' => 0.1,
+                                          'example' => null);
+    $tmp['SURVEY_ACTIVE']         = array('title'   => _('Survey Active'),
+                                          'valid'   => array('0'  => _('No'),
+                                                             '1'  => _('Yes')),
+                                          'default' => '0',
+                                          'example' => null);
 
-    $tmp['GENERATE_MAPS']       = array('title'   => _('Map Generation Service URL'),
-                                        'valid'   => null,
-                                        'default' => 'http://grafin.enzyme-project.org/index.php',
-                                        'example' => 'http://grafin.enzyme-project.org/index.php');
-    $tmp['RECENT_COMMITS']      = array('title'   => _('Recent Commits RSS URL'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => 'http://cia.vc/stats/project/KDE/.rss?ver=2&medium=plaintext&limit=10');
+    $tmp['GENERATE_MAPS']         = array('title'   => _('Map Generation Service URL'),
+                                          'valid'   => null,
+                                          'default' => 'http://grafin.enzyme-project.org/index.php',
+                                          'example' => 'http://grafin.enzyme-project.org/index.php');
+    $tmp['RECENT_COMMITS']        = array('title'   => _('Recent Commits RSS URL'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => 'http://cia.vc/stats/project/KDE/.rss?ver=2&medium=plaintext&limit=10');
     $tmp['WEBSVN']                = array('title'   => _('Web SVN viewer URL'),
                                           'valid'   => null,
                                           'default' => null,
                                           'example' => null);
     $tmp['WEBBUG']                = array('title'   => _('Web Bug Tracker URL'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => null);
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => null);
     $tmp['WEBBUG_XML']            = array('title'   => _('Web Bug Tracker (XML) URL'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => null);
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => null);
     $tmp['REVIEWBOARD']           = array('title'   => _('ReviewBoard URL'),
                                           'valid'   => null,
                                           'default' => null,
                                           'example' => 'https://git.reviewboard.kde.org/r/[number]/');
-    $tmp['I18N_STATS']          = array('title'   => _('I18n Stats URL'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => null);
-    $tmp['I18N_TEAMS']          = array('title'   => _('I18n Teams URL'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => null);
-    $tmp['BUG_STATS']           = array('title'   => _('Bug Stats URL'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => null);
+    $tmp['I18N_STATS']            = array('title'   => _('I18n Stats URL'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => null);
+    $tmp['I18N_TEAMS']            = array('title'   => _('I18n Teams URL'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => null);
+    $tmp['BUG_STATS']             = array('title'   => _('Bug Stats URL'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => null);
 
-    $tmp['TIMEZONE']            = array('title'   => _('Default Timezone'),
-                                        'valid'   => array('Europe/London' => 'Europe/London'),
-                                        'default' => 'Europe/London',
-                                        'example' => null);
-    $tmp['LANGUAGE']            = array('title'   => _('Default Language'),
-                                        'valid'   => Digest::getLanguages(),
-                                        'default' => 'en_US',
-                                        'example' => null);
+    $tmp['TIMEZONE']              = array('title'   => _('Default Timezone'),
+                                          'valid'   => array('Europe/London' => 'Europe/London'),
+                                          'default' => 'Europe/London',
+                                          'example' => null);
+    $tmp['LANGUAGE']              = array('title'   => _('Default Language'),
+                                          'valid'   => Digest::getLanguages(),
+                                          'default' => 'en_US',
+                                          'example' => null);
 
-    $tmp['ENABLE_LEGACY']       = array('title'   => _('Enable Legacy Import'),
-                                        'valid'   => array('0'  => _('No'),
-                                                           '1'  => _('Yes')),
-                                        'default' => '0',
-                                        'example' => null);
-    $tmp['EXISTING_ISSUES']     = array('title'   => _('Existing Issues'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => null);
-    $tmp['EXISTING_ARCHIVE']    = array('title'   => _('Existing Archive'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => null);
-    $tmp['EXISTING_DATA']       = array('title'   => _('Existing Data'),
-                                        'valid'   => null,
-                                        'default' => null,
-                                        'example' => null);
+    $tmp['ENABLE_LEGACY']         = array('title'   => _('Enable Legacy Import'),
+                                          'valid'   => array('0'  => _('No'),
+                                                             '1'  => _('Yes')),
+                                          'default' => '0',
+                                          'example' => null);
+    $tmp['EXISTING_ISSUES']       = array('title'   => _('Existing Issues'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => null);
+    $tmp['EXISTING_ARCHIVE']      = array('title'   => _('Existing Archive'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => null);
+    $tmp['EXISTING_DATA']         = array('title'   => _('Existing Data'),
+                                          'valid'   => null,
+                                          'default' => null,
+                                          'example' => null);
 
     return $tmp;
   }
@@ -433,8 +433,8 @@ class Enzyme {
 
           $msg = str_replace($match, '<a href="' . self::getSettingUrl(Config::getSetting('data', 'REVIEWBOARD'), $tmp[0]) . '" target="_blank">' . $match . '</a>', $msg);
         }
+      }
     }
-  }
 
 
     return $msg;
@@ -954,10 +954,10 @@ class Enzyme {
 
       // increment files counter
       if (isset($commitFiles[$entry['revision']])) {
-      $numFiles             = count($commitFiles[$entry['revision']]);
-      $stats['totalFiles'] += $numFiles;
+        $numFiles             = count($commitFiles[$entry['revision']]);
+        $stats['totalFiles'] += $numFiles;
 
-      $stats['person'][$entry['developer']]['files'] += $numFiles;
+        $stats['person'][$entry['developer']]['files'] += $numFiles;
       }
 
 
@@ -1198,10 +1198,10 @@ class Enzyme {
 
     // get general stats
     if (is_int($revision['start'])) {
-    $stats['general']['revision_start']     = $revision['start'];
+      $stats['general']['revision_start']   = $revision['start'];
     }
     if (is_int($revision['end'])) {
-    $stats['general']['revision_end']       = $revision['end'];
+      $stats['general']['revision_end']     = $revision['end'];
     }
 
     $stats['general']['date']               = $date;
@@ -1265,7 +1265,7 @@ class Enzyme {
 
     // get number of reviewed (week)
     $tmp = Db::sql('SELECT reviewer, COUNT(reviewer) as reviewed FROM commits_reviewed
-                      WHERE reviewed > "' . $start . '"
+                    WHERE reviewed > "' . $start . '"
                     AND reviewed <= "' . $end . '"
                     GROUP BY reviewer', true);
 
@@ -1277,14 +1277,14 @@ class Enzyme {
 
       // get number of selected (week)
       $tmp = Db::sql('SELECT reviewer, COUNT(reviewer) as selected FROM commits_reviewed
-                        WHERE marked = 1
-                        AND reviewed > "' . $start . '"
+                      WHERE marked = 1
+                      AND reviewed > "' . $start . '"
                       AND reviewed <= "' . $end . '"
                       GROUP BY reviewer', true);
 
       foreach ($tmp as $item) {
         $stats[$item['reviewer']]['selected']['week'] = $item['selected'];
-        }
+      }
 
 
       // get number of classified (week)
@@ -1803,11 +1803,11 @@ class Enzyme {
 
       // check whether to auto-review
       if (!empty($commit['commit']['format']) && ($commit['commit']['format'] == 'git')) {
-      // auto review if:
-      //  * commit date is less than last published issue
-      //  * commit message is less than 14 chars long
-      if (($commit['tmp']['date'] < $lastPublishedIssue) ||
-          (strlen($commit['commit']['msg']) < 14)) {
+        // auto review if:
+        //  * commit date is less than last published issue
+        //  * commit message is less than 14 chars long
+        if (($commit['tmp']['date'] < $lastPublishedIssue) ||
+            (strlen($commit['commit']['msg']) < 14)) {
 
           $autoReview = true;
         }

@@ -142,10 +142,10 @@ class Digest {
       $filter = ' AND ' . Db::createFilter($table, $filter) . ' ';
 
     } else {
-    // only get published?
-    if ($onlyPublished) {
+      // only get published?
+      if ($onlyPublished) {
         $filter = ' AND published = 1 ';
-    } else {
+      } else {
         $filter = null;
       }
     }
@@ -647,7 +647,7 @@ class Digest {
       foreach ($commit['bug'] as $bug) {
         // work out time to fix (in days)
         if (!empty($bug['date'])) {
-        $fixTime = floor((($commitDate + 3600) - strtotime($bug['date'])) / 86400);
+          $fixTime = floor((($commitDate + 3600) - strtotime($bug['date'])) / 86400);
 
         } else {
           $fixTime = 0;
@@ -727,18 +727,18 @@ class Digest {
 
 
   public static function getPermissions() {
-    $permissions = array('admin'       => array('string' => 'A',
-                                                'title'  => _('Admin')),
-                         'editor'      => array('string' => 'E',
-                                                'title'  => _('Editor')),
+    $permissions = array('admin'            => array('string' => 'A',
+                                                     'title'  => _('Admin')),
+                         'editor'           => array('string' => 'E',
+                                                     'title'  => _('Editor')),
                          'feature-editor'   => array('string' => 'F',
                                                      'title'  => _('Feature editor')),
-                         'reviewer'    => array('string' => 'R',
-                                                'title'  => _('Reviewer')),
-                         'classifier'  => array('string' => 'C',
-                                                'title'  => _('Classifier')),
-                         'translator'  => array('string' => 'T',
-                                                'title'  => _('Translator')));
+                         'reviewer'         => array('string' => 'R',
+                                                     'title'  => _('Reviewer')),
+                         'classifier'       => array('string' => 'C',
+                                                     'title'  => _('Classifier')),
+                         'translator'       => array('string' => 'T',
+                                                     'title'  => _('Translator')));
 
     return $permissions;
   }

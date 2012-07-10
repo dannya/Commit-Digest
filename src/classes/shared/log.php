@@ -38,7 +38,7 @@ class Log {
       } else {
         $data['user'] = Db::serialize($userData);
       }
-      }
+    }
 
     // add additional data?
     if ($additionalData) {
