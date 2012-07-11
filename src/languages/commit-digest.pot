@@ -675,10 +675,10 @@ msgstr ""
 msgid "KDE Base"
 msgstr ""
 
-msgid "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</a>, 2006-2010"
+msgid "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</a>, 2006-2012"
 msgstr ""
 
-msgid "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</a>, 2006-2011"
+msgid "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</a>, 2006-2012"
 msgstr ""
 
 msgid "KDE-PIM"
