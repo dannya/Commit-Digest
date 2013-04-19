@@ -50,7 +50,7 @@ if (COMMAND_LINE) {
   session_start();
 
   // set environment (live / development)
-  if ($_SERVER['HTTP_HOST'] == 'digest') {
+  if (($_SERVER['HTTP_HOST'] == 'digest') || ($_SERVER['HTTP_HOST'] == 'localhost')) {
     define('LIVE_SITE', false);
   } else {
     define('LIVE_SITE', true);

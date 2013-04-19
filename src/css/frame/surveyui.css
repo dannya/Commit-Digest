@@ -71,7 +71,7 @@
 }
 #survey .project span {
   font-style:italic;
-  display:inline-block;
+  display:block;
   max-width:70%;
 }
 #survey .project input[type="text"] {

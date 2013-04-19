@@ -337,7 +337,7 @@ class Developer {
                      'gender'         => _('Gender'),
                      'motivation'     => _('Motivation'),
                      'employer'       => _('Employer'),
-                     'colour'         => _('Colour'),
+                     'colour'         => _('Favourite colour'),
 
                      'continent'      => _('Continent'),
                      'country'        => _('Country'),

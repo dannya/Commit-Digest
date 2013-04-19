@@ -165,20 +165,25 @@ class SurveyUi {
                 <form id="survey_data" class="clearfix" action="" method="post">';
 
     foreach ($this->questions as $sectionNum => $section) {
-      $buf  .= '  <div id="section-' . $sectionNum . '" class="section">
-                    <h3>' .
-                      $this->sections[$sectionNum] .
-               '    </h3>';
+      $buf  .= '  <div id="section-' . $sectionNum . '" class="section">';
 
       if ($sectionNum === 1) {
         $buf  .= '  <label class="project">
+                      What is your nationality?
+                      <input type="text" name="nationality" />
+                    </label>
+
+                    <label class="project">
                       To which KDE project do you contribute/have you contributed to?
                       <span>If you contribute/contributed to more than one KDE project, please name the one which is most important to you.<span>
                       <input type="text" name="project" />
                     </label>';
       }
 
-      $buf  .= '    <p class="intro">' .
+      $buf  .= '    <h3>' .
+                      $this->sections[$sectionNum] .
+               '    </h3>' .
+               '    <p class="intro">' .
                '      <b>' . $this->intros[$sectionNum] . '</b><br />' .
                '      Rate your responses to the following questions using the radio button scale (strongly disagree to strongly agree)...
                     </p>

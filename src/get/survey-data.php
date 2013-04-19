@@ -75,6 +75,19 @@ $surveyData   = array();
 // }
 
 
+// process nationality
+$surveyData[] = array('account' => $developer->data['account'],
+                      'date'    => $date,
+                      'section' => 'nationality',
+                      'q'       => null,
+                      'string'  => $_REQUEST['nationality'],
+                      'a1'      => null,
+                      'a2'      => null,
+                      'a3'      => null,
+                      'a4'      => null,
+                      'a5'      => null);
+
+
 // process project name
 $surveyData[] = array('account' => $developer->data['account'],
                       'date'    => $date,
