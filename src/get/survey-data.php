@@ -37,46 +37,59 @@ $date         = date('Y-m-d H:i:s');
 $surveyData   = array();
 
 
-// process project data
-$i = 1;
+// // process project data
+// $i = 1;
+//
+// while (!empty($_REQUEST['project-' . $i . '_name'])) {
+  // $surveyData[] = array('account' => $developer->data['account'],
+                        // 'date'    => $date,
+                        // 'section' => 'project',
+                        // 'q'       => $i,
+                        // 'string'  => $_REQUEST['project-' . $i . '_name'],
+                        // 'a1'      => $_REQUEST['project-' . $i . '_1'],
+                        // 'a2'      => $_REQUEST['project-' . $i . '_2'],
+                        // 'a3'      => $_REQUEST['project-' . $i . '_3'],
+                        // 'a4'      => $_REQUEST['project-' . $i . '_4'],
+                        // 'a5'      => null);
+//
+  // ++$i;
+// }
 
-while (!empty($_REQUEST['project-' . $i . '_name'])) {
-  $surveyData[] = array('account' => $developer->data['account'],
-                        'date'    => $date,
-                        'section' => 'project',
-                        'q'       => $i,
-                        'string'  => $_REQUEST['project-' . $i . '_name'],
-                        'a1'      => $_REQUEST['project-' . $i . '_1'],
-                        'a2'      => $_REQUEST['project-' . $i . '_2'],
-                        'a3'      => $_REQUEST['project-' . $i . '_3'],
-                        'a4'      => $_REQUEST['project-' . $i . '_4'],
-                        'a5'      => null);
 
-  ++$i;
-}
+// // process contributor data
+// $i = 1;
+//
+// while (!empty($_REQUEST['contributor-' . $i . '_name'])) {
+  // $surveyData[] = array('account' => $developer->data['account'],
+                        // 'date'    => $date,
+                        // 'section' => 'contributor',
+                        // 'q'       => $i,
+                        // 'string'  => $_REQUEST['contributor-' . $i . '_name'],
+                        // 'a1'      => $_REQUEST['contributor-' . $i . '_1'],
+                        // 'a2'      => $_REQUEST['contributor-' . $i . '_2'],
+                        // 'a3'      => $_REQUEST['contributor-' . $i . '_3'],
+                        // 'a4'      => $_REQUEST['contributor-' . $i . '_4'],
+                        // 'a5'      => $_REQUEST['contributor-' . $i . '_5']);
+//
+  // ++$i;
+// }
 
 
-// process contributor data
-$i = 1;
-
-while (!empty($_REQUEST['contributor-' . $i . '_name'])) {
-  $surveyData[] = array('account' => $developer->data['account'],
-                        'date'    => $date,
-                        'section' => 'contributor',
-                        'q'       => $i,
-                        'string'  => $_REQUEST['contributor-' . $i . '_name'],
-                        'a1'      => $_REQUEST['contributor-' . $i . '_1'],
-                        'a2'      => $_REQUEST['contributor-' . $i . '_2'],
-                        'a3'      => $_REQUEST['contributor-' . $i . '_3'],
-                        'a4'      => $_REQUEST['contributor-' . $i . '_4'],
-                        'a5'      => $_REQUEST['contributor-' . $i . '_5']);
-
-  ++$i;
-}
+// process project name
+$surveyData[] = array('account' => $developer->data['account'],
+                      'date'    => $date,
+                      'section' => 'project',
+                      'q'       => null,
+                      'string'  => $_REQUEST['project'],
+                      'a1'      => null,
+                      'a2'      => null,
+                      'a3'      => null,
+                      'a4'      => null,
+                      'a5'      => null);
 
 
 // process motivation data
-for ($i = 1; $i <= 18; $i++) {
+for ($i = 1; $i <= 63; $i++) {
   if (empty($_REQUEST['motivation-' . $i])) {
     continue;
   }

@@ -13,6 +13,9 @@
  +--------------------------------------------------------*/
 
 
+window.surveyPage = 1;
+
+
 function addRow(container) {
   // make clone, change id's and clear values
   var newRow = container.select('tbody tr').first().clone(true);
@@ -29,7 +32,7 @@ function addRow(container) {
 
     // clear value
     if (item.tagName == 'INPUT') {
-    	item.value = '';
+      item.value = '';
       item.focus();
 
     } else if (item.tagName == 'SELECT') {
@@ -46,96 +49,167 @@ function addRow(container) {
 
 
 function submitSurvey(event) {
-	if (typeof event == 'object') {
-	  Event.stop(event);
-	}
+  if (typeof event == 'object') {
+    Event.stop(event);
+  }
 
-	// ensure form is filled
-	var error = false;
+  // ensure form is filled
+  var error = false;
 
-	$('survey').select('input[type="text"]').each(function(item) {
-		// only check row if value has been entered
-		if (item.value.trim().empty()) {
-			return;
-		}
+  $('survey').select('input[type="text"]').each(function(item) {
+    // only check row if value has been entered
+    if (item.value.trim().empty()) {
+      return;
+    }
 
-		item.up('tr').select('select').each(function(sub) {
-			if (sub.value == '0') {
-				// focus first error
-				if (!error) {
-					sub.focus();
-					scrollToOffset(item.up('div.section'), 0, $("lightwindow_contents").down("div.contents"))
-				}
+    var parent = item.up('tr');
+    if (parent) {
+      parent.select('select').each(function(sub) {
+        if (sub.value == '0') {
+          // focus first error
+          if (!error) {
+            sub.focus();
 
-        error = true;
-				sub.addClassName('failure');
+            var container = $("lightwindow_contents");
+            if (!container) {
+              container = $('body');
+            }
 
-			} else {
-        sub.removeClassName('failure');
-			}
-		});
-	});
+            scrollToOffset(item.up('div.section'), 0, container.down("div.contents"));
+          }
 
-	var radios = Form.serializeElements($('survey_data').getInputs('radio'), true);
+          error = true;
+          sub.addClassName('failure');
 
-	$('motivation').select('tbody tr').each(function(item) {
-		var theName = item.select('label.r1 input[type="radio"]').first().readAttribute('name');	
+        } else {
+          sub.removeClassName('failure');
+        }
+      });
+    }
+  });
 
-		if (typeof radios[theName] != 'string') {
-      // focus first error
+  var radios = Form.serializeElements($('survey_data').getInputs('radio'), true);
+
+  $$('table.motivation').each(function(table) {
+    table.select('tbody tr').each(function(item) {
+      var theName = item.select('label.r1 input[type="radio"]').first().readAttribute('name');
+
+      if (typeof radios[theName] != 'string') {
+        // focus first error
         if (!error) {
-        	scrollToOffset(item, 0, $("lightwindow_contents").down("div.contents"))
+          var container = $("lightwindow_contents");
+          if (!container) {
+            container = $('body');
+          }
+
+          scrollToOffset(item, 0, container.down("div.contents"));
         }
 
-			error = true;
-			item.addClassName('failure');
+        error = true;
+        item.addClassName('failure');
 
-		} else {
-			item.removeClassName('failure');
-		}
-	});
+      } else {
+        item.removeClassName('failure');
+      }
+    });
+  });
 
 
   if (error) {
-  	alert('Please answer all questions');
+    alert('Please answer all questions');
 
   } else {
     if ($('submit')) {
       $('submit').disabled = true;
     }
 
-  	// send off data
-	  new Ajax.Request(BASE_URL + '/get/survey-data.php', {
-	    method:     'post',
-	    parameters: $('survey_data').serialize(true),
-	    onSuccess: function(transport) {
-	      var data = transport.headerJSON; 
-	
-	      if ((typeof data.success != 'undefined') && data.success) {
-	      	// remember survey completion
-	      	if ($('survey_done')) {
-	      		$('survey_done').writeAttribute('value', 1);
-	      	}
+    // send off data
+    new Ajax.Request(BASE_URL + '/get/survey-data.php', {
+      method:     'post',
+      parameters: $('survey_data').serialize(true),
+      onSuccess: function(transport) {
+        var data = transport.headerJSON;
 
-	        // close lightbox
-	        if (typeof lightbox == 'object') {
-	          lightbox.deactivate();
-	          $('body').scrollTo();
-	        }
+        if ((typeof data.success != 'undefined') && data.success) {
+          // remember survey completion
+          if ($('survey_done')) {
+            $('survey_done').writeAttribute('value', 1);
+          }
 
-	        // thank user
-	        alert('Thanks for completing the survey!');
+          // close lightbox
+          if (typeof lightbox == 'object') {
+            lightbox.deactivate();
+            $('body').scrollTo();
+          }
 
-	      } else {
-	        // failure
-	        if ($('submit')) {
-	          $('submit').disabled = false;
-	        }
+          // thank user
+          alert('Thanks for completing the survey!');
 
-	        alert(strings.failure);
-	      }
-	    }
-	  });
+        } else {
+          // failure
+          if ($('submit')) {
+            $('submit').disabled = false;
+          }
+
+          alert(strings.failure);
+        }
+      }
+    });
+  }
+
+  return false;
+}
+
+
+function previousPage(event) {
+  if (typeof event == 'object') {
+    Event.stop(event);
+  }
+
+  if (window.surveyPage > 1) {
+    // manage buttons
+    $('next').show();
+    $('submit').hide();
+
+    if (window.surveyPage === 2) {
+      $('prev').hide();
+      $('next').show();
+    }
+
+    // manage sections
+    $('section-1').hide();
+    $('section-2').hide();
+    $('section-3').hide();
+    $('section-4').hide();
+
+    $('section-' + (--window.surveyPage)).show();
+  }
+
+  return false;
+}
+
+
+function nextPage(event) {
+  if (typeof event == 'object') {
+    Event.stop(event);
+  }
+
+  if (window.surveyPage <= 3) {
+    // manage buttons
+    $('prev').show();
+
+    if (window.surveyPage === 3) {
+      $('next').hide();
+      $('submit').show();
+    }
+
+    // manage sections
+    $('section-1').hide();
+    $('section-2').hide();
+    $('section-3').hide();
+    $('section-4').hide();
+
+    $('section-' + (++window.surveyPage)).show();
   }
 
   return false;
@@ -174,7 +248,7 @@ function radioMouseout(event) {
 
 function radioClick(event) {
   var element = event.element().up('label');
-  
+
   // remove error class
   element.up('tr').removeClassName('failure');
 

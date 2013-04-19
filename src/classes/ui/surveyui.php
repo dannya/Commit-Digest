@@ -37,59 +37,86 @@ class SurveyUi {
       $this->onlyContent = true;
     }
 
+    // set section titles
+    $this->sections  = array(1 => 'Motivation',
+                                  'Motivation (continued)',
+                                  'Your Experience',
+                                  'Your Experience (continued)');
+
+    $this->intros    = array(1 => 'Please associate the term \'project\' in all subsequent questions to this project defined above.',
+                                  'Please associate the term \'project\' in all subsequent questions to the project which you defined on the first page.',
+                                  'Please associate the term \'project\' in all subsequent questions to the project which you defined on the first page.',
+                                  'Please associate the term \'project\' in all subsequent questions to the project which you defined on the first page.');
+
     // set survey questions
-    $this->questions = array(1 => 'What matters to me the most in participating in KDE is to tackle problems that are completely new to me',
-                                  'I am strongly motivated by the recognition I can earn from other people in KDE',
-                                  'I want other people to find out how good I really can be in software development/testing',
-                                  'I am strongly motivated by the money I can earn through my participation in the KDE',
-                                  'My attachment to KDE is primarily based on similarity of my values and those represented by this project',
-                                  'What matters to me the most in participating in KDE is to try to solve complex problems',
-                                  'The reason I participate in the KDE project is because of what it stands for, that is, its values',
-                                  'To me, success of participation in KDE means doing better than other people',
-                                  'The KDE project group has a great deal of personal meaning for me',
-                                  'I really feel as if KDE\'s problems are my own',
-                                  'I am keenly aware of the possible career promotion that may be brought by my participation in KDE',
-                                  'I have a strong positive feeling towards KDE',
-                                  'If the values of the KDE project were different, I would not be as attached to it',
-                                  'What matters to me the most in participating in KDE is to enjoy fixing difficult problems',
-                                  'I am keenly aware of the income goals I have for myself if I participate in KDE',
-                                  'In summary, I intend to continue participating in KDE projects',
-                                  'I plan to make future contributions to KDE projects',
-                                  'If I could, I would like to discontinue my participation in KDE projects');
+    $this->questions[1]  = array(1 => 'I want other people to find out how good I really can be in software development',
+                                      'This project group has a great deal of personal meaning for me.',
+                                      'It is important to me that this project shares my views on open source software',
+                                      'I see myself as extraverted, enthusiastic.',
+                                      'It is important to me that I can show my programming capabilities to potential new employers through participating in this project.',
+                                      'It is fun participating in this project.',
+                                      'I see myself as open to new experiences, complex.',
+                                      'The reason I participate in this project is because of what it stands for, that is, its values.',
+                                      'I am strongly motivated by the recognition I can earn from other people in this project.',
+                                      'I see myself as critical, quarrelsome.',
+                                      'When someone praises this project, it feels like a personal compliment.',
+                                      'Participating in this project gives me a satisfying feeling.',
+                                      'I see myself as sympathetic, warm.',
+                                      'I want to show other developers in the community how good I really can be.',
+                                      'I see myself as disorganized, careless.');
+
+    $this->questions[2]  = array(1 => 'I feel a sense of belonging toward this project group.',
+                                      'The project shares my views and beliefs on open source software.',
+                                      'I am keenly aware of the income goals I have for myself if I participate in this project.',
+                                      'I see myself as dependable, self-disciplined.',
+                                      'I have a strong positive feeling toward this project group.',
+                                      'How many blogs do you read on averarge every day.',
+                                      'I see myself as conventional, uncreative.',
+                                      'It is important to me that I can promote my career prospects through my participation in this project.',
+                                      'I am motivated to participate in this project because it gives me the possibility to earn respect for my work.',
+                                      'I see myself as calm, emotionally stable.',
+                                      'I enjoy working in this project.',
+                                      'I see myself as anxious, easily upset.',
+                                      'My personal values and those of the project are similar.',
+                                      'I am motivated by the future income gains I can achieve through my participation in this project.',
+                                      'When I talk about the project, I usually say \'we\' rather than \'they\'.',
+                                      'I see myself as reserved, quiet.');
+
+    $this->questions[3]  = array(1 => 'How many corporate sponsors has this project.',
+                                      'Many project members live in my area.',
+                                      'I would feel a sense of loss if I could no longer work together with the members in this project.',
+                                      'Some of the developers in this project are highly respected by other developers in the community.',
+                                      'Most members of this project are very competent and approach their work very professional.',
+                                      'It is important to me that I often see other members of this project face to face.',
+                                      'If I could I would like to discontinue my participation in this project.',
+                                      'Corporate sponsors shape the development of this project.',
+                                      'I can rely on the members of this project to help me constructively in accomplishing my work.',
+                                      'Some members of this project are famous in the community.',
+                                      'I often coincedentally see project members.',
+                                      'I plan to make future contributions to this project.',
+                                      'If I share my problems with others in this project I know they will respond constructively and caringly.',
+                                      'I like that some members of this project have a strong standing in the community.',
+                                      'There are other project members living close to me.',
+                                      'Corporate sponsors provide support for this project.');
+
+    $this->questions[4]  = array(1 => 'Members of this project team regard each other as trustworthy.',
+                                      'I regularly watch football games.',
+                                      'Some developers in this project have a strong standing in the community.',
+                                      'The involvement of corporate sponsors in this project is important to me.',
+                                      'I intend to continue participating in this project rather than discontinue my involvement.',
+                                      'On this project team, I can talk freely with others about difficulties I am having and know that others are willing to listen.',
+                                      'Corporate sponsors help the project to succeed.',
+                                      'It is important to me that some developers in this project are respected my others in the community.',
+                                      'It is important to me that companies are involved in the development of this project.',
+                                      'I appreciate that members of this project are famous within the community.',
+                                      'I commonly see other project members for private purpose.',
+                                      'Others in the community know some developers in this project for their competence.',
+                                      'I trust and respect the members of this project.',
+                                      'I welcome companies’ involvement in the development of this project.',
+                                      'Members of this project have a sharing relationship with each other. I can freely share my ideas, feelings and hopes.',
+                                      'I like that other members of this project live in my area.');
 
     // define answers
-    $this->answer['project'][1]   = array(0 => '',
-                                          5 => 'very satisfying',
-                                          4 => 'satisfying',
-                                          3 => 'neutral',
-                                          2 => 'dissatisfying',
-                                          1 => 'very dissatisfying');
-    $this->answer['project'][2]   = array(0 => '',
-                                          5 => 'very pleasing',
-                                          4 => 'pleasing',
-                                          3 => 'neutral',
-                                          2 => 'displeasing',
-                                          1 => 'very displeasing');
-    $this->answer['project'][3]   = array(0 => '',
-                                          5 => 'very contenting',
-                                          4 => 'contenting',
-                                          3 => 'neutral',
-                                          2 => 'frustrating',
-                                          1 => 'very frustrating');
-    $this->answer['project'][4]   = array(0 => '',
-                                          5 => 'delightful',
-                                          4 => '?',
-                                          3 => 'neutral',
-                                          2 => '?',
-                                          1 => 'terrible');
-
-    $this->answer['contributor']  = array(0 => '',
-                                          5 => 'frequently',
-                                          4 => 'often',
-                                          3 => 'sometimes',
-                                          2 => 'rarely',
-                                          1 => 'never');
-
     $this->answer['experience']   = array(1 => 'strongly disagree',
                                           2 => 'disagree',
                                           3 => 'neutral',
@@ -122,6 +149,8 @@ class SurveyUi {
       $title = null;
     }
 
+    $q = 1;
+
     // draw
     $buf   = '<div id="survey">
                 <div id="section-0" class="section">' .
@@ -133,119 +162,28 @@ class SurveyUi {
                   </p>
                 </div>
 
-                <form id="survey_data" class="clearfix" action="" method="post">
-                  <div id="section-1" class="section">
-                    <h3>
-                      Experience in Projects
-                    </h3>
+                <form id="survey_data" class="clearfix" action="" method="post">';
 
-                    <p class="intro">
-                      Add the names of the KDE projects you work in regularly, and add your responses...
+    foreach ($this->questions as $sectionNum => $section) {
+      $buf  .= '  <div id="section-' . $sectionNum . '" class="section">
+                    <h3>' .
+                      $this->sections[$sectionNum] .
+               '    </h3>';
+
+      if ($sectionNum === 1) {
+        $buf  .= '  <label class="project">
+                      To which KDE project do you contribute/have you contributed to?
+                      <span>If you contribute/contributed to more than one KDE project, please name the one which is most important to you.<span>
+                      <input type="text" name="project" />
+                    </label>';
+      }
+
+      $buf  .= '    <p class="intro">' .
+               '      <b>' . $this->intros[$sectionNum] . '</b><br />' .
+               '      Rate your responses to the following questions using the radio button scale (strongly disagree to strongly agree)...
                     </p>
 
-                    <table id="projects">
-                      <thead>
-                        <tr>
-                          <th class="padding i">Project</th>
-                          <th class="padding"></th>
-                          <th class="a">Satisfaction?</th>
-                          <th class="a">Pleasure?</th>
-                          <th class="a">Frustration?</th>
-                          <th class="a">Happiness?</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        <tr>
-                          <td class="padding i">
-                            <input id="project-1_name" name="project-1_name" type="text" value="" />
-                          </td>
-                          <td class="padding q">
-                            Participating in this project was...
-                          </td>
-
-                          <td class="a">' .
-                            Ui::htmlSelector('project-1_1', $this->answer['project'][1]) .
-              '           </td>
-                          <td class="a">' .
-                            Ui::htmlSelector('project-1_2', $this->answer['project'][2]) .
-              '           </td>
-                          <td class="a">' .
-                            Ui::htmlSelector('project-1_3', $this->answer['project'][3]) .
-              '           </td>
-                          <td class="a">' .
-                            Ui::htmlSelector('project-1_4', $this->answer['project'][4]) .
-              '          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-
-                    <input type="button" value="Add another project" onclick="addRow($(\'projects\'));" />
-                  </div>
-
-
-
-                  <div id="section-2" class="section">
-                    <h3>
-                      Experience with Other Contributors
-                    </h3>
-
-                    <p class="intro">
-                      Add the names (SVN/Git account, otherwise real name) of KDE contributors you work with regularly, and add your responses...
-                    </p>
-
-                    <table id="contributors">
-                      <thead>
-                        <tr>
-                          <th class="padding i">Contributor</th>
-                          <th class="a">We discuss technical issues unrelated to the project...</th>
-                          <th class="a">We discuss non-technical issues unrelated to the project...</th>
-                          <th class="a">The communication with him/her is rude...</th>
-                          <th class="a">We meet face-to-face...</th>
-                          <th class="a">The communication with him/her is considerate...</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        <tr>
-                          <td class="padding i">
-                            <input id="contributor-1_name" name="contributor-1_name" type="text" value="" />
-                          </td>
-
-                          <td class="a">' .
-                            Ui::htmlSelector('contributor-1_1', $this->answer['contributor']) .
-              '           </td>
-                          <td class="a">' .
-                            Ui::htmlSelector('contributor-1_2', $this->answer['contributor']) .
-              '           </td>
-                          <td class="a">' .
-                            Ui::htmlSelector('contributor-1_3', $this->answer['contributor']) .
-              '           </td>
-                          <td class="a">' .
-                            Ui::htmlSelector('contributor-1_4', $this->answer['contributor']) .
-              '           </td>
-                          <td class="a">' .
-                            Ui::htmlSelector('contributor-1_5', $this->answer['contributor']) .
-              '           </td>
-                        </tr>
-                      </tbody>
-                    </table>
-
-                    <input type="button" value="Add another contributor" onclick="addRow($(\'contributors\'));" />
-                  </div>
-
-
-
-                  <div id="section-3" class="section">
-                    <h3>
-                      Your Motivation
-                    </h3>
-
-                    <p class="intro">
-                      Rate your responses to the following questions using the radio button scale (strongly disagree to strongly agree)...
-                    </p>
-
-                    <table id="motivation">
+                    <table class="motivation">
                       <thead>
                         <tr>
                           <th></th>
@@ -259,33 +197,39 @@ class SurveyUi {
 
                       <tbody>';
 
-    foreach ($this->questions as $num => $question) {
-      $buf  .= '        <tr>
+      foreach ($section as $num => $question) {
+        $buf  .= '      <tr>
                           <td class="q">' . $question . '</td>';
 
-      for ($i = 1; $i <= 5; $i++) {
-        $buf  .= '        <td class="a">
+        for ($i = 1; $i <= 5; $i++) {
+          $buf  .= '      <td class="a">
                             <label class="r' . $i . '" title="' . $this->answer['experience'][$i] . '">
-                              <input id="motivation-' . $num .'_' . $i . '" class="observe" type="radio" name="motivation-' . $num .'" value="' . $i . '" />
+                              <input id="motivation-' . $q .'_' . $i . '" class="observe" type="radio" name="motivation-' . $q .'" value="' . $i . '" />
                             </label>
                           </td>';
+        }
+
+        $buf  .= '      </tr>';
+
+        // increment question number
+        ++$q;
       }
 
-      $buf  .= '        </tr>';
+      $buf  .= '      </tbody>
+                    </table>
+                  </div>';
     }
 
-    $buf  .= '        </tbody>
-                    </table>
-                  </div>
+    $buf  .= '    <input id="access_code" name="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />
 
-                  <input id="access_code" name="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />
                   <input id="submit" type="button" value="Submit my answers" onclick="submitSurvey(event);" />
+                  <input id="next" type="button" value="Next page" onclick="nextPage(event);" />
+                  <input id="prev" type="button" value="Previous page" onclick="previousPage(event);" />
                 </form>
 
                 <div id="tooltip" class="r" style="display:none;">
                 </div>
               </div>
-
 
               <script type="text/javascript">
                 // scroll to top of lightbox
@@ -294,15 +238,29 @@ class SurveyUi {
                 } catch(e) { }
 
                 // setup radio button hovers
-                $$("#motivation label")
+                $$("table.motivation label")
                   .invoke("observe", "mouseover", radioMouseover)
                   .invoke("observe", "mouseout", radioMouseout);
 
                 // setup radio button clicks + keyboard interactions
-                $$("#motivation input.observe")
+                $$("table.motivation input.observe")
                   .invoke("observe", "change", radioClick)
                   .invoke("observe", "blur", radioMouseout)
                   .invoke("observe", "focus", radioMouseover);
+
+                // hide sections
+                $("section-2").hide();
+                $("section-3").hide();
+                $("section-4").hide();
+
+                // setup page buttons
+                $("prev").hide();
+                if ($("prev")) {
+                  $("prev").hide();
+                }
+                if ($("submit")) {
+                  $("submit").hide();
+                }
               </script>';
 
     return $buf;

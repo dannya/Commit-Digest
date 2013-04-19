@@ -85,7 +85,7 @@ function checkPositioning() {
       if (typeof sharePosDiff != 'undefined') {
         $('share-box').style.bottom = (scrollPos - pageLimit) + sharePosDiff + 'px';
       } else if ($('donate-box')) {
-      	$('share-box').style.bottom = (scrollPos - pageLimit) + 20 + 'px';
+        $('share-box').style.bottom = (scrollPos - pageLimit) + 20 + 'px';
       } else {
         $('share-box').style.bottom = (scrollPos - pageLimit) + 'px';
       }
@@ -114,12 +114,12 @@ function checkPositioning() {
 
 
 function changeLanguage(event) {
-	if (typeof event == 'undefined') {
-	  return false;
-	}
+  if (typeof event == 'undefined') {
+    return false;
+  }
 
   var element = event.element();
-	location.href = location.protocol + '//' + location.host + location.pathname + '?language=' + element.value;
+  location.href = location.protocol + '//' + location.host + location.pathname + '?language=' + element.value;
 }
 
 
@@ -270,23 +270,23 @@ function highlightShareBox(event) {
 
 
 function openInLightbox(event, options) {
-	if (typeof event == 'object') {
+  if (typeof event == 'object') {
     Event.stop(event);
     var theLink = event.element().readAttribute('href');
 
-	} else if (typeof event == 'string') {
+  } else if (typeof event == 'string') {
     var theLink = event;
 
-	} else {
-		return false;
-	}
+  } else {
+    return false;
+  }
 
 
-	// append to link?
-	if (typeof options['append'] == 'string') {
-		theLink += options['append'];
-	}
-	
+  // append to link?
+  if (typeof options['append'] == 'string') {
+    theLink += options['append'];
+  }
+
   // set and extend options
   var theOptions = Object.extend({
     href:       theLink,
@@ -314,7 +314,7 @@ function scrollToOffset(id, offset, container) {
   if ((typeof container == 'object') && $(container)) {
     var pos = $(id).positionedOffset();
   } else {
-  	var pos = $(id).cumulativeOffset();
+    var pos = $(id).cumulativeOffset();
   }
 
   var newPos = pos[1] + offset;
@@ -328,6 +328,6 @@ function scrollToOffset(id, offset, container) {
     $(container).scrollLeft = pos[0];
 
   } else {
-  	window.scrollTo(pos[0], newPos);
+    window.scrollTo(pos[0], newPos);
   }
 }

@@ -166,7 +166,7 @@ class Cache {
 
       // minify?
       if ($minify) {
-      $min = MinifyJs::minify($buf);
+        $min = MinifyJs::minify($buf);
       } else {
         $min = $buf;
       }

@@ -24,38 +24,60 @@
 #survey div.section {
   padding:16px 16px 40px 16px;
   border-bottom:2px dotted #999;
+  margin:0 0 22px 0;
+  background-color:#DBF0F5;
 }
 
 #survey div#section-0 {
   padding:10px 10px 10px 10px;
+  border-bottom:none;
+  background-color:#ffffff;
 }
 #survey div#section-0 p.intro {
   font-style:normal;
-}
-
-#survey div#section-1 {
-  background-color:#EFF8FB;
-}
-#survey div#section-2 {
-  background-color:#E3F3F7;
-}
-#survey div#section-3 {
-  padding:16px;
-  margin:0 0 22px 0;
-  background-color:#DBF0F5;
+  padding-bottom:0;
+  margin-bottom:0;
 }
 
 
 
 #survey div.section input[type="button"] {
   float:none;
+  margin-left:12px;
+}
+#survey form > input[type="button"] {
+  margin-left:12px;
+}
+#survey form > input#submit {
+  margin:0 0 0 16px;
+  background-color:#A6D3A6;
+}
+#survey form > input#submit:hover {
+  background-color:#A6FFA6;
 }
 
-
 #survey table {
-  width:950px;
+  width:100%;
   border-collapse:collapse;
   margin:0 0 16px 0;
+}
+
+#survey .project {
+  display:block;
+  position:relative;
+  padding-bottom:16px;
+  border-bottom:2px dotted #999;
+  margin-bottom:16px;
+}
+#survey .project span {
+  font-style:italic;
+  display:inline-block;
+  max-width:70%;
+}
+#survey .project input[type="text"] {
+  position:absolute;
+  top:0;
+  right:0;
 }
 
 
@@ -113,59 +135,59 @@
 
 
 
-#survey table#motivation {
+#survey table.motivation {
   margin:0;
 }
 
-#survey table#motivation tbody tr:hover td {
+#survey table.motivation tbody tr:hover td {
   background-color:#fff;
 }
-#survey table#motivation tbody tr:hover td label {
+#survey table.motivation tbody tr:hover td label {
   background-color:#fff;
   border:1px solid #fff;
 }
 
-#survey table#motivation tbody td {
+#survey table.motivation tbody td {
   padding:0;
 }
 
-#survey table#motivation tbody td.q {
+#survey table.motivation tbody td.q {
   padding:5px 0 5px 5px;
 }
 
-#survey table#motivation tbody td label {
+#survey table.motivation tbody td label {
   display:inline-block;
   padding:9px;
   cursor:pointer;
   border:1px solid #DBF0F5;
 }
-#survey table#motivation tbody td label:hover,
-#survey table#motivation tbody td label.selected {
+#survey table.motivation tbody td label:hover,
+#survey table.motivation tbody td label.selected {
   border:1px solid #666 !important;
 }
 
-#survey table#motivation tbody td label.r1:hover,
-#survey table#motivation tbody td label.r1.selected {
+#survey table.motivation tbody td label.r1:hover,
+#survey table.motivation tbody td label.r1.selected {
   background-color:#D3A6A6;
 }
-#survey table#motivation tbody td label.r2:hover,
-#survey table#motivation tbody td label.r2.selected {
+#survey table.motivation tbody td label.r2:hover,
+#survey table.motivation tbody td label.r2.selected {
   background-color:#FFA6A6;
 }
-#survey table#motivation tbody td label.r3:hover,
-#survey table#motivation tbody td label.r3.selected {
+#survey table.motivation tbody td label.r3:hover,
+#survey table.motivation tbody td label.r3.selected {
   background-color:#FFFFA6;
 }
-#survey table#motivation tbody td label.r4:hover,
-#survey table#motivation tbody td label.r4.selected {
+#survey table.motivation tbody td label.r4:hover,
+#survey table.motivation tbody td label.r4.selected {
   background-color:#A6FFA6;
 }
-#survey table#motivation tbody td label.r5:hover,
-#survey table#motivation tbody td label.r5.selected {
+#survey table.motivation tbody td label.r5:hover,
+#survey table.motivation tbody td label.r5.selected {
   background-color:#A6D3A6;
 }
 
-#survey table#motivation tbody td label input {
+#survey table.motivation tbody td label input {
   padding:0;
   margin:0;
   cursor:pointer;
