@@ -166,7 +166,7 @@ class SurveyUi {
                     </p>
 
                     <p>
-                      You may be rewarded if you participate in this survey! From all survey participants (who have fully answered all questions), one person will win the current Google Nexus 4 phone.
+                      You may be rewarded if you participate in this survey! From all survey participants (who have fully answered all questions), one random person will win the current Google Nexus 4 phone.
                     </p>
 
                     <p>

@@ -153,16 +153,30 @@ class MoreInfoUi {
 
 
   private function drawDiffs() {
+    // safety check
+    if (!isset($this->data['diff'])) {
+      return '';
+    }
+
+
     // compile into usable array
     foreach ($this->data['diff'] as $diff) {
       $diffs[$diff['operation']][] = $diff['path'];
     }
 
 
+    // safety check
+    if (count($diffs) === 0) {
+      return '';
+    }
+
+
     // setup subtitle strings
     $subtitles = array('A' => _('Added'),
                        'M' => _('Modified'),
-                       'D' => _('Deleted'));
+                       'D' => _('Deleted'),
+                       'I' => _('Ignored'),
+                       'C' => _('Conflicted'));
 
 
     // draw title
@@ -180,6 +194,11 @@ class MoreInfoUi {
 
       $total         = count($sectionDiffs);
       $totalChanges += $total;
+
+      // check that section exists
+      if (!isset($subtitles[$operation])) {
+        continue;
+      }
 
       // draw new section
       $buf .=  '<div class="subheader">' .

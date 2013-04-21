@@ -80,10 +80,15 @@ class DataUi {
            '    <form id="account" method="post" action="">
                   <input id="account-name" type="text" name="name" />
                   <input id="account-send" type="button" value="' . _('Send!') . '" onclick="accountData();" disabled="disabled" />
-                </form>' .
+                </form>
 
-                _('An email will then be sent from this domain to the email address your developer account is linked to.') .
-           '  </div>
+                <p>' .
+                  _('An email will then be sent from this domain to the email address your developer account is linked to.') .
+           '    </p>
+                <p>' .
+                  _('Please allow up to 30 minutes for this email to be sent.') .
+           '    </p>
+              </div>
             </div>
 
             <div id="step_2" class="row">
