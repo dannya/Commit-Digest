@@ -63,13 +63,10 @@ class Chart {
 
     // process data
     foreach ($values as $key => $value) {
-      if (isset($keys[$key])) {
-        // put into predefined category, with i18n'd label (used in pie charts)
-        $this->data[$keys[$key] . ' (' . $value . '%)'] = array(array(0, (float)$value));
-      } else {
-        // set value as normal (used in bar charts, etc)
-        $this->data[$key] = $value;
-      }
+      $this->data[] = array(
+        'label' => $keys[$key],
+        'data'  => (float)$value
+      );
     }
 
     // set size
@@ -89,34 +86,51 @@ class Chart {
 
 
   public function drawPie() {
-    if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
-      // use Google Chart API for Internet Explorer :#
-      foreach ($this->data as $label => $value) {
-        $labels[] = $label;
-        $values[] = $value[0][1];
-      }
+    $buf = '<div id="' . $this->id . '-container">
+              <div id="' . $this->id . '" style="width: ' . $this->size['width'] . 'px; height: ' . $this->size['height'] . 'px;"></div>
+            </div>
 
-      // set title?
-      if ($this->title) {
-        $title = '&chtt=' . $this->title;
-      }
+            <script type="text/javascript">
+              var dataset = ' . json_encode($this->data) . ';
 
-      $buf = '<img id="' . $this->id . '-container" src="http://chart.apis.google.com/chart?chd=t:' . implode(',', $values) . '&chs=' . $this->size['width'] . 'x' . $this->size['height'] . '&cht=p&chco=3B5E7E&chdl=' . implode('|', $labels) . $title . '" alt="' . $this->title . '" />';
+              // set slice colours
+              var colours = [
+                "#3B5E7E",
+                "#547797",
+                "#6D90B0",
+                "#86A9C9",
+                "#9FC2E2",
+                "#B8DBFB"
+              ];
 
-    } else {
-      $buf = '<div id="' . $this->id . '-container">
-                <canvas id="' . $this->id . '" height="' . $this->size['height'] . '" width="' . $this->size['width'] . '"></canvas>
-              </div>
+              for (var key in dataset) {
+                dataset[key]["color"] = colours[key];
+              }
 
-              <script type="text/javascript">
-                var dataset = ' . json_encode($this->data) . ';
-
-                var chart   = new Plotr.PieChart("' . $this->id . '", ' . json_encode($this->options) . ');
-
-                chart.addDataset(dataset);
-                chart.render();
-              </script>';
-    }
+              // render chart
+              $.plot("#' . $this->id . '", dataset, {
+                series: {
+                  pie: {
+                    show: true,
+                    radius: 1,
+                  }
+                },
+                legend: {
+                    show: true,
+                    labelFormatter: function(label, series) {
+                      return label + " (" + series.percent.toFixed(2) + "%)";
+                    },
+                    labelBoxBorderColor: "#999999",
+                    noColumns: 1,
+                    position: "ne",
+                    margin: [20, 0]
+                    // backgroundColor: null or color,
+                    // backgroundOpacity: number between 0 and 1,
+                    // container: null or jQuery object/DOM element/jQuery expression,
+                    // sorted: null/false, true, "ascending", "descending", "reverse", or a comparator
+                }
+              });
+            </script>';
 
     return $buf;
   }
@@ -191,15 +205,11 @@ class Chart {
 
 
     // get largest values from each column for percentage calculation (bar width)
-    $largestValue = array(0, 0);
+    $largestValue = 0;
 
-    foreach ($this->data as $label => $value) {
-      if ($value[0] > $largestValue[0]) {
-        $largestValue[0] = $value[0];
-      }
-
-      if ($value[1] > $largestValue[1]) {
-        $largestValue[1] = $value[1];
+    foreach ($this->data as $value) {
+      if ($value["data"] > $largestValue) {
+        $largestValue = $value["data"];
       }
     }
 
