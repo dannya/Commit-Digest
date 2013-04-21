@@ -235,7 +235,6 @@ function save(event) {
           options['append']        = '?onlyContent&noFrame';
           options['title']         = 'Survey';
 
-          //openInLightbox(BASE_URL + '/data/survey/' + $('access_code').value.trim(), options);
           window.location.href = BASE_URL + '/data/survey/' + $('access_code').value.trim();
         }
 

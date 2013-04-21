@@ -20,7 +20,6 @@ class SurveyUi {
   public $title         = null;
 
   public $noFrame       = false;
-  public $onlyContent   = false;
 
   private $developer    = null;
 
@@ -32,9 +31,6 @@ class SurveyUi {
     // set display modes
     if (isset($_REQUEST['noFrame'])) {
       $this->noFrame = true;
-    }
-    if (isset($_REQUEST['onlyContent'])) {
-      $this->onlyContent = true;
     }
 
     // set section titles
@@ -49,9 +45,9 @@ class SurveyUi {
                                   'Please associate the term \'project\' in all subsequent questions to the project which you defined on the first page.');
 
     // set survey questions
-    $this->questions[1]  = array(1 => 'I want other people to find out how good I really can be in software development',
+    $this->questions[1]  = array(1 => 'I want other people to find out how good I really can be in software development.',
                                       'This project group has a great deal of personal meaning for me.',
-                                      'It is important to me that this project shares my views on open source software',
+                                      'It is important to me that this project shares my views on open source software.',
                                       'I see myself as extraverted, enthusiastic.',
                                       'It is important to me that I can show my programming capabilities to potential new employers through participating in this project.',
                                       'It is fun participating in this project.',
@@ -142,24 +138,56 @@ class SurveyUi {
     }
 
 
-    // show title?
-    if (!$this->onlyContent) {
-      $title = '<h1>' . $this->title . '</h1>';
-    } else {
-      $title = null;
-    }
-
     $q = 1;
 
     // draw
     $buf   = '<div id="survey">
-                <div id="section-0" class="section">' .
-                  $title .
+                <div id="section-0" class="section">
+                  <h1>' .
+                    $this->title .
+             '      <span>Optional</span>
+                  </h1>
 
-             '    <p class="intro">
-                    Please fill out this survey to help us better understand the KDE community - it should only take 5 minutes of your time to complete.<br />
-                    <i>All responses are confidential, and will only be reported in an anonymised way.</i>
-                  </p>
+                  <div class="intro">
+                    <h2>Win a Google Nexus 4 phone for helping me with my research</h2>
+
+                    <p>
+                    Hi everybody,<br />
+                    My name is Andreas Schilling. I am a research assistant at the chair of Information Systems and Services at Bamberg University.<br />
+                    In my research, I examine why developers stay committed in their open-source projects.
+
+                    <p>
+                      Could you please give me some quick feedback about your motivation and your experiences at KDE?<br />
+                      I am asking you because the best way to find out more about the factors which really matter to open-source developers is to ask them directly.<br />
+                    </p>
+
+                    <p>
+                      For your feedback, please fill out the questions on the following pages – it will not take you more than 10 minutes.
+                    </p>
+
+                    <p>
+                      You may be rewarded if you participate in this survey! From all survey participants (who have fully answered all questions), one person will win the current Google Nexus 4 phone.
+                    </p>
+
+                    <p>
+                      As soon as I finish my research, I will publish a blog post with the aggregated results of this survey, and I will compare them with the results of other surveys (such as with Google Summer of Code participants).
+                    </p>
+
+                    <p>
+                      If you have any questions about this questionnaire or about my research, please do not hesitate to contact me directly (<a href="mailto:andreas.schilling@uni-bamberg.de">andreas.schilling@uni-bamberg.de</a>).
+                    </p>
+
+                    <p>
+                      I would like to wish all of you the best for your coding projects at KDE.
+                    </p>
+
+                    <p>
+                      Best Regards,<br />
+                      Andreas
+                    </p>
+
+                    <button id="start-survey" onclick="startSurvey();">Start the survey</button>
+                  </div>
                 </div>
 
                 <form id="survey_data" class="clearfix" action="" method="post">';
@@ -169,11 +197,6 @@ class SurveyUi {
 
       if ($sectionNum === 1) {
         $buf  .= '  <label class="project">
-                      What is your nationality?
-                      <input type="text" name="nationality" />
-                    </label>
-
-                    <label class="project">
                       To which KDE project do you contribute/have you contributed to?
                       <span>If you contribute/contributed to more than one KDE project, please name the one which is most important to you.<span>
                       <input type="text" name="project" />
@@ -191,12 +214,12 @@ class SurveyUi {
                     <table class="motivation">
                       <thead>
                         <tr>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
+                          <th class="q"></th>
+                          <th class="a">strongly disagree</th>
+                          <th class="a">disagree</th>
+                          <th class="a">neutral</th>
+                          <th class="a">agree</th>
+                          <th class="a">strongly agree</th>
                         </tr>
                       </thead>
 

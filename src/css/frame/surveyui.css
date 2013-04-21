@@ -6,16 +6,32 @@
 #survey h1 {
   margin:0 0 14px 0;
 }
+#survey h1 span {
+  font-style: italic;
+  font-size: 15px;
+  color: #666;
+}
 
 #survey h3 {
   margin:0 0 10px 0;
   padding:0;
 }
 
-#survey p.intro {
+#survey div.intro {
   padding:0;
   margin:0 0 22px 0;
   font-style:italic;
+}
+#survey div.intro p {
+  margin: 1em 0;
+}
+#survey div.intro button#start-survey {
+  position: relative;
+  margin: 10px auto 0 auto;
+  padding: 10px;
+  width: 200px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 
@@ -81,15 +97,24 @@
 }
 
 
-#survey th {
-  text-align:left;
+#survey table {
+  margin-top: 16px !important;
+}
+#survey table th {
+  text-align:center;
   vertical-align:bottom;
   padding:0 4px 4px 2px;
 }
+#survey table th.a {
+  width: 80px;
+}
 
-#survey td {
-  text-align:left;
+#survey table td {
+  text-align:center;
   vertical-align:top;
+}
+#survey table td.q {
+  text-align:left;
 }
 
 

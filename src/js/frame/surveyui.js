@@ -16,6 +16,18 @@
 window.surveyPage = 1;
 
 
+document.observe('dom:loaded', function() {
+  // hide survey form until start button is clicked
+  $('survey_data').hide();
+});
+
+
+function startSurvey() {
+  $('section-0').select('.intro').first().hide();
+  $('survey_data').show();
+}
+
+
 function addRow(container) {
   // make clone, change id's and clear values
   var newRow = container.select('tbody tr').first().clone(true);
@@ -144,6 +156,9 @@ function submitSurvey(event) {
 
           // thank user
           alert('Thanks for completing the survey!');
+
+          // redirect user
+          top.location.href = BASE_URL;
 
         } else {
           // failure
