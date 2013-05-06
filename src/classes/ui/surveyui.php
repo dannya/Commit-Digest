@@ -66,7 +66,10 @@ class SurveyUi {
                                       'I am keenly aware of the income goals I have for myself if I participate in this project.',
                                       'I see myself as dependable, self-disciplined.',
                                       'I have a strong positive feeling toward this project group.',
-                                      'How many blogs do you read on averarge every day.',
+                                      array(
+                                        'How many blogs do you read on averarge every day.',
+                                        array(1 => '1', '2', '3-5', '5-10', '>10')
+                                      ),
                                       'I see myself as conventional, uncreative.',
                                       'It is important to me that I can promote my career prospects through my participation in this project.',
                                       'I am motivated to participate in this project because it gives me the possibility to earn respect for my work.',
@@ -78,7 +81,10 @@ class SurveyUi {
                                       'When I talk about the project, I usually say \'we\' rather than \'they\'.',
                                       'I see myself as reserved, quiet.');
 
-    $this->questions[3]  = array(1 => 'How many corporate sponsors has this project.',
+    $this->questions[3]  = array(1 => array(
+                                        'How many corporate sponsors has this project.',
+                                        array(1 => '1', '2-3', '4-5', '5-10', '>10')
+                                      ),
                                       'Many project members live in my area.',
                                       'I would feel a sense of loss if I could no longer work together with the members in this project.',
                                       'Some of the developers in this project are highly respected by other developers in the community.',
@@ -88,7 +94,7 @@ class SurveyUi {
                                       'Corporate sponsors shape the development of this project.',
                                       'I can rely on the members of this project to help me constructively in accomplishing my work.',
                                       'Some members of this project are famous in the community.',
-                                      'I often coincedentally see project members.',
+                                      'I often coincidentally see project members.',
                                       'I plan to make future contributions to this project.',
                                       'If I share my problems with others in this project I know they will respond constructively and caringly.',
                                       'I like that some members of this project have a strong standing in the community.',
@@ -146,6 +152,7 @@ class SurveyUi {
                   <h1>' .
                     $this->title .
              '      <span>Optional</span>
+                    <aside>Page <span>1</span> of 5</aside>
                   </h1>
 
                   <div class="intro">
@@ -183,7 +190,7 @@ class SurveyUi {
 
                     <p>
                       Best Regards,<br />
-                      Andreas
+                      Andreas Schilling
                     </p>
 
                     <button id="start-survey" onclick="startSurvey();">Start the survey</button>
@@ -211,33 +218,39 @@ class SurveyUi {
                '      Rate your responses to the following questions using the radio button scale (strongly disagree to strongly agree)...
                     </p>
 
-                    <table class="motivation">
-                      <thead>
-                        <tr>
-                          <th class="q"></th>
-                          <th class="a">strongly disagree</th>
-                          <th class="a">disagree</th>
-                          <th class="a">neutral</th>
-                          <th class="a">agree</th>
-                          <th class="a">strongly agree</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>';
+                    <table class="motivation">';
 
       foreach ($section as $num => $question) {
-        $buf  .= '      <tr>
-                          <td class="q">' . $question . '</td>';
+        if (is_array($question)) {
+          // non-standard answer scale:
+          // - end previous tbody block?
+          if ($num > 1) {
+            $buf  .= '  </tbody>';
+          }
 
-        for ($i = 1; $i <= 5; $i++) {
-          $buf  .= '      <td class="a">
-                            <label class="r' . $i . '" title="' . $this->answer['experience'][$i] . '">
-                              <input id="motivation-' . $q .'_' . $i . '" class="observe" type="radio" name="motivation-' . $q .'" value="' . $i . '" />
-                            </label>
-                          </td>';
+          // - draw new header section
+          $buf  .= $this->drawHeader($question[1]) .
+                   '  <tbody>';
+
+          // - draw question
+          $buf  .= $this->drawRow($q, $question[0], $question[1]);
+
+          // - draw standard header section
+          $buf  .= '  </tbody>' .
+                      $this->drawHeader($this->answer['experience']) .
+                   '  <tbody>';
+
+        } else {
+          // standard answer scale:
+          // - draw header section?
+          if ($num == 1) {
+            $buf  .= $this->drawHeader($this->answer['experience']) .
+                     '  <tbody>';
+          }
+
+          // - draw question
+          $buf  .= $this->drawRow($q, $question, $this->answer['experience']);
         }
-
-        $buf  .= '      </tr>';
 
         // increment question number
         ++$q;
@@ -290,6 +303,40 @@ class SurveyUi {
                   $("submit").hide();
                 }
               </script>';
+
+    return $buf;
+  }
+
+
+  public function drawHeader($scale) {
+    $buf = '    <thead>
+                  <tr>
+                    <th class="q"></th>';
+
+    foreach ($scale as $var => $answer) {
+      $buf  .= '    <th class="a">' . $answer . '</th>';
+    }
+
+    $buf  .= '    </tr>
+                </thead>';
+
+    return $buf;
+  }
+
+
+  public function drawRow($q, $question, $titles) {
+    $buf = '        <tr>
+                      <td class="q">' . $question . '</td>';
+
+    for ($i = 1; $i <= 5; $i++) {
+      $buf  .= '      <td class="a">
+                        <label class="r' . $i . '" title="' . $titles[$i] . '">
+                          <input id="motivation-' . $q .'_' . $i . '" class="observe" type="radio" name="motivation-' . $q .'" value="' . $i . '" />
+                        </label>
+                      </td>';
+    }
+
+    $buf  .= '      </tr>';
 
     return $buf;
   }

@@ -25,6 +25,12 @@ document.observe('dom:loaded', function() {
 function startSurvey() {
   $('section-0').select('.intro').first().hide();
   $('survey_data').show();
+
+  // change page number display
+  $$('#section-0 h1 aside span')[0].update(window.surveyPage + 1);
+
+  // scroll to top of page
+  $('body').scrollTo();
 }
 
 
@@ -71,32 +77,12 @@ function submitSurvey(event) {
   $('survey').select('input[type="text"]').each(function(item) {
     // only check row if value has been entered
     if (item.value.trim().empty()) {
-      return;
-    }
+      error = true;
+      item.addClassName('failure');
 
-    var parent = item.up('tr');
-    if (parent) {
-      parent.select('select').each(function(sub) {
-        if (sub.value == '0') {
-          // focus first error
-          if (!error) {
-            sub.focus();
-
-            var container = $("lightwindow_contents");
-            if (!container) {
-              container = $('body');
-            }
-
-            scrollToOffset(item.up('div.section'), 0, container.down("div.contents"));
-          }
-
-          error = true;
-          sub.addClassName('failure');
-
-        } else {
-          sub.removeClassName('failure');
-        }
-      });
+    } else {
+      error = false;
+      item.removeClassName('failure');
     }
   });
 
@@ -198,6 +184,12 @@ function previousPage(event) {
     $('section-4').hide();
 
     $('section-' + (--window.surveyPage)).show();
+
+    // change page number display
+    $$('#section-0 h1 aside span')[0].update(window.surveyPage + 1);
+
+    // scroll to top of page
+    $('body').scrollTo();
   }
 
   return false;
@@ -225,6 +217,12 @@ function nextPage(event) {
     $('section-4').hide();
 
     $('section-' + (++window.surveyPage)).show();
+
+    // change page number display
+    $$('#section-0 h1 aside span')[0].update(window.surveyPage + 1);
+
+    // scroll to top of page
+    $('body').scrollTo();
   }
 
   return false;
