@@ -49,7 +49,6 @@ class SurveyUi {
                                       'This project group has a great deal of personal meaning for me.',
                                       'It is important to me that this project shares my views on open source software.',
                                       'I see myself as extraverted, enthusiastic.',
-                                      'It is important to me that I can show my programming capabilities to potential new employers through participating in this project.',
                                       'It is fun participating in this project.',
                                       'I see myself as open to new experiences, complex.',
                                       'The reason I participate in this project is because of what it stands for, that is, its values.',
@@ -59,17 +58,15 @@ class SurveyUi {
                                       'Participating in this project gives me a satisfying feeling.',
                                       'I see myself as sympathetic, warm.',
                                       'I want to show other developers in the community how good I really can be.',
-                                      'I see myself as disorganized, careless.');
+                                      'I see myself as disorganized, careless.',
+                                      'I am strongly motivated by the money I can earn through my participation in this project.');
 
     $this->questions[2]  = array(1 => 'I feel a sense of belonging toward this project group.',
                                       'The project shares my views and beliefs on open source software.',
                                       'I am keenly aware of the income goals I have for myself if I participate in this project.',
                                       'I see myself as dependable, self-disciplined.',
                                       'I have a strong positive feeling toward this project group.',
-                                      array(
-                                        'How many blogs do you read on averarge every day.',
-                                        array(1 => '1', '2', '3-5', '5-10', '>10')
-                                      ),
+                                      'I like chocolate.',
                                       'I see myself as conventional, uncreative.',
                                       'It is important to me that I can promote my career prospects through my participation in this project.',
                                       'I am motivated to participate in this project because it gives me the possibility to earn respect for my work.',
@@ -79,7 +76,8 @@ class SurveyUi {
                                       'My personal values and those of the project are similar.',
                                       'I am motivated by the future income gains I can achieve through my participation in this project.',
                                       'When I talk about the project, I usually say \'we\' rather than \'they\'.',
-                                      'I see myself as reserved, quiet.');
+                                      'I see myself as reserved, quiet.',
+                                      'It is important to me that I can show my programming capabilities to potential new employers through participating in this project.');
 
     $this->questions[3]  = array(1 => array(
                                         'How many corporate sponsors has this project.',
@@ -87,6 +85,7 @@ class SurveyUi {
                                       ),
                                       'Many project members live in my area.',
                                       'I would feel a sense of loss if I could no longer work together with the members in this project.',
+                                      'It is important to me that companies are involved in the development of this project.',
                                       'Some of the developers in this project are highly respected by other developers in the community.',
                                       'Most members of this project are very competent and approach their work very professional.',
                                       'It is important to me that I often see other members of this project face to face.',
@@ -98,18 +97,17 @@ class SurveyUi {
                                       'I plan to make future contributions to this project.',
                                       'If I share my problems with others in this project I know they will respond constructively and caringly.',
                                       'I like that some members of this project have a strong standing in the community.',
-                                      'There are other project members living close to me.',
                                       'Corporate sponsors provide support for this project.');
 
-    $this->questions[4]  = array(1 => 'Members of this project team regard each other as trustworthy.',
-                                      'I regularly watch football games.',
+    $this->questions[4]  = array(1 => 'There are other project members living close to me.',
+                                      'Members of this project team regard each other as trustworthy.',
+                                      'I regularly watch soccer on TV.',
                                       'Some developers in this project have a strong standing in the community.',
                                       'The involvement of corporate sponsors in this project is important to me.',
                                       'I intend to continue participating in this project rather than discontinue my involvement.',
                                       'On this project team, I can talk freely with others about difficulties I am having and know that others are willing to listen.',
                                       'Corporate sponsors help the project to succeed.',
                                       'It is important to me that some developers in this project are respected my others in the community.',
-                                      'It is important to me that companies are involved in the development of this project.',
                                       'I appreciate that members of this project are famous within the community.',
                                       'I commonly see other project members for private purpose.',
                                       'Others in the community know some developers in this project for their competence.',
@@ -159,9 +157,13 @@ class SurveyUi {
                     <h2>Win a Google Nexus 4 phone for helping me with my research</h2>
 
                     <p>
-                    Hi everybody,<br />
-                    My name is Andreas Schilling. I am a research assistant at the chair of Information Systems and Services at Bamberg University.<br />
-                    In my research, I examine why developers stay committed in their open-source projects.
+                      Hi everybody,
+                    </p>
+
+                    <p>
+                      My name is Andreas Schilling. I am a research assistant at the chair of Information Systems and Services at Bamberg University.<br />
+                      In my research, I examine why developers stay committed in their open-source projects.
+                    </p>
 
                     <p>
                       Could you please give me some quick feedback about your motivation and your experiences at KDE?<br />

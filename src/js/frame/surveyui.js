@@ -114,7 +114,7 @@ function submitSurvey(event) {
 
 
   if (error) {
-    alert('Please answer all questions');
+    alert('Please answer all questions (use the "previous page" and "next page" buttons to see the unfilled questions highlighted)');
 
   } else {
     if ($('submit')) {
