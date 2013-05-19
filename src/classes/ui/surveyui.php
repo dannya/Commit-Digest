@@ -81,7 +81,7 @@ class SurveyUi {
 
     $this->questions[3]  = array(1 => array(
                                         'How many corporate sponsors has this project.',
-                                        array(1 => '1', '2-3', '4-5', '5-10', '>10')
+                                        array(1 => '0', '1', '2-3', '4-5', '>5')
                                       ),
                                       'Many project members live in my area.',
                                       'I would feel a sense of loss if I could no longer work together with the members in this project.',
@@ -89,7 +89,7 @@ class SurveyUi {
                                       'Some of the developers in this project are highly respected by other developers in the community.',
                                       'Most members of this project are very competent and approach their work very professional.',
                                       'It is important to me that I often see other members of this project face to face.',
-                                      'If I could I would like to discontinue my participation in this project.',
+                                      'I appreciate that members of this project are famous within the community.',
                                       'Corporate sponsors shape the development of this project.',
                                       'I can rely on the members of this project to help me constructively in accomplishing my work.',
                                       'Some members of this project are famous in the community.',
@@ -107,8 +107,8 @@ class SurveyUi {
                                       'I intend to continue participating in this project rather than discontinue my involvement.',
                                       'On this project team, I can talk freely with others about difficulties I am having and know that others are willing to listen.',
                                       'Corporate sponsors help the project to succeed.',
-                                      'It is important to me that some developers in this project are respected my others in the community.',
-                                      'I appreciate that members of this project are famous within the community.',
+                                      'It is important to me that some developers in this project are respected by others in the community.',
+                                      'If I could I would like to discontinue my participation in this project.',
                                       'I commonly see other project members for private purpose.',
                                       'Others in the community know some developers in this project for their competence.',
                                       'I trust and respect the members of this project.',
