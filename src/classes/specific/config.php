@@ -75,7 +75,8 @@ final class Config {
                                                            'tmp_commits',
                                                            'users'));
 
-
+  // define theme
+  public static $theme = array('default');
   // define settings information
   private static $settings  = null;
 

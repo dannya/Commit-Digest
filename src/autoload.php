@@ -50,7 +50,7 @@ if (COMMAND_LINE) {
   session_start();
 
   // set environment (live / development)
-  if (($_SERVER['HTTP_HOST'] == 'digest') || ($_SERVER['HTTP_HOST'] == 'localhost')) {
+  if (($_SERVER['HTTP_HOST'] == 'digest') || ($_SERVER['SERVER_ADDR'] == '127.0.0.1')) {
     define('LIVE_SITE', false);
   } else {
     define('LIVE_SITE', true);
@@ -95,7 +95,6 @@ if (COMMAND_LINE) {
   $classDirs = array(BASE_DIR . '/classes/db/',
                      BASE_DIR . '/classes/shared/',
                      BASE_DIR . '/classes/specific/',
-                     BASE_DIR . '/classes/ui/',
                      BASE_DIR . '/classes/ext/',
                      BASE_DIR . '/classes/ext/cacheLite/');
 
@@ -105,6 +104,15 @@ if (COMMAND_LINE) {
   spl_autoload_register();
 }
 
+// Conditionally adjust the classdir to make enzyme themable
+if(isset(Config::$theme) && Config::$theme[0] !== 'default') {
+  $classDirs[] = BASE_DIR . '/classes/ui/themes/' . Config::$theme[0] . '/';
+} else {
+  $classDirs[] = BASE_DIR . '/classes/ui/';
+}
+// rerun the autoloader
+set_include_path(get_include_path() . PATH_SEPARATOR . implode(PATH_SEPARATOR, $classDirs));
+spl_autoload_register();
 
 // make APP_ID's consistently available
 define('DIGEST_APP_ID',       Config::$app['id']);
