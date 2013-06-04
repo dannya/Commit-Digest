@@ -1,0 +1,23 @@
+/* 
+ * Custom modifications for the KDE Neverland theme
+ */
+
+#top-small { height: 6em; }
+
+#top-small.navbar-fixed-top.Neverland .brand, #top-small.navbar-top.Neverland .brand {
+	padding: 8px 20px 12px 0px;
+}
+
+.navbar-fixed-top.Neverland .navbar-inner,
+.navbar-static-top.Neverland .navbar-inner,
+.navbar-top.Neverland .navbar-inner {
+  margin-left: 0;
+}
+
+#top-small .nav-pills #language-selector {
+  margin-top: 12px;
+}
+
+.text-center {
+  text-align: center;
+}
