@@ -56,42 +56,40 @@ class IndexUi {
                 <button class="btn btn-large btn-primary">' . _('Read the latest issue!') . '</button>
               </div>
             </div>
-
-            <div id="container">
-              <div class="col1">
-                <h1>' . _('Issues') . '</h1>
-                <div class="inner filled">';
-
-    $counter = 0;
-
-    foreach ($this->issues as $digest) {
-      // stop after $numIssues
-      if ($counter++ == $this->numIssues) {
-        break;
+            <div class="row">
+              <div class="span5">
+                  <h2>' . _('Issues') . '</h2>
+                  <ul>';
+  
+      $counter = 0;
+  
+      foreach ($this->issues as $digest) {
+        // stop after $numIssues
+        if ($counter++ == $this->numIssues) {
+          break;
+        }
+  
+        $buf .= $this->drawDigest($digest);
       }
-
-      $buf .= $this->drawDigest($digest);
-    }
-
-    $buf .=  '  </div>
-              </div>
-
-              <div class="col2">
-                <h1>' . _('Six Months Ago') . '</h1>
-                <div class="inner">' .
-                  $this->drawDigest($this->sixMonthsAgo, false) .
-             '  </div>
-
-                <h1>' . _('One Year Ago') . '</h1>
-                <div class="inner">' .
-                  $this->drawDigest($this->oneYearAgo, false) .
-             '  </div>
-
-                <h1>' . _('Random Digest') . '</h1>
-                <div class="inner">' .
-                  $this->drawDigest($this->random, false) .
-             '  </div>
-              </div>
+  
+      $buf .=  '  </ul>
+                </div>
+                <div class="span5">
+                  <h2>' . _('Six Months Ago') . '</h2>
+                  <ul>' .
+                      $this->drawDigest($this->sixMonthsAgo, false) .
+                 '</ul>
+  
+                  <h2>' . _('One Year Ago') . '</h2>
+                  <ul>' .
+                    $this->drawDigest($this->oneYearAgo, false) .
+               '  </ul>
+  
+                  <h2>' . _('Random Digest') . '</h2>
+                  <ul>' .
+                    $this->drawDigest($this->random, false) .
+               '  </ul>
+                </div>
             </div>';
 
     return $buf;
@@ -112,14 +110,16 @@ class IndexUi {
     // process synopsis, removing HTML tags
     $synopsis = strip_tags($digest['synopsis']);
 
-    $buf = '<div class="row">
-              <a class="date" href="' . BASE_URL . '/issues/' . $digest['date'] . '/">' .
-                Date::get('full', $digest['date']) .
-           '  </a>
-              <a class="text" href="' . BASE_URL . '/issues/' . $digest['date'] . '/" title="' . htmlspecialchars($synopsis) . '">' .
-                App::truncate($synopsis, 106, true) .
-           '  </a>
-            </div>';
+    $buf = '  <li>
+                <h4>
+                  ' . Date::get('full', $digest['date']) .
+           '    </h4>
+                <span>
+                  <a class="text" href="' . BASE_URL . '/issues/' . $digest['date'] . '/" title="' . htmlspecialchars($synopsis) . '">' .
+                    App::truncate($synopsis, 106, true) .
+           '      </a>
+                </span>
+              </li>';
 
     return $buf;
   }

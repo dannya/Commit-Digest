@@ -19,7 +19,8 @@ class DigestUi {
   public $frame             = null;
 
   private $style            = array('//cdn.kde.org/css/bootstrap.css', 
-                                    '//cdn.kde.org/css/bootstrap-responsive.css');
+                                    '//cdn.kde.org/css/bootstrap-responsive.css',
+                                    '/classes/ui/themes/neverland/css/neverland.css');
   private $appScript        = array('/js/prototype.js',
                                     '/js/effects.js');
 
@@ -225,8 +226,10 @@ class DigestUi {
                       <img src="//cdn.kde.org/img/logo.plain.small.png"/>
                       ' . Config::$app['name'] . '
                     </a>
-                    <div id="language-selector">' .
-                      Ui::htmlSelector('language', Digest::getLanguages(), LANGUAGE, 'changeLanguage(event);') . '</div>
+                    <div class="nav-pills pull-right">
+                      <div id="language-selector">' .
+                        Ui::htmlSelector('language', Digest::getLanguages(), LANGUAGE, 'changeLanguage(event);') . '
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -244,12 +247,9 @@ class DigestUi {
     }
 
     // draw
-    $buf = '<div id="sidebar" class="span4 pull-right">
-              <a id="sidebar-logo" class="n" style="display:none;" href="' . BASE_URL . '/">
-                &nbsp;
-              </a>
-
-              <ul id="navSidebarNeverland" class="nav nav-list Neverland">
+    $buf = '<div id="sidebar" class="span2 pull-right">
+              
+              <ul id="navSidebarNeverland" class="nav nav-list well Neverland">
                 <li>
                   <a href="' . BASE_URL . '/" title="' . _('Front Page') . '">' . _('Front Page') . '</a>
                 </li>
@@ -308,7 +308,7 @@ class DigestUi {
 
     } else {
       // wrap in frame div
-      return '<div id="frame page" class="span8">
+      return '<div id="frame page" class="span10">
                 ' .
                 $buf .
              '</div>';
@@ -321,14 +321,15 @@ class DigestUi {
       return null;
     }
 
-    $buf = '  </div>
+    $buf = '
             </div>
-            <div id="footer">' .
+            <footer class="Neverland"' .
               sprintf(_('%s by <a href="mailto:%s">%s</a>, %s'), Config::getSetting('enzyme', 'PROJECT_NAME'), 'danny@commit-digest.org', 'Danny Allen', '2006-2013') .
               '<br />' .
               _('All issues in <a href="/archive/">archive</a> by Derek Kite') .
            '  <a id="enzyme-credit" href="http://enzyme-project.org/" target="_blank">&nbsp;</a>
-            </div>';
+            </footer>
+          </div>';
 
     return $buf;
   }
