@@ -17,16 +17,23 @@
 
 abstract class Renderable {
   public function render($tokens = array()) {
+    // determine theme location
+    if (isset(Config::$theme) && Config::$theme[0] !== 'default') {
+        $theme = Config::$theme[0];
+    } else {
+        $theme = 'default';
+    }
+
     // define template engine options
     $options = array();
     if (LIVE_SITE) {
       $options = array(
-        'cache' => BASE_DIR . '/templates/cache',
+        'cache' => BASE_DIR . '/templates/' . $theme . '/cache',
       );
     }
 
     // initialise templating engine
-    $loader = new Twig_Loader_Filesystem(BASE_DIR . '/templates');
+    $loader = new Twig_Loader_Filesystem(BASE_DIR . '/templates/' . $theme);
     $twig = new Twig_Environment($loader, $options);
 
     // enable additional Twig extensions
