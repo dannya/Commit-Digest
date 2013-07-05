@@ -15,7 +15,7 @@
  +--------------------------------------------------------*/
 
 
-class IndexUi {
+class IndexUi extends Renderable {
   public $id            = 'index';
   public $title         = null;
 
@@ -48,51 +48,14 @@ class IndexUi {
 
 
   public function draw() {
-    $buf = '<h1>' . _('Welcome') . '</h1>
-            <p>' . sprintf(_('...to the %s, a weekly overview of the development activity in KDE.'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '</p>
+    $tokens = array(
+      'issues'         => array_slice($this->issues, 0, 5),
+      'six_months_ago' => $this->sixMonthsAgo,
+      'one_year_ago'   => $this->oneYearAgo,
+      'random'         => $this->random,
+    );
 
-            <div id="latest-box" class="filled" onclick="top.location=\'' . BASE_URL . '/issues/latest/\';">
-              <h1>' . _('Read the latest issue!') . '</h1>
-            </div>
-
-            <div id="container">
-              <div class="col1">
-                <h1>' . _('Issues') . '</h1>
-                <div class="inner filled">';
-
-    $counter = 0;
-
-    foreach ($this->issues as $digest) {
-      // stop after $numIssues
-      if ($counter++ == $this->numIssues) {
-        break;
-      }
-
-      $buf .= $this->drawDigest($digest);
-    }
-
-    $buf .=  '  </div>
-              </div>
-
-              <div class="col2">
-                <h1>' . _('Six Months Ago') . '</h1>
-                <div class="inner">' .
-                  $this->drawDigest($this->sixMonthsAgo, false) .
-             '  </div>
-
-                <h1>' . _('One Year Ago') . '</h1>
-                <div class="inner">' .
-                  $this->drawDigest($this->oneYearAgo, false) .
-             '  </div>
-
-                <h1>' . _('Random Digest') . '</h1>
-                <div class="inner">' .
-                  $this->drawDigest($this->random, false) .
-             '  </div>
-              </div>
-            </div>';
-
-    return $buf;
+    return parent::render($tokens);
   }
 
 
@@ -103,23 +66,6 @@ class IndexUi {
 
   public function getStyle() {
     return array('/css/frame/indexui.css');
-  }
-
-
-  private function drawDigest($digest) {
-    // process synopsis, removing HTML tags
-    $synopsis = strip_tags($digest['synopsis']);
-
-    $buf = '<div class="row">
-              <a class="date" href="' . BASE_URL . '/issues/' . $digest['date'] . '/">' .
-                Date::get('full', $digest['date']) .
-           '  </a>
-              <a class="text" href="' . BASE_URL . '/issues/' . $digest['date'] . '/" title="' . htmlspecialchars($synopsis) . '">' .
-                App::truncate($synopsis, 106, true) .
-           '  </a>
-            </div>';
-
-    return $buf;
   }
 }
 

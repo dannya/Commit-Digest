@@ -51,6 +51,7 @@ if (COMMAND_LINE) {
 
   // set environment (live / development)
   if (($_SERVER['HTTP_HOST'] == 'digest') ||
+      ($_SERVER['HTTP_HOST'] == 'localhost') ||
       ($_SERVER['SERVER_ADDR'] == '127.0.0.1') ||
       ($_SERVER['SERVER_ADDR'] == 'localhost')) {
 
@@ -118,6 +119,12 @@ if(isset(Config::$theme) && Config::$theme[0] !== 'default') {
 // rerun the autoloader
 set_include_path(get_include_path() . PATH_SEPARATOR . implode(PATH_SEPARATOR, $classDirs));
 spl_autoload_register();
+
+
+// import templating engine
+require_once BASE_DIR . '/classes/ext/Twig/Autoloader.php';
+Twig_Autoloader::register();
+
 
 // make APP_ID's consistently available
 define('DIGEST_APP_ID',       Config::$app['id']);
