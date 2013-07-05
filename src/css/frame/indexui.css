@@ -1,12 +1,12 @@
-div#latest-box {
+#latest-box {
   text-align:center;
-  padding:10px;
   width:300px;
   margin:20px auto;
-  cursor:pointer;
 }
-div#latest-box h1 {
-  margin:0;
+#latest-box a {
+  display:block;
+  border-bottom: none;
+  padding:10px;
 }
 
 

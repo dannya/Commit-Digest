@@ -1,0 +1,42 @@
+{% import 'blocks/index.html' as blocks %}
+
+<h1>{% trans 'Welcome' %}</h1>
+<p>
+{% trans %}
+    ...to the {{ PROJECT_NAME }}, a weekly overview of the development activity in KDE.
+{% endtrans %}
+</p>
+
+<h2 id="latest-box" class="filled">
+    <a href="{{ BASE_URL }}/issues/latest/">
+        {% trans 'Read the latest issue!' %}
+    </a>
+</h1>
+
+<div id="container">
+    <div class="col1">
+        <h1>{% trans 'Issues' %}</h1>
+        <div class="inner filled">
+        {% for digest in issues %}
+            {{ blocks.digest(digest) }}
+        {% endfor %}
+        </div>
+    </div>
+
+    <div class="col2">
+        <h1>{% trans 'Six Months Ago' %}</h1>
+        <div class="inner">
+            {{ blocks.digest(six_months_ago) }}
+        </div>
+
+        <h1>{% trans 'One Year Ago' %}</h1>
+        <div class="inner">
+            {{ blocks.digest(one_year_ago) }}
+        </div>
+
+        <h1>{% trans 'Random Digest' %}</h1>
+        <div class="inner">
+            {{ blocks.digest(random) }}
+        </div>
+    </div>
+</div>

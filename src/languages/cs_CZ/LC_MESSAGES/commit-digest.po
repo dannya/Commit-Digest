@@ -1,0 +1,907 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Vít Pelčák <vit@pelcak.org>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE Commit-Digest 0.99\n"
+"Report-Msgid-Bugs-To: danny@commit-digest.org\n"
+"POT-Creation-Date: 2011-01-12 00:26+0000\n"
+"PO-Revision-Date: 2011-04-12 11:33+0200\n"
+"Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: csX-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.2\n"
+
+#, php-format
+msgid " (%.1f percent of %d)"
+msgstr " (%.1f procent z %d)"
+
+#, php-format
+msgid "%d by %d developers"
+msgstr "%d od %d vývojářů"
+
+#, php-format
+msgid "%d by %d developers, %d lines modified, %d new files"
+msgstr "%d od %d vývojářů, %d řádků upraveno, %d nových souborů"
+
+#, php-format
+msgid "%d days"
+msgstr "%d dnů"
+
+#, fuzzy, php-format
+msgid "%d days ago"
+msgstr "Před %d dny"
+
+#, php-format
+msgid "%d files"
+msgstr "%d souborů"
+
+#, php-format
+msgid "%d files changed in total"
+msgstr "celkem %d souborů změněno"
+
+#, php-format
+msgid "%d hours ago"
+msgstr "před %d hodinami"
+
+#, php-format
+msgid "%d in the last 7 days"
+msgstr "%d za posledních 7 dnů"
+
+#, php-format
+msgid "%d minutes ago"
+msgstr "před %d minutami"
+
+#, php-format
+msgid "%d months ago"
+msgstr "před %d měsíci"
+
+#, php-format
+msgid "%d seconds ago"
+msgstr "před %d sekundami"
+
+#, php-format
+msgid "%d weeks ago"
+msgstr "před %d týdny"
+
+#, php-format
+msgid "%d years ago"
+msgstr "Před %d lety"
+
+#, php-format
+msgid "%s (%s) committed changes in %s:"
+msgstr ""
+
+#, php-format
+msgid "%s commits classified (%s total)"
+msgstr ""
+
+#, php-format
+msgid "%s committed changes in %s:"
+msgstr ""
+
+#, php-format
+msgid "%s in %s"
+msgstr "%s v %s"
+
+#, php-format
+msgid "(+ %d more)"
+msgstr "(+ dalších %d)"
+
+msgid "(Back to digest)"
+msgstr ""
+
+msgid "(Please wait up to 48 hours for this email)"
+msgstr "(Na tento e-mail, prosím, počkejte nejvýše 48 hodin)"
+
+msgid "(type)"
+msgstr "(typ)"
+
+msgid ""
+"...to the KDE Commit-Digest, a weekly overview of the development activity "
+"in KDE."
+msgstr ""
+
+msgid "1. Idea"
+msgstr "1. Nápad"
+
+msgid "18 to 25"
+msgstr "18 až 25"
+
+msgid "2. Contacting"
+msgstr "2. Kontaktování"
+
+msgid "25 to 35"
+msgstr "25 až 35"
+
+msgid "3. More information needed"
+msgstr "3. Je třeba více informací"
+
+msgid "35 to 45"
+msgstr "35 až 45"
+
+msgid "4. Needs proofreading"
+msgstr "4. Potřebuje kontrolu"
+
+msgid "45 to 55"
+msgstr "45 až 55"
+
+msgid "5. Ready for selection"
+msgstr "5. Připraveno k výběru"
+
+msgid "55 to 65"
+msgstr "55 až 65"
+
+msgid "6. Selected"
+msgstr "6. Vybráno"
+
+msgid "65 to 75"
+msgstr "65 až 75"
+
+msgid "75 to 85"
+msgstr "75 až 85"
+
+msgid "Accessibility"
+msgstr "Zpřístupnění"
+
+msgid "Account"
+msgstr "Účet"
+
+msgid "Added"
+msgstr "Přidáno"
+
+msgid "Admin"
+msgstr "Administrátor"
+
+msgid "Admin Email"
+msgstr "E-mail správce"
+
+msgid "Africa"
+msgstr "Afrika"
+
+msgid "Afrikaans (Afrikaans)"
+msgstr "Afrikaans (afrikánština)"
+
+msgid "Age"
+msgstr "Věk"
+
+msgid ""
+"All issues in <a href=\"/archive/\">archive</a> by <a href=\"mailto:"
+"dkite@shaw.ca\">Derek Kite</a>"
+msgstr ""
+
+msgid "All issues in <a href=\"/archive/\">archive</a> by Derek Kite"
+msgstr ""
+
+msgid ""
+"An email will then be sent from this domain to the email address your SVN "
+"account is linked to."
+msgstr ""
+
+msgid "And Finally..."
+msgstr "A konečně..."
+
+msgid "Apply!"
+msgstr "Použít!"
+
+msgid "Archive"
+msgstr "Archiv"
+
+msgid "Area"
+msgstr "Oblast"
+
+msgid "Asia"
+msgstr "Asie"
+
+#, php-format
+msgid "Bug %d: %s"
+msgstr "Chyba %d: %s"
+
+msgid "Bug Fixes"
+msgstr "Opravy chyb"
+
+msgid "Bug Killers"
+msgstr ""
+
+msgid "Bug Killers and Buzz"
+msgstr ""
+
+msgid "Bug Stats URL"
+msgstr ""
+
+msgid "Bugs Closed"
+msgstr "Chyb zavřeno"
+
+msgid "Bugs Opened"
+msgstr "Chyb otevřeno"
+
+msgid "Buzz"
+msgstr ""
+
+msgid "Classifier"
+msgstr "Klasifikátor"
+
+msgid "Click on the map regions to zoom in and zoom out..."
+msgstr ""
+
+msgid "Click to zoom out..."
+msgstr "Klikněte pro oddálení..."
+
+msgid "Coming soon!"
+msgstr "Již brzy!"
+
+msgid "Commercial"
+msgstr ""
+
+#, php-format
+msgid "Commit %s by %s (%s)"
+msgstr ""
+
+msgid "Commit Classifier"
+msgstr ""
+
+msgid ""
+"Commit Classifiers sort the selected commits into areas (which is partly "
+"automated), and by type (such as bug fix, feature, etc)."
+msgstr ""
+
+msgid "Commit Countries"
+msgstr ""
+
+msgid "Commit Demographics"
+msgstr ""
+
+msgid "Commit Reviewer"
+msgstr ""
+
+msgid ""
+"Commit Reviewers look at all the recent commits, selecting those which are "
+"significant and interesting enough to be included into the weekly Commit-"
+"Digest."
+msgstr ""
+
+msgid "Commit Spy"
+msgstr ""
+
+msgid "Commit Summary"
+msgstr ""
+
+#, php-format
+msgid "Commit data past %s has not been collected yet."
+msgstr ""
+
+msgid "Commits"
+msgstr ""
+
+msgid "Contents"
+msgstr "Obsah"
+
+msgid "Contribute"
+msgstr "Přispívejte"
+
+msgid "Contributors"
+msgstr "Přispěvatelé"
+
+#, php-format
+msgid "Converted %s"
+msgstr ""
+
+msgid "Converting translations..."
+msgstr ""
+
+#, php-format
+msgid ""
+"Couldn't connect to database: ensure you have set the correct values at the "
+"top of %s/autoload.php"
+msgstr ""
+
+msgid "Czech (Čeština)"
+msgstr "Czech (čeština)"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Data Locations"
+msgstr "Umístění dat"
+
+msgid "Default Language"
+msgstr "Výchozí jazyk"
+
+msgid "Default Timezone"
+msgstr "Výchozí časové pásmo"
+
+msgid "Deleted"
+msgstr "Smazáno"
+
+msgid "Deutsch (German)"
+msgstr "Deutsch (němčina)"
+
+msgid "Developer"
+msgstr "Vývojář"
+
+msgid "Development Tools"
+msgstr "Vývojové nástroje"
+
+#, php-format
+msgid "Diffs: %s"
+msgstr ""
+
+msgid "Digest URL"
+msgstr ""
+
+msgid "Digg this issue..."
+msgstr ""
+
+msgid "Display Defaults"
+msgstr ""
+
+#, php-format
+msgid "Download <b>%s</b> video (%s, %s)"
+msgstr ""
+
+#, php-format
+msgid "Downloaded %s (%s)"
+msgstr ""
+
+msgid "Downloading translations..."
+msgstr ""
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Educational"
+msgstr "Výukový"
+
+msgid "Enable Legacy Import"
+msgstr ""
+
+msgid "English"
+msgstr "English (angličtina)"
+
+msgid "Enter your SVN account name:"
+msgstr "Zadejte jméno svého SVN účtu:"
+
+msgid "Enzyme Administrator"
+msgstr ""
+
+msgid ""
+"Enzyme Administrators can manage all aspects of the system, including "
+"various import tools and user accounts."
+msgstr ""
+
+msgid "Enzyme Settings"
+msgstr ""
+
+msgid "Enzyme URL"
+msgstr ""
+
+msgid "Español (Spanish)"
+msgstr "Español (španělština)"
+
+msgid "Europe"
+msgstr "Evropa"
+
+msgid ""
+"Even if you can't contribute time, effort, or money in support, your "
+"enjoyment of the KDE Commit-Digest is contribution enough, and leaves us "
+"with a warm, fuzzy feeling inside!"
+msgstr ""
+
+msgid "Existing Archive"
+msgstr ""
+
+msgid "Existing Data"
+msgstr ""
+
+msgid "Existing Issues"
+msgstr ""
+
+msgid "Extracting extended statistics..."
+msgstr ""
+
+msgid "Feature Editor"
+msgstr ""
+
+msgid ""
+"Feature Editors contact people working on interesting projects and assist "
+"them in writing original pieces which are presented in the introduction of "
+"each Commit-Digest."
+msgstr ""
+
+#, fuzzy
+#| msgid "Features"
+msgid "Feature editor"
+msgstr "Vlastnosti"
+
+msgid "Features"
+msgstr "Vlastnosti"
+
+msgid "Female"
+msgstr "Žena"
+
+#, php-format
+msgid "Fetched details for bug %d"
+msgstr ""
+
+msgid "File Changes"
+msgstr "Změny souborů"
+
+msgid "Files"
+msgstr "Soubory"
+
+#, php-format
+msgid ""
+"For %d issues, %s produced the KDE-CVS Digest. Here are the archives of his "
+"digests:"
+msgstr ""
+
+msgid "Français (French)"
+msgstr "Français (francouzština)"
+
+msgid "Front Page"
+msgstr "Úvodní stránka"
+
+msgid "Games"
+msgstr "Hry"
+
+msgid "Getting available translations..."
+msgstr ""
+
+msgid "Getting bug stats..."
+msgstr ""
+
+msgid "Getting internationalization (i18n) stats..."
+msgstr ""
+
+msgid "Getting revision data..."
+msgstr ""
+
+#, php-format
+msgid "Go to revision %s"
+msgstr ""
+
+#, php-format
+msgid "Go to the next digest issue (%s)"
+msgstr ""
+
+#, php-format
+msgid "Go to the previous digest issue (%s)"
+msgstr ""
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "Help URL"
+msgstr ""
+
+msgid "Home"
+msgstr "Domů"
+
+msgid ""
+"I promise to keep your information confidentially, and to only use the data "
+"collected for KDE statistics purposes, unless further permission is granted."
+msgstr ""
+
+msgid "I18n Stats URL"
+msgstr ""
+
+msgid "I18n Teams URL"
+msgstr ""
+
+msgid ""
+"If you are unable to help the KDE Commit-Digest by donating your time and "
+"effort, you can still show your appreciation and support the ongoing work by "
+"donating money."
+msgstr ""
+
+msgid "Inserted general stats"
+msgstr ""
+
+msgid "Inserted module stats"
+msgstr ""
+
+msgid "Inserted people stats"
+msgstr ""
+
+msgid "Internationalization (i18n) Status"
+msgstr ""
+
+#, php-format
+msgid "Invalid data type in %s"
+msgstr ""
+
+msgid "Issue"
+msgstr ""
+
+#, php-format
+msgid "Issue %d"
+msgstr ""
+
+#, php-format
+msgid "Issue %d: %s"
+msgstr ""
+
+msgid "Issue cannot be found"
+msgstr ""
+
+msgid "Issues"
+msgstr ""
+
+msgid "Italiano (Italian)"
+msgstr "Italiano (italština)"
+
+#, php-format
+msgid "Jump to %s / %s"
+msgstr ""
+
+msgid "KDE Base"
+msgstr ""
+
+msgid ""
+"KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</"
+"a>, 2006-2010"
+msgstr ""
+"KDE Commit-Digest od <a href=\"mailto:danny@commit-digest.org\">Dannyho "
+"Allena</a>, 2006-2010"
+
+msgid ""
+"KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</"
+"a>, 2006-2012"
+msgstr ""
+"KDE Commit-Digest od <a href=\"mailto:danny@commit-digest.org\">Dannyho "
+"Allena</a>, 2006-2012"
+
+msgid "KDE-PIM"
+msgstr "KDE-PIM"
+
+msgid "KOffice"
+msgstr "KOffice"
+
+msgid "Keyboard"
+msgstr "Klávesnice"
+
+msgid "Konqueror"
+msgstr "Konqueror"
+
+msgid "Language"
+msgstr "Jazyk"
+
+msgid "Latest Issue"
+msgstr "Poslední vydání"
+
+msgid "Legacy Import"
+msgstr ""
+
+#, php-format
+msgid "Let us know your thoughts about our work at %shello@commit-digest.org%s"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+#, php-format
+msgid "Located at %s"
+msgstr ""
+
+msgid "Low Saxon (Low Saxon)"
+msgstr "Dolnosaský (dolnosasština)"
+
+msgid "Magyar (Hungarian)"
+msgstr "Magyar (maďarština)"
+
+msgid "Male"
+msgstr "Muž"
+
+msgid "Message"
+msgstr "Zpráva"
+
+msgid "Modified"
+msgstr "Změněno"
+
+msgid "Module"
+msgstr "Modul"
+
+msgid "Money"
+msgstr "Peníze"
+
+msgid "More Info"
+msgstr "Více informací"
+
+msgid "Motivation"
+msgstr "Motivace"
+
+msgid "Mouse"
+msgstr "Myš"
+
+msgid "Multimedia"
+msgstr "Multimédia"
+
+msgid "Nederlands (Dutch)"
+msgstr "Nederlands (holandština)"
+
+msgid "Networking Tools"
+msgstr "Síťové nástroje"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "No commits found"
+msgstr ""
+
+msgid "No commits found, maybe your filter is too restrictive..."
+msgstr ""
+
+msgid "North America"
+msgstr "Severní Amerika"
+
+msgid "Not enough data to generate statistics."
+msgstr "Nedostatek dat pro generování statistik."
+
+msgid "Oceania"
+msgstr "Oceánie"
+
+msgid "Office"
+msgstr "Kancelář"
+
+msgid "One Year Ago"
+msgstr "Před rokem"
+
+msgid "Only show commits I reviewed"
+msgstr ""
+
+msgid "Open Bugs"
+msgstr ""
+
+msgid "Open Wishes"
+msgstr ""
+
+msgid "Optimization"
+msgstr "Optimalizace"
+
+msgid "Optimize"
+msgstr "Optimalizovat"
+
+msgid "Options"
+msgstr "Možnosti"
+
+msgid "Other"
+msgstr "Jiné"
+
+msgid "Over 85"
+msgstr "Přes 85"
+
+msgid "Parsing revision data..."
+msgstr ""
+
+msgid "Path"
+msgstr "Cesta"
+
+msgid "Percentage Complete"
+msgstr ""
+
+msgid "Person"
+msgstr "Osoba"
+
+msgid "Polski (Polish)"
+msgstr "Polski (polština)"
+
+msgid "Português (Portuguese)"
+msgstr "Português (portugalština)"
+
+msgid "Português Brasileiro (Brazilian Portuguese)"
+msgstr "Português Brasileiro (brazilská portugalština)"
+
+#, php-format
+msgid "Processed %s"
+msgstr "Zpracováno %s"
+
+msgid "Program"
+msgstr "Program"
+
+msgid "Project Name"
+msgstr ""
+
+msgid "Query failed"
+msgstr ""
+
+#, php-format
+msgid "Query failed: %s"
+msgstr ""
+
+msgid "Random Digest"
+msgstr ""
+
+msgid "Read the latest issue!"
+msgstr ""
+
+msgid "Reply to the email, following the instructions carefully."
+msgstr ""
+
+#, php-format
+msgid "Retrieving from %s (%s)..."
+msgstr ""
+
+#, php-format
+msgid "Reviewed by %s"
+msgstr ""
+
+msgid "Reviewer"
+msgstr "Kontrolor"
+
+#, php-format
+msgid "Revision %s"
+msgstr "Revize %s"
+
+msgid "SMTP Mail Server"
+msgstr "SMTP Mail Server"
+
+msgid "Save"
+msgstr "Uložit"
+
+msgid "Security"
+msgstr "Bezpečnost"
+
+#, php-format
+msgid "Selected %s of %s commits reviewed (%s total)"
+msgstr ""
+
+msgid "Send this issue by email..."
+msgstr ""
+
+msgid "Sex"
+msgstr "Pohlaví"
+
+msgid "Share this issue by Facebook..."
+msgstr ""
+
+msgid "Share this issue by Twitter..."
+msgstr ""
+
+msgid "Show Insert"
+msgstr ""
+
+msgid "Six Months Ago"
+msgstr "Před šesti měsíci"
+
+msgid "Sort by earliest digest..."
+msgstr ""
+
+msgid "Sort by latest digest..."
+msgstr ""
+
+msgid "South America"
+msgstr "Jižní Amerika"
+
+#, php-format
+msgid ""
+"Spread the word about KDE and the Commit-Digest by using the %s\"share\" "
+"links%s in the sidebar of each Digest."
+msgstr ""
+
+msgid "Statistics"
+msgstr "Statistika"
+
+msgid "Step 1:"
+msgstr "Krok 1:"
+
+msgid "Step 2:"
+msgstr "Krok 2:"
+
+msgid "Step 3:"
+msgstr "Krok 3:"
+
+msgid "Subscribe to KDE Commit-Digest updates"
+msgstr "Přihlásit se k odebírání aktualizací KDE Commit-Digestu"
+
+msgid "Support Commit-Digest using PayPal"
+msgstr "Podpořte Commit-Digest prostřednictví PayPalu"
+
+msgid "Svenska (Swedish)"
+msgstr "Svenska (švédština)"
+
+msgid "Thanks for reading the KDE Commit-Digest!"
+msgstr "Díky za čtení KDE Commit-Digestu!"
+
+msgid "Thanks!"
+msgstr "Díky!"
+
+#, php-format
+msgid "There are %d selections this week"
+msgstr ""
+
+msgid ""
+"There are many ways to help the KDE Commit-Digest by contributing your time, "
+"effort, or money..."
+msgstr ""
+"Je mnoho způsobů, jak podpořit KDE Commit-Digest, přispíváním časem, snahou "
+"nebo penězi..."
+
+msgid "This Week..."
+msgstr "Tento týden..."
+
+msgid "Time"
+msgstr "Čas"
+
+#, php-format
+msgid "Total: %d"
+msgstr "Celkem: %d"
+
+msgid "Translator"
+msgstr "Překladatel"
+
+msgid ""
+"Translators increase the reach of the Commit-Digest and the work done across "
+"the project by making the weekly Commit-Digests available in the native "
+"language of people around the world."
+msgstr ""
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Ukrainian (Ukrainian)"
+msgstr "Ukrainian (ukrajinština)"
+
+msgid "Under 18"
+msgstr "Pod 18"
+
+msgid "Unknown"
+msgstr "Neznámý"
+
+#, php-format
+msgid "Update every %s minutes"
+msgstr ""
+
+msgid "Updating translation strings..."
+msgstr ""
+
+msgid "Uploading translation strings..."
+msgstr ""
+
+msgid "User Interface"
+msgstr "Uživatelské rozhraní"
+
+msgid "Utilities"
+msgstr "Nástroje"
+
+msgid "View as list..."
+msgstr "Zobrazit jako seznam..."
+
+msgid "View as map..."
+msgstr "Zobrazit jako mapu..."
+
+msgid "Volunteer"
+msgstr "Dobrovolník"
+
+msgid "Web Bug Tracker"
+msgstr ""
+
+msgid "Web Bug Tracker XML"
+msgstr ""
+
+msgid "Welcome"
+msgstr "Vítejte"
+
+msgid "Yes"
+msgstr "Ano"
+
+#, php-format
+msgid "You need to have the permission \"%s\" to view this section"
+msgstr "Pro zobrazení této sekce potřebujete oprávnění \"%s\""
+
+msgid "You will soon be represented in the extended statistics."
+msgstr ""
+
+#, php-format
+msgid "by %s"
+msgstr ""
+
+msgid "filter?"
+msgstr "filtrovat?"
+
+msgid "Русский язык (Russian)"
+msgstr "Русский язык (ruština)"
