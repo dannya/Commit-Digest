@@ -1,4 +1,4 @@
-{% import 'blocks/index.html' as blocks %}
+{% from 'blocks/list.html' import index as item %}
 
 <h1>{% trans 'Welcome' %}</h1>
 <p>
@@ -18,7 +18,7 @@
         <h1>{% trans 'Issues' %}</h1>
         <div class="inner filled">
         {% for digest in issues %}
-            {{ blocks.digest(digest) }}
+            {{ item(digest) }}
         {% endfor %}
         </div>
     </div>
@@ -26,17 +26,17 @@
     <div class="col2">
         <h1>{% trans 'Six Months Ago' %}</h1>
         <div class="inner">
-            {{ blocks.digest(six_months_ago) }}
+            {{ item(six_months_ago) }}
         </div>
 
         <h1>{% trans 'One Year Ago' %}</h1>
         <div class="inner">
-            {{ blocks.digest(one_year_ago) }}
+            {{ item(one_year_ago) }}
         </div>
 
         <h1>{% trans 'Random Digest' %}</h1>
         <div class="inner">
-            {{ blocks.digest(random) }}
+            {{ item(random) }}
         </div>
     </div>
 </div>

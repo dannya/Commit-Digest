@@ -2,7 +2,7 @@
 
 /*-------------------------------------------------------+
  | KDE Commit-Digest
- | Copyright 2010-2011 Danny Allen <danny@commit-digest.org>
+ | Copyright 2010-2013 Danny Allen <danny@commit-digest.org>
  | http://www.commit-digest.org/
  +--------------------------------------------------------+
  | This program is released as free software under the
@@ -15,7 +15,7 @@
  +--------------------------------------------------------*/
 
 
-class ListUi {
+class ListUi extends Renderable {
   public $id          = null;
   public $title       = null;
 
@@ -66,43 +66,26 @@ class ListUi {
 
 
   public function draw() {
-    $buf = '<h1>' . $this->title . '</h1>
-            <a id="sort" class="fade" href="?sort=' . $this->sortAlt . '">' . $this->sortString . '</a>';
+    // define tokens
+    $tokens = array(
+      'title' => $this->title,
+      'sort_alt' => $this->sortAlt,
+      'sort_string' => $this->sortString,
+      'issues' => $this->data,
+    );
 
-    // show attribution?
+    // add additional tokens for archive/
     if ($this->id == 'archive') {
-      $buf .= '<p id="attribution">' .
-                sprintf(_('For %d issues, %s produced the KDE-CVS Digest. Here are the archives of his digests:'),
-                        129,
-                        'Derek Kite') .
-              '</p>';
+      $tokens = array_merge(
+        $tokens,
+        array(
+          'archive_author' => 'Derek Kite',
+          'archive_issues' => count($this->data),
+        )
+      );
     }
 
-    $buf .= '<div class="container">';
-
-    foreach ($this->data as $digest) {
-      $url = BASE_URL . '/' . $this->id . '/' . $digest['date'] . '/';
-
-      // show issue number with date?
-      if ($digest['type'] == 'archive') {
-        $dateString = Date::get('full', $digest['date']);
-      } else {
-        $dateString = sprintf(_('Issue %d: %s'), $digest['id'], Date::get('full', $digest['date']));
-      }
-
-      $buf .=  '<div class="row">
-                  <a class="date" href="' . $url . '">' .
-                    $dateString .
-               '  </a>
-                  <a class="text filled" href="' . $url . '">' .
-                    strip_tags($digest['synopsis']) .
-               '  </a>
-                </div>';
-    }
-
-    $buf .= '</div>';
-
-    return $buf;
+    return parent::render($tokens);
   }
 
 

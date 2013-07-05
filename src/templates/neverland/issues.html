@@ -1,0 +1,10 @@
+{% from 'blocks/list.html' import issues as item %}
+
+<h1>{{ title }}</h1>
+<a id="sort" class="fade" href="?sort={{ sort_alt }}">{{ sort_string }}</a>
+
+<div class="container">
+{% for digest in issues %}
+    {{ item(digest, digest.id, digest.date | date('jS F Y')) }}
+{% endfor %}
+</div>

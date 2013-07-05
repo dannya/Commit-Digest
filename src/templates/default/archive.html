@@ -1,0 +1,16 @@
+{% from 'blocks/list.html' import archive as item %}
+
+<h1>{{ title }}</h1>
+<a id="sort" class="fade" href="?sort={{ sort_alt }}">{{ sort_string }}</a>
+
+<p id="attribution">
+{% trans %}
+    For {{ archive_issues }} issues, {{ archive_author }} produced the KDE-CVS Digest. Here are the archives of his digests:
+{% endtrans %}
+</p>
+
+<div class="container">
+{% for digest in issues %}
+    {{ item(digest, digest.id, digest.date | date('jS F Y')) }}
+{% endfor %}
+</div>

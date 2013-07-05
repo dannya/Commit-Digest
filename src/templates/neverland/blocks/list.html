@@ -1,0 +1,20 @@
+{% macro index(digest) %}
+    <div class="row">
+        <a class="date" href="{{ BASE_URL }}/issues/{{ digest.date }}/">{{ digest.date | date('jS F Y') }}</a>
+        <a class="text" href="{{ BASE_URL }}/issues/{{ digest.date }}/">{{ digest.synopsis | striptags | truncate(106, true) }}</a>
+    </div>
+{% endmacro %}
+
+{% macro issues(digest, number, date) %}
+    <div class="row">
+        <a class="date" href="{{ BASE_URL }}/issues/{{ digest.date }}/">{% trans %}Issue {{ number }}: {{ date }}{% endtrans %}</a>
+        <a class="text filled" href="{{ BASE_URL }}/issues/{{ digest.date }}/">{{ digest.synopsis | striptags }}</a>
+    </div>
+{% endmacro %}
+
+{% macro archive(digest, number, date) %}
+    <div class="row">
+        <a class="date" href="{{ BASE_URL }}/issues/{{ digest.date }}/">{{ date }}</a>
+        <a class="text filled" href="{{ BASE_URL }}/issues/{{ digest.date }}/">{{ digest.synopsis | striptags }}</a>
+    </div>
+{% endmacro %}
