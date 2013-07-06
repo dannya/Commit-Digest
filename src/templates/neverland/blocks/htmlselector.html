@@ -1,0 +1,9 @@
+<select id="{{ id }}"
+    name="{% if name %}{{ name }}{% else %}{{ id }}{% endif %}"
+    {% if onchange %} onchange="{{ onchange }}"{% endif %}
+    {% if style %} style="{{ style }}"{% endif %}>
+
+{% for key, value in items %}
+    <option value="{{ key }}"{% if key == preselect_key %} selected="selected"{% endif %}>{{ value | default('&nbsp;') }}</option>
+{% endfor %}
+</select>

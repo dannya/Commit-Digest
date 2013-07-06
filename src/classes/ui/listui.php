@@ -26,6 +26,8 @@ class ListUi extends Renderable {
 
 
   public function __construct($id) {
+    parent::__construct();
+
     // set id and title
     $this->id = $id;
 

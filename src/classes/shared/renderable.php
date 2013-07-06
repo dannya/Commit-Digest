@@ -16,12 +16,24 @@
 
 
 abstract class Renderable {
-  public function render($tokens = array()) {
+  private $twig             = null;
+  private $global_tokens    = array();
+
+
+  public function __construct() {
+    $inst = self::instantiate();
+
+    $this->twig = $inst['twig'];
+    $this->global_tokens = $inst['global_tokens'];
+  }
+
+
+  public static function instantiate() {
     // determine theme location
     if (isset(Config::$theme) && Config::$theme[0] !== 'default') {
-        $theme = Config::$theme[0];
+      $theme = Config::$theme[0];
     } else {
-        $theme = 'default';
+      $theme = 'default';
     }
 
     // define template engine options
@@ -44,10 +56,39 @@ abstract class Renderable {
     $global_tokens = array(
       'BASE_URL'         => BASE_URL,
       'PROJECT_NAME'     => Config::getSetting('enzyme', 'PROJECT_NAME'),
+      'ENZYME_URL'       => Config::getSetting('enzyme', 'ENZYME_URL'),
     );
 
+    // return instance varaibles for the non-static context
+    return array(
+      'twig' => $twig,
+      'global_tokens' => $global_tokens,
+    );
+  }
+
+
+  public function render($tokens = array(), $template = null) {
+    // if template is not specified, use ID of subclass
+    if (!$template) {
+        $template = $this->id;
+    }
+
     // return rendered template output
-    return $twig->render($this->id . '.html', array_merge($global_tokens, $tokens));
+    return $this->twig->render($template . '.html', array_merge($this->global_tokens, $tokens));
+  }
+
+
+  public static function render_static($tokens = array(), $template = null) {
+    // instantiate in a static context
+    $inst = Renderable::instantiate();
+
+    // if template is not specified, use ID of subclass
+    if (!$template) {
+        $template = $this->id;
+    }
+
+    // return rendered template output
+    return $inst['twig']->render($template . '.html', array_merge($inst['global_tokens'], $tokens));
   }
 }
 

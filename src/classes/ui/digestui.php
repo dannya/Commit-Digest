@@ -2,7 +2,7 @@
 
 /*-------------------------------------------------------+
  | KDE Commit-Digest
- | Copyright 2010-2011 Danny Allen <danny@commit-digest.org>
+ | Copyright 2010-2013 Danny Allen <danny@commit-digest.org>
  | http://www.commit-digest.org/
  +--------------------------------------------------------+
  | This program is released as free software under the
@@ -15,7 +15,7 @@
  +--------------------------------------------------------*/
 
 
-class DigestUi {
+class DigestUi extends Renderable {
   public $frame             = null;
 
   private $style            = array('/css/includes/common.css');
@@ -26,6 +26,8 @@ class DigestUi {
 
 
   public function __construct() {
+    parent::__construct();
+
     // determine current frame
     if (isset($_GET['page'])) {
       $current = trim($_GET['page'], '/');
@@ -186,49 +188,26 @@ class DigestUi {
       return null;
     }
 
-    $buf = null;
+    $tokens = array();
 
-    // show review warning banner
+    // show review warning banner?
     if (($this->frame instanceof IssueUi) && $this->frame->review) {
-      $buf  .= '<div id="header-review">' .
-                  _('This issue has not been published yet') .
-               '  <input type="button" value="' . _('Publish') . '" onclick="setPublished(\'' . $this->frame->issue . '\', true);" />
-                </div>
-
-                <iframe id="header-review-target" src="http://www.something.com/" style="display:none;"></iframe>
-
-                <script type="text/javascript">
-                  function setPublished(date, state) {
-                    if ((typeof date == "undefined") || (typeof state == "undefined")) {
-                      return false;
-                    }
-
-                    // send request through iframe
-                    $("header-review-target").src = "' . Config::getSetting('enzyme', 'ENZYME_URL') . '/get/publish.php?date=" + date + "&state=" + state;
-
-                    // remove header
-                    if ($("header-review")) {
-                      Element.remove($("header-review"));
-                      $("body").removeClassName("review");
-                      $("sidebar").style.top = (parseInt($("sidebar").style.top) - 34) + "px";
-                    }
-                  }
-                </script>';
+      $tokens = array(
+        'is_review'     => true,
+        'issue_date'    => $this->frame->issue,
+      );
     }
 
+    // draw language selector
+    $tokens['htmlselector'] = Ui::htmlSelector(
+                                'language',
+                                Digest::getLanguages(),
+                                LANGUAGE,
+                                'changeLanguage(event);'
+                              );
 
     // draw default header elements
-    $buf  .= '<div id="header">
-                <div id="header-bar">
-                  <div id="logo" onclick="top.location=\'' . BASE_URL . '/\';">&nbsp;</div>
-                </div>
-
-                <div id="language-selector">' .
-                  Ui::htmlSelector('language', Digest::getLanguages(), LANGUAGE, 'changeLanguage(event);') .
-             '  </div>
-              </div>';
-
-    return $buf;
+    return parent::render($tokens, 'blocks/header');
   }
 
 
@@ -237,60 +216,9 @@ class DigestUi {
       return null;
     }
 
-    // draw
-    $buf = '<div id="sidebar">
-              <a id="sidebar-logo" class="n" style="display:none;" href="' . BASE_URL . '/">
-                &nbsp;
-              </a>
+    $tokens = array();
 
-              <ul>
-                <li>
-                  <a href="' . BASE_URL . '/" title="' . _('Front Page') . '">' . _('Front Page') . '</a>
-                </li>
-
-                <li class="spacer">
-                  <a href="' . BASE_URL . '/issues/" title="' . _('Issues') . '">' . _('Issues') . '</a>
-                </li>
-                <li>
-                  <ul>
-                    <li>
-                      <a href="' . BASE_URL . '/issues/latest/" title="' . _('Latest Issue') . '">' . _('Latest Issue') . '</a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="spacer">
-                  <a href="' . BASE_URL . '/archive/" title="' . _('Archive') . '">' . _('Archive') . '</a>
-                </li>
-
-                <li class="spacer">
-                  <a href="' . BASE_URL . '/six-months-ago/" title="' . _('Six Months Ago') . '">' . _('Six Months Ago') . '</a>
-                </li>
-                <li>
-                  <a href="' . BASE_URL . '/one-year-ago/" title="' . _('One Year Ago') . '">' . _('One Year Ago') . '</a>
-                </li>
-                <li>
-                  <a href="' . BASE_URL . '/issues/random/" title="' . _('Random Digest') . '">' . _('Random Digest') . '</a>
-                </li>
-
-                <li class="spacer">
-                  <a href="' . BASE_URL . '/commit-spy/" title="' . _('Commit Spy') . '">' . _('Commit Spy') . '</a>
-                </li>
-                <li>
-                  <a href="' . BASE_URL . '/contribute/" title="' . _('Contribute') . '">' . _('Contribute') . '</a>
-                </li>
-
-                <li class="spacer">
-                  <a href="' . BASE_URL . '/data/" title="' . _('Data') . '">' . _('Data') . '</a>
-                </li>
-              </ul>
-
-              <div id="sidebar-bottom">
-                &nbsp;
-              </div>
-            </div>';
-
-    return $buf;
+    return parent::render($tokens, 'blocks/sidebar');
   }
 
 

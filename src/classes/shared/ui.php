@@ -31,11 +31,15 @@ class Ui {
   public static function drawHtmlPage($content, $title = null, array $css = array(),
                                       array $js = array(), $bodyClass = null) {
 
-    $buf = self::drawHtmlPageStart($title, $css, $js, $bodyClass) .
-           $content .
-           self::drawHtmlPageEnd();
+    $tokens = array(
+      'title'       => $title,
+      'css'         => $css,
+      'js'          => $js,
+      'body_class'  => $bodyClass,
+      'content'     => $content,
+    );
 
-    return $buf;
+    return Renderable::render_static($tokens, 'blocks/htmlpage');
   }
 
 
@@ -127,21 +131,16 @@ class Ui {
 
 
   public static function htmlSelector($id, $items, $preselectKey = null,
-                                      $onChange = null, $name = null, $style = null, $emptyEntry = false) {
-    // set onchange?
-    if ($onChange) {
-      $onChange = ' onchange="' . $onChange . '"';
-    }
+                                      $onchange = null, $name = null, $style = null, $emptyEntry = false) {
 
-    // name specified?
-    if (!$name) {
-      $name = $id;
-    }
-
-    // add styling?
-    if ($style) {
-      $style = ' style="' . $style . '"';
-    }
+    // initialise tokens
+    $tokens = array(
+      'id'              => $id,
+      'name'            => $name,
+      'preselect_key'   => $preselectKey,
+      'onchange'        => $onchange,
+      'style'           => $style,
+    );
 
     // add empty entry at top?
     if ($emptyEntry) {
@@ -155,41 +154,9 @@ class Ui {
       }
     }
 
+    $tokens['items'] = $items;
 
-    // draw
-    $buf = '<select id="' . $id . '" name="' . $name . '"' . $onChange . $style . '>';
-
-    foreach ($items as $key => $value) {
-      $params = null;
-
-      if ($key == $preselectKey) {
-        $params .= ' selected="selected"';
-      }
-
-      // check if value is array of options
-      if (is_array($value)) {
-        $string = $value['value'];
-
-        if (isset($value['class'])) {
-          $params .= ' class="' . $value['class'] . '"';
-        }
-
-      } else {
-        $string = $value;
-      }
-
-      // set string to space character if value is empty
-      if ($string == '') {
-        $string = '&nbsp;';
-      }
-
-      // draw
-      $buf .= '<option value="' . $key . '"' . $params . '>' . $string . '</option>';
-    }
-
-    $buf .= '</select>';
-
-    return $buf;
+    return Renderable::render_static($tokens, 'blocks/htmlselector');
   }
 
 
