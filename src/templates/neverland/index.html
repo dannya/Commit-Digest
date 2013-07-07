@@ -1,42 +1,43 @@
 {% from 'blocks/list.html' import index as item %}
 
-<h1>{% trans 'Welcome' %}</h1>
-<p>
-{% trans %}
-    ...to the {{ PROJECT_NAME }}, a weekly overview of the development activity in KDE.
-{% endtrans %}
-</p>
+<div class="hero-unit">
+    <h1>{% trans 'Welcome' %}</h1>
+    <p class="lead">
+    {% trans %}
+        ...to the {{ PROJECT_NAME }}, a weekly overview of the development activity in KDE.
+    {% endtrans %}
+    </p>
 
-<h2 id="latest-box" class="filled">
-    <a href="{{ BASE_URL }}/issues/latest/">
-        {% trans 'Read the latest issue!' %}
-    </a>
-</h1>
-
-<div id="container">
-    <div class="col1">
-        <h1>{% trans 'Issues' %}</h1>
-        <div class="inner filled">
+    <div id="latest-box" class="filled">
+       <button class="btn btn-large btn-primary" href="{{ BASE_URL }}/issues/latest/">
+           {% trans 'Read the latest issue!' %}
+       </button>
+    </div>
+</div>
+<div class="row">
+    <div class="span5">
+        <h2>{% trans 'Issues' %}</h2>
+        <ul>
         {% for digest in issues %}
             {{ item(digest) }}
         {% endfor %}
-        </div>
+        </ul>
     </div>
 
-    <div class="col2">
-        <h1>{% trans 'Six Months Ago' %}</h1>
-        <div class="inner">
+    <div class="span5">
+        <h2>{% trans 'Six Months Ago' %}</h2>
+        <ul>
             {{ item(six_months_ago) }}
-        </div>
+        </ul>
 
-        <h1>{% trans 'One Year Ago' %}</h1>
-        <div class="inner">
+        <h2>{% trans 'One Year Ago' %}</h2>
+        <ul>
             {{ item(one_year_ago) }}
-        </div>
+        </ul>
 
-        <h1>{% trans 'Random Digest' %}</h1>
-        <div class="inner">
+        <h2>{% trans 'Random Digest' %}</h2>
+        <ul>
             {{ item(random) }}
-        </div>
+        </ul>
     </div>
 </div>

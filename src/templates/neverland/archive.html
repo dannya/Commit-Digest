@@ -9,8 +9,12 @@
 {% endtrans %}
 </p>
 
-<div class="container">
-{% for digest in issues %}
-    {{ item(digest, digest.id, digest.date | date('jS F Y')) }}
-{% endfor %}
+<div class="row">
+    <div class="span10">
+        <ul>
+        {% for digest in issues %}
+            {{ item(digest, digest.id, digest.date | date('jS F Y')) }}
+        {% endfor %}
+        </ul>
+    </div>
 </div>
