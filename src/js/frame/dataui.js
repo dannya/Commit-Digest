@@ -13,11 +13,11 @@
  +--------------------------------------------------------*/
 
 
-document.observe('dom:loaded', function() {
-  if ($('account-name')) {
+$(function () {
+  if ($('#account-name')) {
     // intercept regular form submit
-    Event.observe($('account'), 'submit', function(event) {
-      Event.stop(event);
+    $('#account').on('submit', function (event) {
+      Event.preventDefault();
 
       // submit form through function
       accountData();
@@ -27,17 +27,17 @@ document.observe('dom:loaded', function() {
 
 
     // observe keypress so we can enable / disable "send" button
-    Event.observe($('account-name'), 'keyup', function(event) {
-      Event.stop(event);
+    $('#account-name').on('keyup', function (event) {
+      Event.preventDefault();
 
       // check input field contents
-      if ($('account-name').value.strip().length > 0) {
+      if ($('#account-name').val().strip().length > 0) {
         // enable "send" button
-        $('account-send').enable();
+        $('#account-send').prop('disabled', false);
 
       } else {
         // disable "send" button
-        $('account-send').disable();
+        $('#account-send').prop('disabled', true);
       }
 
       return false;
@@ -54,121 +54,125 @@ document.observe('dom:loaded', function() {
 // submit account data form
 function accountData() {
   // disable inputs
-  $('account-name').disable();
-  $('account-send').disable();
+  $('#account-name').disable();
+  $('#account-send').disable();
 
 
-  // send off account name
-  new Ajax.Request(BASE_URL + '/get/account-data.php', {
-    method:     'post',
-    parameters: {
-      account:  $('account-name').value.strip(),
-    },
-    onSuccess: function(transport) {
-      var data = transport.headerJSON;
+  d('accountData');
 
-      if ((typeof data.success != 'undefined') && data.success) {
-        // show code entry box
-        if ($('step_2-before') && $('step_2-after') && $('step_2-code')) {
-          $('step_2-before').hide();
-          $('step_2-after').show();
-        }
-
-        // focus code entry box and observe changes
-        if ($('step_2-code')) {
-          $('step_2-code').focus();
-
-          $('step_2-code').observe('keyup', function(event) {
-            var value = Event.element(event).value.trim();
-
-            // redirect once a likely code has been entered
-            if (value.length == 20) {
-              top.location.href = BASE_URL + '/data/' + value;
-            }
-          });
-        }
-
-        // hide later instructions on page
-        if ($('step_3')) {
-          $('step_3').hide();
-        }
-
-      } else if ((typeof data.invalid != 'undefined') && data.invalid) {
-        // account name given is not valid
-        alert(strings.account_invalid);
-
-        // enable inputs
-        $('account-name').enable();
-        $('account-send').enable();
-      }
-    }
-  });
+  // // send off account name
+  // new Ajax.Request(BASE_URL + '/get/account-data.php', {
+    // method:     'post',
+    // parameters: {
+      // account:  $('account-name').value.strip(),
+    // },
+    // onSuccess: function(transport) {
+      // var data = transport.headerJSON;
+//
+      // if ((typeof data.success != 'undefined') && data.success) {
+        // // show code entry box
+        // if ($('step_2-before') && $('step_2-after') && $('step_2-code')) {
+          // $('step_2-before').hide();
+          // $('step_2-after').show();
+        // }
+//
+        // // focus code entry box and observe changes
+        // if ($('step_2-code')) {
+          // $('step_2-code').focus();
+//
+          // $('step_2-code').observe('keyup', function(event) {
+            // var value = Event.element(event).value.trim();
+//
+            // // redirect once a likely code has been entered
+            // if (value.length == 20) {
+              // top.location.href = BASE_URL + '/data/' + value;
+            // }
+          // });
+        // }
+//
+        // // hide later instructions on page
+        // if ($('step_3')) {
+          // $('step_3').hide();
+        // }
+//
+      // } else if ((typeof data.invalid != 'undefined') && data.invalid) {
+        // // account name given is not valid
+        // alert(strings.account_invalid);
+//
+        // // enable inputs
+        // $('account-name').enable();
+        // $('account-send').enable();
+      // }
+    // }
+  // });
 }
 
 
 function changePrivacy(event) {
-  if ((typeof event != 'object') || !$('access_code')) {
+  if ((typeof event != 'object') || !$('#access_code')) {
     return false;
   }
 
-  // get involved elements
-  var theElement = Event.element(event);
-  var theParent  = theElement.up('tr');
-  var theField   = theParent.readAttribute('data-field').trim();
+  d('change privacy');
 
-  if (theElement.type == 'checkbox') {
-    var theValue = theElement.checked;
-  } else {
-    var theValue = theElement.value;
-  }
-
-
-  // send off change
-  new Ajax.Request(BASE_URL + '/get/account-data.php', {
-    method:     'post',
-    parameters: {
-      context:      'privacy',
-      field:        theField,
-      value:        theValue,
-      access_code:  $('access_code').value.trim()
-    },
-    onSuccess: function(transport) {
-      var data = transport.headerJSON;
-
-      if ((typeof data.success != 'undefined') && data.success) {
-        var affected = theParent.up('form').select('tr[data-privacy="' + theParent.readAttribute('data-privacy') + '"]');
-
-        if (((typeof theValue == 'boolean') && (theValue == true)) ||
-            ((typeof theValue == 'string') && (theValue == '1'))) {
-
-          // private:
-          affected.each(function(row) {
-            // change privacy class
-            row.removeClassName('privacy-public');
-            row.addClassName('privacy-private');
-          });
-
-          // change privacy text
-          if (theField != 'dob') {
-            theElement.next('span').update(strings.privacy_private);
-          }
-
-        } else {
-          // public:
-          affected.each(function(row) {
-            // change privacy class
-            row.removeClassName('privacy-private');
-            row.addClassName('privacy-public');
-          });
-
-          // change privacy text
-          if (theField != 'dob') {
-            theElement.next('span').update(strings.privacy_public);
-          }
-        }
-      }
-    }
-  });
+  // // get involved elements
+  // var theElement = Event.element(event);
+  // var theParent  = theElement.up('tr');
+  // var theField   = theParent.readAttribute('data-field').trim();
+//
+  // if (theElement.type == 'checkbox') {
+    // var theValue = theElement.checked;
+  // } else {
+    // var theValue = theElement.value;
+  // }
+//
+//
+  // // send off change
+  // new Ajax.Request(BASE_URL + '/get/account-data.php', {
+    // method:     'post',
+    // parameters: {
+      // context:      'privacy',
+      // field:        theField,
+      // value:        theValue,
+      // access_code:  $('access_code').value.trim()
+    // },
+    // onSuccess: function(transport) {
+      // var data = transport.headerJSON;
+//
+      // if ((typeof data.success != 'undefined') && data.success) {
+        // var affected = theParent.up('form').select('tr[data-privacy="' + theParent.readAttribute('data-privacy') + '"]');
+//
+        // if (((typeof theValue == 'boolean') && (theValue == true)) ||
+            // ((typeof theValue == 'string') && (theValue == '1'))) {
+//
+          // // private:
+          // affected.each(function(row) {
+            // // change privacy class
+            // row.removeClassName('privacy-public');
+            // row.addClassName('privacy-private');
+          // });
+//
+          // // change privacy text
+          // if (theField != 'dob') {
+            // theElement.next('span').update(strings.privacy_private);
+          // }
+//
+        // } else {
+          // // public:
+          // affected.each(function(row) {
+            // // change privacy class
+            // row.removeClassName('privacy-private');
+            // row.addClassName('privacy-public');
+          // });
+//
+          // // change privacy text
+          // if (theField != 'dob') {
+            // theElement.next('span').update(strings.privacy_public);
+          // }
+        // }
+      // }
+    // }
+  // });
 }
 
 

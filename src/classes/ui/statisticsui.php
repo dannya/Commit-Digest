@@ -46,7 +46,7 @@ class StatisticsUi {
 
 
   public function getScript() {
-    return array('/js/plotr.js',
+    return array('/js/flot/jquery.flot.js',
                  '/js/frame/issueui.js');
   }
 

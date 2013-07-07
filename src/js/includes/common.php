@@ -36,9 +36,9 @@ strings.privacy_private         = '<?php echo _("This field is currently <b>priv
 
 
 // move sidebar with page scroll
-document.observe('dom:loaded', function() {
-  if ($('sidebar') && $('sidebar-logo')) {
-    Event.observe(window, 'scroll', function() {
+$(function () {
+  if ($('#sidebar') && $('#sidebar-logo')) {
+    $(window).on('scroll', function () {
       checkPositioning();
     });
 
@@ -51,64 +51,54 @@ document.observe('dom:loaded', function() {
 
 function checkPositioning() {
   // position sidebar
-  if ($('header-review')) {
+  if ($('#header-review')) {
     // accomodate review banner
-    if (document.viewport.getScrollOffsets().top < 66) {
-      var yPos = 100 - document.viewport.getScrollOffsets().top;
+    if ($(window).scrollTop() < 66) {
+      var yPos = 100 - $(window).scrollTop();
     } else {
       var yPos = 34;
     }
 
   } else {
-    if (document.viewport.getScrollOffsets().top < 66) {
-      var yPos = 66 - document.viewport.getScrollOffsets().top;
+    if ($(window).scrollTop() < 66) {
+      var yPos = 66 - $(window).scrollTop();
     } else {
       var yPos = 0;
     }
   }
 
-  $('sidebar').style.top = yPos + 'px';
+  $('#sidebar').css({
+    'top': yPos
+  });
 
   // show sidebar logo?
-  if (document.viewport.getScrollOffsets().top < 72) {
-    $('sidebar-logo').fade({ duration:0.2 });
+  if ($(window).scrollTop() < 72) {
+    $('#sidebar-logo').fadeOut(200);
   } else {
-    $('sidebar-logo').appear({ duration:0.2 });
+    $('#sidebar-logo').fadeIn(200);
   }
 
   // move share box?
-  if ($('share-box') && $('footer') && $('frame')) {
-    var scrollPos = document.viewport.getScrollOffsets().top + document.viewport.getHeight();
-    var pageLimit = ($('frame').getHeight() + 224) - $('footer').getHeight();
+  if ($('#share-box') && $('#footer') && $('#frame')) {
+    var scrollPos = ($(window).scrollTop() + $(window).height()),
+        pageLimit = (($('#frame').height() + 224) - $('#footer').height()),
+        theCss    = {};
 
     if (scrollPos > pageLimit) {
       if (typeof sharePosDiff != 'undefined') {
-        $('share-box').style.bottom = (scrollPos - pageLimit) + sharePosDiff + 'px';
+        theCss['bottom'] = (scrollPos - pageLimit) + sharePosDiff;
       } else if ($('donate-box')) {
-        $('share-box').style.bottom = (scrollPos - pageLimit) + 20 + 'px';
+        theCss['bottom'] = (scrollPos - pageLimit) + 20;
       } else {
-        $('share-box').style.bottom = (scrollPos - pageLimit) + 'px';
+        theCss['bottom'] = (scrollPos - pageLimit);
       }
 
-      // fade in box (when at bottom of page)?
-      //if ($('share-box').getOpacity() == 0.5) {
-      //  new Effect.Fade("share-box", { duration:0.2,
-      //                                 from:0.5,
-      //                                 to:1 });
-      //}
-
     } else {
-      $('share-box').style.bottom = '0px';
-
-      // fade out box (no longer at bottom of page)?
-      //if ((document.viewport.getScrollOffsets().top > Math.min(300, $('frame').getHeight())) &&
-      //    ($('share-box').getOpacity() == 1)) {
-      //
-      //  new Effect.Fade('share-box', { duration:0.2,
-      //                                 from:1,
-      //                                 to:0.5 });
-      //}
+      theCss['bottom'] = 0;
     }
+
+    // set style
+    $('#share-box').css(theCss);
   }
 }
 
@@ -118,8 +108,8 @@ function changeLanguage(event) {
     return false;
   }
 
-  var element = event.element();
-  location.href = location.protocol + '//' + location.host + location.pathname + '?language=' + element.value;
+  var element = $(event.target);
+  location.href = location.protocol + '//' + location.host + location.pathname + '?language=' + element.val();
 }
 
 
@@ -248,24 +238,6 @@ function inputPrompt(event) {
       element.addClassName('prompt');
     }
   }
-}
-
-
-function highlightShareBox(event) {
-  if (!$('share-box')) {
-    return false;
-  }
-
-  // don't follow A link href after this function!
-  Event.stop(event);
-
-  // highlight share box
-  //new Effect.Fade('share-box', { duration:0.2,
-  //                               from:0.5,
-  //                               to:1,
-  //                               afterFinish: function() {
-  //                                  $('share-box').highlight();
-  //                               } });
 }
 
 

@@ -19,8 +19,8 @@ class DigestUi extends Renderable {
   public $frame             = null;
 
   private $style            = array('/css/includes/common.css');
-  private $appScript        = array('/js/prototype.js',
-                                    '/js/effects.js');
+  private $appScript        = array('/js/jquery.js',
+                                    '/js/flot/jquery.flot.js');
 
   private $userScript       = null;
 
@@ -266,28 +266,28 @@ class DigestUi extends Renderable {
 
 
     // define script
-    $script =  'document.observe("dom:loaded", function() {
+    $script =  '$(function () {
                   // check if we have space for elements
-                  Event.observe(window, "resize", function() {
-                    if (document.viewport.getDimensions().height < 560) {
-                      $("share-box").writeAttribute("class", "share-bottom");
+                  $(window).on("resize", function () {
+                    if ($(window).height() < 560) {
+                      $("#share-box").attr("class", "share-bottom");
                     } else {
-                      $("share-box").writeAttribute("class", "share-sidebar");
+                      $("#share-box").attr("class", "share-sidebar");
                     }
                   });
 
                   // hide elements based on initial size?
-                  if (document.viewport.getDimensions().height < 550) {
-                    $("share-box").writeAttribute("class", "share-bottom");
+                  if ($(window).height() < 550) {
+                    $("#share-box").attr("class", "share-bottom");
 
                     // set flattr button size
                     var flattrButton = "compact";
 
                   } else {
-                    $("share-box").writeAttribute("class", "share-sidebar");
+                    $("#share-box").attr("class", "share-sidebar");
 
                     // set flattr button size
-                    if (document.viewport.getDimensions().height < 600) {
+                    if ($(window).height() < 600) {
                       var flattrButton = "compact";
                     } else {
                       var flattrButton = "default";
@@ -306,14 +306,6 @@ class DigestUi extends Renderable {
                     "title":        theTitle,
                     "description":  theDescription
                   }, "flattr", "replace");
-
-                  // fade out share / donate section?
-                  //if ($("share-box").hasClassName("share-sidebar")) {
-                  //  new Effect.Fade("share-box", { duration:0.5,
-                  //                                 from:1,
-                  //                                 to:0.5,
-                  //                                 delay:5 });
-                  //}
                 });';
 
 
