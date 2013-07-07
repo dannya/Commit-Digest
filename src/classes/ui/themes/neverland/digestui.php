@@ -18,7 +18,7 @@
 class DigestUi {
   public $frame             = null;
 
-  private $style            = array('//cdn.kde.org/css/bootstrap.css', 
+  private $style            = array('//cdn.kde.org/css/bootstrap.css',
                                     '//cdn.kde.org/css/bootstrap-responsive.css',
                                     '/classes/ui/themes/neverland/css/neverland.css');
   private $appScript        = array('/js/prototype.js',
@@ -58,9 +58,6 @@ class DigestUi {
 
     } else if ($current == 'statistics') {
       $this->frame = new StatisticsUi($current, $issue);
-
-    } else if ($current == 'commit-spy') {
-      $this->frame = new CommitSpyUi();
 
     } else if ($current == 'contribute') {
       $this->frame = new ContributeUi();
@@ -248,7 +245,7 @@ class DigestUi {
 
     // draw
     $buf = '<div id="sidebar" class="span2 pull-right">
-              
+
               <ul id="navSidebarNeverland" class="nav nav-list well Neverland">
                 <li>
                   <a href="' . BASE_URL . '/" title="' . _('Front Page') . '">' . _('Front Page') . '</a>
@@ -280,9 +277,6 @@ class DigestUi {
                 </li>
 
                 <li class="spacer">
-                  <a href="' . BASE_URL . '/commit-spy/" title="' . _('Commit Spy') . '">' . _('Commit Spy') . '</a>
-                </li>
-                <li>
                   <a href="' . BASE_URL . '/contribute/" title="' . _('Contribute') . '">' . _('Contribute') . '</a>
                 </li>
 

@@ -59,9 +59,6 @@ class DigestUi extends Renderable {
     } else if ($current == 'statistics') {
       $this->frame = new StatisticsUi($current, $issue);
 
-    } else if ($current == 'commit-spy') {
-      $this->frame = new CommitSpyUi();
-
     } else if ($current == 'contribute') {
       $this->frame = new ContributeUi();
 

@@ -39,7 +39,6 @@ RewriteCond %{REQUEST_URI} issues/ [OR]
 RewriteCond %{REQUEST_URI} archive/ [OR]
 RewriteCond %{REQUEST_URI} six-months-ago/ [OR]
 RewriteCond %{REQUEST_URI} one-year-ago/ [OR]
-RewriteCond %{REQUEST_URI} commit-spy/ [OR]
 RewriteCond %{REQUEST_URI} contribute/
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule (.*)/ /index.php?page=$1 [QSA,L]
