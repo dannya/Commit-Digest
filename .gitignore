@@ -1,2 +1,6 @@
 /.buildpath
 /.project
+/.settings
+/resources
+/src/css/min
+/src/js/min

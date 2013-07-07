@@ -1,0 +1,28 @@
+<h1>{% trans 'This Week...' %}</h1>
+
+<div class="synopsis">
+    {% autoescape false %}
+    {{ synopsis }}
+    {% endautoescape %}
+</div>
+
+{% if sections %}
+    {% for section in sections %}
+    <div class="body-row">
+        <div class="body-title">
+            <a id="intro-{{ loop.index }}" name="intro-{{ loop.index }}"></a>
+            {% autoescape false %}
+            {{ section.intro }}
+            {% endautoescape %}
+        </div>
+
+        {% if section.type == 'message' %}
+        <div class="body-text filled">
+            {% autoescape false %}
+            {{ section.body }}
+            {% endautoescape %}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+{% endif %}

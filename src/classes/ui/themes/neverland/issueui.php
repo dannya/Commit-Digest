@@ -231,37 +231,26 @@ class IssueUi {
 
 
   private function drawIntro() {
-    $buf = '<h1>' . _('This Week...') . '</h1>';
+    // initialise tokens
+    $tokens = array(
+      'synopsis' => $this->data['synopsis'],
+    );
 
-    // synopsis
-    $buf .= '<div class="synopsis">' .
-               $this->data['synopsis'] .
-            '</div>';
-
-    // messages
+    // prepare text in sections
     if (isset($this->data['sections'])) {
-      $counter = 1;
-
-      foreach ($this->data['sections'] as $section) {
-        $buf .=  '<div class="body-row">
-                    <div class="body-title">
-                      <a id="intro-' . $counter . '" name="intro-' . $counter . '"></a>' .
-                      $this->formatIntroTitle($section['intro']) .
-                 '  </div>';
+      foreach ($this->data['sections'] as &$section) {
+        $section['intro'] = $this->formatIntroTitle($section['intro']);
 
         if ($section['type'] == 'message') {
-          $buf .= '<div class="body-text filled">' .
-                     $this->formatIntroText($section['body']) .
-                  '</div>';
+          $section['body'] = $this->formatIntroText($section['body']);
         }
-
-        $buf .= '</div>';
-
-        ++$counter;
       }
+
+      $tokens['sections'] = $this->data['sections'];
     }
 
-    return $buf;
+    // draw default header elements
+    return Renderable::render_static($tokens, 'blocks/issue/intro');
   }
 
 
