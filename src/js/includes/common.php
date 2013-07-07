@@ -54,14 +54,21 @@ function checkPositioning() {
     var top = $(window).scrollTop();
 
     if (top < 66) {
-        var yPos = (66 + diff) - top;
+        $('#sidebar')
+            .removeClass('float')
+            .css({
+                'top' : ((66 + diff) - top)
+            });
+
     } else {
-        var yPos = diff;
+        $('#sidebar')
+            .addClass('float')
+            .css({
+                'top' : diff
+            });
     }
 
-    $('#sidebar').css({
-        'top' : yPos
-    });
+
 
     // show sidebar logo?
     if (top < 80) {

@@ -1,158 +1,143 @@
 h1 {
-  position:relative;
+    position: relative;
 }
 
 h1 i {
-  display:inline-block;
-  position:absolute;
-  bottom:0;
-  right:0;
-  font-size:16px;
-  font-style:italic;
-  font-weight:normal;
-  color:#666;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: normal;
+    color: #666;
 }
 h1 i a {
-  color:#666;
+    color: #666;
 }
 
-
-
 div.row {
-  position:relative;
-  width:100%;
+    position: relative;
+    width: 100%;
 }
 
 div.row div.left {
-  font-weight:bold;
-  width:100px;
+    font-weight: bold;
+    width: 100px;
 }
 div.row div.right {
-  position:relative;
-  width:800px;
-
-  left:100px;
-  top:-22px;
+    position: relative;
+    width: 800px;
+    left: 100px;
+    top: -22px;
 }
 
-
-
 form#account {
-  width:286px;
-  margin:4px 0 16px 0;
+    width: 286px;
+    margin: 4px 0 16px 0;
 }
 
 #step_2-code {
-  margin-top:4px;
+    margin-top: 4px;
 }
 
-
-
 form#data {
-  margin-bottom:48px;
+    margin-bottom: 48px;
 }
 
 form#data h3 {
-  margin:28px 0 8px 0;
+    margin: 28px 0 8px 0;
 }
-
-
 
 form#data table {
-  margin-left:16px;
-  border-collapse:collapse;
+    margin-left: 16px;
+    border-collapse: collapse;
 }
 form#data tr.privacy-private {
-  background-color:#dbffbf;
+    background-color: #dbffbf;
 }
 
 form#data td {
-  padding:4px 0;
+    padding: 4px 0;
 }
 
 form#data td.title {
-  min-width:160px;
-  padding-right:10px;
-  text-align:right;
+    min-width: 160px;
+    padding-right: 10px;
+    text-align: right;
 }
-
 
 form#data td.value {
-  padding-right:32px;
+    padding-right: 32px;
 }
 form#data td.value input {
-  width:222px;
+    width: 222px;
 }
 form#data td.value select {
-  width:230px;
+    width: 230px;
 }
 
-
 form#data td.privacy {
-  padding-right:12px;
-  font-size:14px;
-  font-style:italic;
-  color:#666;
+    padding-right: 12px;
+    font-size: 14px;
+    font-style: italic;
+    color: #666;
 }
 
 form#data tr.privacy-always td.privacy {
-  padding-left:20px;
+    padding-left: 20px;
 }
 
 form#data td.privacy label {
-  display:block;
-  cursor:pointer;
-  padding:2px 0;
+    display: block;
+    cursor: pointer;
+    padding: 2px 0;
 }
 form#data td.privacy label input {
-  margin:0 7px 0 0;
+    margin: 0 7px 0 0;
 }
-
 
 form#data tr[data-privacy="dob"] td {
-  vertical-align:top;
+    vertical-align: top;
 }
 form#data tr[data-privacy="dob"] td.title {
-  padding-top:8px;
+    padding-top: 8px;
 }
 form#data tr[data-privacy="dob"] td.privacy {
-  padding-top:10px;
-  padding-bottom:10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 form#data tr[data-privacy="dob"] td.privacy b {
-  display:inline-block;
-  margin:0 0 4px 24px;
+    display: inline-block;
+    margin: 0 0 4px 24px;
 }
-
 
 form#data div.buttons {
-  margin-top:32px;
-  height:32px;
+    margin-top: 32px;
+    height: 32px;
 }
 form#data div.buttons label {
-  float:none;
+    float: none;
 }
 
 form#data div.buttons input[type="submit"] {
-  float:left;
+    float: left;
 }
 form#data div.buttons img#spinner {
-  float:left;
-  margin:-3px 0 0 12px;
+    float: left;
+    margin: -3px 0 0 12px;
 }
 
 form#data div.buttons label {
-  display:inline-block;
-  margin:0 0 0 130px;
-  padding:4px 6px 6px 6px;
-  cursor:pointer;
+    display: inline-block;
+    margin: 0 0 0 130px;
+    padding: 4px 6px 6px 6px;
+    cursor: pointer;
 }
 form#data div.buttons label input {
-  margin:0px 10px 0 0;
+    margin: 0px 10px 0 0;
 }
 
-
-
 p.intro {
-  padding:0 0 22px 0;
+    padding: 0 0 22px 0;
 }
