@@ -1,40 +1,52 @@
-{% if is_review %}
-<div id="header-review">
-    {% trans 'This issue has not been published yet' %}
-    <input type="button" value="{% trans 'Publish' %}" onclick="setPublished('{{ issue_date }}', true);" />
-</div>
+<div id="content">
+    <header id="top-small" class="navbar navbar-fixed-top Neverland">
+        <div id="header-bar" class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="{{ BASE_URL }}/">
+                    <img src="//cdn.kde.org/img/logo.plain.small.png"/>
+                    {{ title }}
+                </a>
+                <div class="nav-pills pull-right">
+                    <div id="language-selector">
+                        {% autoescape false %}
+                        {{ htmlselector }}
+                        {% endautoescape %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container Neverland home">
+        <div id="pageRow" class="row">
 
-<iframe id="header-review-target" src="http://www.something.com/" style="display:none;"></iframe>
+            {% if is_review %}
+            <div class="alert" id="header-review">
+                {% trans 'This issue has not been published yet' %}
+                <input type="button" value="{% trans 'Publish' %}" onclick="setPublished('{{ issue_date }}', true);" />
+            </div>
 
-<script type="text/javascript">
-    function setPublished(date, state) {
-        if ((typeof date == "undefined") || (typeof state == "undefined")) {
-            return false;
-        }
+            <iframe id="header-review-target" src="http://www.something.com/" style="display:none;"></iframe>
 
-        // send request through iframe
-        $("header-review-target").src = "{{ ENZYME_URL }}/get/publish.php?date=" + date + "&state=" + state;
+           <script type="text/javascript">
+           function setPublished(date, state) {
+                if ((typeof date == "undefined") || (typeof state == "undefined")) {
+                    return false;
+                    }
 
-        // remove header
-        if ($("header-review")) {
-            Element.remove($("header-review"));
-            $("body").removeClassName("review");
-            $("sidebar").style.top = (parseInt($("sidebar").style.top) - 34) + "px";
-        }
-    }
-</script>
-{% endif %}
+                // send request through iframe
+                $("header-review-target").src = "{{ ENZYME_URL }}/get/publish.php?date=" + date + "&state=" + state;
 
-<div id="header">
-    <div id="header-bar">
-        <a id="logo" href="{{ BASE_URL }}/">
-            &nbsp;
-        </a>
-    </div>
-
-    <div id="language-selector">
-    {% autoescape false %}
-        {{ htmlselector }}
-    {% endautoescape %}
-    </div>
-</div>
+                // remove header
+                if ($("header-review")) {
+                    Element.remove($("header-review"));
+                    $("body").removeClassName("review");
+                    $("sidebar").style.top = (parseInt($("sidebar").style.top) - 34) + "px";
+                }
+            }
+            </script>
+            {% endif %}
