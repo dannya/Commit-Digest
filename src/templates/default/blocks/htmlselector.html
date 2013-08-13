@@ -4,6 +4,15 @@
     {% if style %} style="{{ style }}"{% endif %}>
 
 {% for key, value in items %}
-    <option value="{{ key }}"{% if key == preselect_key %} selected="selected"{% endif %}>{{ value | default('&nbsp;') }}</option>
+    <option value="{{ key }}"
+        {% if value.class is defined %} class="{{ value.class }}"{% endif %}
+        {% if key == preselect_key %}selected="selected"{% endif %}>
+
+        {% if value.value is defined %}
+            {{ value.value | default('&nbsp;') | raw }}
+        {% else %}
+            {{ value | default('&nbsp;') | raw }}
+        {% endif %}
+    </option>
 {% endfor %}
 </select>

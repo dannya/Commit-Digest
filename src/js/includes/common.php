@@ -214,40 +214,6 @@ function inputPrompt(event) {
 }
 
 
-function openInLightbox(event, options) {
-    if (typeof event == 'object') {
-        Event.stop(event);
-        var theLink = event.element().readAttribute('href');
-
-    } else if (typeof event == 'string') {
-        var theLink = event;
-
-    } else {
-        return false;
-    }
-
-    // append to link?
-    if (typeof options['append'] == 'string') {
-        theLink += options['append'];
-    }
-
-    // set and extend options
-    var theOptions = Object.extend({
-        href : theLink,
-        type : 'page',
-        title : '',
-        width : 1000,
-        height : 500,
-        clickClose : true
-    }, options || {});
-
-    // load in lightbox
-    lightbox.activateWindow(theOptions);
-
-    return false;
-}
-
-
 function scrollToOffset(id, offset, container) {
     if (!$(id) || (typeof offset == 'undefined')) {
         return false;

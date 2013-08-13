@@ -220,11 +220,6 @@ class Enzyme {
                                           'valid'   => null,
                                           'default' => 0.1,
                                           'example' => null);
-    $tmp['SURVEY_ACTIVE']         = array('title'   => _('Survey Active'),
-                                          'valid'   => array('0'  => _('No'),
-                                                             '1'  => _('Yes')),
-                                          'default' => '0',
-                                          'example' => null);
 
     $tmp['GENERATE_MAPS']         = array('title'   => _('Map Generation Service URL'),
                                           'valid'   => null,
@@ -309,8 +304,7 @@ class Enzyme {
                                              'SMTP'                   => $tmp['SMTP'],
                                              'SHOW_INSERT'            => $tmp['SHOW_INSERT'],
                                              'AUTO_REVIEW_COMMITS'    => $tmp['AUTO_REVIEW_COMMITS'],
-                                             'DATA_TERMS_VERSION'     => $tmp['DATA_TERMS_VERSION'],
-                                             'SURVEY_ACTIVE'          => $tmp['SURVEY_ACTIVE']));
+                                             'DATA_TERMS_VERSION'     => $tmp['DATA_TERMS_VERSION']));
 
     $settings[] = array('title'     => _('Data Locations'),
                         'settings'  => array('GENERATE_MAPS'          => $tmp['GENERATE_MAPS'],

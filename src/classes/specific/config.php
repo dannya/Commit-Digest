@@ -54,7 +54,6 @@ final class Config {
                                                            'data_terms',
                                                            'developers',
                                                            'developer_privacy',
-                                                           'developer_survey',
                                                            'digests',
                                                            'digest_intro_people',
                                                            'digest_intro_sections',

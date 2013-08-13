@@ -19,7 +19,6 @@ class Developer {
   public $data                  = null;
   public $privacy               = null;
   public $access                = null;
-  public $surveyDone            = false;
 
   public static $fieldSections  = array('core'            => array('account', 'name', 'email', 'nickname', 'dob', 'gender', 'nationality', 'motivation', 'employer', 'colour'),
                                         'geographic'      => array('continent', 'country', 'location', 'latitude', 'longitude'),
@@ -175,9 +174,6 @@ class Developer {
 
     // load developer data
     if ($this->data = Db::load('developers', array('account' => $privacy['account']), 1)) {
-      // check if survey has been completed
-      $this->surveyDone = Db::exists('developer_survey', array('account' => $privacy['account']));
-
       // set privacy settings to each data value
       foreach (self::$fields as $id => $spec) {
         if (!isset($spec['privacy'])) {

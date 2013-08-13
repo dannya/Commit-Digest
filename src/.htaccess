@@ -28,10 +28,6 @@ RewriteRule ^developer/(.*) /index.php?page=developer&account=$1 [QSA,L]
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^data/terms/(.*) /index.php?page=terms&version=$1 [QSA,L]
 
-
-RewriteCond %{SCRIPT_FILENAME} !-f
-RewriteRule ^data/survey/(.*) /index.php?page=survey&code=$1 [QSA,L]
-
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^data/(.*) /index.php?page=data&code=$1 [QSA,L]
 

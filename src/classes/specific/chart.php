@@ -180,8 +180,11 @@ class Chart {
       $buf .=  '<tr>
                   <td class="label">' . $label . '</td>
                   <td class="value">
-                    <div style="width:' . $this->getBarWidth($value, $largestValue) . 'px;">&nbsp;</div> ' . $value .
-                 '</td>
+                    <div>
+                      <span>' . $value . '</span>
+                      <div style="width:' . $this->getBarWidth($value, $largestValue) . '%;">&nbsp;</div>
+                    </div>
+                  </td>
                 </tr>';
     }
 
@@ -211,15 +214,15 @@ class Chart {
 
 
     // get largest values from each column for percentage calculation (bar width)
-    $largestValue = 0;
+    $largestValue = array(0, 0);
 
     foreach ($this->data as $value) {
-      if ($value[0] > $largestValue) {
-        $largestValue = $value[0];
+      if ($value[0] > $largestValue[0]) {
+        $largestValue[0] = $value[0];
       }
 
-      if ($value[1] > $largestValue) {
-        $largestValue = $value[1];
+      if ($value[1] > $largestValue[1]) {
+        $largestValue[1] = $value[1];
       }
     }
 
@@ -236,14 +239,19 @@ class Chart {
       }
 
       $buf .=  '<tr>
-                  <td class="valueTwinStart">' .
-                    $value[0] .
-               '    <div style="width:' . $this->getBarWidth($value[0], $largestValue[0], ($this->options['barwidth'] / 2)) . 'px;">&nbsp;</div>
+                  <td class="valueTwinStart">
+                    <div>
+                      <span>' . $value[0] . '</span>
+                      <div style="width:' . $this->getBarWidth($value[0], $largestValue[0]) . '%;">&nbsp;</div>
+                    </div>
                   </td>
                   <td class="labelTwin">' . $label . '</td>
                   <td class="valueTwinEnd">
-                    <div style="width:' . $this->getBarWidth($value[1], $largestValue[1], ($this->options['barwidth'] / 2)) . 'px;">&nbsp;</div> ' . $value[1] .
-                 '</td>
+                    <div>
+                      <span>' . $value[1] . '</span>
+                      <div style="width:' . $this->getBarWidth($value[1], $largestValue[1]) . '%;">&nbsp;</div>
+                    </div>
+                  </td>
                 </tr>';
     }
 
@@ -254,15 +262,12 @@ class Chart {
   }
 
 
-  private function getBarWidth($value, $largestValue, $barWidth = null) {
-    if (!$barWidth) {
-      $barWidth = $this->options['barwidth'];
-    }
-
+  private function getBarWidth($value, $largestValue) {
     $largestValue = (int)$largestValue;
 
     if ($largestValue != 0) {
-      return floor(((int)$value / $largestValue) * $barWidth);
+      // return floor(((int)$value / $largestValue) * $barWidth);
+      return floor(((int)$value / $largestValue) * 100);
     } else {
       return 0;
     }

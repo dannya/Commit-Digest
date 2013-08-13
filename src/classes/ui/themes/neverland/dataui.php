@@ -49,16 +49,12 @@ class DataUi {
 
 
   public function getScript() {
-    return array('/js/lightwindow.js',
-                 '/js/frame/dataui.js',
-                 '/js/frame/surveyui.js');
+    return array('/js/frame/dataui.js');
   }
 
 
   public function getStyle() {
-    return array('/css/includes/lightwindow.css',
-                 '/css/frame/dataui.css',
-                 '/css/frame/surveyui.css');
+    return array('/css/frame/dataui.css');
   }
 
 
@@ -142,7 +138,7 @@ class DataUi {
     $buf   = '<h1>' .
                 $this->title . '
                 <i>' .
-                  sprintf(_('This data is held under <a href="%s" target="_blank" onclick="openInLightbox(event, { \'append\': \'?onlyContent&noFrame\' });">version %2.1f of the data usage terms</a>'),
+                  sprintf(_('This data is held under <a href="%s" target="_blank">version %2.1f of the data usage terms</a>'),
                           BASE_URL . '/data/terms/' . $this->developer->privacy['terms_accepted'],
                           $this->developer->privacy['terms_accepted']) .
              '  </i>
@@ -202,14 +198,13 @@ class DataUi {
     }
 
     // add access code into form
-    $buf  .= '  <input id="access_code" name="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />
-                <input id="survey_done" name="survey_done" type="hidden" value="' . (int)($this->developer->surveyDone || !Config::getSetting('enzyme', 'SURVEY_ACTIVE')) . '" />';
+    $buf  .= '  <input id="access_code" name="access_code" type="hidden" value="' . $this->developer->access['code'] . '" />';
 
     // form buttons
     if ($this->developer->privacy['terms_accepted'] != Config::getSetting('enzyme', 'DATA_TERMS_VERSION')) {
       $dataTermsAlert  = '<label id="terms_accepted_container">
                             <input id="terms_accepted" type="checkbox" value="1" />' .
-                            sprintf(_('I allow this data to be used under <a href="%s" target="_blank" onclick="openInLightbox(event, { \'append\': \'?onlyContent&noFrame\' });">version %2.1f of the data usage terms</a>'),
+                            sprintf(_('I allow this data to be used under <a href="%s" target="_blank">version %2.1f of the data usage terms</a>'),
                                     BASE_URL . '/data/terms/' . Config::getSetting('enzyme', 'DATA_TERMS_VERSION'),
                                     Config::getSetting('enzyme', 'DATA_TERMS_VERSION')) .
                          '</label>';

@@ -134,6 +134,9 @@ form#data div.buttons label {
     padding: 4px 6px 6px 6px;
     cursor: pointer;
 }
+form#data div.buttons label.alert {
+    border: 2px solid red;
+}
 form#data div.buttons label input {
     margin: 0px 10px 0 0;
 }

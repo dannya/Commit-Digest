@@ -130,7 +130,7 @@ Twig_Autoloader::register();
 define('DIGEST_APP_ID',       Config::$app['id']);
 define('ENZYME_APP_ID',       'enzyme');
 
-define('JAVASCRIPT_LIBRARY',  'prototype');
+define('JAVASCRIPT_LIBRARY',  'jquery');
 
 
 // stop APC cache slam errors

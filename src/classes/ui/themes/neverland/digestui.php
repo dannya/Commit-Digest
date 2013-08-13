@@ -68,9 +68,6 @@ class DigestUi {
     } else if ($current == 'data') {
       $this->frame = new DataUi();
 
-    } else if ($current == 'survey') {
-      $this->frame = new SurveyUi();
-
     } else if ($current == 'terms') {
       $this->frame = new DataTermsUi();
 

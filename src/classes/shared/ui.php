@@ -131,7 +131,8 @@ class Ui {
 
 
   public static function htmlSelector($id, $items, $preselectKey = null,
-                                      $onchange = null, $name = null, $style = null, $emptyEntry = false) {
+                                      $onchange = null, $name = null, $style = null,
+                                      $emptyEntry = false) {
 
     // initialise tokens
     $tokens = array(

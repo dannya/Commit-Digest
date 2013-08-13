@@ -19,8 +19,7 @@ class DigestUi extends Renderable {
   public $frame             = null;
 
   private $style            = array('/css/includes/common.css');
-  private $appScript        = array('/js/jquery.js',
-                                    '/js/flot/jquery.flot.js');
+  private $appScript        = array('/js/jquery.js');
 
   private $userScript       = null;
 
@@ -67,9 +66,6 @@ class DigestUi extends Renderable {
 
     } else if ($current == 'data') {
       $this->frame = new DataUi();
-
-    } else if ($current == 'survey') {
-      $this->frame = new SurveyUi();
 
     } else if ($current == 'terms') {
       $this->frame = new DataTermsUi();

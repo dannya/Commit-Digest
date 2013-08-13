@@ -599,7 +599,7 @@ msgid "Homepage URL"
 msgstr ""
 
 #, php-format
-msgid "I allow this data to be used under <a href=\"%s\" target=\"_blank\" onclick=\"openInLightbox(event, { 'append': '?noFrame' });\">version %2.1f of the data usage terms</a>"
+msgid "I allow this data to be used under <a href=\"%s\" target=\"_blank\">version %2.1f of the data usage terms</a>"
 msgstr ""
 
 msgid "I promise to keep your information confidentially, and to only use the data collected for KDE statistics purposes, unless further permission is granted."
@@ -1007,12 +1007,6 @@ msgstr ""
 msgid "Support Commit-Digest using PayPal"
 msgstr ""
 
-msgid "Survey"
-msgstr ""
-
-msgid "Survey Active"
-msgstr ""
-
 msgid "Svenska (Swedish)"
 msgstr ""
 
@@ -1049,7 +1043,7 @@ msgid "This Week..."
 msgstr ""
 
 #, php-format
-msgid "This data is held under <a href=\"%s\" target=\"_blank\" onclick=\"openInLightbox(event, { 'append': '?noFrame' });\">version %2.1f of the data usage terms</a>"
+msgid "This data is held under <a href=\"%s\" target=\"_blank\">version %2.1f of the data usage terms</a>"
 msgstr ""
 
 msgid "This field is <b>always public</b>"
