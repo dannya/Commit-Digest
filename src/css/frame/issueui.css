@@ -404,7 +404,7 @@ div.diffs div.path {
 
 div.diffs div.path div {
     float: left;
-    margin: 1px 4px 0 4px;
+    margin: 0 4px 0 4px;
     width: 20px;
     height: 20px;
     background: url('../../img/sprite.png') no-repeat;
