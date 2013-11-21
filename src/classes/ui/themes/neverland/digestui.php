@@ -2,7 +2,7 @@
 
 /*-------------------------------------------------------+
  | KDE Commit-Digest
- | Copyright 2010-2011 Danny Allen <danny@commit-digest.org>
+ | Copyright 2010-2013 Danny Allen <danny@commit-digest.org>
  | http://www.commit-digest.org/
  +--------------------------------------------------------+
  | This program is released as free software under the
@@ -21,8 +21,7 @@ class DigestUi {
   private $style            = array('//cdn.kde.org/css/bootstrap.css',
                                     '//cdn.kde.org/css/bootstrap-responsive.css',
                                     '/classes/ui/themes/neverland/css/neverland.css');
-  private $appScript        = array('/js/prototype.js',
-                                    '/js/effects.js');
+  private $appScript        = array('/js/jquery.js');
 
   private $userScript       = null;
 
@@ -160,14 +159,14 @@ class DigestUi {
 
 
   public function getBodyClasses() {
-    $bodyAttr = ' data-spy="scroll"';
+    $class = null;
 
     if (($this->frame instanceof IssueUi) && $this->frame->review) {
       // showing review warning banner
-      $bodyAttr .= ' class="review"';
+      $class .= ' class="review"';
     }
 
-    return $bodyAttr;
+    return $class;
   }
 
 
@@ -299,8 +298,7 @@ class DigestUi {
 
     } else {
       // wrap in frame div
-      return '<div id="frame page" class="span10">
-                ' .
+      return '<div id="frame page" class="span10">' .
                 $buf .
              '</div>';
     }
@@ -312,9 +310,8 @@ class DigestUi {
       return null;
     }
 
-    $buf = '
-            </div>
-            <footer class="Neverland"' .
+    $buf = '</div>
+            <footer class="Neverland">' .
               sprintf(_('%s by <a href="mailto:%s">%s</a>, %s'), Config::getSetting('enzyme', 'PROJECT_NAME'), 'danny@commit-digest.org', 'Danny Allen', '2006-2013') .
               '<br />' .
               _('All issues in <a href="/archive/">archive</a> by Derek Kite') .
@@ -339,28 +336,28 @@ class DigestUi {
 
 
     // define script
-    $script =  'document.observe("dom:loaded", function() {
+    $script =  '$(function () {
                   // check if we have space for elements
-                  Event.observe(window, "resize", function() {
-                    if (document.viewport.getDimensions().height < 560) {
-                      $("share-box").writeAttribute("class", "share-bottom");
+                  $(window).on("resize", function () {
+                    if ($(window).height() < 560) {
+                      $("#share-box").attr("class", "share-bottom");
                     } else {
-                      $("share-box").writeAttribute("class", "share-sidebar");
+                      $("#share-box").attr("class", "share-sidebar");
                     }
                   });
 
                   // hide elements based on initial size?
-                  if (document.viewport.getDimensions().height < 550) {
-                    $("share-box").writeAttribute("class", "share-bottom");
+                  if ($(window).height() < 550) {
+                    $("#share-box").attr("class", "share-bottom");
 
                     // set flattr button size
                     var flattrButton = "compact";
 
                   } else {
-                    $("share-box").writeAttribute("class", "share-sidebar");
+                    $("#share-box").attr("class", "share-sidebar");
 
                     // set flattr button size
-                    if (document.viewport.getDimensions().height < 600) {
+                    if ($(window).height() < 600) {
                       var flattrButton = "compact";
                     } else {
                       var flattrButton = "default";
@@ -379,14 +376,6 @@ class DigestUi {
                     "title":        theTitle,
                     "description":  theDescription
                   }, "flattr", "replace");
-
-                  // fade out share / donate section?
-                  //if ($("share-box").hasClassName("share-sidebar")) {
-                  //  new Effect.Fade("share-box", { duration:0.5,
-                  //                                 from:1,
-                  //                                 to:0.5,
-                  //                                 delay:5 });
-                  //}
                 });';
 
 

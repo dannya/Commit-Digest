@@ -2,7 +2,7 @@
 
 /*-------------------------------------------------------+
  | KDE Commit-Digest
- | Copyright 2010-2011 Danny Allen <danny@commit-digest.org>
+ | Copyright 2010-2013 Danny Allen <danny@commit-digest.org>
  | http://www.commit-digest.org/
  +--------------------------------------------------------+
  | This program is released as free software under the
@@ -211,7 +211,10 @@ class IssueUi {
 
 
   public function getScript() {
-    return array('/js/plotr.js',
+    return array('/js/flot/jquery.flot.js',
+                 '/js/flot/jquery.flot.pie.js',
+                 '/js/jvectormap/jquery.jvectormap.js',
+                 '/js/jvectormap/jquery-jvectormap-world-mill-en.js',
                  '/js/frame/issueui.js');
   }
 
@@ -501,166 +504,57 @@ class IssueUi {
   }
 
 
+
   private function commitCountries() {
-    // get country names
-    $countries = Digest::getCountries();
-
-
-    // set location of images
-    if (false && ($this->data['date'] == '2010-10-10')) {
-      $imgDir = '/files/stats2';
-    } else {
-      $imgDir = '/files/stats';
-    }
-
-
-    // format countries into two columns (restrict to 14 per column)
-    $fullCounter  = 0;
-    $counter      = 0;
-    $column       = 0;
-    $numFields    = count($this->data['stats']['extended']['country']);
-    $limitFields  = min($numFields, 28);
-
+    // prepare country data
     foreach ($this->data['stats']['extended']['country'] as $country => $percent) {
-      // stop when we reach limit
-      if ($fullCounter++ == $limitFields) {
-        break;
+      if ($country == 'unknown') {
+        continue;
       }
 
-      // go to next column?
-      if ($counter == ceil($limitFields / 2)) {
-        $counter = 0;
-        $column  = 1;
-      }
-
-      // put into array
-      $tmp = array($country => array('country'  => $country,
-                                     'percent'  => $percent));
-
-      // add to array
-      $theFields[$counter++][$column] = $tmp;
+      $countryData[strtoupper($country)] = $percent;
     }
 
+    // output HTML and JS setup code
+    $buf = '<div id="worldmap"></div>
 
-    // don't try and show image if file doesn't exist (we will generate and fetch them later)
-    if (file_exists(BASE_DIR . '/issues/' . $this->data['date'] . $imgDir . '/standard-embedded_world.png')) {
-      $image = BASE_URL . '/issues/' . $this->data['date'] . $imgDir . '/standard-embedded_world.png';
-    } else {
-      $image = BASE_URL . '/img/bgd.png';
-    }
+            <script type="text/javascript">
+              var countryData = ' . json_encode($countryData) . ';
 
+              $("#worldmap").vectorMap({
+                map:              "world_mill_en",
+                backgroundColor:  "#ffffff",
 
-    $buf = '<map name="regions">
-              <area href="?view=2009-02-22&amp;scheme=map_default&amp;region=europe&amp;mode=embedded&amp;standalone=no" alt="Europe" title="Europe" shape="rect" coords="200,0,345,135">
-              <area href="?view=2009-02-22&amp;scheme=map_default&amp;region=africa&amp;mode=embedded&amp;standalone=no" alt="Africa" title="Africa" shape="rect" coords="200,135,400,370">
-              <area href="?view=2009-02-22&amp;scheme=map_default&amp;region=oceania&amp;mode=embedded&amp;standalone=no" alt="Oceania" title="Oceania" shape="rect" coords="400,200,600,370">
-              <area href="?view=2009-02-22&amp;scheme=map_default&amp;region=asia&amp;mode=embedded&amp;standalone=no" alt="Asia" title="Asia" shape="rect" coords="345,0,600,200">
-              <area href="?view=2009-02-22&amp;scheme=map_default&amp;region=north-america&amp;mode=embedded&amp;standalone=no" alt="North America" title="North America" shape="rect" coords="0,0,200,175">
-              <area href="?view=2009-02-22&amp;scheme=map_default&amp;region=south-america&amp;mode=embedded&amp;standalone=no" alt="South America" title="South America" shape="rect" coords="0,175,200,370">
-            </map>
+                series: {
+                  regions: [
+                    {
+                      values: countryData,
+                      scale: ["#B3B3B3", "#8C8C8C", "#666666", "#3F3F3F"],
+                      normalizeFunction: "polynomial"
+                    }
+                  ]
+                },
 
-            <div id="mappy-container">
-              <div id="mappy-nav-top" class="mappy-horiz rt"><div>&nbsp;</div></div>
-              <div id="mappy-nav-left" class="mappy-vert rl"><div>&nbsp;</div></div>
+                onRegionLabelShow: function(e, el, code) {
+                  if (typeof countryData[code] != "undefined") {
+                    el.html(el.html() + " (" + countryData[code] + "%)");
+                  }
+                },
 
-              <div id="mappy-content">
-                <span id="mappy-content-prompt">' .
-                  _('Click on the map regions to zoom in and zoom out...') .
-           '    </span>
-                <img id="mappy-content-spinner" src="' . BASE_URL . '/img/spinner.gif" alt="" />
-
-                <div id="mappy-content-overlay">
-                  <div id="mappy-content-overlay-na" title="' . _('North America') . '" onclick="changeMap(\'' . $this->data['date'] . '\', \'north-america\');">&nbsp;</div>
-                  <div id="mappy-content-overlay-sa" title="' . _('South America') . '" onclick="changeMap(\'' . $this->data['date'] . '\', \'south-america\');">&nbsp;</div>
-                  <div id="mappy-content-overlay-eu" title="' . _('Europe') . '" onclick="changeMap(\'' . $this->data['date'] . '\', \'europe\');">&nbsp;</div>
-                  <div id="mappy-content-overlay-af" title="' . _('Africa') . '" onclick="changeMap(\'' . $this->data['date'] . '\', \'africa\');">&nbsp;</div>
-                  <div id="mappy-content-overlay-as" title="' . _('Asia') . '" onclick="changeMap(\'' . $this->data['date'] . '\', \'asia\');">&nbsp;</div>
-                  <div id="mappy-content-overlay-oc" title="' . _('Oceania') . '" onclick="changeMap(\'' . $this->data['date'] . '\', \'oceania\');">&nbsp;</div>
-                </div>
-                <img id="mappy-content-img" src="' . $image . '" alt="" title="' . _('Click to zoom out...') . '" />
-
-                <script type="text/javascript">
-                  // observe image load
-                  Event.observe($("mappy-content-img"), "load", changeMapLoaded);
-                </script>
-
-                <table id="mappy-content-table" style="display:none;">
-                  <tbody>';
-
-    foreach ($theFields as $column => $data) {
-      $current = reset($data[0]);
-
-      // set name string
-      if (!empty($countries[$current['country']]['name'])) {
-        $nameString = $countries[$current['country']]['name'];
-      } else {
-        $nameString = $current['country'];
-      }
-
-      $buf .=  '<tr>
-                  <td class="label">' . $current['percent'] . '%</td>
-                  <td class="value">
-                    <div id="flag-' . $current['country'] . '" class="flag">&nbsp;</div>' .
-                    $nameString .
-               '  </td>';
-
-      // column2
-      if (isset($data[1])) {
-        $current = reset($data[1]);
-
-        // set name string
-        if (!empty($countries[$current['country']]['name'])) {
-          $nameString = $countries[$current['country']]['name'];
-        } else {
-          $nameString = $current['country'];
-        }
-
-        $buf .=  '  <td class="label">' . $current['percent'] . '%</td>
-                    <td class="value">
-                      <div id="flag-' . $current['country'] . '" class="flag">&nbsp;</div>' .
-                      $nameString .
-                 '  </td>
-                  </tr>';
-      }
-    }
-
-    $buf .=  '    </tbody>
-                </table>
-              </div>
-
-              <div id="mappy-nav-right" class="mappy-vert rr"><div>&nbsp;</div></div>
-              <div id="mappy-nav-bottom" class="mappy-horiz rb"><div>&nbsp;</div></div>
-            </div>
-
-            <div id="mappy-legend">
-              <div class="mappy-legend-item">
-                <div id="mappy-legend-item-1" class="box">&nbsp;</div> 0%
-              </div>
-              <div class="mappy-legend-item">
-                <div id="mappy-legend-item-2" class="box">&nbsp;</div> 0-1%
-              </div>
-              <div class="mappy-legend-item">
-                <div id="mappy-legend-item-3" class="box">&nbsp;</div> 1-2%
-              </div>
-              <div class="mappy-legend-item">
-                <div id="mappy-legend-item-4" class="box">&nbsp;</div> 2-10%
-              </div>
-              <div class="mappy-legend-item">
-                <div id="mappy-legend-item-5" class="box">&nbsp;</div> +10%
-              </div>
-
-              <a id="mappy-change-list" class="n" href="#" onclick="mappy(event, \'' . $this->data['date'] . '\', \'list\');">' . _('View as list...') . '</a>
-              <a id="mappy-change-map" class="n" href="#" onclick="mappy(event, \'' . $this->data['date'] . '\', \'map\');" style="display:none;">' . _('View as map...') . '</a>
-            </div>';
-
-    // if map images not available, initiate generation job, then wait for results
-    if (!file_exists(BASE_DIR . '/issues/' . $this->data['date'] . $imgDir . '/standard-embedded_world.png')) {
-      $buf .=  '<script type="text/javascript">
-                  var theData = ' . json_encode($this->data['stats']['extended']['country']) . ';
-
-                  getMap(\'' . $this->data['date'] . '\', theData);
-                </script>';
-    }
+                regionStyle: {
+                  initial: {
+                    fill: "#ffffff",
+                    "stroke": "#505050",
+                    "fill-opacity": 1,
+                    "stroke-width": 0.5,
+                    "stroke-opacity": 0.5
+                  },
+                  hover: {
+                    "fill-opacity": 0.8
+                  }
+                }
+              });
+            </script>';
 
     return $buf;
   }
@@ -671,9 +565,10 @@ class IssueUi {
     $data             = $this->data['stats']['extended']['gender'];
     $statsSex         = new Chart('stats-sex', $data, _('Sex'));
 
-    // motivation
-    $data             = $this->data['stats']['extended']['motivation'];
-    $statsMotivation  = new Chart('stats-motivation', $data, _('Motivation'));
+    // TODO: disable motivation charting until generation is fixed in Enzyme
+//    // motivation
+//    $data             = $this->data['stats']['extended']['motivation'];
+//    $statsMotivation  = new Chart('stats-motivation', $data, _('Motivation'));
 
     // age
     $data             = $this->data['stats']['extended']['age'];
@@ -682,8 +577,10 @@ class IssueUi {
 
     // draw
     return $statsSex->drawPie() .
-           $statsAge->drawPie() .
-           $statsMotivation->drawPie();
+           $statsAge->drawPie();
+
+    // TODO: disable motivation charting until generation is fixed in Enzyme
+//           $statsMotivation->drawPie();
   }
 
 

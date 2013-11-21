@@ -75,8 +75,8 @@ class ContributeUi {
                   <img src="http://api.flattr.com/button/button-static-50x60.png" alt="" />
                 </a>
               </div>
-              </div>
-              <div class="well">
+            </div>
+            <div class="well">
               <h2>' . _('And Finally...') . '</h2>
               <p>' .
                 sprintf(_('Even if you can\'t contribute time, effort, or money in support, your enjoyment of the %s is contribution enough, and leaves us with a warm, fuzzy feeling inside!'), Config::getSetting('enzyme', 'PROJECT_NAME')) .
