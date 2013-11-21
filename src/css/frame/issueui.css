@@ -289,6 +289,7 @@ div#container-buzz {
 div#container-demographics {
     position: relative;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 div#container-demographics > div {
@@ -466,6 +467,7 @@ div#worldmap {
 /* pie charts */
 .legend > table .legendLabel {
     font-size: 14px !important;
+    text-align: left;
 }
 
 table.chart-bar {

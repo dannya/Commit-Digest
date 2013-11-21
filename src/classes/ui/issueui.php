@@ -2,7 +2,7 @@
 
 /*-------------------------------------------------------+
  | KDE Commit-Digest
- | Copyright 2010-2011 Danny Allen <danny@commit-digest.org>
+ | Copyright 2010-2013 Danny Allen <danny@commit-digest.org>
  | http://www.commit-digest.org/
  +--------------------------------------------------------+
  | This program is released as free software under the
@@ -565,9 +565,10 @@ class IssueUi {
     $data             = $this->data['stats']['extended']['gender'];
     $statsSex         = new Chart('stats-sex', $data, _('Sex'));
 
-    // motivation
-    $data             = $this->data['stats']['extended']['motivation'];
-    $statsMotivation  = new Chart('stats-motivation', $data, _('Motivation'));
+    // TODO: disable motivation charting until generation is fixed in Enzyme
+//    // motivation
+//    $data             = $this->data['stats']['extended']['motivation'];
+//    $statsMotivation  = new Chart('stats-motivation', $data, _('Motivation'));
 
     // age
     $data             = $this->data['stats']['extended']['age'];
@@ -576,8 +577,10 @@ class IssueUi {
 
     // draw
     return $statsSex->drawPie() .
-           $statsAge->drawPie() .
-           $statsMotivation->drawPie();
+           $statsAge->drawPie();
+
+    // TODO: disable motivation charting until generation is fixed in Enzyme
+//           $statsMotivation->drawPie();
   }
 
 
