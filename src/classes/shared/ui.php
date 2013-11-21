@@ -2,7 +2,7 @@
 
 /*-------------------------------------------------------+
  | PHPzy (Web Application Framework)
- | Copyright 2010-2011 Danny Allen <me@dannya.com>
+ | Copyright 2010-2013 Danny Allen <me@dannya.com>
  | http://www.dannya.com/
  +--------------------------------------------------------+
  | This program is released as free software under the
