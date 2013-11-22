@@ -651,9 +651,6 @@ class Digest {
 
         } else {
           $fixTime = 0;
-
-          // log the error
-          Log::error('Invalid date for ' . $bug['bug']);
         }
 
         $buf .= '<div class="bug">

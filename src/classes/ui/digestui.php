@@ -165,11 +165,18 @@ class DigestUi extends Renderable {
 
 
   public function getBodyClasses() {
-    $class = null;
+    $class = '';
+
+    // add theme name
+    if (isset(Config::$theme) && (Config::$theme[0] !== 'default')) {
+      $class .= Config::$theme[0];
+    } else {
+      $class .= 'default';
+    }
 
     if (($this->frame instanceof IssueUi) && $this->frame->review) {
       // showing review warning banner
-      $class .= ' class="review"';
+      $class .= ' review';
     }
 
     return $class;

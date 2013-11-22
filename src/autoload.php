@@ -105,7 +105,7 @@ if (COMMAND_LINE) {
 }
 
 // conditionally adjust the classdir to make enzyme themable
-if(isset(Config::$theme) && Config::$theme[0] !== 'default') {
+if (isset(Config::$theme) && (Config::$theme[0] !== 'default')) {
   $classDirs[] = BASE_DIR . '/classes/ui/themes/' . Config::$theme[0] . '/';
 } else {
   $classDirs[] = BASE_DIR . '/classes/ui/';

@@ -53,7 +53,7 @@ if (!empty($ui->frame->onlyContent)) {
     ?>
   </head>
 
-  <body id="body"<?php echo $ui->getBodyClasses(); ?>>
+  <body id="body" class="<?php echo $ui->getBodyClasses(); ?>">
     <div id="content">
       <?php
         echo $ui->drawHeader();

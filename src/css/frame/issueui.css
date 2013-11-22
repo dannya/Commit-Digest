@@ -24,6 +24,13 @@ div#contributors-box {
 div#contributors-box:hover {
     opacity: 1;
 }
+body.neverland div#contributors-box {
+    position: relative;
+    opacity: 1;
+    top: auto;
+    right: auto;
+    width: auto;
+}
 
 div#contributors-box h3 {
     margin: 0 0 4px 0;
@@ -333,10 +340,14 @@ div.commit div.details p.msg {
     font-style: italic;
     background-color: #E1EAF3;
 }
+body.neverland div.commit div.details p.msg {
+    margin-bottom: 0;
+}
 
 div.commit div.details div.info {
     border-top: 2px solid #E1EAF3;
     padding: 10px;
+    min-height: 20px;
 }
 
 div.commit div.details div.info i {
