@@ -69,11 +69,6 @@ if (LIVE_SITE) {
   ini_set('display_errors', false);
   ini_set('log_errors',     true);
 
-  // // path and ID for Piwik installation
-  // define('WEBSTATS_TYPE',   'piwik');
-  // define('WEBSTATS_URL',    'allmyfriendsarecakes.com/piwik');
-  // define('WEBSTATS_ID',     6);
-
 } else {
   // error handling (show on page)
   ini_set('display_errors', true);

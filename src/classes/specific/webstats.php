@@ -21,28 +21,8 @@ class Webstats {
       throw new Exception('Unset constant in ' . __CLASS__ . '::' . __METHOD__);
     }
 
-
-    if (WEBSTATS_TYPE == 'piwik') {
-      // piwik
-      if (!defined('WEBSTATS_URL')) {
-        throw new Exception('WEBSTATS_URL unset in ' . __CLASS__ . '::' . __METHOD__);
-      }
-
-      $buf = '<script type="text/javascript">
-                var pkBaseURL = (("https:" == document.location.protocol) ? "https://' . WEBSTATS_URL . '/" : "http://' . WEBSTATS_URL . '/");
-                document.write(unescape("%3Cscript src=\'" + pkBaseURL + "piwik.js\' type=\'text/javascript\'%3E%3C/script%3E"));
-
-                try {
-                  var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", ' . WEBSTATS_ID . ');
-                  piwikTracker.trackPageView();
-                  piwikTracker.enableLinkTracking();
-                } catch( err ) {}
-              </script>
-              <noscript>
-                <p>
-                  <img src="' . PROTOCOL . WEBSTATS_URL . '/piwik.php?idsite=' . WEBSTATS_ID . '" style="border:0" alt="" />
-                </p>
-              </noscript>';
+    if (WEBSTATS_TYPE === false) {
+      $buf = null;
 
     } else if (WEBSTATS_TYPE == 'google') {
       // google analytics
@@ -60,49 +40,12 @@ class Webstats {
                 })();
               </script>';
 
-    } else if (WEBSTATS_TYPE === false) {
-      $buf = null;
-
     } else {
       throw new Exception('WEBSTATS_TYPE unset in ' . __CLASS__ . '::' . __METHOD__);
     }
 
     return $buf;
   }
-
-
-
-
-  // piwik
-  public static function manual($params = null) {
-    if (!defined('WEBSTATS_TYPE') || ((WEBSTATS_TYPE != 'piwik') && (WEBSTATS_TYPE !== false))) {
-      throw new Exception(__CLASS__ . '::' . __METHOD__ . ' can only be used if WEBSTATS_TYPE == "piwik"');
-
-    } else if (WEBSTATS_TYPE === false) {
-      return false;
-    }
-
-
-    if (defined('WEBSTATS_URL') && defined('WEBSTATS_ID')) {
-      $t = new PiwikTracker(WEBSTATS_ID, PROTOCOL . WEBSTATS_URL);
-
-      // set params?
-      $title = null;
-      if (isset($params['title'])) {
-        $title = $params['title'];
-      }
-
-      // set url?
-      if (isset($params['url'])) {
-        $t->setUrl($params['url']);
-      }
-
-      // track
-      $t->doTrackPageView($title);
-    }
-  }
-
-
 
 
   // google analytics

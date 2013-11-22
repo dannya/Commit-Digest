@@ -18,10 +18,6 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/autoload.php');
 
 
-// track request
-Webstats::manual(array('title' => 'Blog RSS'));
-
-
 // check if we have generated RSS stored in cache
 $buf = Cache::load('rss');
 
