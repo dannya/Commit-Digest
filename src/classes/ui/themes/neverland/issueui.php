@@ -258,7 +258,7 @@ class IssueUi {
 
 
   public function drawStatistics() {
-    if (empty($this->data['stats'])) {
+    if (empty($this->data['stats']) || empty($this->data['stats']['general'])) {
       return false;
     }
 

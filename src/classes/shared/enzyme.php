@@ -221,10 +221,6 @@ class Enzyme {
                                           'default' => 0.1,
                                           'example' => null);
 
-    $tmp['GENERATE_MAPS']         = array('title'   => _('Map Generation Service URL'),
-                                          'valid'   => null,
-                                          'default' => 'http://grafin.enzyme-project.org/index.php',
-                                          'example' => 'http://grafin.enzyme-project.org/index.php');
     $tmp['RECENT_COMMITS']        = array('title'   => _('Recent Commits RSS URL'),
                                           'valid'   => null,
                                           'default' => null,
@@ -307,8 +303,7 @@ class Enzyme {
                                              'DATA_TERMS_VERSION'     => $tmp['DATA_TERMS_VERSION']));
 
     $settings[] = array('title'     => _('Data Locations'),
-                        'settings'  => array('GENERATE_MAPS'          => $tmp['GENERATE_MAPS'],
-                                             'RECENT_COMMITS'         => $tmp['RECENT_COMMITS'],
+                        'settings'  => array('RECENT_COMMITS'         => $tmp['RECENT_COMMITS'],
                                              'WEBSVN'                 => $tmp['WEBSVN'],
                                              'WEBBUG'                 => $tmp['WEBBUG'],
                                              'WEBBUG_XML'             => $tmp['WEBBUG_XML'],
