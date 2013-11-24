@@ -275,7 +275,7 @@ class IssueUi {
                               $this->data['stats']['general']['active_developers']);
     }
 
-    $buf =   '<h1>' . _('Statistics') . '</h1>
+    $buf =   '<h2>' . _('Statistics') . '</h2>
 
               <table id="stats-general" class="pad">
                 <tbody>
@@ -595,7 +595,7 @@ class IssueUi {
     }
 
     // draw
-    $buf =   '<h1>' . _('Contents') . '</h1>
+    $buf =   '<h2>' . _('Contents') . '</h2>
 
               <table id="contents-table">
                 <thead>
@@ -666,7 +666,7 @@ class IssueUi {
         // draw new header (type)?
         if ($commit['type'] != $lastType) {
           $type = array_slice($this->types, ($commit['type'] - 1), 1);
-          $buf .= '<h1>' . reset($type) . '</h1>';
+          $buf .= '<h2>' . reset($type) . '</h2>';
 
           $lastType = $commit['type'];
         }
@@ -758,9 +758,9 @@ class IssueUi {
 
     // show issue number?
     if ($this->id == 'issues') {
-      $issueTitle =  '<h2>' .
+      $issueTitle =  '<h1>' .
                         sprintf(_('Issue %d'), $this->data['id']) .
-                     '</h2>';
+                     '</h1>';
     }
 
     // determine author

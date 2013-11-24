@@ -5,19 +5,84 @@
 #top-small { height: 6em; }
 
 #top-small.navbar-fixed-top.Neverland .brand, #top-small.navbar-top.Neverland .brand {
-	padding: 8px 20px 12px 0px;
+    padding: 12px 20px 12px 0px;
 }
 
 .navbar-fixed-top.Neverland .navbar-inner,
 .navbar-static-top.Neverland .navbar-inner,
 .navbar-top.Neverland .navbar-inner {
-  margin-left: 0;
+    margin-left: 0;
 }
 
 #top-small .nav-pills #language-selector {
-  margin-top: 12px;
+    margin-top: 12px;
 }
 
 .text-center {
-  text-align: center;
+    text-align: center;
+}
+
+.hero-unit {
+    padding-left: 0;
+}
+
+.alert {
+    padding: 8px 12px 8px 12px;
+}
+
+
+table tbody td.label {
+    border-radius: 0;
+    background-color: inherit;
+    font-size: inherit;
+    text-shadow: none;
+    color: inherit;
+}
+
+
+.nav-list {
+    padding: 10px 15px;
+}
+.nav-list.Neverland > li {
+    margin-bottom: 0;
+}
+
+
+/*generic digest*/
+body.neverland div#language-selector select {
+    margin-top: 2px;
+    padding: 3px 4px;
+    width: 170px;
+}
+
+
+
+
+/*index*/
+ul#issues li {
+    margin-bottom: 1em;
+}
+
+
+
+
+/*issueui*/
+header.alert h1 {
+    line-height: 1.1em;
+    margin-bottom: 6px;
+}
+header.alert aside#timewarp {
+    float: right;
+}
+
+table.table thead tr th {
+    color: #2E3436;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+.navbar-bottom.Neverland .navbar-inner.text-center {
+    min-height: 0;
+    padding: 0.6em;
 }

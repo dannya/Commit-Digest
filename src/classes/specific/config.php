@@ -75,7 +75,7 @@ final class Config {
                                                            'users'));
 
   // define visual theme
-  public static $theme = array('default');
+  public static $theme = array('neverland');
 
   // define settings information
   private static $settings = null;

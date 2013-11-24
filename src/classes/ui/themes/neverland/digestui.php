@@ -305,7 +305,7 @@ class DigestUi {
 
     } else {
       // wrap in frame div
-      return '<div id="frame page" class="span10">' .
+      return '<div id="frame_page" class="span10">' .
                 $buf .
              '</div>';
     }

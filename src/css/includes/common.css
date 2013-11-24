@@ -190,13 +190,14 @@ div#header-bar a#logo {
     border-bottom: 0;
 }
 
-div#language-selector {
+body.default div#language-selector {
     position: absolute;
     right: 6px;
     top: 6px;
     z-index: 1001;
 }
-div#language-selector select {
+
+body.default div#language-selector select {
     padding: 4px;
     font-size: 14px;
     background-color: #CADAEA;

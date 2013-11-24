@@ -130,10 +130,6 @@ class Chart {
                     noColumns: 1,
                     position: "ne",
                     margin: [20, 0]
-                    // backgroundColor: null or color,
-                    // backgroundOpacity: number between 0 and 1,
-                    // container: null or jQuery object/DOM element/jQuery expression,
-                    // sorted: null/false, true, "ascending", "descending", "reverse", or a comparator
                 }
               });
             </script>';

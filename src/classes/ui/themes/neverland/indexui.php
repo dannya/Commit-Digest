@@ -59,19 +59,19 @@ class IndexUi {
             <div class="row">
               <div class="span5">
                   <h2>' . _('Issues') . '</h2>
-                  <ul>';
-  
+                  <ul id="issues">';
+
       $counter = 0;
-  
+
       foreach ($this->issues as $digest) {
         // stop after $numIssues
         if ($counter++ == $this->numIssues) {
           break;
         }
-  
+
         $buf .= $this->drawDigest($digest);
       }
-  
+
       $buf .=  '  </ul>
                 </div>
                 <div class="span5">
@@ -79,12 +79,12 @@ class IndexUi {
                   <ul>' .
                       $this->drawDigest($this->sixMonthsAgo, false) .
                  '</ul>
-  
+
                   <h2>' . _('One Year Ago') . '</h2>
                   <ul>' .
                     $this->drawDigest($this->oneYearAgo, false) .
                '  </ul>
-  
+
                   <h2>' . _('Random Digest') . '</h2>
                   <ul>' .
                     $this->drawDigest($this->random, false) .

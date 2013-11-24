@@ -277,7 +277,7 @@ class IssueUi {
 
     $buf =   '<h1>' . _('Statistics') . '</h1>
 
-              <table id="stats-general" class="pad">
+              <table id="stats-general" class="table table-bordered table-striped">
                 <tbody>
                   <tr>
                     <td class="label">' . _('Commits') . '</td>
@@ -504,7 +504,6 @@ class IssueUi {
   }
 
 
-
   private function commitCountries() {
     // prepare country data
     foreach ($this->data['stats']['extended']['country'] as $country => $percent) {
@@ -595,9 +594,9 @@ class IssueUi {
     }
 
     // draw
-    $buf =   '<h1>' . _('Contents') . '</h1>
+    $buf =   '<h2>' . _('Contents') . '</h2>
 
-              <table id="contents-table">
+              <table id="contents-table" class="table table-striped table-filtered">
                 <thead>
                   <tr>
                     <th>&nbsp;</th>';
@@ -617,7 +616,9 @@ class IssueUi {
 
     foreach ($this->areas as $areaId => $area) {
       $buf .=  '<tr>
-                  <td>' . $area . '</td>';
+                  <td>
+                    <h3><a href="#">' . $area . '</a></h3>
+                  </td>';
 
       // check each type, show icon if we have commits
       $counterType = 1;
@@ -626,7 +627,7 @@ class IssueUi {
         if (isset($contents[$counterType++][$counterArea])) {
           // commits found for this section
           $buf .=  '<td>
-                      <a class="n icon-' . $typeId . '" href="#' . $typeId . '-' . $areaId . '" title="' . sprintf(_('Jump to %s / %s'), $type, $area) . '">&nbsp;</a>
+                      <a class="n icon-' . $typeId . '" href="#' . $typeId . '-' . $areaId . '" title="' . sprintf(_('Jump to %s / %s'), $type, $area) . '">[]</a>
                     </td>';
 
         } else {
@@ -646,7 +647,7 @@ class IssueUi {
 
     // show number of selections
     if (isset($this->data['commits'])) {
-      $buf .=  '<p id="num-selections">' .
+      $buf .=  '<p id="num-selections" class="well well-small panel text-center">' .
                   sprintf(_('There are %d selections this week'), count($this->data['commits'])) .
                '</p>';
     }
@@ -666,7 +667,7 @@ class IssueUi {
         // draw new header (type)?
         if ($commit['type'] != $lastType) {
           $type = array_slice($this->types, ($commit['type'] - 1), 1);
-          $buf .= '<h1>' . reset($type) . '</h1>';
+          $buf .= '<h2>' . reset($type) . '</h2>';
 
           $lastType = $commit['type'];
         }
@@ -676,7 +677,7 @@ class IssueUi {
           $area = array_slice($this->areas, ($commit['area'] - 1), 1);
 
           $buf .= '<a id="' . key($type) . '-' . key($area) . '"></a>
-                   <h2>' . reset($area) . '</h2>';
+                   <h3>' . reset($area) . '</h3>';
 
           $lastArea = $commit['area'];
         }
@@ -697,7 +698,11 @@ class IssueUi {
 
 
   private function drawMessage() {
-    $buf = '<p class="message">' . sprintf(_('Thanks for reading the %s!'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '</p>';
+    $buf = '<div class="navbar navbar-bottom Neverland">
+              <div class="navbar-inner text-center">' .
+                  sprintf(_('Thanks for reading the %s!'), Config::getSetting('enzyme', 'PROJECT_NAME')) .
+           '  </div>
+            </div>';
 
     return $buf;
   }
@@ -747,51 +752,46 @@ class IssueUi {
     $issueTitle  = null;
 
     // previous issue button?
-    $prev = '<li class="previous';
-    if (!$this->prevIssue) {
-      $prev .= ' disabled';
+    if ($this->prevIssue) {
+      $prev = '<a href="' . $this->prevIssueUrl . '" title="' . sprintf(_('Go to the previous digest issue (%s)'), $this->prevIssue) . '" class="previous">' . _('Previous') . '</a>';
     }
-    $prev .= '"><a href="' . $this->prevIssueUrl . '" title="' . sprintf(_('Go to the previous digest issue (%s)'), $this->prevIssue) . '">&larr;</a></li>';
 
     // next issue button?
-    $next = '<li class="next';
-    if (!$this->nextIssue) {
-      $next .= ' disabled';
+    if ($this->nextIssue) {
+      $next = '<a href="' . $this->nextIssueUrl . '" title="' . sprintf(_('Go to the next digest issue (%s)'), $this->nextIssue) . '" class="next">' . _('Next') . '</a>';
     }
-    $next .= '"><a href="' . $this->nextIssueUrl . '" title="' . sprintf(_('Go to the next digest issue (%s)'), $this->nextIssue) . '">&rarr;</a></li>';
+
 
     // show issue number?
     if ($this->id == 'issues') {
-      $issueTitle =  '<h2>' .
+      $issueTitle =  '<h1>' .
                         sprintf(_('Issue %d'), $this->data['id']) .
-                     '</h2>';
+                     '</h1>';
     }
 
     // determine author
     $authorDetails = Digest::getAuthorDetails($this->data['author']);
     $author        = '<a href="mailto:' . $authorDetails['email'] . '"> ' .
                         sprintf(_('by %s'), Digest::formatName($authorDetails)) .
-                     ' </a>';
+                     '</a>';
 
 
     // draw box
     $buf = null;
 
     if ($this->showUrl) {
-      $buf .= '<div id="issue-url" class="breadcrumb"><i class="icon-bookmark"></i>' .
-                 sprintf(_('Located at %s'), '<a href="' . BASE_URL . '/' . $this->id . '/' . $this->data['date'] . '/">' . BASE_URL . '/' . $this->id . '/' . $this->data['date'] . '/</a>') .
-              '</div>';
+      $buf .=  '<aside id="issue-url" class="well well-small panel text-center">
+                  <i class="icon-bookmark"></i>' .
+                  sprintf(_('Located at %s'), '<a href="' . BASE_URL . '/' . $this->id . '/' . $this->data['date'] . '/">' . BASE_URL . '/' . $this->id . '/' . $this->data['date'] . '/</a>') .
+               '</aside>';
     }
 
-    $buf .=  '<div class="breadcrumb text-center">' .
+    $buf .=  '<header class="alert alert-info">' .
                   $issueTitle .
-             '    <small>' . Date::get('full', $this->issue)  .
-                  $author . '</small>
-             </div>
-             <ul class="pager ' . $this->data['type'] . '">' .
-                $prev .
-                $next .
-             '</ul>';
+             '    <span>' . Date::get('full', $this->issue) . $author . '</span>
+
+                  <aside id="timewarp">' . $prev . ($prev && $next ? '|' : '') . $next . '</aside>
+             </header>';
 
 
     // show contributors?
@@ -806,7 +806,7 @@ class IssueUi {
       array_unique($contributors);
 
       // draw
-      $buf .=  '<div id="contributors-box">
+      $buf .=  '<div id="contributors-box" class="alert">
                   <h3>' . _('Contributors') . '</h3>
                   <div id="contributors-box-inner">' .
                     implode('<br />', $contributors) .
