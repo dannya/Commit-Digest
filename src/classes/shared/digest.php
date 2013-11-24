@@ -525,22 +525,22 @@ class Digest {
 
   public static function getLanguages() {
     return array('en_US'  => _('English'),
-                 'de_DE'  => _('Deutsch (German)'),
-                 'fr_FR'  => _('FranÃ§ais (French)'),
-                 'es_ES'  => _('EspaÃ±ol (Spanish)'),
-                 'nl_NL'  => _('Nederlands (Dutch)'),
-                 'it_IT'  => _('Italiano (Italian)'),
-                 'ru_RU'  => _('Ð ÑƒÑ�Ñ�ÐºÐ¸Ð¹ Ñ�Ð·Ñ‹Ðº (Russian)'),
-                 'pl_PL'  => _('Polski (Polish)'),
-                 'pt_PT'  => _('PortuguÃªs (Portuguese)'),
-                 'pt_BR'  => _('PortuguÃªs Brasileiro (Brazilian Portuguese)'),
-                 'hu_HU'  => _('Magyar (Hungarian)'),
-                 'uk_UA'  => _('Ukrainian (Ukrainian)'),
-                 'cs_CZ'  => _('Czech (ÄŒeÅ¡tina)'),
+                 'de_DE'  => _('Deutsch'),
+                 'fr_FR'  => _('Français'),
+                 'es_ES'  => _('Español'),
+                 'nl_NL'  => _('Nederlands'),
+                 'it_IT'  => _('Italiano'),
+                 'ru_RU'  => _('Pyccĸий'),
+                 'pl_PL'  => _('Polski'),
+                 'pt_PT'  => _('Português'),
+                 'pt_BR'  => _('Português Brasileiro'),
+                 'hu_HU'  => _('Magyar'),
+                 'uk_UA'  => _('Українська'),
+                 'cs_CZ'  => _('Čeština'),
                  'nds'    => _('Low Saxon (Low Saxon)'));
 
     // not yet ready for inclusion, here for translation purposes
-    return array('sv_SE'  => _('Svenska (Swedish)'));
+    return array('sv_SE'  => _('Svenska'));
   }
 
 
