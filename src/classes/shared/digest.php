@@ -537,7 +537,7 @@ class Digest {
                  'hu_HU'  => _('Magyar'),
                  'uk_UA'  => _('Українська'),
                  'cs_CZ'  => _('Čeština'),
-                 'nds'    => _('Low Saxon (Low Saxon)'));
+                 'nds'    => _('Low Saxon'));
 
     // not yet ready for inclusion, here for translation purposes
     return array('sv_SE'  => _('Svenska'));
@@ -545,13 +545,13 @@ class Digest {
 
 
   public static function getStatuses() {
-    return array('idea'        => _('1. Idea'),
-                 'contacting'  => _('2. Contacting'),
-                 'more-info'   => _('3. More information needed'),
+    return array('idea'        => '1.' . _('Idea'),
+                 'contacting'  => '2.' . _('Contacting'),
+                 'more-info'   => '3.' . _('More information needed'),
                  ''            => '--------',
-                 'proofread'   => _('4. Needs proofreading'),
-                 'ready'       => _('5. Ready for selection'),
-                 'selected'    => _('6. Selected'));
+                 'proofread'   => '4.' . _('Needs proofreading'),
+                 'ready'       => '5.' . _('Ready for selection'),
+                 'selected'    => '6.' . _('Selected'));
   }
 
 
@@ -589,10 +589,12 @@ class Digest {
           $revision = Digest::getShortGitRevision($commit['revision']);
         }
 
-        $buf .=  '  <span class="d">' .
-                      self::drawDiffs($commit, $issueDate) .
-                 '  </span>
-                    <a class="r n" href="' . BASE_URL . '/issues/' . $issueDate . '/moreinfo/' . $commit['revision'] . '/">' .
+        $diffs = self::drawDiffs($commit, $issueDate);
+        if (!empty($diffs)) {
+          $buf .=  '  <span class="d">' . $diffs . '</span>';
+        }
+
+        $buf .=  '  <a class="r n" href="' . BASE_URL . '/issues/' . $issueDate . '/moreinfo/' . $commit['revision'] . '/">' .
                       sprintf(_('Revision %s'), $revision) .
                  '  </a>';
       }
@@ -608,15 +610,24 @@ class Digest {
 
 
   public static function getCommitTitle($commit) {
-      if (empty($commit['format']) || ($commit['format'] == 'svn')) {
-      $title  = sprintf(_('%s committed changes in %s:'),
-                '<a class="n" href="http://cia.vc/stats/author/' . $commit['developer'] . '/" target="_blank">' . $commit['name'] . '</a>',
-                Enzyme::drawBasePath($commit['basepath']));
+    if (empty($commit['format']) || ($commit['format'] == 'svn')) {
+      // TODO: remove CIA.vc until we replace with internal author pages
+//      $title  = sprintf(_('%s committed changes in %s:'),
+//                '<a class="n" href="http://cia.vc/stats/author/' . $commit['developer'] . '/" target="_blank">' . $commit['name'] . '</a>',
+//                Enzyme::drawBasePath($commit['basepath']));
+      $title = sprintf(
+        _('%s committed changes in %s:'),
+        $commit['name'],
+        Enzyme::drawBasePath($commit['basepath'])
+      );
 
     } else if ($commit['format'] == 'git') {
       // do we have the name of the committer?
       if (!empty($commit['name'])) {
-        $committer = '<a class="n" href="http://cia.vc/stats/author/' . $commit['developer'] . '/" target="_blank">' . $commit['name'] . '</a>';
+        // TODO: remove CIA.vc until we replace with internal author pages
+//        $committer = '<a class="n" href="http://cia.vc/stats/author/' . $commit['developer'] . '/" target="_blank">' . $commit['name'] . '</a>';
+        $committer = $commit['name'];
+
       } else {
         $committer = Ui::displayEmailAddress($commit['developer']);
       }

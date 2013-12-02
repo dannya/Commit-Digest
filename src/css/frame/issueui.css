@@ -47,6 +47,11 @@ body.default div#contributors-box div#contributors-box-inner {
     overflow-y: auto;
     white-space: nowrap;
 }
+body.neverland div#contributors-box #assist {
+    position: absolute;
+    top: 6px;
+    right: 12px;
+}
 
 body.default div.container {
     margin-bottom: 52px;
@@ -360,11 +365,17 @@ div#container-demographics > div {
     margin: 20px 2%;
 }
 
+body.neverland div#container-demographics div.legend tr td {
+    line-height: 2em;
+}
 div#container-demographics > div td.legendColorBox > div {
     border: 0 !important;
 }
 div#container-demographics > div td.legendColorBox > div > div {
-    border-width: 10px !important;
+    border-width: 12px 11px !important;
+}
+body.neverland div#container-demographics > div td.legendColorBox > div > div {
+    width: 1px !important;
 }
 
 div#container-demographics div#stats-sex-container {
@@ -414,11 +425,11 @@ body.neverland div.commit div.details p.msg {
 div.commit div.details div.info {
     border-top: 2px solid #E1EAF3;
     padding: 10px;
-    min-height: 20px;
+    min-height: 22px;
 }
 body.neverland div.commit div.details div.info {
     border-top: 1px solid #BCE8F1;
-    padding: 8px 10px;
+    padding: 8px 10px 6px 10px;
     font-size: 0.9em;
 }
 
@@ -464,7 +475,8 @@ body.neverland div.commit div.details div.info div.b div.bug div span {
 }
 
 div.commit div.details div.info a.r {
-    float: right;
+    display: block;
+    text-align: right;
 }
 
 p.message {
@@ -565,6 +577,11 @@ div#worldmap {
     font-size: 14px !important;
     text-align: left;
 }
+body.neverland .legend > table .legendLabel {
+    padding-left: 5px;
+    font-weight: bold;
+    color: #000000;
+}
 
 table.chart-bar {
     word-break: keep-all;
@@ -575,14 +592,24 @@ table.chart-bar thead td {
     font-weight: bold;
     text-align: center;
 }
+body.neverland table.chart-bar thead td {
+    font-weight: normal;
+    padding-bottom: 6px;
+}
 
 table.chart-bar tbody td.label {
     padding-right: 6px;
     text-align: right;
 }
+body.neverland table.chart-bar tbody td.label {
+    padding: 7px;
+}
 table.chart-bar tbody td.labelTwin {
     padding: 0 6px;
     text-align: center;
+}
+body.neverland table.chart-bar tbody td.labelTwin {
+    font-weight: bold;
 }
 
 table.chart-bar tbody td.value {

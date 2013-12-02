@@ -250,14 +250,12 @@ class DigestUi {
     $buf = '<div id="sidebar" class="span2 pull-right">
 
               <ul id="navSidebarNeverland" class="nav nav-list well Neverland">
-                <li>
+                <li class="spacer">
                   <a href="' . BASE_URL . '/" title="' . _('Front Page') . '">' . _('Front Page') . '</a>
                 </li>
 
                 <li class="spacer">
                   <a href="' . BASE_URL . '/issues/" title="' . _('Issues') . '">' . _('Issues') . '</a>
-                </li>
-                <li>
                   <ul>
                     <li>
                       <a href="' . BASE_URL . '/issues/latest/" title="' . _('Latest Issue') . '">' . _('Latest Issue') . '</a>
@@ -269,13 +267,13 @@ class DigestUi {
                   <a href="' . BASE_URL . '/archive/" title="' . _('Archive') . '">' . _('Archive') . '</a>
                 </li>
 
-                <li class="spacer">
+                <li>
                   <a href="' . BASE_URL . '/six-months-ago/" title="' . _('Six Months Ago') . '">' . _('Six Months Ago') . '</a>
                 </li>
                 <li>
                   <a href="' . BASE_URL . '/one-year-ago/" title="' . _('One Year Ago') . '">' . _('One Year Ago') . '</a>
                 </li>
-                <li>
+                <li class="spacer">
                   <a href="' . BASE_URL . '/issues/random/" title="' . _('Random Digest') . '">' . _('Random Digest') . '</a>
                 </li>
 
@@ -322,7 +320,7 @@ class DigestUi {
               sprintf(_('%s by <a href="mailto:%s">%s</a>, %s'), Config::getSetting('enzyme', 'PROJECT_NAME'), 'danny@commit-digest.org', 'Danny Allen', '2006-2013') .
               '<br />' .
               _('All issues in <a href="/archive/">archive</a> by Derek Kite') .
-           '  <a id="enzyme-credit" href="http://enzyme-project.org/" target="_blank">&nbsp;</a>
+           '  <a id="enzyme-credit" href="http://enzyme-project.org/" target="_blank" title="' . _('Powered by Enzyme') . '">' . _('Powered by Enzyme') . '</a>
             </footer>
           </div>';
 

@@ -647,7 +647,7 @@ class IssueUi {
 
     // show number of selections
     if (isset($this->data['commits'])) {
-      $buf .=  '<p id="num-selections" class="well well-small panel text-center">' .
+      $buf .=  '<p id="num-selections" class="alert text-center">' .
                   sprintf(_('There are %d selections this week'), count($this->data['commits'])) .
                '</p>';
     }
@@ -761,6 +761,12 @@ class IssueUi {
       $next = '<a href="' . $this->nextIssueUrl . '" title="' . sprintf(_('Go to the next digest issue (%s)'), $this->nextIssue) . '" class="next">' . _('Next') . '</a>';
     }
 
+    // issue separator
+    $separator = '';
+    if ($prev && $next) {
+      $separator = '<span class="separator">|</span>';
+    }
+
 
     // show issue number?
     if ($this->id == 'issues') {
@@ -790,7 +796,7 @@ class IssueUi {
                   $issueTitle .
              '    <span>' . Date::get('full', $this->issue) . $author . '</span>
 
-                  <aside id="timewarp">' . $prev . ($prev && $next ? '|' : '') . $next . '</aside>
+                  <aside id="timewarp">' . $prev . $separator . $next . '</aside>
              </header>';
 
 
@@ -811,6 +817,9 @@ class IssueUi {
                   <div id="contributors-box-inner">' .
                     implode('<br />', $contributors) .
                '  </div>
+                  <aside id="assist">
+                    <a href="' . BASE_URL . '/contribute/">' . sprintf(_('How to contribute to %s...'), Config::$app['name']) . '</a>
+                  </aside>
                 </div>';
     }
 

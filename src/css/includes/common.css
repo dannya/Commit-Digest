@@ -326,13 +326,14 @@ div#footer a:hover {
 }
 
 div#footer a#enzyme-credit {
-    position: absolute;
     display: block;
+    position: absolute;
     width: 152px;
     height: 52px;
     right: 6px;
     top: 6px;
     background: url('../../img/enzyme.png') no-repeat;
+    text-indent: -9000px;
     opacity: 0.5;
 }
 div#footer a#enzyme-credit:hover {
@@ -356,6 +357,9 @@ p {
 .filled {
     background-color: #E1EAF3;
 }
+
+
+
 
 div.share-sidebar {
     position: fixed;
@@ -393,7 +397,6 @@ div#share-box div#share-buttons a.button {
     background: url('../../img/sprite2.png') no-repeat;
     border-bottom: 0;
 }
-/*div#share-box:hover div#share-buttons a.button {*/
 div#share-box div#share-buttons a.button {
     opacity: 0.5;
 }
@@ -440,6 +443,9 @@ div.share-bottom div#share-buttons {
     height: 32px;
     margin-bottom: 4px;
 }
+
+
+
 
 table.plotr-legend {
     position: absolute !important;
