@@ -54,11 +54,14 @@ $(function () {
                     viewportHeight = $(window).height(),
                     footerHeight   = footer.outerHeight();
 
+                // get browser info
+                var browserInfo = window.browser();
+
                 $(window)
                     .off('scroll.donate')
                     .on('scroll.donate', function (event) {
                         var diff = -3;
-                        if ($.browser.webkit) {
+                        if (browserInfo[0] === 'Chrome') {
                             diff = 22;
                         }
 

@@ -46,13 +46,18 @@ class StatisticsUi {
 
 
   public function getScript() {
-    return array('/js/flot/jquery.flot.js',
-                 '/js/frame/issueui.js');
+    return array(
+      '//cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js',
+      '//cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.pie.min.js',
+      '/js/frame/issueui.js'
+    );
   }
 
 
   public function getStyle() {
-    return array('/css/frame/issueui.css');
+    return array(
+      '/css/frame/issueui.css'
+    );
   }
 }
 

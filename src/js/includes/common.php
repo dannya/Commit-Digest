@@ -31,14 +31,16 @@ strings.privacy_private = '<?php echo _("This field is currently <b>private</b>"
 
 // onpageready...
 $(function() {
-    // move sidebar with page scroll
-    if (($('#sidebar').length > 0) && ($('#sidebar-logo').length > 0)) {
-        $(window).on('scroll', function() {
-            checkPositioning();
-        });
+    if (!$('body').hasClass('neverland')) {
+        // move sidebar with page scroll
+        if (($('#sidebar').length > 0) && ($('#sidebar-logo').length > 0)) {
+            $(window).on('scroll', function() {
+                checkPositioning();
+            });
 
-        // also run onload (in case browser scroll was already past origin)
-        checkPositioning();
+            // also run onload (in case browser scroll was already past origin)
+            checkPositioning();
+        }
     }
 });
 
@@ -67,8 +69,6 @@ function checkPositioning() {
                 'top' : diff
             });
     }
-
-
 
     // show sidebar logo?
     if (top < 80) {
@@ -239,4 +239,19 @@ function scrollToOffset(id, offset, container) {
     } else {
         window.scrollTo(pos[0], newPos);
     }
+}
+
+
+function browser () {
+    var N = navigator.appName,
+        ua = navigator.userAgent, tem;
+
+    var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+    if (M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) {
+        M[2] = tem[1];
+    }
+
+    M = M ? [M[1], M[2]]: [N, navigator.appVersion,'-?'];
+
+    return M;
 }

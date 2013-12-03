@@ -19,7 +19,7 @@ class DigestUi extends Renderable {
   public $frame             = null;
 
   private $style            = array('/css/includes/common.css');
-  private $appScript        = array('/js/jquery.js');
+  private $appScript        = array('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js');
 
   private $userScript       = null;
 
@@ -136,28 +136,24 @@ class DigestUi extends Renderable {
 
 
   public function drawScript() {
-    if (!LIVE_SITE) {
-      // don't use minified and cached version on dev
-      $theScript = array_merge($this->appScript,
-                               $this->userScript,
-                               $this->frame->getScript());
-    } else {
-      // use cached and minified versions
-      $theScript = $this->userScript;
-      array_unshift($theScript, Cache::getMinJs('app', $this->appScript));
-
-      $frameScript = $this->frame->getScript();
-
-      if (!empty($frameScript)) {
-        $theScript[] = Cache::getMinJs($this->frame->id, $frameScript);
-      }
-    }
+    // merge script file lists
+    $theScript = array_merge(
+      $this->appScript,
+      $this->userScript,
+      $this->frame->getScript()
+    );
 
     // draw out script
     $buf = null;
 
     foreach ($theScript as $script) {
-      $buf .= '<script type="text/javascript" src="' . BASE_URL . $script . '"></script>' . "\n";
+      if (strpos($script, '//') === 0) {
+        $url = $script;
+      } else {
+        $url = BASE_URL . $script;
+      }
+
+      $buf .= '<script type="text/javascript" src="' . $url . '"></script>' . "\n";
     }
 
     return $buf;

@@ -211,11 +211,13 @@ class IssueUi {
 
 
   public function getScript() {
-    return array('/js/flot/jquery.flot.js',
-                 '/js/flot/jquery.flot.pie.js',
-                 '/js/jvectormap/jquery.jvectormap.js',
-                 '/js/jvectormap/jquery-jvectormap-world-mill-en.js',
-                 '/js/frame/issueui.js');
+    return array(
+      '//cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js',
+      '//cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.pie.min.js',
+      '/js/jvectormap/jquery.jvectormap.js',
+      '/js/jvectormap/jquery-jvectormap-world-mill-en.js',
+      '/js/frame/issueui.js'
+    );
   }
 
 

@@ -92,10 +92,22 @@ final class Config {
       if (!self::$settings) {
         $setup = new SetupUi();
 
-        echo Ui::drawHtmlPage($setup->drawPage(),
-                              Config::$app['name'] . ' - ' . _('Setup'),
-                              array('/css/includes/common.css', '/css/frame/setupui.css'),
-                              array_merge(array('/js/jquery.js', '/js/index.php?script=common'), $setup->getScript()));
+        echo Ui::drawHtmlPage(
+                $setup->drawPage(),
+                Config::$app['name'] . ' - ' . _('Setup'),
+                array(
+                  '/css/includes/common.css',
+                  '/css/frame/setupui.css'
+                ),
+                array_merge(
+                  array(
+                    '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js',
+                    '/js/index.php?script=common'
+                  ),
+                  $setup->getScript()
+                )
+        );
+
         exit;
       }
     }
