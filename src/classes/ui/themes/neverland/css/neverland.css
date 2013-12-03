@@ -93,7 +93,7 @@ input[type="text"] {
 }
 
 
-#frame_page .span10 h2 {
+#frame_page.span10 h2 {
     line-height: 1em;
     margin-bottom: 0.7em;
 }

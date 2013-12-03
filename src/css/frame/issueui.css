@@ -193,6 +193,7 @@ body.default table#contents-table {
 
 body.neverland table#contents-table thead tr th {
     text-align: center;
+    font-weight: bold;
 }
 
 body.default table#contents-table tbody tr:nth-child(even) {
@@ -573,13 +574,16 @@ div#worldmap {
 }
 
 /* pie charts */
+.legend > div {
+    background-color: inherit !important;
+}
 .legend > table .legendLabel {
     font-size: 14px !important;
     text-align: left;
 }
 body.neverland .legend > table .legendLabel {
     padding-left: 5px;
-    font-weight: bold;
+    font-weight: normal;
     color: #000000;
 }
 
@@ -593,7 +597,7 @@ table.chart-bar thead td {
     text-align: center;
 }
 body.neverland table.chart-bar thead td {
-    font-weight: normal;
+    font-weight: bold;
     padding-bottom: 6px;
 }
 
@@ -603,13 +607,14 @@ table.chart-bar tbody td.label {
 }
 body.neverland table.chart-bar tbody td.label {
     padding: 7px;
+    font-weight: normal;
 }
 table.chart-bar tbody td.labelTwin {
     padding: 0 6px;
     text-align: center;
 }
 body.neverland table.chart-bar tbody td.labelTwin {
-    font-weight: bold;
+    font-weight: normal;
 }
 
 table.chart-bar tbody td.value {
