@@ -39,7 +39,7 @@ $(function () {
         shareBox.css({
             'paddingBottom':    10,
             'left':             'auto',
-            'right': (
+            'right':            Math.floor(
                 $(window).width() - (sidebar.offset().left + sidebar.outerWidth())
             )
         });
@@ -57,7 +57,12 @@ $(function () {
                 $(window)
                     .off('scroll.donate')
                     .on('scroll.donate', function (event) {
-                        var boundary = (footerHeight - 3),
+                        var diff = -3;
+                        if ($.browser.webkit) {
+                            diff = 22;
+                        }
+
+                        var boundary = (footerHeight + diff),
                             fromBottom = (documentHeight - (window.scrollY + viewportHeight));
 
                         if (fromBottom < boundary) {
