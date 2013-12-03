@@ -329,89 +329,17 @@ class DigestUi {
 
 
   public static function drawShareBox($theUrl, $theTitle, $theDescription) {
-    // set variables
-    $theUrlEncode   = urlencode($theUrl);
-    $theTitleEncode = urlencode($theTitle);
-
-    $button['rss']      = BASE_URL . '/updates/';
-    $button['email']    = 'http://www.addtoany.com/add_to/email?linkurl=' . $theUrlEncode . '&amp;linkname=' . $theTitleEncode;
-    $button['identica'] = 'http://www.addtoany.com/add_to/identi_ca?linkurl=' . $theUrlEncode . '&amp;type=page&amp;linkname=' . $theTitleEncode;
-    $button['twitter']  = 'http://www.addtoany.com/add_to/twitter?linkurl=' . $theUrlEncode . '&amp;type=page&amp;linkname=' . $theTitleEncode;
-    $button['facebook'] = 'http://www.addtoany.com/add_to/facebook?linkurl=' . $theUrlEncode . '&amp;type=page&amp;linkname=' . $theTitleEncode;
-
-
-    // define script
-    $script =  '$(function () {
-                  // check if we have space for elements
-                  $(window).on("resize", function () {
-                    if ($(window).height() < 560) {
-                      $("#share-box").attr("class", "share-bottom");
-                    } else {
-                      $("#share-box").attr("class", "share-sidebar");
-                    }
-                  });
-
-                  // hide elements based on initial size?
-                  if ($(window).height() < 550) {
-                    $("#share-box").attr("class", "share-bottom");
-
-                    // set flattr button size
-                    var flattrButton = "compact";
-
-                  } else {
-                    $("#share-box").attr("class", "share-sidebar");
-
-                    // set flattr button size
-                    if ($(window).height() < 600) {
-                      var flattrButton = "compact";
-                    } else {
-                      var flattrButton = "default";
-                    }
-                  }
-
-                  // setup flattr button
-                  FlattrLoader.setup();
-
-                  FlattrLoader.render({
-                    "uid":          "dannya",
-                    "button":       flattrButton,
-                    "language":     "en_GB",
-                    "category":     "text",
-                    "url":          theUrl,
-                    "title":        theTitle,
-                    "description":  theDescription
-                  }, "flattr", "replace");
-                });';
-
-
     // draw
     $buf = '<div id="share-box" class="share-sidebar">
-              <div id="donate">
-                <form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                  <input type="hidden" name="cmd" value="_s-xclick" />
-                  <input type="hidden" name="hosted_button_id" value="YVG8NLZ2QH34Y" />
-                  <input type="image" src="' . BASE_URL . '/img/paypal.png" name="submit" alt="' . _('Support Commit-Digest using PayPal') . '" title="' . _('Support Commit-Digest using PayPal') . '" />
-                  <img src="https://www.paypal.com/en_GB/i/scr/pixel.gif" alt="" />
-                </form>
-
-                <div id="flattr">&nbsp;</div>
-              </div>
-
               <script type="text/javascript" src="http://api.flattr.com/js/0.5.0/load.js"></script>
               <script type="text/javascript">
                 var theUrl         = "' . $theUrl . '";
                 var theTitle       = "' . $theTitle . '";
                 var theDescription = "' . $theDescription . '";
-                ' .
-                Cache::getMinInlineJs($script, 'donate') .
-           '  </script>
+              </script>
 
-              <div id="share-buttons">
-                <a id="button-rss" class="button" target="_blank" href="' . $button['rss'] . '" title="' . sprintf(_('Subscribe to %s updates'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '">&nbsp;</a>
-                <a id="button-email" class="button" target="_blank" href="' . $button['email'] . '" title="' . _('Send this issue by email...') . '">&nbsp;</a>
-                <a id="button-twitter" class="button" target="_blank" href="' . $button['twitter'] . '" title="' . _('Share this issue on Twitter...') . '">&nbsp;</a>
-                <a id="button-facebook" class="button" target="_blank" href="' . $button['facebook'] . '" title="' . _('Share this issue on Facebook...') . '">&nbsp;</a>
-                <a id="button-identica" class="button" target="_blank" href="' . $button['identica'] . '" title="' . _('Share this issue on Identica...') . '">&nbsp;</a>
+              <div id="donate">
+                <div id="flattr">&nbsp;</div>
               </div>
             </div>';
 

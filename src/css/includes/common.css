@@ -374,10 +374,6 @@ div.share-bottom:hover, div.share-sidebar:hover {
     filter: alpha(opacity=100);
 }
 
-div.share-sidebar div#donate form#paypal {
-    width: 110px;
-    margin: 0 auto;
-}
 div.share-sidebar div#donate iframe {
     margin: 10px auto 32px auto;
 }
@@ -429,10 +425,6 @@ div.share-bottom div#donate {
     bottom: 0;
     width: 110px;
     text-align: center;
-}
-div.share-bottom div#donate form#paypal {
-    width: 110px;
-    margin: 0 auto;
 }
 div.share-bottom div#donate iframe {
     margin: 6px auto 0 auto;
