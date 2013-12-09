@@ -475,6 +475,9 @@ body.neverland div.commit div.details div.info div.b div.bug div span {
     margin-right: 2px;
 }
 
+div.commit div.details div.info span.d {
+    float: left;
+}
 div.commit div.details div.info a.r {
     display: block;
     text-align: right;

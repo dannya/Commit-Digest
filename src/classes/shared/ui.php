@@ -21,7 +21,7 @@ class Ui {
       header('Location: ' . BASE_URL . $page);
 
     } else{
-      echo '<script type="text/javascript">top.location="', BASE_URL, $page, '";</script>';
+      echo '<script>top.location.href="', BASE_URL, $page, '";</script>';
     }
 
     exit;
@@ -61,7 +61,7 @@ class Ui {
 
     if ($js) {
       foreach ($js as $file) {
-        $script .= '<script type="text/javascript" src="' . BASE_URL . $file . '"></script>' . "\n";
+        $script .= '<script src="' . BASE_URL . $file . '"></script>' . "\n";
       }
     }
 

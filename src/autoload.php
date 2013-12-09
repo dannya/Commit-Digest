@@ -69,10 +69,17 @@ if (LIVE_SITE) {
   ini_set('display_errors', false);
   ini_set('log_errors',     true);
 
+  // webstats
+  define('WEBSTATS_TYPE',   'google');
+  define('WEBSTATS_ID',     'UA-46299859-1');
+
 } else {
   // error handling (show on page)
   ini_set('display_errors', true);
   ini_set('log_errors',     false);
+
+  // webstats
+  define('WEBSTATS_TYPE',   false);
 }
 
 
@@ -92,11 +99,13 @@ if (COMMAND_LINE) {
 
 } else {
   // add class dir to include path
-  $classDirs = array(BASE_DIR . '/classes/db/',
-                     BASE_DIR . '/classes/shared/',
-                     BASE_DIR . '/classes/specific/',
-                     BASE_DIR . '/classes/ext/',
-                     BASE_DIR . '/classes/ext/cacheLite/');
+  $classDirs = array(
+    BASE_DIR . '/classes/db/',
+    BASE_DIR . '/classes/shared/',
+    BASE_DIR . '/classes/specific/',
+    BASE_DIR . '/classes/ext/',
+    BASE_DIR . '/classes/ext/cacheLite/'
+  );
 
   set_include_path(get_include_path() . PATH_SEPARATOR . implode(PATH_SEPARATOR, $classDirs));
 
@@ -129,11 +138,11 @@ define('JAVASCRIPT_LIBRARY',  'jquery');
 
 
 // stop APC cache slam errors
-ini_set('apc.slam_defense',   'Off');
+ini_set('apc.slam_defense', 'Off');
 
 
 // define caching settings
-define('CACHE_DIR',           BASE_DIR . '/cache/');
+define('CACHE_DIR', BASE_DIR . '/cache/');
 
 $cacheOptions = array('caching'             => false,
                       'cacheDir'            => CACHE_DIR,

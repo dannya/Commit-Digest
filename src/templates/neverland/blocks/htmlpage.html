@@ -8,14 +8,15 @@
     {% for item in style %}
         <link rel="stylesheet" href="{{ BASE_URL}}{{ item }}" type="text/css" media="screen" />
     {% endfor %}
-    {% for item in script %}
-        <script type="text/javascript" src="{{ BASE_URL}}{{ item }}"></script>
-    {% endfor %}
     </head>
 
     <body id="body-iframe"{% if body_class %} class="{{ body_class }}"{% endif %}>
     {% autoescape false %}
         {{ content }}
     {% endautoescape %}
+
+    {% for item in script %}
+        <script src="{{ BASE_URL}}{{ item }}"></script>
+    {% endfor %}
     </body>
 </html>

@@ -15,7 +15,7 @@
  +--------------------------------------------------------*/
 
 
-class ListUi {
+class ListUi extends Renderable {
   public $id          = null;
   public $title       = null;
 
@@ -26,6 +26,8 @@ class ListUi {
 
 
   public function __construct($id) {
+    parent::__construct();
+
     // set id and title
     $this->id = $id;
 
@@ -57,52 +59,41 @@ class ListUi {
       $type = 'issue';
     }
 
-    $this->data = Cache::loadSave(array('base'  => DIGEST_APP_ID,
-                                        'id'    => $type . '_' . $this->sortType),
-                                  'Digest::loadDigests',
-                                  array($type,
-                                        $this->sortType));
+    $this->data = Cache::loadSave(
+      array(
+        'base'  => DIGEST_APP_ID,
+        'id'    => $type . '_' . $this->sortType
+      ),
+      'Digest::loadDigests',
+      array(
+        $type,
+        $this->sortType
+      )
+    );
   }
 
 
   public function draw() {
-    $buf = '<h1>' . $this->title . '</h1>
-            <a id="sort" class="fade" href="?sort=' . $this->sortAlt . '">' . $this->sortString . '</a>';
+    // define tokens
+    $tokens = array(
+      'title' => $this->title,
+      'sort_alt' => $this->sortAlt,
+      'sort_string' => $this->sortString,
+      'issues' => $this->data,
+    );
 
-    // show attribution?
+    // add additional tokens for archive/
     if ($this->id == 'archive') {
-      $buf .= '<p id="attribution">' .
-                sprintf(_('For %d issues, %s produced the KDE-CVS Digest. Here are the archives of his digests:'),
-                        129,
-                        'Derek Kite') .
-              '</p>';
+      $tokens = array_merge(
+        $tokens,
+        array(
+          'archive_author' => 'Derek Kite',
+          'archive_issues' => count($this->data),
+        )
+      );
     }
 
-    $buf .= '<div class="container">';
-
-    foreach ($this->data as $digest) {
-      $url = BASE_URL . '/' . $this->id . '/' . $digest['date'] . '/';
-
-      // show issue number with date?
-      if ($digest['type'] == 'archive') {
-        $dateString = Date::get('full', $digest['date']);
-      } else {
-        $dateString = sprintf(_('Issue %d: %s'), $digest['id'], Date::get('full', $digest['date']));
-      }
-
-      $buf .=  '<div class="row">
-                  <a class="date" href="' . $url . '">' .
-                    $dateString .
-               '  </a>
-                  <a class="text filled" href="' . $url . '">' .
-                    strip_tags($digest['synopsis']) .
-               '  </a>
-                </div>';
-    }
-
-    $buf .= '</div>';
-
-    return $buf;
+    return parent::render($tokens);
   }
 
 

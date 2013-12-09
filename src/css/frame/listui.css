@@ -1,4 +1,4 @@
-a#sort {
+body.default a#sort {
     position: absolute;
     right: 0;
     top: 4px;
@@ -6,25 +6,56 @@ a#sort {
     border-bottom: 0;
 }
 
-p#attribution {
+body.default p#attribution {
     margin-bottom: 22px;
 }
 
-div.container div.row {
+body.default div.container div.row {
     margin-bottom: 24px;
 }
 
-div.container div.row a.date {
+body.default div.container div.row a.date {
     display: block;
     font-size: 20px;
     font-weight: bold;
     border-bottom: 0;
     margin-bottom: 6px;
 }
-div.container div.row a.text {
+body.default div.container div.row a.text {
     display: block;
     border-bottom: 0;
     padding: 8px 10px;
     font-style: italic;
     width: 90%;
+}
+
+
+
+
+body.neverland .span10 {
+    position: relative;
+}
+body.neverland .span10 #sort {
+    position: absolute;
+    right: 0;
+    top: 34px;
+}
+
+body.neverland .span10 #attribution {
+    margin-bottom: 1.5em;
+}
+
+body.neverland .span10 ul {
+    list-style: none;
+    margin-left: 0;
+}
+body.neverland .span10 ul li {
+    padding: 1.25em 0 1.5em 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+body.neverland .span10 ul li:first-child {
+    padding-top: 0;
+}
+body.neverland .span10 ul li:last-child {
+    border-bottom: none;
 }

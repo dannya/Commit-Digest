@@ -4,22 +4,22 @@
     <input type="button" value="{% trans 'Publish' %}" onclick="setPublished('{{ issue_date }}', true);" />
 </div>
 
-<iframe id="header-review-target" src="http://www.something.com/" style="display:none;"></iframe>
+<iframe id="header-review-target" src="http://www.something.com/" style="display: none;"></iframe>
 
-<script type="text/javascript">
+<script>
     function setPublished(date, state) {
-        if ((typeof date == "undefined") || (typeof state == "undefined")) {
+        if ((date === undefined) || (state === undefined)) {
             return false;
         }
 
         // send request through iframe
-        $("header-review-target").src = "{{ ENZYME_URL }}/get/publish.php?date=" + date + "&state=" + state;
+        $('#header-review-target').attr('src', '{{ ENZYME_URL }}/get/publish.php?date=' + date + '&state=' + state);
 
         // remove header
-        if ($("header-review")) {
-            Element.remove($("header-review"));
-            $("body").removeClassName("review");
-            $("sidebar").style.top = (parseInt($("sidebar").style.top) - 34) + "px";
+        if ($('#header-review').length > 0) {
+            $('#header-review').remove();
+            $('body').removeClass('review');
+            $('#sidebar').css('top', parseInt($('#sidebar').css('top'), 10) - 34);
         }
     }
 </script>

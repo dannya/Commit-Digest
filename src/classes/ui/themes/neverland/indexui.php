@@ -48,16 +48,16 @@ class IndexUi {
 
 
   public function draw() {
-    $buf = '<div class="hero-unit">
-              <h1>' . _('Welcome') . '</h1>
-              <p class="lead">' . sprintf(_('...to the %s, a weekly overview of the development activity in KDE.'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '</p>
+    $buf =   '<div class="hero-unit">
+                <h1>' . _('Welcome') . '</h1>
+                <p class="lead">' . sprintf(_('...to the %s, a weekly overview of the development activity in KDE.'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '</p>
 
-              <div id="latest-box" class="filled" onclick="top.location=\'' . BASE_URL . '/issues/latest/\';">
-                <button class="btn btn-large btn-primary">' . _('Read the latest issue!') . '</button>
+                <div id="latest-box" class="filled" onclick="top.location=\'' . BASE_URL . '/issues/latest/\';">
+                  <button class="btn btn-large btn-primary">' . _('Read the latest issue!') . '</button>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="span5">
+              <div class="row">
+                <div class="span5">
                   <h2>' . _('Issues') . '</h2>
                   <ul id="issues">';
 
@@ -74,6 +74,7 @@ class IndexUi {
 
       $buf .=  '  </ul>
                 </div>
+
                 <div class="span5">
                   <h2>' . _('Six Months Ago') . '</h2>
                   <ul>' .

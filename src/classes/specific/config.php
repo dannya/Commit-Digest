@@ -16,13 +16,13 @@
 
 
 final class Config {
-  public static $framework  = array('version'     => '20120710');
+  public static $framework  = array('version'     => '20131208');
 
 
   // define app constants
   public static $app        = array('id'          => 'commit-digest',
                                     'name'        => 'KDE Commit-Digest',
-                                    'version'     => '1.23');
+                                    'version'     => '1.30');
 
 
   // define meta information

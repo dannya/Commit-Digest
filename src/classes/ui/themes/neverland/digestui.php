@@ -109,7 +109,13 @@ class DigestUi {
               <link rel="shortcut icon" href="' . BASE_URL .'/favicon.ico" type="image/x-icon" />
               <link rel="icon" href="' . BASE_URL . '/favicon.ico" type="image/x-icon" />
 
-              <link rel="alternate" type="application/rss+xml" title="" href="' . BASE_URL . '/updates/" />';
+              <link rel="alternate" type="application/rss+xml" title="" href="' . BASE_URL . '/updates/" />
+
+              <script>
+                  window.vars = {
+                      "ENZYME_URL": "' . Config::getSetting('enzyme', 'ENZYME_URL') . '"
+                  };
+              </script>';
 
     return $buf;
   }
@@ -147,7 +153,7 @@ class DigestUi {
         $url = BASE_URL . $script;
       }
 
-      $buf .= '<script type="text/javascript" src="' . $url . '"></script>' . "\n";
+      $buf .= '<script src="' . $url . '"></script>' . "\n";
     }
 
     return $buf;
@@ -187,25 +193,7 @@ class DigestUi {
                '  <input type="button" value="' . _('Publish') . '" onclick="setPublished(\'' . $this->frame->issue . '\', true);" />
                 </div>
 
-                <iframe id="header-review-target" src="http://www.something.com/" style="display:none;"></iframe>
-
-                <script type="text/javascript">
-                  function setPublished(date, state) {
-                    if ((typeof date == "undefined") || (typeof state == "undefined")) {
-                      return false;
-                    }
-
-                    // send request through iframe
-                    $("header-review-target").src = "' . Config::getSetting('enzyme', 'ENZYME_URL') . '/get/publish.php?date=" + date + "&state=" + state;
-
-                    // remove header
-                    if ($("header-review")) {
-                      Element.remove($("header-review"));
-                      $("body").removeClassName("review");
-                      $("sidebar").style.top = (parseInt($("sidebar").style.top) - 34) + "px";
-                    }
-                  }
-                </script>';
+                <iframe id="header-review-target" src="http://www.something.com/" style="display:none;"></iframe>';
     }
 
 
@@ -230,6 +218,7 @@ class DigestUi {
                   </div>
                 </div>
               </div>
+
               <div class="container Neverland home">
                 <div id="pageRow" class="row">';
 
@@ -313,9 +302,9 @@ class DigestUi {
 
     $buf = '</div>
             <footer class="Neverland">' .
-              sprintf(_('%s by <a href="mailto:%s">%s</a>, %s'), Config::getSetting('enzyme', 'PROJECT_NAME'), 'danny@commit-digest.org', 'Danny Allen', '2006-2013') .
+              sprintf(_('%s by <a href="mailto:%s">%s</a>, %s.'), Config::getSetting('enzyme', 'PROJECT_NAME'), 'danny@commit-digest.org', 'Danny Allen', '2006-2013') .
               '<br />' .
-              _('All issues in <a href="/archive/">archive</a> by Derek Kite') .
+              _('All issues in <a href="/archive/">archive</a> by Derek Kite.') .
            '  <a id="enzyme-credit" href="http://enzyme-project.org/" target="_blank" title="' . _('Powered by Enzyme') . '">' . _('Powered by Enzyme') . '</a>
             </footer>
           </div>';
@@ -327,8 +316,8 @@ class DigestUi {
   public static function drawShareBox($theUrl, $theTitle, $theDescription) {
     // draw
     $buf = '<div id="share-box" class="share-sidebar">
-              <script type="text/javascript" src="http://api.flattr.com/js/0.5.0/load.js"></script>
-              <script type="text/javascript">
+              <script src="http://api.flattr.com/js/0.5.0/load.js"></script>
+              <script>
                 var theUrl         = "' . $theUrl . '";
                 var theTitle       = "' . $theTitle . '";
                 var theDescription = "' . $theDescription . '";

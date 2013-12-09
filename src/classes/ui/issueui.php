@@ -520,42 +520,8 @@ class IssueUi {
     // output HTML and JS setup code
     $buf = '<div id="worldmap"></div>
 
-            <script type="text/javascript">
-              var countryData = ' . json_encode($countryData) . ';
-
-              $("#worldmap").vectorMap({
-                map:              "world_mill_en",
-                backgroundColor:  "#ffffff",
-
-                series: {
-                  regions: [
-                    {
-                      values: countryData,
-                      scale: ["#B3B3B3", "#8C8C8C", "#666666", "#3F3F3F"],
-                      normalizeFunction: "polynomial"
-                    }
-                  ]
-                },
-
-                onRegionLabelShow: function(e, el, code) {
-                  if (typeof countryData[code] != "undefined") {
-                    el.html(el.html() + " (" + countryData[code] + "%)");
-                  }
-                },
-
-                regionStyle: {
-                  initial: {
-                    fill: "#ffffff",
-                    "stroke": "#505050",
-                    "fill-opacity": 1,
-                    "stroke-width": 0.5,
-                    "stroke-opacity": 0.5
-                  },
-                  hover: {
-                    "fill-opacity": 0.8
-                  }
-                }
-              });
+            <script>
+                window.countryData = ' . json_encode($countryData) . ';
             </script>';
 
     return $buf;

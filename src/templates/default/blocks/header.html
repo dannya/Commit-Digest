@@ -5,24 +5,6 @@
 </div>
 
 <iframe id="header-review-target" src="http://www.something.com/" style="display:none;"></iframe>
-
-<script type="text/javascript">
-    function setPublished(date, state) {
-        if ((typeof date == "undefined") || (typeof state == "undefined")) {
-            return false;
-        }
-
-        // send request through iframe
-        $("header-review-target").src = "{{ ENZYME_URL }}/get/publish.php?date=" + date + "&state=" + state;
-
-        // remove header
-        if ($("header-review")) {
-            Element.remove($("header-review"));
-            $("body").removeClassName("review");
-            $("sidebar").style.top = (parseInt($("sidebar").style.top) - 34) + "px";
-        }
-    }
-</script>
 {% endif %}
 
 <div id="header">

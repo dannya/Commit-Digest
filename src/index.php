@@ -49,7 +49,6 @@ if (!empty($ui->frame->onlyContent)) {
       echo $ui->drawTitle();
       echo $ui->drawMeta();
       echo $ui->drawStyle();
-      echo $ui->drawScript();
     ?>
   </head>
 
@@ -63,12 +62,16 @@ if (!empty($ui->frame->onlyContent)) {
       ?>
     </div>
 <?php
+  // draw script
+  echo $ui->drawScript();
+
+  // draw webtracking?
+  echo Webstats::track();
 
   // finish page caching?
   if (isset($cache)) {
     $cache->end();
   }
-
 ?>
   </body>
 </html>

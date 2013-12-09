@@ -130,6 +130,11 @@ footer.Neverland a#enzyme-credit:hover {
 
 
 /*index*/
+.span5 ul {
+    list-style: none;
+    margin-bottom: 2em;
+}
+
 ul#issues li {
     margin-bottom: 1em;
 }

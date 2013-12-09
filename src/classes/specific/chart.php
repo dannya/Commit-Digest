@@ -96,42 +96,16 @@ class Chart {
               <div id="' . $this->id . '" style="width: ' . $this->size['width'] . 'px; height: ' . $this->size['height'] . 'px;"></div>
             </div>
 
-            <script type="text/javascript">
-              var dataset = ' . json_encode($this->data) . ';
-
-              // set slice colours
-              var colours = [
-                "#3B5E7E",
-                "#547797",
-                "#6D90B0",
-                "#86A9C9",
-                "#9FC2E2",
-                "#B8DBFB"
-              ];
-
-              for (var key in dataset) {
-                dataset[key]["color"] = colours[key];
-              }
-
-              // render chart
-              $.plot("#' . $this->id . '", dataset, {
-                series: {
-                  pie: {
-                    show: true,
-                    radius: 1,
-                  }
-                },
-                legend: {
-                    show: true,
-                    labelFormatter: function(label, series) {
-                      return label + " (" + series.percent.toFixed(2) + "%)";
-                    },
-                    labelBoxBorderColor: "#999999",
-                    noColumns: 1,
-                    position: "ne",
-                    margin: [20, 0]
+            <script>
+                if (window.dataset === undefined) {
+                    window.dataset = [];
                 }
-              });
+                if (window.datasetElement === undefined) {
+                    window.datasetElement = [];
+                }
+
+                window.dataset.push(' . json_encode($this->data) . ');
+                window.datasetElement.push("#' . $this->id . '");
             </script>';
 
     return $buf;

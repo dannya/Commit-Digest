@@ -17,86 +17,26 @@
 
 class Webstats {
   public static function track() {
-    if (!defined('WEBSTATS_TYPE') || !defined('WEBSTATS_ID')) {
-      throw new Exception('Unset constant in ' . __CLASS__ . '::' . __METHOD__);
-    }
-
     if (WEBSTATS_TYPE === false) {
       $buf = null;
 
     } else if (WEBSTATS_TYPE == 'google') {
       // google analytics
-      $buf = '<script type="text/javascript">
-                var _gaq = _gaq || [];
-                _gaq.push(["_setAccount", "' . WEBSTATS_ID . '"]);
-                _gaq.push(["_setDomainName", "none"]);
-                _gaq.push(["_setAllowLinker", true]);
-                _gaq.push(["_trackPageview"]);
+      $buf = '<script>
+                (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,"script","http://www.google-analytics.com/analytics.js","ga");
 
-                (function() {
-                  var ga = document.createElement("script"); ga.type = "text/javascript"; ga.async = true;
-                  ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
-                  var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
-                })();
-              </script>';
+                ga("create", "' . WEBSTATS_ID . '", "commit-digest.org");
+                ga("send", "pageview");
+             </script>';
 
     } else {
       throw new Exception('WEBSTATS_TYPE unset in ' . __CLASS__ . '::' . __METHOD__);
     }
 
     return $buf;
-  }
-
-
-  // google analytics
-  public static function image() {
-    if (!defined('WEBSTATS_TYPE') || ((WEBSTATS_TYPE != 'google') && (WEBSTATS_TYPE !== false))) {
-      throw new Exception(__CLASS__ . '::' . __METHOD__ . ' can only be used if WEBSTATS_TYPE == "google"');
-
-    } else if (WEBSTATS_TYPE === false) {
-      return false;
-    }
-
-
-    return '<img src="' . self::imageUrl() . '" onload="alert(\'boo\');" style="display:none;" />';
-  }
-
-
-  public static function imageUrl() {
-    if (!defined('WEBSTATS_TYPE') || ((WEBSTATS_TYPE != 'google') && (WEBSTATS_TYPE !== false))) {
-      throw new Exception(__CLASS__ . '::' . __METHOD__ . ' can only be used if WEBSTATS_TYPE == "google"');
-    } else if (WEBSTATS_TYPE === false) {
-      return false;
-    }
-
-
-    if (defined('WEBSTATS_ID')) {
-      $url    = BASE_URL . '/get/ga.php?utmac=' . WEBSTATS_ID . '&utmn=' . rand(0, 0x7fffffff);
-
-      // append query string to URL
-      $query  = $_SERVER['QUERY_STRING'];
-      $path   = $_SERVER['REQUEST_URI'];
-
-      if (empty($_SERVER['HTTP_REFERER'])) {
-        $referer = '-';
-      } else {
-        $referer = $_SERVER['HTTP_REFERER'];
-      }
-
-      $url   .= '&utmr=' . urlencode($referer);
-
-      if (!empty($path)) {
-        $url .= '&utmp=' . urlencode($path);
-      }
-
-      $url   .= '&guid=ON';
-
-      // return URL
-      return str_replace('&', '&amp;', $url);
-
-    } else {
-      throw new Exception('WEBSTATS_ID unset in ' . __CLASS__ . '::' . __METHOD__);
-    }
   }
 }
 

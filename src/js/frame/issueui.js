@@ -13,7 +13,114 @@
  +--------------------------------------------------------*/
 
 
+function setPublished (date, state) {
+    if ((date === undefined) || (state === undefined)) {
+        return false;
+    }
+
+    // send request through iframe
+    $('#header-review-target').attr('src', window.vars.ENZYME_URL + '/get/publish.php?date=' + date + '&state=' + state);
+
+    // remove header
+    if ($('#header-review').length > 0) {
+        $('#header-review').remove();
+        $('body').removeClass('review');
+
+        if ($('body').hasClass('default')) {
+            $('#sidebar').css('top', parseInt($('#sidebar').css('top'), 10) - 34);
+        }
+    }
+}
+
+
 $(function () {
+    // render map?
+    if (window.countryData !== undefined) {
+        $('#worldmap').vectorMap({
+            map:              'world_mill_en',
+            backgroundColor:  '#ffffff',
+
+            series: {
+                regions: [
+                    {
+                        values: window.countryData,
+                        scale: [
+                            '#B3B3B3', '#8C8C8C', '#666666', '#3F3F3F'
+                        ],
+                        normalizeFunction: 'polynomial'
+                    }
+                ]
+            },
+
+            onRegionLabelShow: function(e, el, code) {
+                if (window.countryData[code] !== undefined) {
+                    el.html(el.html() + ' (' + window.countryData[code] + '%)');
+                }
+            },
+
+            regionStyle: {
+                initial: {
+                    'fill':             '#ffffff',
+                    'stroke':           '#505050',
+                    'fill-opacity':     1,
+                    'stroke-width':     0.5,
+                    'stroke-opacity':   0.5
+                },
+                hover: {
+                    'fill-opacity':     0.8
+                }
+            }
+        });
+    }
+
+
+    // render demographics?
+    if ((typeof window.dataset === 'object') &&
+        (typeof window.datasetElement === 'object')) {
+
+        // set slice colours
+        var colours = [
+            '#3B5E7E',
+            '#547797',
+            '#6D90B0',
+            '#86A9C9',
+            '#9FC2E2',
+            '#B8DBFB'
+        ];
+
+        for (var set in window.dataset) {
+            // index colours
+            for (var key in window.dataset[set]) {
+                window.dataset[set][key]['color'] = colours[key];
+            }
+
+            // render chart
+            $.plot(
+                window.datasetElement[set],
+                window.dataset[set],
+                {
+                    series: {
+                        pie: {
+                            show: true,
+                            radius: 1
+                        }
+                    },
+                    legend: {
+                        show: true,
+                        labelFormatter: function(label, series) {
+                            return label + ' (' + series.percent.toFixed(2) + '%)';
+                        },
+                        labelBoxBorderColor:    '#999999',
+                        noColumns:              1,
+                        position:               'ne',
+                        margin:                 [20, 0]
+                    }
+                }
+            );
+        }
+    }
+
+
     // setup flattr button
     FlattrLoader.setup();
 
