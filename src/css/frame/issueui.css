@@ -141,12 +141,33 @@ div.body-title {
     margin-bottom: 8px;
     width: 93%;
 }
-div.body-text {
+body.default div.body-text {
     padding: 8px;
     font-style: italic;
     margin-bottom: 32px;
     width: 90.5%;
 }
+
+body.neverland div.body-title ol,
+body.neverland div.body-title ul {
+    margin-top: 10px;
+}
+body.neverland div.body-text {
+    padding: 12px 14px;
+    font-style: italic;
+    margin-bottom: 32px;
+}
+body.neverland div.body-text ol,
+body.neverland div.body-text ul {
+    margin-top: 10px;
+}
+body.neverland div.body-text blockquote small {
+    color: #000000;
+}
+body.neverland div.body-text code {
+    background-color: #ffffff;
+}
+
 
 div.body-text p,
 div.body-title p {
@@ -430,7 +451,7 @@ div.commit div.details div.info {
 }
 body.neverland div.commit div.details div.info {
     border-top: 1px solid #BCE8F1;
-    padding: 8px 10px 6px 10px;
+    padding: 6px 10px 6px 10px;
     font-size: 0.9em;
 }
 
@@ -461,7 +482,7 @@ body.default div.commit div.details div.info div.b div.bug div div {
 }
 body.neverland div.commit div.details div.info div.b div.bug div div {
     float: left;
-    margin: 1px 5px 0 0;
+    margin: 2px 5px 0 0;
     width: 20px;
     height: 20px;
     background: url('../../img/neverland/time.png') no-repeat;
@@ -488,37 +509,59 @@ p.message {
     text-align: center;
 }
 
-div.diffs-container {
+body.default div.diffs-container {
     width: 91.5%;
     border: 2px solid #E1EAF3;
 }
+body.neverland div.diffs-container {
+    border: 1px solid #BCE8F1;
+    border-radius: 4px;
+    margin-bottom: 4em;
+}
 
-div.diffs-container div.subheader {
+body.default div.diffs-container div.subheader {
     padding: 4px 6px;
     font-weight: bold;
     background-color: #E1EAF3;
+}
+body.neverland div.diffs-container div.subheader {
+    padding: 5px 10px;
+    font-weight: bold;
+    background-color: #D9EDF7;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 div.diffs-container div.subheader span {
     float: right;
     font-weight: normal;
 }
-div.diffs-container div#total {
+body.default div.diffs-container div#total {
     text-align: right;
     font-weight: normal;
     font-style: italic;
 }
+body.neverland div.diffs-container div#total {
+    text-align: right;
+    font-weight: normal;
+    font-style: italic;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
 
-div.diffs {
+
+body.default div.diffs {
     padding: 6px;
 }
-div.diffs div.basepath {
+body.default div.diffs div.basepath {
     padding: 2px 4px;
 }
-div.diffs div.path {
+body.default div.diffs div.path {
     padding: 2px 4px;
 }
 
-div.diffs div.path div {
+body.default div.diffs div.path div {
     float: left;
     margin: 0 4px 0 4px;
     width: 20px;
@@ -526,9 +569,33 @@ div.diffs div.path div {
     background: url('../../img/sprite.png') no-repeat;
     background-position: -0px -64px;
 }
-div.diffs div.path:last-child div {
+body.default div.diffs div.path:last-child div {
     background-position: -20px -64px;
 }
+
+body.neverland ul.diffs {
+    padding: 0;
+    margin: 6px 0 16px 0;
+    list-style: none;
+}
+body.neverland ul.diffs li.basepath {
+    padding: 2px 4px 2px 12px;
+}
+body.neverland ul.diffs li.path {
+    padding: 2px 4px;
+}
+body.neverland ul.diffs li.path span {
+    float: left;
+    margin: 2px 8px 0 0;
+    width: 20px;
+    height: 20px;
+    background: url('../../img/sprite.png') no-repeat;
+    background-position: -0px -64px;
+}
+body.neverland ul.diffs li.path:last-child span {
+    background-position: -20px -64px;
+}
+
 
 div#worldmap {
     position: relative;
@@ -541,8 +608,6 @@ div#worldmap {
     position: absolute;
     display: none;
     border: solid 1px #CDCDCD;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
     background: #292929;
     color: white;
@@ -555,8 +620,6 @@ div#worldmap {
 .jvectormap-zoomout {
     position: absolute;
     left: 10px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
     background: #292929;
     padding: 3px;

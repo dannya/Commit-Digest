@@ -107,12 +107,12 @@ class MoreInfoUi {
 
     // previous commit button?
     if ($this->prevRevision) {
-      $prev = '<a class="left n" href="' . BASE_URL . '/' . $this->type . '/' . $this->issue . '/moreinfo/' . $this->prevRevision . '/" title="' . sprintf(_('Go to revision %s'), $this->prevRevision) . '">&nbsp;</a>';
+      $prev = '<a href="' . BASE_URL . '/' . $this->type . '/' . $this->issue . '/moreinfo/' . $this->prevRevision . '/" title="' . sprintf(_('Go to revision %s'), $this->prevRevision) . '">' . _('Previous revision') . '</a>';
     }
 
     // next commit button?
     if ($this->nextRevision) {
-      $next = '<a class="right n" href="' . BASE_URL . '/' . $this->type . '/' . $this->issue . '/moreinfo/' . $this->nextRevision . '/" title="' . sprintf(_('Go to revision %s'), $this->nextRevision) . '">&nbsp;</a>';
+      $next = '<a href="' . BASE_URL . '/' . $this->type . '/' . $this->issue . '/moreinfo/' . $this->nextRevision . '/" title="' . sprintf(_('Go to revision %s'), $this->nextRevision) . '">' . _('Next revision') . '</a>';
     }
 
     // shorten revision string if Git
@@ -123,16 +123,21 @@ class MoreInfoUi {
       $revision = Digest::getShortGitRevision($this->data['revision']);
     }
 
+    // separator
+    $separator = '';
+    if ($prev && $next) {
+      $separator = '<span class="separator">|</span>';
+    }
+
     // draw box
-    $buf = '<div id="title-box" class="filled title-box-issue">' .
-              $prev .
-           '  <div class="mid">
-                <h2>' . _('More Info') . '</h2>
-                <h3>' . sprintf(_('Revision %s'), $revision) . '</h3>
-                <a href="' . BASE_URL . '/issues/' . $this->issue . '/">' . _('(Back to digest)') . '</a>
-              </div>' .
-              $next .
-           '</div>';
+    $buf = '<header class="alert alert-info">
+                <h1>' . sprintf(_('Revision %s'), $revision) . '</h1>
+                <span>
+                    <a href="' . BASE_URL . '/issues/' . $this->issue . '/">' . sprintf(_('Go back to digest for %s'), Date::get('full', $this->issue)) . '</a>
+                </span>
+
+                <aside id="timewarp">' . $prev . $separator . $next . '</aside>
+           </header>';
 
     return $buf;
   }
@@ -208,25 +213,27 @@ class MoreInfoUi {
                '  </span>
                 </div>
 
-                <div class="diffs">';
+                <ul class="diffs">';
 
-      // draw common base path
+      // draw common base path?
       $basePath = Enzyme::getBasePath($sectionDiffs);
 
-      $buf .=  '  <div class="basepath">' .
-                    $basePath .
-               '  </div>';
+      if (strlen($basePath) > 0) {
+        $buf .=  '  <li class="basepath">' .
+                      $basePath .
+                 '  </li>';
+      }
 
       // draw diff (without basepath)
       foreach ($sectionDiffs as $diff) {
         if ($diff != $basePath) {
-          $buf .=  '  <div class="path">
-                        <div>&nbsp;</div> ' . str_replace($basePath, null, $diff) . '
-                      </div>';
+          $buf .=  '  <li class="path">
+                        <span>&nbsp;</span> ' . str_replace($basePath, null, $diff) . '
+                      </li>';
         }
       }
 
-      $buf .= '</div>';
+      $buf .= '</ul>';
     }
 
 

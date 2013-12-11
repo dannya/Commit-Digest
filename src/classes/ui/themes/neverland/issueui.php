@@ -723,15 +723,15 @@ class IssueUi {
 
     // previous issue button?
     if ($this->prevIssue) {
-      $prev = '<a href="' . $this->prevIssueUrl . '" title="' . sprintf(_('Go to the previous digest issue (%s)'), $this->prevIssue) . '" class="previous">' . _('Previous') . '</a>';
+      $prev = '<a href="' . $this->prevIssueUrl . '" title="' . sprintf(_('Go to the previous digest issue (%s)'), $this->prevIssue) . '" class="previous">' . _('Previous digest') . '</a>';
     }
 
     // next issue button?
     if ($this->nextIssue) {
-      $next = '<a href="' . $this->nextIssueUrl . '" title="' . sprintf(_('Go to the next digest issue (%s)'), $this->nextIssue) . '" class="next">' . _('Next') . '</a>';
+      $next = '<a href="' . $this->nextIssueUrl . '" title="' . sprintf(_('Go to the next digest issue (%s)'), $this->nextIssue) . '" class="next">' . _('Next digest') . '</a>';
     }
 
-    // issue separator
+    // separator
     $separator = '';
     if ($prev && $next) {
       $separator = '<span class="separator">|</span>';

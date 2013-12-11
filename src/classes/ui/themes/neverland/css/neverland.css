@@ -95,7 +95,7 @@ input[type="text"] {
 
 #frame_page.span10 h2 {
     line-height: 1em;
-    margin-bottom: 0.7em;
+    margin-bottom: 0.5em;
 }
 
 
@@ -137,6 +137,14 @@ footer.Neverland a#enzyme-credit:hover {
 
 ul#issues li {
     margin-bottom: 1em;
+}
+
+
+
+
+/*contribute*/
+body.neverland h3 input[type="button"] {
+    margin-left: 22px;
 }
 
 

@@ -17,7 +17,7 @@
         </div>
 
         {% if section.type == 'message' %}
-        <div class="body-text filled">
+        <div class="body-text well well-small panel">
             {% autoescape false %}
             {{ section.body }}
             {% endautoescape %}

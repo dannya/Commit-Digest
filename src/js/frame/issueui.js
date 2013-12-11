@@ -121,6 +121,59 @@ $(function () {
     }
 
 
+    // make contents table scroll to position
+    var contents = $('#contents-table');
+
+    if (contents.length > 0) {
+        contents
+            .off('click.contents')
+            .on('click.contents', function (event) {
+                event.preventDefault();
+
+                var target = $(event.target);
+
+                if (target.is('a[href^="#"]')) {
+                    var hash = target.attr('href'),
+                        anchor = $(hash);
+
+                    if (anchor.length > 0) {
+                        // accomodate header bar height in scroll?
+                        var diff = 0,
+                            headerBar = $('#header-bar');
+
+                        if (headerBar.length > 0) {
+                            diff = headerBar.outerHeight();
+                        }
+
+                        // also show major type header?
+                        var prevEl = anchor.prev();
+                        if (prevEl.is('h2')) {
+                            diff += prevEl.outerHeight() + 24;
+                        }
+
+                        // scroll to new position
+                        var newPosition = (anchor.offset().top - diff),
+                            duration    = Math.max(
+                                500,
+                                Math.floor(
+                                    Math.abs(window.scrollY - newPosition) / 25
+                                )
+                            );
+
+                        $('html, body').animate({
+                            'scrollTop': newPosition
+                        }, duration);
+
+                        // update location bar
+                        window.location.hash = hash;
+                    }
+                }
+
+                return false;
+            });
+    }
+
+
     // setup flattr button
     FlattrLoader.setup();
 
