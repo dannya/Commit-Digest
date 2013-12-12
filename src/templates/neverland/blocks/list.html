@@ -15,6 +15,6 @@
 {% macro archive(digest, number, date) %}
     <li>
         <h4>{{ date }}</h4>
-        <span><a class="text filled" href="{{ BASE_URL }}/issues/{{ digest.date }}/">{{ digest.synopsis | striptags }}</a></span>
+        <span><a class="text filled" href="{{ BASE_URL }}/archive/{{ digest.date }}/">{{ digest.synopsis | striptags }}</a></span>
     </li>
 {% endmacro %}
