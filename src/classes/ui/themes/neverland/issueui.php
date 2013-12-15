@@ -747,7 +747,7 @@ class IssueUi {
 
     // determine author
     $authorDetails = Digest::getAuthorDetails($this->data['author']);
-    $author        = '<a href="mailto:' . $authorDetails['email'] . '"> ' .
+    $author        = '<a href="mailto:' . $authorDetails['email'] . '">' .
                         sprintf(_('by %s'), Digest::formatName($authorDetails)) .
                      '</a>';
 
@@ -764,7 +764,7 @@ class IssueUi {
 
     $buf .=  '<header class="alert alert-info">' .
                   $issueTitle .
-             '    <span>' . Date::get('full', $this->issue) . $author . '</span>
+             '    <span>' . Date::get('full', $this->issue) . ' ' . $author . '</span>
 
                   <aside id="timewarp">' . $prev . $separator . $next . '</aside>
              </header>';

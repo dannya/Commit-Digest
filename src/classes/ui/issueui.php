@@ -222,7 +222,9 @@ class IssueUi {
 
 
   public function getStyle() {
-    return array('/css/frame/issueui.css');
+    return array(
+      '/css/frame/issueui.css'
+    );
   }
 
 
@@ -506,7 +508,6 @@ class IssueUi {
   }
 
 
-
   private function commitCountries() {
     // prepare country data
     foreach ($this->data['stats']['extended']['country'] as $country => $percent) {
@@ -751,7 +752,7 @@ class IssueUi {
                 $prev .
              '  <div class="mid">' .
                   $issueTitle .
-             '    <h3>' . Date::get('full', $this->issue) . '</h3>' .
+             '    <h3>' . Date::get('full', $this->issue) . '</h3>' . ' ' .
                   $author .
              '  </div>' .
                 $next .

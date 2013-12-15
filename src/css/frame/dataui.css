@@ -31,6 +31,9 @@ div.row div.right {
     left: 100px;
     top: -22px;
 }
+body.neverland div.row div.right {
+    width: 86%;
+}
 
 form#account {
     width: 286px;

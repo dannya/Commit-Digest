@@ -31,7 +31,60 @@ strings.privacy_private = '<?php echo _("This field is currently <b>private</b>"
 
 // onpageready...
 $(function() {
-    if (!$('body').hasClass('neverland')) {
+    if ($('body').hasClass('neverland')) {
+        // make small viewport menu button functional
+        var checkMenu = function () {
+            var button = $('#header-bar a.btn.btn-navbar');
+
+            if (button.length > 0) {
+                button
+                    .off('click.menu')
+                    .on('click.menu', function (event) {
+                        event.preventDefault();
+
+                        var menu = $('#sidebar');
+
+                        if (menu.length > 0) {
+                            if (menu.is(':visible')) {
+                                // hide
+                                menu
+                                    .css({
+                                        'display':    '',
+                                        'position':   '',
+                                        'top':        '',
+                                        'right':      '',
+                                        'width':      '',
+                                    })
+                                    .children('ul')
+                                        .css({
+                                            'boxShadow':  ''
+                                        });
+
+                            } else {
+                                // show
+                                menu
+                                    .css({
+                                        'display':    'block',
+                                        'position':   'absolute',
+                                        'top':        (button.offset().top + button.outerHeight() + 10),
+                                        'right':      16,
+                                        'width':      220,
+                                    })
+                                    .children('ul')
+                                        .css({
+                                            'boxShadow':  '0 4px 4px 4px rgba(0, 0, 0, 0.2)'
+                                        });
+                            }
+                        }
+
+                        return false;
+                    });
+            }
+        };
+
+        checkMenu();
+
+    } else {
         // move sidebar with page scroll
         if (($('#sidebar').length > 0) && ($('#sidebar-logo').length > 0)) {
             $(window).on('scroll', function() {
