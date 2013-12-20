@@ -93,6 +93,7 @@ class Chart {
 
   public function drawPie() {
     $buf = '<div id="' . $this->id . '-container">
+              <h3>' . $this->title . '</h3>
               <div id="' . $this->id . '" style="width: ' . $this->size['width'] . 'px; height: ' . $this->size['height'] . 'px;"></div>
             </div>
 
@@ -112,7 +113,7 @@ class Chart {
   }
 
 
-  public function drawBar() {
+  public function drawBar($drawVisuals) {
     // set header?
     if (isset($this->options['header']) && is_array($this->options['header'])) {
       $header =  '<thead>
@@ -147,13 +148,19 @@ class Chart {
         $value .= '%';
       }
 
+      // draw visuals?
+      if ($drawVisuals) {
+        $bar1 = '<div style="width:' . $this->getBarWidth($value, $largestValue) . '%;">&nbsp;</div>';
+      } else {
+        $bar1 = '';
+      }
+
       $buf .=  '<tr>
                   <td class="label">' . $label . '</td>
                   <td class="value">
                     <div>
-                      <span>' . $value . '</span>
-                      <div style="width:' . $this->getBarWidth($value, $largestValue) . '%;">&nbsp;</div>
-                    </div>
+                      <span>' . $value . '</span>' . $bar1 .
+               '    </div>
                   </td>
                 </tr>';
     }
@@ -165,7 +172,7 @@ class Chart {
   }
 
 
-  public function drawTwinBar() {
+  public function drawTwinBar($drawVisuals) {
     // set header?
     if (isset($this->options['header']) && is_array($this->options['header'])) {
       $header =  '<thead>
@@ -208,19 +215,26 @@ class Chart {
         $value .= '%';
       }
 
+      // draw visuals?
+      if ($drawVisuals) {
+        $bar1 = '<div style="width:' . $this->getBarWidth($value[0], $largestValue[0]) . '%;">&nbsp;</div>';
+        $bar2 = '<div style="width:' . $this->getBarWidth($value[1], $largestValue[1]) . '%;">&nbsp;</div>';
+      } else {
+        $bar1 = '';
+        $bar2 = '';
+      }
+
       $buf .=  '<tr>
                   <td class="valueTwinStart">
                     <div>
-                      <span>' . $value[0] . '</span>
-                      <div style="width:' . $this->getBarWidth($value[0], $largestValue[0]) . '%;">&nbsp;</div>
-                    </div>
+                      <span>' . $value[0] . '</span>' . $bar1 .
+               '    </div>
                   </td>
                   <td class="labelTwin">' . $label . '</td>
                   <td class="valueTwinEnd">
                     <div>
-                      <span>' . $value[1] . '</span>
-                      <div style="width:' . $this->getBarWidth($value[1], $largestValue[1]) . '%;">&nbsp;</div>
-                    </div>
+                      <span>' . $value[1] . '</span>' . $bar2 .
+               '    </div>
                   </td>
                 </tr>';
     }

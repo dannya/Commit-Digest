@@ -237,7 +237,7 @@ class IssueUi {
   }
 
 
-  private function drawIntro() {
+  public function drawIntro() {
     // initialise tokens
     $tokens = array(
       'synopsis' => $this->data['synopsis'],
@@ -261,7 +261,7 @@ class IssueUi {
   }
 
 
-  public function drawStatistics() {
+  public function drawStatistics($drawVisuals=true) {
     if (empty($this->data['stats']) || empty($this->data['stats']['general'])) {
       return false;
     }
@@ -310,13 +310,13 @@ class IssueUi {
     // commit summary
     $buf .= '<h2>' . _('Commit Summary') . '</h2>
              <div id="container-summary">' .
-               $this->chartSummary() .
+               $this->chartSummary($drawVisuals) .
              '</div>';
 
 
     // i18n
     $buf .= '<h2>' . _('Internationalization (i18n) Status') . '</h2>' .
-            $this->chartI18n();
+            $this->chartI18n($drawVisuals);
 
 
     // bug killers and buzz
@@ -327,18 +327,18 @@ class IssueUi {
     }
 
     $buf .= '<h2>' . $string . '</h2>' .
-            $this->chartBugsBuzz();
+            $this->chartBugsBuzz($drawVisuals);
 
 
-    // commit countries
-    if (isset($this->data['stats']['extended'])) {
+    // commit countries?
+    if ($drawVisuals && isset($this->data['stats']['extended'])) {
       $buf .= '<h2>' . _('Commit Countries') . '</h2>' .
               $this->commitCountries();
     }
 
 
-    // commit demographics
-    if (isset($this->data['stats']['extended'])) {
+    // commit demographics?
+    if ($drawVisuals && isset($this->data['stats']['extended'])) {
       $buf .= '<h2>' . _('Commit Demographics') . '</h2>
                <div id="container-demographics">' .
                  $this->chartDemographics() .
@@ -349,7 +349,7 @@ class IssueUi {
   }
 
 
-  private function chartSummary() {
+  private function chartSummary($drawVisuals=true) {
     if (!isset($this->data['stats']['developer'])) {
       return null;
     }
@@ -397,12 +397,12 @@ class IssueUi {
     // draw
     $statsDeveloper = new Chart('stats-developer', $data, null, null, $options);
 
-    return $statsModule->drawBar() .
-           $statsDeveloper->drawTwinBar();
+    return $statsModule->drawBar($drawVisuals) .
+           $statsDeveloper->drawTwinBar($drawVisuals);
   }
 
 
-  private function chartI18n() {
+  private function chartI18n($drawVisuals=true) {
     if (!isset($this->data['stats']['i18n'])) {
       return null;
     }
@@ -421,11 +421,11 @@ class IssueUi {
     // draw
     $statsI18n = new Chart('stats-i18n', $data, null, null, $options);
 
-    return $statsI18n->drawBar(true);
+    return $statsI18n->drawBar($drawVisuals);
   }
 
 
-  private function chartBugsBuzz() {
+  private function chartBugsBuzz($drawVisuals=true) {
     $buf = null;
 
     // bugfixers
@@ -446,7 +446,7 @@ class IssueUi {
 
       // draw
       $statsBugs = new Chart('stats-bugkillers', $data, null, null, $options);
-      $buf       = $statsBugs->drawBar();
+      $buf       = $statsBugs->drawBar($drawVisuals);
     }
 
 
@@ -499,8 +499,8 @@ class IssueUi {
 
       // draw
       $buf .=  '<div id="container-buzz">' .
-                  $statsBuzzProgram->drawBar() .
-                  $statsBuzzPerson->drawBar() .
+                  $statsBuzzProgram->drawBar($drawVisuals) .
+                  $statsBuzzPerson->drawBar($drawVisuals) .
                '</div>';
     }
 

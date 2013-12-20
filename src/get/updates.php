@@ -18,8 +18,28 @@
 include($_SERVER['DOCUMENT_ROOT'] . '/autoload.php');
 
 
-// check if we have generated RSS stored in cache
-$buf = Cache::load('rss');
+// define specifics
+$dateFormat = 'Y-m-d\TH:i:sP';
+$cacheKey = 'rss';
+$updateUrl = BASE_URL . '/updates/';
+
+if (isset($_GET['full'])) {
+  $cacheKey .= '_full';
+  $updateUrl .= 'full/';
+}
+
+
+// check if we have generated RSS stored in cache?
+if (LIVE_SITE) {
+  $buf = Cache::load($cacheKey);
+
+  if ($buf) {
+    // we have cached RSS, output that
+    echo $buf;
+    exit;
+  }
+}
+
 
 // set RSS header
 header("Content-type: text/xml");
@@ -30,14 +50,14 @@ $digests = Digest::loadDigests('issue', 'latest', true, 5);
 
 
 // draw header stuff
-$buf = '<?xml version="1.0" encoding="utf-8"?>
-        <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xml:base="' . BASE_URL . '/" xmlns:dc="http://purl.org/dc/elements/1.1/">
-          <channel>
-            <title>' . sprintf(_('%s Updates'), Config::getSetting('enzyme', 'PROJECT_NAME')) . '</title>
-            <link>' . BASE_URL . '/</link>
-            <description>' . _('A weekly overview of the development activity in KDE.') . '</description>
-            <language>en</language>
-            <atom:link href="' . BASE_URL . '/updates/" rel="self" type="application/rss+xml" />';
+$buf = '<?xml version="1.0" encoding="UTF-8"?>
+        <feed xml:lang="en" xmlns="http://www.w3.org/2005/Atom">
+          <title>' . Config::getSetting('enzyme', 'PROJECT_NAME') . '</title>
+          <updated>' . date($dateFormat) . '</updated>
+          <description>' . Config::$meta['description'] . '</description>
+          <language>en</language>
+          <id>' . $updateUrl . '</id>
+          <link type="text/html" href="' . BASE_URL . '/" rel="alternate"/>' . "\n";
 
 // draw posts
 $counter = 0;
@@ -62,41 +82,52 @@ foreach ($digests as $digest) {
     $linkDir = 'issues';
   }
 
-  // draw item
+  // draw item...
   $itemUrl = BASE_URL . '/' . $linkDir . '/' . $digest['date'] . '/';
+  $itemDate = date($dateFormat, strtotime($digest['date']));
 
-  $buf .=  '<item>
+  // load full digest data?
+  $html = '';
+
+  if (isset($_GET['full'])) {
+    // show synopsis and statistics
+    $fullDigest = new IssueUI('issues', $digest['date']);
+
+    $content =
+      $fullDigest->container('intro', $fullDigest->drawIntro()) .
+      $fullDigest->container('stats', $fullDigest->drawStatistics(false));
+
+  } else {
+    // only show synopsis (default)
+    $content = $digest['synopsis'];
+  }
+
+  $buf .=  '<entry>
               <title>' . sprintf(_('Issue %d: %s'), $digest['id'], Date::get('full', $digest['date'])) . '</title>
-              <link>' . $itemUrl . '</link>
-              <guid>' . $itemUrl . '</guid>
-              <dc:creator>' . $authors[$digest['author']] . '</dc:creator>
-              <description>' . enclose($digest['synopsis']) . '</description>' .
+              <published>' . $itemDate . '</published>
+              <updated>' . $itemDate . '</updated>
+              <author>
+                <name>' . $authors[$digest['author']] . '</name>
+              </author>
+              <content type="html">' . htmlspecialchars($content) . '</content>
+              <link type="text/html" rel="alternate" href="' . $itemUrl . '" />
+              <id>' . $itemUrl . '</id>' .
               $comments .
-           '  <pubDate>' . date('D, j M Y h:i:s', strtotime($digest['date'])) . ' +0000</pubDate>
-            </item>' . "\n";
+           '</entry>' . "\n";
 
   ++$counter;
 }
 
 // draw footer
-$buf .=  '  </channel>
-          </rss>';
+$buf .=  '  </feed>';
 
 
 // add to cache (store for 1 hour before regeneration)
-Cache::save('rss', $buf, false, 3600);
+Cache::save($cacheKey, $buf, false, 3600);
 
 
 // output and finish
 echo $buf;
 exit;
-
-
-
-// utility functions
-function enclose($string) {
-  return '<![CDATA[' . $string . ']]>';
-}
-
 
 ?>

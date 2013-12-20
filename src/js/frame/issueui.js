@@ -18,22 +18,30 @@ function setPublished (date, state) {
         return false;
     }
 
+    var bodyEl      = $('body'),
+        sidebarEl   = $('#sidebar'),
+        headerEl    = $('#header-review');
+
     // send request through iframe
-    $('#header-review-target').attr('src', window.vars.ENZYME_URL + '/get/publish.php?date=' + date + '&state=' + state);
+    $('#header-review-target').attr(
+        'src', window.vars.ENZYME_URL + '/get/publish.php?date=' + date + '&state=' + state
+    );
 
     // remove header
-    if ($('#header-review').length > 0) {
-        $('#header-review').remove();
-        $('body').removeClass('review');
+    if (headerEl.length > 0) {
+        headerEl.remove();
+        bodyEl.removeClass('review');
 
-        if ($('body').hasClass('default')) {
-            $('#sidebar').css('top', parseInt($('#sidebar').css('top'), 10) - 34);
+        if (bodyEl.hasClass('default')) {
+            sidebarEl.css('top', parseInt(sidebarEl.css('top'), 10) - 34);
         }
     }
 }
 
 
 $(function () {
+    var windowEl = $(window);
+
     // render map?
     if (window.countryData !== undefined) {
         $('#worldmap').vectorMap({
@@ -156,7 +164,7 @@ $(function () {
                             duration    = Math.max(
                                 500,
                                 Math.floor(
-                                    Math.abs(window.scrollY - newPosition) / 25
+                                    Math.abs(document.documentElement.scrollTop - newPosition) / 25
                                 )
                             );
 
@@ -190,43 +198,58 @@ $(function () {
     );
 
 
-    // manage display of donate box
-    var sidebar = $('#sidebar'),
-        shareBox = $('#share-box');
+    // manage position of donate box?
+    function shareBox() {
+        var sidebar     = $('#sidebar'),
+            shareBox    = $('#share-box');
 
-    if ((sidebar.length > 0) && (shareBox.length > 0)) {
-        // move into right column area
-        shareBox.css({
-            'paddingBottom':    10,
-            'left':             'auto',
-            'right':            Math.floor(
-                $(window).width() - (sidebar.offset().left + sidebar.outerWidth())
-            )
-        });
+        // do not position if window width is below threshold
+        if (windowEl.width() <= 979) {
+            windowEl.off('scroll.donate resize.donate');
+
+            shareBox.css({
+                'paddingBottom':    'none',
+                'bottom':           'auto',
+                'left':             'auto',
+                'right':            'auto'
+            });
+
+            return false;
+        }
+
+        if ((sidebar.length > 0) && (shareBox.length > 0)) {
+            // move into right column area
+            shareBox.css({
+                'paddingBottom':    10,
+                'left':             'auto',
+                'right':            Math.floor(
+                    windowEl.width() - (sidebar.offset().left + sidebar.outerWidth())
+                )
+            });
 
 
-        // move out of the way of footer when scrolling into bottom area
-        var observeScroll = function () {
+            // move out of the way of footer when scrolling into bottom area
             var footer = $('footer');
 
             if (footer.length === 1) {
                 var documentHeight = $(document).height(),
-                    viewportHeight = $(window).height(),
+                    viewportHeight = windowEl.height(),
                     footerHeight   = footer.outerHeight();
 
                 // get browser info
                 var browserInfo = window.browser();
 
-                $(window)
-                    .off('scroll.donate')
-                    .on('scroll.donate', function (event) {
-                        var diff = -3;
+                // check position
+                windowEl
+                    .off('scroll.donate resize.donate')
+                    .on('scroll.donate resize.donate', function (event) {
+                        var diff = 20;
                         if (browserInfo[0] === 'Chrome') {
-                            diff = 22;
+                            diff = 20;
                         }
 
-                        var boundary = (footerHeight + diff),
-                            fromBottom = (documentHeight - (window.scrollY + viewportHeight));
+                        var boundary    = (footerHeight + diff),
+                            fromBottom  = (documentHeight - (document.documentElement.scrollTop + viewportHeight));
 
                         if (fromBottom < boundary) {
                             shareBox.css('bottom', (boundary - fromBottom));
@@ -236,14 +259,13 @@ $(function () {
                         }
                     });
             }
-        };
-
-
-        // run onload and reset onresize
-        observeScroll();
-
-        $(window)
-            .off('resize.donate')
-            .on('resize.donate', observeScroll);
+        }
     }
+
+    // check shareBox positioning onload and after resize
+    shareBox();
+
+    windowEl
+        .off('resize.shareBox')
+        .on('resize.shareBox', shareBox);
 });

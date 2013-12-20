@@ -96,7 +96,8 @@ input[type="text"] {
 
 #frame_page.span10 h2 {
     line-height: 1em;
-    margin-bottom: 0.5em;
+
+    margin: 2em 0 0.5em 0;
 }
 
 
@@ -248,6 +249,31 @@ div.share-bottom div#share-buttons {
 
 
 
+
+@media (min-width: 1400px) {
+    .container,
+    .navbar.navbar-static-top .container,
+    .navbar-fixed-top .container,
+    .navbar-fixed-bottom .container {
+        width: 1270px;
+    }
+    #frame_page.span10 {
+        width: 1070px;
+    }
+}
+@media (min-width: 1600px) {
+    .container,
+    .navbar.navbar-static-top .container,
+    .navbar-fixed-top .container,
+    .navbar-fixed-bottom .container {
+        width: 1370px;
+    }
+    #frame_page.span10 {
+        width: 1170px;
+    }
+}
+
+
 @media (max-width: 1280px) {
     #frame_page .span5 {
         box-sizing: border-box;
@@ -288,6 +314,28 @@ div.share-bottom div#share-buttons {
     }
 }
 
+@media (max-width: 1000px) {
+    #share-box {
+        position: relative;
+        margin: 2em auto;
+        padding: 0;
+    }
+}
+
+@media (max-width: 860px) {
+    footer.Neverland {
+        text-align: center;
+    }
+    footer.Neverland a#enzyme-credit {
+        display: block;
+        position: relative;
+        width: 307px;
+        height: 35px;
+        margin: 4px auto;
+        background: url('/img/enzyme-compact.png') no-repeat;
+    }
+}
+
 @media (max-width: 800px) {
     .container.Neverland.home {
         margin-top: 0;
@@ -322,17 +370,5 @@ div.share-bottom div#share-buttons {
 
     #frame_page {
         width: 100%;
-    }
-
-    footer.Neverland {
-        text-align: center;
-    }
-    footer.Neverland a#enzyme-credit {
-        display: block;
-        position: relative;
-        width: 307px;
-        height: 35px;
-        margin: 4px auto;
-        background: url('/img/enzyme-compact.png') no-repeat;
     }
 }

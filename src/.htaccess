@@ -4,6 +4,10 @@ ErrorDocument 404 /404.php
 
 RewriteEngine on
 
+RewriteCond %{REQUEST_URI} updates/full/ [OR]
+RewriteCond %{REQUEST_URI} updates_full.rdf
+RewriteRule (.*) /get/updates.php?full=true [QSA,L]
+
 RewriteCond %{REQUEST_URI} updates/ [OR]
 RewriteCond %{REQUEST_URI} updates.rdf
 RewriteRule (.*) /get/updates.php [QSA,L]

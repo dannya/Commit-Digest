@@ -65,6 +65,9 @@ div#intro {
     margin-top: 52px;
     max-width: 920px;
 }
+body.neverland div#intro {
+    margin-top: 32px;
+}
 
 a.left,
 a.right {
@@ -384,7 +387,11 @@ div#container-demographics {
 
 div#container-demographics > div {
     display: inline-block;
-    margin: 20px 2%;
+    margin: 20px 2% 40px 2%;
+}
+div#container-demographics > div h3 {
+    line-height: 1em;
+    margin-bottom: 22px;
 }
 
 body.neverland div#container-demographics div.legend tr td {
@@ -397,17 +404,7 @@ div#container-demographics > div td.legendColorBox > div > div {
     border-width: 12px 11px !important;
 }
 body.neverland div#container-demographics > div td.legendColorBox > div > div {
-    width: 1px !important;
-}
-
-div#container-demographics div#stats-sex-container {
-
-}
-div#container-demographics div#stats-motivation-container {
-
-}
-div#container-demographics div#stats-age-container {
-
+    width: 0 !important;
 }
 
 
@@ -607,36 +604,44 @@ div#worldmap {
 .jvectormap-label {
     position: absolute;
     display: none;
-    border: solid 1px #CDCDCD;
-    border-radius: 3px;
-    background: #292929;
-    color: white;
-    font-family: sans-serif, Verdana;
-    font-size: smaller;
-    padding: 3px;
+    padding: 3px 6px;
+    background-color: #D9EDF7;
+    color: #2E3436;
+    border-radius: 5px;
+    border: 1px solid #BCE8F1;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
 }
 
 .jvectormap-zoomin,
 .jvectormap-zoomout {
     position: absolute;
-    left: 10px;
-    border-radius: 3px;
-    background: #292929;
-    padding: 3px;
-    color: white;
-    width: 10px;
-    height: 10px;
-    cursor: pointer;
-    line-height: 10px;
-    text-align: center;
-}
-
-.jvectormap-zoomin {
     top: 10px;
+    padding: 3px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    cursor: pointer;
+    text-align: center;
+
+    background-color: #439CE8;
+    background-image: linear-gradient(to bottom, #43ACE8, #4383E8);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.jvectormap-zoomin:hover,
+.jvectormap-zoomout:hover {
+    color: #ffffff;
+    background-color: #4383e8;
 }
 
 .jvectormap-zoomout {
-    top: 30px;
+    left: 10px;
+}
+.jvectormap-zoomin {
+    left: 36px;
 }
 
 /* pie charts */

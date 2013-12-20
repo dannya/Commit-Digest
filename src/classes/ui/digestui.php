@@ -245,7 +245,15 @@ class DigestUi extends Renderable {
     }
 
     $buf = '<div id="footer>' .
-              sprintf(_('%s by <a href="mailto:%s">%s</a>, %s.'), Config::getSetting('enzyme', 'PROJECT_NAME'), 'danny@commit-digest.org', 'Danny Allen', '2006-2013') .
+              sprintf(
+                _('%s by <a href="%s">%s</a> and the <a href="%s">%s team</a>, %s.'),
+                Config::getSetting('enzyme', 'PROJECT_NAME'),
+                'http://dannya.com/',
+                Config::$meta['author'],
+                'mailto:digest@kde.org',
+                Config::$app['name'],
+                '2006-2014'
+              ) .
               '<br />' .
               _('All issues in <a href="/archive/">archive</a> by Derek Kite.') .
            '  <a id="enzyme-credit" href="http://enzyme-project.org/" target="_blank" title="' . _('Powered by Enzyme') . '">' . _('Powered by Enzyme') . '</a>
