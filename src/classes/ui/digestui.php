@@ -18,13 +18,17 @@
 class DigestUi extends Renderable {
   public $frame             = null;
 
-  private $style            = array('/css/includes/common.css');
-  private $appScript        = array('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js');
+  private $style            = array();
+  private $appScript        = array();
 
   private $userScript       = null;
 
 
   public function __construct() {
+    // set style and script references
+    $this->style[] = '/css/includes/common' . MINIFIED . '.css';
+    $this->appScript[] = '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery' . MINIFIED . '.js';
+
     parent::__construct();
 
     // determine current frame
@@ -124,11 +128,6 @@ class DigestUi extends Renderable {
   public function drawStyle() {
     // compile
     $theStyle = $this->style;
-
-    if (LIVE_SITE) {
-      $theStyle = array(Cache::getMinCss('web_' . get_class($this->frame), $theStyle));
-    }
-
 
     // draw
     $buf = null;

@@ -97,7 +97,7 @@ class MoreInfoUi {
 
 
   public function getStyle() {
-    return array('/css/frame/issueui.css');
+    return array('/css/frame/issueui' . MINIFIED . '.css');
   }
 
 

@@ -96,12 +96,12 @@ final class Config {
                 $setup->drawPage(),
                 Config::$app['name'] . ' - ' . _('Setup'),
                 array(
-                  '/css/includes/common.css',
-                  '/css/frame/setupui.css'
+                  '/css/includes/common' . MINIFIED . '.css',
+                  '/css/frame/setupui' . MINIFIED . '.css'
                 ),
                 array_merge(
                   array(
-                    '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js',
+                    '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery' . MINIFIED . '.js',
                     '/js/index.php?script=common'
                   ),
                   $setup->getScript()

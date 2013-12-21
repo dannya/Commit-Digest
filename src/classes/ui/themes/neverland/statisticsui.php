@@ -47,16 +47,16 @@ class StatisticsUi {
 
   public function getScript() {
     return array(
-      '//cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js',
-      '//cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.pie.min.js',
-      '/js/frame/issueui.js'
+      '//cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot' . MINIFIED . '.js',
+      '//cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.pie' . MINIFIED . '.js',
+      '/js/frame/issueui' . MINIFIED . '.js'
     );
   }
 
 
   public function getStyle() {
     return array(
-      '/css/frame/issueui.css'
+      '/css/frame/issueui' . MINIFIED . '.css'
     );
   }
 }

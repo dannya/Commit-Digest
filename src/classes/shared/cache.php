@@ -142,51 +142,6 @@ class Cache {
   }
 
 
-  public static function getMinCss($key, $style, $minStyle = null, $minify = true) {
-    self::getKey($key);
-
-    // output filename
-    $filename = '/css/min/' . $key['id'] . '.css';
-
-    if (!is_file(BASE_DIR . $filename)) {
-      // minify style
-      $buf = null;
-
-      // combine all style into single file
-      foreach ($style as $file) {
-        // file or url?
-        if (strpos($file, '=') !== false) {
-          $base = BASE_URL;
-        } else {
-          $base = BASE_DIR;
-        }
-
-        $buf .= file_get_contents($base . $file) . "\n\n";
-      }
-
-      // minify?
-      if ($minify) {
-        $min = MinifyCss::minify($buf);
-
-      } else {
-        $min = $buf;
-      }
-
-      // append style already minified
-      if (is_array($minStyle) && $minStyle) {
-        foreach ($minStyle as $file) {
-          $min .= file_get_contents($base . $file) . "\n\n";
-        }
-      }
-
-      // write to file
-      file_put_contents(BASE_DIR . $filename, $min);
-    }
-
-    return $filename . '?version=' . Config::$app['version'];
-  }
-
-
   private static function getKey(&$key) {
     if (is_array($key)) {
       if (isset($key['base']) || isset($key['id'])) {

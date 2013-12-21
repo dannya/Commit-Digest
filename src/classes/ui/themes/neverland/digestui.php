@@ -18,15 +18,19 @@
 class DigestUi {
   public $frame             = null;
 
-  private $style            = array('//cdn.kde.org/css/bootstrap.css',
-                                    '//cdn.kde.org/css/bootstrap-responsive.css',
-                                    '/classes/ui/themes/neverland/css/neverland.css');
-  private $appScript        = array('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js');
+  private $style            = array();
+  private $appScript        = array();
 
   private $userScript       = null;
 
 
   public function __construct() {
+    // set style and script references
+    $this->style[] = '//cdn.kde.org/css/bootstrap.css';
+    $this->style[] = '//cdn.kde.org/css/bootstrap-responsive.css';
+    $this->style[] = '/css/includes/neverland' . MINIFIED . '.css';
+    $this->appScript[] = '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery' . MINIFIED . '.js';
+
     // determine current frame
     if (isset($_GET['page'])) {
       $current = trim($_GET['page'], '/');

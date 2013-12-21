@@ -67,7 +67,7 @@ class IndexUi extends Renderable {
 
 
   public function getStyle() {
-    return array('/css/frame/indexui.css');
+    return array('/css/frame/indexui' . MINIFIED . '.css');
   }
 }
 

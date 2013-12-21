@@ -65,6 +65,8 @@ if (COMMAND_LINE) {
 
 // set live site vars
 if (LIVE_SITE) {
+  define('MINIFIED', '.min');
+
   // error handling (log to file)
   ini_set('display_errors', false);
   ini_set('log_errors',     true);
@@ -74,6 +76,8 @@ if (LIVE_SITE) {
   define('WEBSTATS_ID',     'UA-46299859-1');
 
 } else {
+  define('MINIFIED', '');
+
   // error handling (show on page)
   ini_set('display_errors', true);
   ini_set('log_errors',     false);
@@ -164,7 +168,7 @@ if (!$settings) {
   // show message about configuration
   echo Ui::drawHtmlPage(_('Enzyme backend instance needs to be configured.'),
                         _('Setup'),
-                        array('/css/includes/common.css'));
+                        array('/css/includes/common' . MINIFIED . '.css'));
   exit;
 }
 

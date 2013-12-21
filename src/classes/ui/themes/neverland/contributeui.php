@@ -104,7 +104,7 @@ class ContributeUi {
 
 
   public function getStyle() {
-    return array('/css/frame/contributeui.css');
+    return array('/css/frame/contributeui' . MINIFIED . '.css');
   }
 }
 

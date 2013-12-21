@@ -103,7 +103,7 @@ class ListUi extends Renderable {
 
 
   public function getStyle() {
-    return array('/css/frame/listui.css');
+    return array('/css/frame/listui' . MINIFIED . '.css');
   }
 }
 

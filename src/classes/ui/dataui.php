@@ -49,12 +49,12 @@ class DataUi {
 
 
   public function getScript() {
-    return array('/js/frame/dataui.js');
+    return array('/js/frame/dataui' . MINIFIED . '.js');
   }
 
 
   public function getStyle() {
-    return array('/css/frame/dataui.css');
+    return array('/css/frame/dataui' . MINIFIED . '.css');
   }
 
 
