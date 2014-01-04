@@ -2,7 +2,7 @@
 
 /*-------------------------------------------------------+
  | Enzyme
- | Copyright 2010-2013 Danny Allen <danny@enzyme-project.org>
+ | Copyright 2010-2014 Danny Allen <danny@enzyme-project.org>
  | http://www.enzyme-project.org/
  +--------------------------------------------------------+
  | This program is released as free software under the
@@ -16,7 +16,7 @@
 
 
 final class Config {
-  public static $framework  = array('version'     => '20131208');
+  public static $framework  = array('version'     => '20140104');
 
 
   // define app constants

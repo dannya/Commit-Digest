@@ -51,9 +51,7 @@ if (COMMAND_LINE) {
 
   // set environment (live / development)
   if (($_SERVER['HTTP_HOST'] == 'digest') ||
-      ($_SERVER['HTTP_HOST'] == 'localhost') ||
-      ($_SERVER['SERVER_ADDR'] == '127.0.0.1') ||
-      ($_SERVER['SERVER_ADDR'] == 'localhost')) {
+      ($_SERVER['HTTP_HOST'] == 'localhost')) {
 
     define('LIVE_SITE', false);
 
