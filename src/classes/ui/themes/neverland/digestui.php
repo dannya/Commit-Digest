@@ -108,6 +108,8 @@ class DigestUi {
               <meta name="description" content="' . Config::$meta['description'] . '" />
               <meta name="keywords" content="' . Config::$meta['keywords'] . '" />
 
+              <meta name="google-site-verification" content="KW812FIwZ9rCr4OvsxJA2EcG6y6RaOKu3-EF89uqA4s" />
+
               <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
               <link rel="shortcut icon" href="' . BASE_URL .'/favicon.ico" type="image/x-icon" />
