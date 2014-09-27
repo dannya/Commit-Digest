@@ -1,0 +1,12 @@
+{
+    "name": "dannya/commit-digest",
+    "description": "",
+    "minimum-stability": "stable",
+    "license": "Affero GPL",
+    "authors": [
+        {
+            "name": "Danny Allen",
+            "email": "danny@commit-digest.org"
+        }
+    ]
+}

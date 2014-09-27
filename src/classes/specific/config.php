@@ -22,7 +22,7 @@ final class Config {
   // define app constants
   public static $app        = array('id'          => 'commit-digest',
                                     'name'        => 'KDE Commit-Digest',
-                                    'version'     => '1.30');
+                                    'version'     => '1.40');
 
 
   // define meta information
