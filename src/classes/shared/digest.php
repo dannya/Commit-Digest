@@ -528,6 +528,7 @@ class Digest {
                  'de_DE'  => _('Deutsch'),
                  'fr_FR'  => _('Français'),
                  'es_ES'  => _('Español'),
+                 'ca_ES'  => _('Català'),
                  'nl_NL'  => _('Nederlands'),
                  'it_IT'  => _('Italiano'),
                  'ru_RU'  => _('Pyccĸий'),
