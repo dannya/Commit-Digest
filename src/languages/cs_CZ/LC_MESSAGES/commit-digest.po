@@ -6,902 +6,1671 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE Commit-Digest 0.99\n"
 "Report-Msgid-Bugs-To: danny@commit-digest.org\n"
-"POT-Creation-Date: 2011-01-12 00:26+0000\n"
-"PO-Revision-Date: 2011-04-12 11:33+0200\n"
-"Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
+"POT-Creation-Date: 2014-09-27 20:00-0000\n"
+"PO-Revision-Date: 2014-09-27 20:10-0000\n"
+"Last-Translator: Danny Allen <danny@commit-digest.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: csX-Generator: Lokalize 1.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Poedit 1.6.9\n"
 
+#: classes/shared/app.php:169
 #, php-format
-msgid " (%.1f percent of %d)"
-msgstr " (%.1f procent z %d)"
+msgid "You need to have the permission \"%s\" to view this section"
+msgstr "Pro zobrazení této sekce potřebujete oprávnění \"%s\""
 
-#, php-format
-msgid "%d by %d developers"
-msgstr "%d od %d vývojářů"
-
-#, php-format
-msgid "%d by %d developers, %d lines modified, %d new files"
-msgstr "%d od %d vývojářů, %d řádků upraveno, %d nových souborů"
-
-#, php-format
-msgid "%d days"
-msgstr "%d dnů"
-
-#, fuzzy, php-format
-msgid "%d days ago"
-msgstr "Před %d dny"
-
-#, php-format
-msgid "%d files"
-msgstr "%d souborů"
-
-#, php-format
-msgid "%d files changed in total"
-msgstr "celkem %d souborů změněno"
-
-#, php-format
-msgid "%d hours ago"
-msgstr "před %d hodinami"
-
-#, php-format
-msgid "%d in the last 7 days"
-msgstr "%d za posledních 7 dnů"
-
-#, php-format
-msgid "%d minutes ago"
-msgstr "před %d minutami"
-
-#, php-format
-msgid "%d months ago"
-msgstr "před %d měsíci"
-
+#: classes/shared/date.php:39
 #, php-format
 msgid "%d seconds ago"
 msgstr "před %d sekundami"
 
+#: classes/shared/date.php:40
+#, php-format
+msgid "%d minutes ago"
+msgstr "před %d minutami"
+
+#: classes/shared/date.php:41
+#, php-format
+msgid "%d hours ago"
+msgstr "před %d hodinami"
+
+#: classes/shared/date.php:42
+#, fuzzy, php-format
+msgid "%d days ago"
+msgstr "Před %d dny"
+
+#: classes/shared/date.php:43
 #, php-format
 msgid "%d weeks ago"
 msgstr "před %d týdny"
 
+#: classes/shared/date.php:44
+#, php-format
+msgid "%d months ago"
+msgstr "před %d měsíci"
+
+#: classes/shared/date.php:45
 #, php-format
 msgid "%d years ago"
 msgstr "Před %d lety"
 
-#, php-format
-msgid "%s (%s) committed changes in %s:"
+#: classes/shared/date.php:95
+msgid "January"
 msgstr ""
 
-#, php-format
-msgid "%s commits classified (%s total)"
+#: classes/shared/date.php:96
+msgid "February"
 msgstr ""
 
+#: classes/shared/date.php:97
+msgid "March"
+msgstr ""
+
+#: classes/shared/date.php:98
+msgid "April"
+msgstr ""
+
+#: classes/shared/date.php:99
+msgid "May"
+msgstr ""
+
+#: classes/shared/date.php:100
+msgid "June"
+msgstr ""
+
+#: classes/shared/date.php:101
+msgid "July"
+msgstr ""
+
+#: classes/shared/date.php:102
+msgid "August"
+msgstr ""
+
+#: classes/shared/date.php:103
+msgid "September"
+msgstr ""
+
+#: classes/shared/date.php:104
+msgid "October"
+msgstr ""
+
+#: classes/shared/date.php:105
+msgid "November"
+msgstr ""
+
+#: classes/shared/date.php:106
+msgid "December"
+msgstr ""
+
+#: classes/shared/developer.php:332
+msgid "Account"
+msgstr "Účet"
+
+#: classes/shared/developer.php:333
+msgid "Name"
+msgstr ""
+
+#: classes/shared/developer.php:334
+#, fuzzy
+msgid "Email"
+msgstr "E-mail správce"
+
+#: classes/shared/developer.php:335
+msgid "Nickname"
+msgstr ""
+
+#: classes/shared/developer.php:336
+msgid "Date of Birth"
+msgstr ""
+
+#: classes/shared/developer.php:337
+msgid "Gender"
+msgstr ""
+
+#: classes/shared/developer.php:338
+#, fuzzy
+msgid "Nationality"
+msgstr "Výukový"
+
+#: classes/shared/developer.php:339
+msgid "Motivation"
+msgstr "Motivace"
+
+#: classes/shared/developer.php:340
+msgid "Employer"
+msgstr ""
+
+#: classes/shared/developer.php:341
+msgid "Favourite colour"
+msgstr ""
+
+#: classes/shared/developer.php:343
+#, fuzzy
+msgid "Continent"
+msgstr "Obsah"
+
+#: classes/shared/developer.php:344
+msgid "Country"
+msgstr ""
+
+#: classes/shared/developer.php:345
+#, fuzzy
+msgid "Location"
+msgstr "Umístění dat"
+
+#: classes/shared/developer.php:346
+msgid "Latitude"
+msgstr ""
+
+#: classes/shared/developer.php:347
+msgid "Longitude"
+msgstr ""
+
+#: classes/shared/developer.php:349
+msgid "Homepage URL"
+msgstr ""
+
+#: classes/shared/developer.php:350
+msgid "Blog URL"
+msgstr ""
+
+#: classes/shared/developer.php:351
+msgid "Last.fm username"
+msgstr ""
+
+#: classes/shared/developer.php:352
+msgid "Microblog service"
+msgstr ""
+
+#: classes/shared/developer.php:353
+msgid "Microblog username"
+msgstr ""
+
+#: classes/shared/developer.php:355
+msgid "Access IP"
+msgstr ""
+
+#: classes/shared/developer.php:356
+msgid "Access code"
+msgstr ""
+
+#: classes/shared/developer.php:357
+msgid "Access timeout"
+msgstr ""
+
+#: classes/shared/developer.php:371 classes/specific/chart.php:49
+#: classes/specific/chart.php:50
+msgid "Male"
+msgstr "Muž"
+
+#: classes/shared/developer.php:372 classes/specific/chart.php:51
+#: classes/specific/chart.php:52
+msgid "Female"
+msgstr "Žena"
+
+#: classes/shared/developer.php:374 classes/specific/chart.php:46
+msgid "Volunteer"
+msgstr "Dobrovolník"
+
+#: classes/shared/developer.php:375 classes/specific/chart.php:47
+msgid "Commercial"
+msgstr ""
+
+#: classes/shared/developer.php:377
+msgid "Red"
+msgstr ""
+
+#: classes/shared/developer.php:378
+msgid "Blue"
+msgstr ""
+
+#: classes/shared/developer.php:379
+msgid "Green"
+msgstr ""
+
+#: classes/shared/developer.php:380
+msgid "Black"
+msgstr ""
+
+#: classes/shared/developer.php:381
+msgid "Yellow"
+msgstr ""
+
+#: classes/shared/developer.php:382
+msgid "Purple"
+msgstr ""
+
+#: classes/shared/developer.php:383
+msgid "Brown"
+msgstr ""
+
+#: classes/shared/developer.php:384
+msgid "Grey"
+msgstr ""
+
+#: classes/shared/developer.php:385
+msgid "Orange"
+msgstr ""
+
+#: classes/shared/developer.php:386
+msgid "Pink"
+msgstr ""
+
+#: classes/shared/developer.php:387
+msgid "White"
+msgstr ""
+
+#: classes/shared/developer.php:389
+msgid "Europe"
+msgstr "Evropa"
+
+#: classes/shared/developer.php:390
+msgid "Africa"
+msgstr "Afrika"
+
+#: classes/shared/developer.php:391
+msgid "Asia"
+msgstr "Asie"
+
+#: classes/shared/developer.php:392
+msgid "Oceania"
+msgstr "Oceánie"
+
+#: classes/shared/developer.php:393
+msgid "North America"
+msgstr "Severní Amerika"
+
+#: classes/shared/developer.php:394
+msgid "South America"
+msgstr "Jižní Amerika"
+
+#: classes/shared/developer.php:402
+msgid "twitter.com"
+msgstr ""
+
+#: classes/shared/developer.php:403
+msgid "identi.ca"
+msgstr ""
+
+#: classes/shared/digest.php:122 classes/shared/digest.php:162
+#: classes/shared/digest.php:177 classes/shared/digest.php:202
+#: classes/shared/digest.php:230 classes/shared/digest.php:245
+#: classes/shared/digest.php:256 classes/shared/digest.php:266
+#: classes/shared/digest.php:277 classes/shared/digest.php:288
+#: classes/shared/digest.php:304 classes/shared/digest.php:317
+#: classes/shared/digest.php:348 classes/shared/digest.php:363
+#: classes/shared/digest.php:373 classes/shared/digest.php:391
+#: classes/shared/digest.php:437 classes/shared/digest.php:446
+#: classes/shared/digest.php:504 classes/shared/enzyme.php:73
+#: classes/shared/enzyme.php:523 classes/shared/enzyme.php:549
+#: classes/shared/enzyme.php:575 classes/shared/enzyme.php:660
+#, php-format
+msgid "Query failed: %s"
+msgstr ""
+
+#: classes/shared/digest.php:521
+msgid "Issue"
+msgstr ""
+
+#: classes/shared/digest.php:522 classes/ui/listui.php:37
+#: classes/ui/themes/neverland/digestui.php:258
+#: classes/ui/themes/neverland/listui.php:37
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:67
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:69
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:67
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:69
+msgid "Archive"
+msgstr "Archiv"
+
+#: classes/shared/digest.php:527
+msgid "English"
+msgstr "English (angličtina)"
+
+#: classes/shared/digest.php:528
+#, fuzzy
+msgid "Deutsch"
+msgstr "Deutsch (němčina)"
+
+#: classes/shared/digest.php:529
+#, fuzzy
+msgid "Français"
+msgstr "Français (francouzština)"
+
+#: classes/shared/digest.php:530
+#, fuzzy
+msgid "Español"
+msgstr "Español (španělština)"
+
+#: classes/shared/digest.php:531
+msgid "Català"
+msgstr ""
+
+#: classes/shared/digest.php:532
+#, fuzzy
+msgid "Nederlands"
+msgstr "Nederlands (holandština)"
+
+#: classes/shared/digest.php:533
+#, fuzzy
+msgid "Italiano"
+msgstr "Italiano (italština)"
+
+#: classes/shared/digest.php:534
+msgid "Pyccĸий"
+msgstr ""
+
+#: classes/shared/digest.php:535
+msgid "Polski"
+msgstr ""
+
+#: classes/shared/digest.php:536
+#, fuzzy
+msgid "Português"
+msgstr "Português (portugalština)"
+
+#: classes/shared/digest.php:537
+#, fuzzy
+msgid "Português Brasileiro"
+msgstr "Português Brasileiro (brazilská portugalština)"
+
+#: classes/shared/digest.php:538
+msgid "Magyar"
+msgstr ""
+
+#: classes/shared/digest.php:539
+msgid "Українська"
+msgstr ""
+
+#: classes/shared/digest.php:540
+#, fuzzy
+msgid "Čeština"
+msgstr "Czech (čeština)"
+
+#: classes/shared/digest.php:541
+#, fuzzy
+msgid "Low Saxon"
+msgstr "Dolnosaský (dolnosasština)"
+
+#: classes/shared/digest.php:544
+msgid "Svenska"
+msgstr ""
+
+#: classes/shared/digest.php:549
+#, fuzzy
+msgid "Idea"
+msgstr "1. Nápad"
+
+#: classes/shared/digest.php:550
+#, fuzzy
+msgid "Contacting"
+msgstr "2. Kontaktování"
+
+#: classes/shared/digest.php:551
+#, fuzzy
+msgid "More information needed"
+msgstr "3. Je třeba více informací"
+
+#: classes/shared/digest.php:553
+#, fuzzy
+msgid "Needs proofreading"
+msgstr "4. Potřebuje kontrolu"
+
+#: classes/shared/digest.php:554
+#, fuzzy
+msgid "Ready for selection"
+msgstr "5. Připraveno k výběru"
+
+#: classes/shared/digest.php:555
+#, fuzzy
+msgid "Selected"
+msgstr "6. Vybráno"
+
+#: classes/shared/digest.php:599 classes/ui/moreinfoui.php:131
+#: classes/ui/themes/neverland/moreinfoui.php:134
+#, php-format
+msgid "Revision %s"
+msgstr "Revize %s"
+
+#: classes/shared/digest.php:620 classes/shared/digest.php:643
 #, php-format
 msgid "%s committed changes in %s:"
 msgstr ""
 
-#, php-format
-msgid "%s in %s"
-msgstr "%s v %s"
-
-#, php-format
-msgid "(+ %d more)"
-msgstr "(+ dalších %d)"
-
-msgid "(Back to digest)"
-msgstr ""
-
-msgid "(Please wait up to 48 hours for this email)"
-msgstr "(Na tento e-mail, prosím, počkejte nejvýše 48 hodin)"
-
-msgid "(type)"
-msgstr "(typ)"
-
-msgid ""
-"...to the KDE Commit-Digest, a weekly overview of the development activity "
-"in KDE."
-msgstr ""
-
-msgid "1. Idea"
-msgstr "1. Nápad"
-
-msgid "18 to 25"
-msgstr "18 až 25"
-
-msgid "2. Contacting"
-msgstr "2. Kontaktování"
-
-msgid "25 to 35"
-msgstr "25 až 35"
-
-msgid "3. More information needed"
-msgstr "3. Je třeba více informací"
-
-msgid "35 to 45"
-msgstr "35 až 45"
-
-msgid "4. Needs proofreading"
-msgstr "4. Potřebuje kontrolu"
-
-msgid "45 to 55"
-msgstr "45 až 55"
-
-msgid "5. Ready for selection"
-msgstr "5. Připraveno k výběru"
-
-msgid "55 to 65"
-msgstr "55 až 65"
-
-msgid "6. Selected"
-msgstr "6. Vybráno"
-
-msgid "65 to 75"
-msgstr "65 až 75"
-
-msgid "75 to 85"
-msgstr "75 až 85"
-
-msgid "Accessibility"
-msgstr "Zpřístupnění"
-
-msgid "Account"
-msgstr "Účet"
-
-msgid "Added"
-msgstr "Přidáno"
-
-msgid "Admin"
-msgstr "Administrátor"
-
-msgid "Admin Email"
-msgstr "E-mail správce"
-
-msgid "Africa"
-msgstr "Afrika"
-
-msgid "Afrikaans (Afrikaans)"
-msgstr "Afrikaans (afrikánština)"
-
-msgid "Age"
-msgstr "Věk"
-
-msgid ""
-"All issues in <a href=\"/archive/\">archive</a> by <a href=\"mailto:"
-"dkite@shaw.ca\">Derek Kite</a>"
-msgstr ""
-
-msgid "All issues in <a href=\"/archive/\">archive</a> by Derek Kite"
-msgstr ""
-
-msgid ""
-"An email will then be sent from this domain to the email address your SVN "
-"account is linked to."
-msgstr ""
-
-msgid "And Finally..."
-msgstr "A konečně..."
-
-msgid "Apply!"
-msgstr "Použít!"
-
-msgid "Archive"
-msgstr "Archiv"
-
-msgid "Area"
-msgstr "Oblast"
-
-msgid "Asia"
-msgstr "Asie"
-
+#: classes/shared/digest.php:669 classes/shared/enzyme.php:1542
 #, php-format
 msgid "Bug %d: %s"
 msgstr "Chyba %d: %s"
 
-msgid "Bug Fixes"
-msgstr "Opravy chyb"
-
-msgid "Bug Killers"
-msgstr ""
-
-msgid "Bug Killers and Buzz"
-msgstr ""
-
-msgid "Bug Stats URL"
-msgstr ""
-
-msgid "Bugs Closed"
-msgstr "Chyb zavřeno"
-
-msgid "Bugs Opened"
-msgstr "Chyb otevřeno"
-
-msgid "Buzz"
-msgstr ""
-
-msgid "Classifier"
-msgstr "Klasifikátor"
-
-msgid "Click on the map regions to zoom in and zoom out..."
-msgstr ""
-
-msgid "Click to zoom out..."
-msgstr "Klikněte pro oddálení..."
-
-msgid "Coming soon!"
-msgstr "Již brzy!"
-
-msgid "Commercial"
-msgstr ""
-
+#: classes/shared/digest.php:673
 #, php-format
-msgid "Commit %s by %s (%s)"
-msgstr ""
+msgid "%d days"
+msgstr "%d dnů"
 
-msgid "Commit Classifier"
-msgstr ""
-
-msgid ""
-"Commit Classifiers sort the selected commits into areas (which is partly "
-"automated), and by type (such as bug fix, feature, etc)."
-msgstr ""
-
-msgid "Commit Countries"
-msgstr ""
-
-msgid "Commit Demographics"
-msgstr ""
-
-msgid "Commit Reviewer"
-msgstr ""
-
-msgid ""
-"Commit Reviewers look at all the recent commits, selecting those which are "
-"significant and interesting enough to be included into the weekly Commit-"
-"Digest."
-msgstr ""
-
-msgid "Commit Spy"
-msgstr ""
-
-msgid "Commit Summary"
-msgstr ""
-
-#, php-format
-msgid "Commit data past %s has not been collected yet."
-msgstr ""
-
-msgid "Commits"
-msgstr ""
-
-msgid "Contents"
-msgstr "Obsah"
-
-msgid "Contribute"
-msgstr "Přispívejte"
-
-msgid "Contributors"
-msgstr "Přispěvatelé"
-
-#, php-format
-msgid "Converted %s"
-msgstr ""
-
-msgid "Converting translations..."
-msgstr ""
-
-#, php-format
-msgid ""
-"Couldn't connect to database: ensure you have set the correct values at the "
-"top of %s/autoload.php"
-msgstr ""
-
-msgid "Czech (Čeština)"
-msgstr "Czech (čeština)"
-
-msgid "Data"
-msgstr "Data"
-
-msgid "Data Locations"
-msgstr "Umístění dat"
-
-msgid "Default Language"
-msgstr "Výchozí jazyk"
-
-msgid "Default Timezone"
-msgstr "Výchozí časové pásmo"
-
-msgid "Deleted"
-msgstr "Smazáno"
-
-msgid "Deutsch (German)"
-msgstr "Deutsch (němčina)"
-
-msgid "Developer"
-msgstr "Vývojář"
-
-msgid "Development Tools"
-msgstr "Vývojové nástroje"
-
+#: classes/shared/digest.php:728
 #, php-format
 msgid "Diffs: %s"
 msgstr ""
 
-msgid "Digest URL"
-msgstr ""
-
-msgid "Digg this issue..."
-msgstr ""
-
-msgid "Display Defaults"
-msgstr ""
-
+#: classes/shared/digest.php:731
 #, php-format
-msgid "Download <b>%s</b> video (%s, %s)"
-msgstr ""
+msgid "(+ %d more)"
+msgstr "(+ dalších %d)"
 
-#, php-format
-msgid "Downloaded %s (%s)"
-msgstr ""
+#: classes/shared/digest.php:740 classes/shared/enzyme.php:331
+msgid "Admin"
+msgstr "Administrátor"
 
-msgid "Downloading translations..."
-msgstr ""
-
+#: classes/shared/digest.php:742 classes/shared/enzyme.php:335
+#: classes/shared/enzyme.php:336
 msgid "Editor"
 msgstr "Editor"
 
+#: classes/shared/digest.php:744
+#, fuzzy
+msgid "Feature editor"
+msgstr "Vlastnosti"
+
+#: classes/shared/digest.php:746 classes/shared/enzyme.php:343
+msgid "Reviewer"
+msgstr "Kontrolor"
+
+#: classes/shared/digest.php:748 classes/shared/enzyme.php:347
+msgid "Classifier"
+msgstr "Klasifikátor"
+
+#: classes/shared/digest.php:750 classes/shared/enzyme.php:351
+#: classes/shared/enzyme.php:352
+msgid "Translator"
+msgstr "Překladatel"
+
+#: classes/shared/enzyme.php:61
+#, php-format
+msgid "Fetched details for bug %d"
+msgstr ""
+
+#: classes/shared/enzyme.php:85
+msgid "Accessibility"
+msgstr "Zpřístupnění"
+
+#: classes/shared/enzyme.php:86
+msgid "Development Tools"
+msgstr "Vývojové nástroje"
+
+#: classes/shared/enzyme.php:87
 msgid "Educational"
 msgstr "Výukový"
 
+#: classes/shared/enzyme.php:88
+msgid "Graphics"
+msgstr "Grafika"
+
+#: classes/shared/enzyme.php:89
+msgid "KDE Base"
+msgstr ""
+
+#: classes/shared/enzyme.php:90
+msgid "KDE-PIM"
+msgstr "KDE-PIM"
+
+#: classes/shared/enzyme.php:91
+msgid "Office"
+msgstr "Kancelář"
+
+#: classes/shared/enzyme.php:92
+msgid "Konqueror"
+msgstr "Konqueror"
+
+#: classes/shared/enzyme.php:93
+msgid "Multimedia"
+msgstr "Multimédia"
+
+#: classes/shared/enzyme.php:94
+msgid "Networking Tools"
+msgstr "Síťové nástroje"
+
+#: classes/shared/enzyme.php:95
+msgid "User Interface"
+msgstr "Uživatelské rozhraní"
+
+#: classes/shared/enzyme.php:96
+msgid "Utilities"
+msgstr "Nástroje"
+
+#: classes/shared/enzyme.php:97
+msgid "Games"
+msgstr "Hry"
+
+#: classes/shared/enzyme.php:98 classes/shared/enzyme.php:114
+msgid "Other"
+msgstr "Jiné"
+
+#: classes/shared/enzyme.php:110
+msgid "Bug Fixes"
+msgstr "Opravy chyb"
+
+#: classes/shared/enzyme.php:111
+msgid "Features"
+msgstr "Vlastnosti"
+
+#: classes/shared/enzyme.php:112
+msgid "Optimization"
+msgstr "Optimalizace"
+
+#: classes/shared/enzyme.php:113
+msgid "Security"
+msgstr "Bezpečnost"
+
+#: classes/shared/enzyme.php:126
+msgid "Path"
+msgstr "Cesta"
+
+#: classes/shared/enzyme.php:127
+msgid "Repository"
+msgstr ""
+
+#: classes/shared/enzyme.php:180
+msgid "Project Name"
+msgstr ""
+
+#: classes/shared/enzyme.php:184
+msgid "Admin Email"
+msgstr "E-mail správce"
+
+#: classes/shared/enzyme.php:188
+msgid "Enzyme URL"
+msgstr ""
+
+#: classes/shared/enzyme.php:192
+msgid "Digest URL"
+msgstr ""
+
+#: classes/shared/enzyme.php:196
+msgid "Help URL"
+msgstr ""
+
+#: classes/shared/enzyme.php:200
+msgid "Help Container Element"
+msgstr ""
+
+#: classes/shared/enzyme.php:204
+msgid "SMTP Mail Server"
+msgstr "SMTP Mail Server"
+
+#: classes/shared/enzyme.php:208
+msgid "Show Insert"
+msgstr ""
+
+#: classes/shared/enzyme.php:209 classes/shared/enzyme.php:214
+#: classes/shared/enzyme.php:267
+msgid "No"
+msgstr "Ne"
+
+#: classes/shared/enzyme.php:210 classes/shared/enzyme.php:215
+#: classes/shared/enzyme.php:268
+msgid "Yes"
+msgstr "Ano"
+
+#: classes/shared/enzyme.php:213
+msgid "Auto Review Commits"
+msgstr ""
+
+#: classes/shared/enzyme.php:219
+msgid "Data Terms Version"
+msgstr ""
+
+#: classes/shared/enzyme.php:224
+msgid "Recent Commits RSS URL"
+msgstr ""
+
+#: classes/shared/enzyme.php:228
+msgid "Web SVN viewer URL"
+msgstr ""
+
+#: classes/shared/enzyme.php:232
+msgid "Web Bug Tracker URL"
+msgstr ""
+
+#: classes/shared/enzyme.php:236
+msgid "Web Bug Tracker (XML) URL"
+msgstr ""
+
+#: classes/shared/enzyme.php:240
+#, fuzzy
+msgid "ReviewBoard URL"
+msgstr "Kontrolor"
+
+#: classes/shared/enzyme.php:244
+msgid "I18n Stats URL"
+msgstr ""
+
+#: classes/shared/enzyme.php:248
+msgid "I18n Teams URL"
+msgstr ""
+
+#: classes/shared/enzyme.php:252
+msgid "Bug Stats URL"
+msgstr ""
+
+#: classes/shared/enzyme.php:257
+msgid "Default Timezone"
+msgstr "Výchozí časové pásmo"
+
+#: classes/shared/enzyme.php:261
+msgid "Default Language"
+msgstr "Výchozí jazyk"
+
+#: classes/shared/enzyme.php:266
 msgid "Enable Legacy Import"
 msgstr ""
 
-msgid "English"
-msgstr "English (angličtina)"
+#: classes/shared/enzyme.php:271
+msgid "Existing Issues"
+msgstr ""
 
-msgid "Enter your SVN account name:"
-msgstr "Zadejte jméno svého SVN účtu:"
+#: classes/shared/enzyme.php:275
+msgid "Existing Archive"
+msgstr ""
 
+#: classes/shared/enzyme.php:279
+msgid "Existing Data"
+msgstr ""
+
+#: classes/shared/enzyme.php:293
+msgid "Enzyme Settings"
+msgstr ""
+
+#: classes/shared/enzyme.php:305
+msgid "Data Locations"
+msgstr "Umístění dat"
+
+#: classes/shared/enzyme.php:315
+msgid "Display Defaults"
+msgstr ""
+
+#: classes/shared/enzyme.php:319
+msgid "Legacy Import"
+msgstr ""
+
+#: classes/shared/enzyme.php:332
 msgid "Enzyme Administrator"
 msgstr ""
 
+#: classes/shared/enzyme.php:333
 msgid ""
 "Enzyme Administrators can manage all aspects of the system, including "
 "various import tools and user accounts."
 msgstr ""
 
-msgid "Enzyme Settings"
-msgstr ""
-
-msgid "Enzyme URL"
-msgstr ""
-
-msgid "Español (Spanish)"
-msgstr "Español (španělština)"
-
-msgid "Europe"
-msgstr "Evropa"
-
+#: classes/shared/enzyme.php:337
 msgid ""
-"Even if you can't contribute time, effort, or money in support, your "
-"enjoyment of the KDE Commit-Digest is contribution enough, and leaves us "
-"with a warm, fuzzy feeling inside!"
+"Editors finalise selected commits, format them for presentation, and write "
+"the weekly synopsis."
 msgstr ""
 
-msgid "Existing Archive"
-msgstr ""
-
-msgid "Existing Data"
-msgstr ""
-
-msgid "Existing Issues"
-msgstr ""
-
-msgid "Extracting extended statistics..."
-msgstr ""
-
+#: classes/shared/enzyme.php:339 classes/shared/enzyme.php:340
 msgid "Feature Editor"
 msgstr ""
 
+#: classes/shared/enzyme.php:341
 msgid ""
 "Feature Editors contact people working on interesting projects and assist "
 "them in writing original pieces which are presented in the introduction of "
 "each Commit-Digest."
 msgstr ""
 
-#, fuzzy
-#| msgid "Features"
-msgid "Feature editor"
-msgstr "Vlastnosti"
-
-msgid "Features"
-msgstr "Vlastnosti"
-
-msgid "Female"
-msgstr "Žena"
-
-#, php-format
-msgid "Fetched details for bug %d"
+#: classes/shared/enzyme.php:344
+msgid "Commit Reviewer"
 msgstr ""
 
-msgid "File Changes"
-msgstr "Změny souborů"
-
-msgid "Files"
-msgstr "Soubory"
-
-#, php-format
+#: classes/shared/enzyme.php:345
 msgid ""
-"For %d issues, %s produced the KDE-CVS Digest. Here are the archives of his "
-"digests:"
+"Commit Reviewers look at all the recent commits, selecting those which are "
+"significant and interesting enough to be included into the weekly Commit-"
+"Digest."
 msgstr ""
 
-msgid "Français (French)"
-msgstr "Français (francouzština)"
-
-msgid "Front Page"
-msgstr "Úvodní stránka"
-
-msgid "Games"
-msgstr "Hry"
-
-msgid "Getting available translations..."
+#: classes/shared/enzyme.php:348
+msgid "Commit Classifier"
 msgstr ""
 
-msgid "Getting bug stats..."
-msgstr ""
-
-msgid "Getting internationalization (i18n) stats..."
-msgstr ""
-
-msgid "Getting revision data..."
-msgstr ""
-
-#, php-format
-msgid "Go to revision %s"
-msgstr ""
-
-#, php-format
-msgid "Go to the next digest issue (%s)"
-msgstr ""
-
-#, php-format
-msgid "Go to the previous digest issue (%s)"
-msgstr ""
-
-msgid "Graphics"
-msgstr "Grafika"
-
-msgid "Help URL"
-msgstr ""
-
-msgid "Home"
-msgstr "Domů"
-
+#: classes/shared/enzyme.php:349
 msgid ""
-"I promise to keep your information confidentially, and to only use the data "
-"collected for KDE statistics purposes, unless further permission is granted."
+"Commit Classifiers sort the selected commits into areas (which is partly "
+"automated), and by type (such as bug fix, feature, etc)."
 msgstr ""
 
-msgid "I18n Stats URL"
-msgstr ""
-
-msgid "I18n Teams URL"
-msgstr ""
-
-msgid ""
-"If you are unable to help the KDE Commit-Digest by donating your time and "
-"effort, you can still show your appreciation and support the ongoing work by "
-"donating money."
-msgstr ""
-
-msgid "Inserted general stats"
-msgstr ""
-
-msgid "Inserted module stats"
-msgstr ""
-
-msgid "Inserted people stats"
-msgstr ""
-
-msgid "Internationalization (i18n) Status"
-msgstr ""
-
-#, php-format
-msgid "Invalid data type in %s"
-msgstr ""
-
-msgid "Issue"
-msgstr ""
-
-#, php-format
-msgid "Issue %d"
-msgstr ""
-
-#, php-format
-msgid "Issue %d: %s"
-msgstr ""
-
-msgid "Issue cannot be found"
-msgstr ""
-
-msgid "Issues"
-msgstr ""
-
-msgid "Italiano (Italian)"
-msgstr "Italiano (italština)"
-
-#, php-format
-msgid "Jump to %s / %s"
-msgstr ""
-
-msgid "KDE Base"
-msgstr ""
-
-msgid ""
-"KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</"
-"a>, 2006-2010"
-msgstr ""
-"KDE Commit-Digest od <a href=\"mailto:danny@commit-digest.org\">Dannyho "
-"Allena</a>, 2006-2010"
-
-msgid ""
-"KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny Allen</"
-"a>, 2006-2012"
-msgstr ""
-"KDE Commit-Digest od <a href=\"mailto:danny@commit-digest.org\">Dannyho "
-"Allena</a>, 2006-2012"
-
-msgid "KDE-PIM"
-msgstr "KDE-PIM"
-
-msgid "KOffice"
-msgstr "KOffice"
-
-msgid "Keyboard"
-msgstr "Klávesnice"
-
-msgid "Konqueror"
-msgstr "Konqueror"
-
-msgid "Language"
-msgstr "Jazyk"
-
-msgid "Latest Issue"
-msgstr "Poslední vydání"
-
-msgid "Legacy Import"
-msgstr ""
-
-#, php-format
-msgid "Let us know your thoughts about our work at %shello@commit-digest.org%s"
-msgstr ""
-
-msgid "Lines"
-msgstr ""
-
-#, php-format
-msgid "Located at %s"
-msgstr ""
-
-msgid "Low Saxon (Low Saxon)"
-msgstr "Dolnosaský (dolnosasština)"
-
-msgid "Magyar (Hungarian)"
-msgstr "Magyar (maďarština)"
-
-msgid "Male"
-msgstr "Muž"
-
-msgid "Message"
-msgstr "Zpráva"
-
-msgid "Modified"
-msgstr "Změněno"
-
-msgid "Module"
-msgstr "Modul"
-
-msgid "Money"
-msgstr "Peníze"
-
-msgid "More Info"
-msgstr "Více informací"
-
-msgid "Motivation"
-msgstr "Motivace"
-
-msgid "Mouse"
-msgstr "Myš"
-
-msgid "Multimedia"
-msgstr "Multimédia"
-
-msgid "Nederlands (Dutch)"
-msgstr "Nederlands (holandština)"
-
-msgid "Networking Tools"
-msgstr "Síťové nástroje"
-
-msgid "No"
-msgstr "Ne"
-
-msgid "No commits found"
-msgstr ""
-
-msgid "No commits found, maybe your filter is too restrictive..."
-msgstr ""
-
-msgid "North America"
-msgstr "Severní Amerika"
-
-msgid "Not enough data to generate statistics."
-msgstr "Nedostatek dat pro generování statistik."
-
-msgid "Oceania"
-msgstr "Oceánie"
-
-msgid "Office"
-msgstr "Kancelář"
-
-msgid "One Year Ago"
-msgstr "Před rokem"
-
-msgid "Only show commits I reviewed"
-msgstr ""
-
-msgid "Open Bugs"
-msgstr ""
-
-msgid "Open Wishes"
-msgstr ""
-
-msgid "Optimization"
-msgstr "Optimalizace"
-
-msgid "Optimize"
-msgstr "Optimalizovat"
-
-msgid "Options"
-msgstr "Možnosti"
-
-msgid "Other"
-msgstr "Jiné"
-
-msgid "Over 85"
-msgstr "Přes 85"
-
-msgid "Parsing revision data..."
-msgstr ""
-
-msgid "Path"
-msgstr "Cesta"
-
-msgid "Percentage Complete"
-msgstr ""
-
-msgid "Person"
-msgstr "Osoba"
-
-msgid "Polski (Polish)"
-msgstr "Polski (polština)"
-
-msgid "Português (Portuguese)"
-msgstr "Português (portugalština)"
-
-msgid "Português Brasileiro (Brazilian Portuguese)"
-msgstr "Português Brasileiro (brazilská portugalština)"
-
-#, php-format
-msgid "Processed %s"
-msgstr "Zpracováno %s"
-
-msgid "Program"
-msgstr "Program"
-
-msgid "Project Name"
-msgstr ""
-
-msgid "Query failed"
-msgstr ""
-
-#, php-format
-msgid "Query failed: %s"
-msgstr ""
-
-msgid "Random Digest"
-msgstr ""
-
-msgid "Read the latest issue!"
-msgstr ""
-
-msgid "Reply to the email, following the instructions carefully."
-msgstr ""
-
-#, php-format
-msgid "Retrieving from %s (%s)..."
-msgstr ""
-
-#, php-format
-msgid "Reviewed by %s"
-msgstr ""
-
-msgid "Reviewer"
-msgstr "Kontrolor"
-
-#, php-format
-msgid "Revision %s"
-msgstr "Revize %s"
-
-msgid "SMTP Mail Server"
-msgstr "SMTP Mail Server"
-
-msgid "Save"
-msgstr "Uložit"
-
-msgid "Security"
-msgstr "Bezpečnost"
-
-#, php-format
-msgid "Selected %s of %s commits reviewed (%s total)"
-msgstr ""
-
-msgid "Send this issue by email..."
-msgstr ""
-
-msgid "Sex"
-msgstr "Pohlaví"
-
-msgid "Share this issue by Facebook..."
-msgstr ""
-
-msgid "Share this issue by Twitter..."
-msgstr ""
-
-msgid "Show Insert"
-msgstr ""
-
-msgid "Six Months Ago"
-msgstr "Před šesti měsíci"
-
-msgid "Sort by earliest digest..."
-msgstr ""
-
-msgid "Sort by latest digest..."
-msgstr ""
-
-msgid "South America"
-msgstr "Jižní Amerika"
-
-#, php-format
-msgid ""
-"Spread the word about KDE and the Commit-Digest by using the %s\"share\" "
-"links%s in the sidebar of each Digest."
-msgstr ""
-
-msgid "Statistics"
-msgstr "Statistika"
-
-msgid "Step 1:"
-msgstr "Krok 1:"
-
-msgid "Step 2:"
-msgstr "Krok 2:"
-
-msgid "Step 3:"
-msgstr "Krok 3:"
-
-msgid "Subscribe to KDE Commit-Digest updates"
-msgstr "Přihlásit se k odebírání aktualizací KDE Commit-Digestu"
-
-msgid "Support Commit-Digest using PayPal"
-msgstr "Podpořte Commit-Digest prostřednictví PayPalu"
-
-msgid "Svenska (Swedish)"
-msgstr "Svenska (švédština)"
-
-msgid "Thanks for reading the KDE Commit-Digest!"
-msgstr "Díky za čtení KDE Commit-Digestu!"
-
-msgid "Thanks!"
-msgstr "Díky!"
-
-#, php-format
-msgid "There are %d selections this week"
-msgstr ""
-
-msgid ""
-"There are many ways to help the KDE Commit-Digest by contributing your time, "
-"effort, or money..."
-msgstr ""
-"Je mnoho způsobů, jak podpořit KDE Commit-Digest, přispíváním časem, snahou "
-"nebo penězi..."
-
-msgid "This Week..."
-msgstr "Tento týden..."
-
-msgid "Time"
-msgstr "Čas"
-
-#, php-format
-msgid "Total: %d"
-msgstr "Celkem: %d"
-
-msgid "Translator"
-msgstr "Překladatel"
-
+#: classes/shared/enzyme.php:353
 msgid ""
 "Translators increase the reach of the Commit-Digest and the work done across "
 "the project by making the weekly Commit-Digests available in the native "
 "language of people around the world."
 msgstr ""
 
+#: classes/shared/enzyme.php:714
+#, php-format
+msgid "Retrieving from %s (%s)..."
+msgstr ""
+
+#: classes/shared/enzyme.php:769 classes/shared/enzyme.php:867
+msgid "Getting revision data..."
+msgstr ""
+
+#: classes/shared/enzyme.php:786 classes/shared/enzyme.php:922
+msgid "Parsing revision data..."
+msgstr ""
+
+#: classes/shared/enzyme.php:861
+#, php-format
+msgid "Commit data past %s has not been collected yet."
+msgstr ""
+
+#: classes/shared/enzyme.php:881
+msgid "Not enough data to generate statistics."
+msgstr "Nedostatek dat pro generování statistik."
+
+#: classes/shared/enzyme.php:1004
+msgid "Inserted people stats"
+msgstr ""
+
+#: classes/shared/enzyme.php:1023
+msgid "Inserted module stats"
+msgstr ""
+
+#: classes/shared/enzyme.php:1032
+msgid "Extracting extended statistics..."
+msgstr ""
+
+#: classes/shared/enzyme.php:1125
+msgid "Getting internationalization (i18n) stats..."
+msgstr ""
+
+#: classes/shared/enzyme.php:1149
+msgid "Getting bug stats..."
+msgstr ""
+
+#: classes/shared/enzyme.php:1209
+msgid "Inserted general stats"
+msgstr ""
+
+#: classes/shared/enzyme.php:1412
+#, php-format
+msgid "Invalid data type in %s"
+msgstr ""
+
+#: classes/shared/enzyme.php:1587
+#, php-format
+msgid "Commit %s by %s (%s)"
+msgstr ""
+
+#: classes/shared/enzyme.php:1629
+msgid "Unselect this commit?"
+msgstr ""
+
+#: classes/shared/enzyme.php:1645
+#, php-format
+msgid "Reviewed by %s"
+msgstr ""
+
+#: classes/shared/enzyme.php:1666
+msgid "Area"
+msgstr "Oblast"
+
+#: classes/shared/enzyme.php:1669
 msgid "Type"
 msgstr "Typ"
 
-msgid "Ukrainian (Ukrainian)"
-msgstr "Ukrainian (ukrajinština)"
+#: classes/shared/enzyme.php:1687
+#, php-format
+msgid "%s commits classified (%s displayed, %s total)"
+msgstr ""
 
-msgid "Under 18"
-msgstr "Pod 18"
+#: classes/shared/enzyme.php:1693
+msgid "Mouse"
+msgstr "Myš"
 
+#: classes/shared/enzyme.php:1694
+msgid "Keyboard"
+msgstr "Klávesnice"
+
+#: classes/shared/enzyme.php:1718
+msgid "Only show commits I reviewed"
+msgstr ""
+
+#: classes/shared/enzyme.php:1725 classes/shared/enzyme.php:1740
+msgid "Save"
+msgstr "Uložit"
+
+#: classes/shared/enzyme.php:1726 classes/shared/enzyme.php:1741
+msgid "Cancel"
+msgstr ""
+
+#: classes/shared/enzyme.php:1733
+#, php-format
+msgid "Selected %s of %s commits reviewed (%s displayed, %s total)"
+msgstr ""
+
+#: classes/shared/media.php:39
+msgid "Upload type not valid"
+msgstr ""
+
+#: classes/shared/media.php:54
+#, php-format
+msgid "Filetype %s not allowed"
+msgstr ""
+
+#: classes/shared/media.php:181
+msgid "Image"
+msgstr ""
+
+#: classes/shared/media.php:182
+msgid "Video"
+msgstr ""
+
+#: classes/shared/media.php:209
+#, php-format
+msgid "Download <b>%s</b> video (%s, %s)"
+msgstr ""
+
+#: classes/shared/media.php:269 classes/shared/media.php:279
+msgid "Close preview"
+msgstr ""
+
+#: classes/shared/media.php:270 classes/shared/media.php:280
+#, fuzzy
+msgid "Preview"
+msgstr "Kontrolor"
+
+#: classes/shared/ui.php:254
+#, php-format
+msgid " (%.1f percent of %d)"
+msgstr " (%.1f procent z %d)"
+
+#: classes/shared/ui.php:271 classes/shared/ui.php:273
+#, php-format
+msgid "Total: %d"
+msgstr "Celkem: %d"
+
+#: classes/specific/chart.php:45
 msgid "Unknown"
 msgstr "Neznámý"
 
+#: classes/specific/chart.php:54
+msgid "Under 18"
+msgstr "Pod 18"
+
+#: classes/specific/chart.php:55
+msgid "18 to 25"
+msgstr "18 až 25"
+
+#: classes/specific/chart.php:56
+msgid "25 to 35"
+msgstr "25 až 35"
+
+#: classes/specific/chart.php:57
+msgid "35 to 45"
+msgstr "35 až 45"
+
+#: classes/specific/chart.php:58
+msgid "45 to 55"
+msgstr "45 až 55"
+
+#: classes/specific/chart.php:59
+msgid "55 to 65"
+msgstr "55 až 65"
+
+#: classes/specific/chart.php:60
+msgid "65 to 75"
+msgstr "65 až 75"
+
+#: classes/specific/chart.php:61
+msgid "75 to 85"
+msgstr "75 až 85"
+
+#: classes/specific/chart.php:62
+msgid "Over 85"
+msgstr "Přes 85"
+
+#: classes/specific/config.php:97
+msgid "Setup"
+msgstr ""
+
+#: classes/ui/contributeui.php:27
+#: classes/ui/themes/neverland/contributeui.php:27
+#: classes/ui/themes/neverland/digestui.php:272
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:109
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:111
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:109
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:111
+msgid "Contribute"
+msgstr "Přispívejte"
+
+#: classes/ui/contributeui.php:38
+#: classes/ui/themes/neverland/contributeui.php:38
+#, fuzzy, php-format
+msgid ""
+"There are many ways to help the %s by contributing your time, effort, or "
+"money..."
+msgstr ""
+"Je mnoho způsobů, jak podpořit KDE Commit-Digest, přispíváním časem, snahou "
+"nebo penězi..."
+
+#: classes/ui/contributeui.php:42
+#: classes/ui/themes/neverland/contributeui.php:42
+msgid "Time"
+msgstr "Čas"
+
+#: classes/ui/contributeui.php:49
+#: classes/ui/themes/neverland/contributeui.php:49
+msgid "Apply!"
+msgstr "Použít!"
+
+#: classes/ui/contributeui.php:61
+#: classes/ui/themes/neverland/contributeui.php:61
+msgid "Money"
+msgstr "Peníze"
+
+#: classes/ui/contributeui.php:63
+#: classes/ui/themes/neverland/contributeui.php:63
 #, php-format
-msgid "Update every %s minutes"
+msgid ""
+"If you are unable to help the %s by donating your time and effort, you can "
+"still show your appreciation and support the ongoing work by donating money."
 msgstr ""
 
-msgid "Updating translation strings..."
-msgstr ""
+#: classes/ui/contributeui.php:70
+#: classes/ui/themes/neverland/contributeui.php:70
+msgid "Support Commit-Digest using PayPal"
+msgstr "Podpořte Commit-Digest prostřednictví PayPalu"
 
-msgid "Uploading translation strings..."
-msgstr ""
+#: classes/ui/contributeui.php:79
+#: classes/ui/themes/neverland/contributeui.php:80
+msgid "And Finally..."
+msgstr "A konečně..."
 
-msgid "User Interface"
-msgstr "Uživatelské rozhraní"
-
-msgid "Utilities"
-msgstr "Nástroje"
-
-msgid "View as list..."
-msgstr "Zobrazit jako seznam..."
-
-msgid "View as map..."
-msgstr "Zobrazit jako mapu..."
-
-msgid "Volunteer"
-msgstr "Dobrovolník"
-
-msgid "Web Bug Tracker"
-msgstr ""
-
-msgid "Web Bug Tracker XML"
-msgstr ""
-
-msgid "Welcome"
-msgstr "Vítejte"
-
-msgid "Yes"
-msgstr "Ano"
-
+#: classes/ui/contributeui.php:81
+#: classes/ui/themes/neverland/contributeui.php:82
 #, php-format
-msgid "You need to have the permission \"%s\" to view this section"
-msgstr "Pro zobrazení této sekce potřebujete oprávnění \"%s\""
+msgid ""
+"Even if you can't contribute time, effort, or money in support, your "
+"enjoyment of the %s is contribution enough, and leaves us with a warm, fuzzy "
+"feeling inside!"
+msgstr ""
 
+#: classes/ui/contributeui.php:83
+#: classes/ui/themes/neverland/contributeui.php:84
+#, php-format
+msgid ""
+"Spread the word about KDE and the Commit-Digest by using the %s\"share\" "
+"links%s in the sidebar of each Digest."
+msgstr ""
+
+#: classes/ui/contributeui.php:85
+#: classes/ui/themes/neverland/contributeui.php:86
+#, php-format
+msgid "Let us know your thoughts about our work at %shello@commit-digest.org%s"
+msgstr ""
+
+#: classes/ui/datatermsui.php:31
+#: classes/ui/themes/neverland/datatermsui.php:31
+msgid "Data Usage Terms"
+msgstr ""
+
+#: classes/ui/datatermsui.php:57
+#: classes/ui/themes/neverland/datatermsui.php:57
+#, php-format
+msgid "Version %2.1f"
+msgstr ""
+
+#: classes/ui/datatermsui.php:63
+#: classes/ui/themes/neverland/datatermsui.php:63
+#, php-format
+msgid ""
+"Version %2.1f of the data usage terms could not be found, below is the "
+"latest version (version %2.1f)"
+msgstr ""
+
+#: classes/ui/dataui.php:27 classes/ui/themes/neverland/dataui.php:27
+#: classes/ui/themes/neverland/digestui.php:276
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:120
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:122
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:120
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:122
+msgid "Data"
+msgstr "Data"
+
+#: classes/ui/dataui.php:65 classes/ui/themes/neverland/dataui.php:65
+#, php-format
+msgid "The %s features <a class=\"u_\" href=\"%s\">extended statistics</a>."
+msgstr ""
+
+#: classes/ui/dataui.php:66 classes/ui/themes/neverland/dataui.php:66
+msgid ""
+"To generate exciting visualisations now and in the future, new information "
+"is needed from KDE contributors..."
+msgstr ""
+
+#: classes/ui/dataui.php:71 classes/ui/themes/neverland/dataui.php:71
+msgid "Step 1:"
+msgstr "Krok 1:"
+
+#: classes/ui/dataui.php:74 classes/ui/themes/neverland/dataui.php:74
+#, fuzzy
+msgid "Enter your developer account name:"
+msgstr "Zadejte jméno svého SVN účtu:"
+
+#: classes/ui/dataui.php:78 classes/ui/themes/neverland/dataui.php:78
+msgid "Send!"
+msgstr ""
+
+#: classes/ui/dataui.php:82 classes/ui/themes/neverland/dataui.php:82
+msgid ""
+"An email will then be sent from this domain to the email address your "
+"developer account is linked to."
+msgstr ""
+
+#: classes/ui/dataui.php:85 classes/ui/themes/neverland/dataui.php:85
+#, fuzzy
+msgid "Please allow up to 30 minutes for this email to be sent."
+msgstr "(Na tento e-mail, prosím, počkejte nejvýše 48 hodin)"
+
+#: classes/ui/dataui.php:92 classes/ui/themes/neverland/dataui.php:92
+msgid "Step 2:"
+msgstr "Krok 2:"
+
+#: classes/ui/dataui.php:96 classes/ui/themes/neverland/dataui.php:96
+msgid "Reply to the email, following the instructions carefully."
+msgstr ""
+
+#: classes/ui/dataui.php:99 classes/ui/themes/neverland/dataui.php:99
+msgid "Visit the link contained in the email."
+msgstr ""
+
+#: classes/ui/dataui.php:100 classes/ui/themes/neverland/dataui.php:100
+msgid "Alternatively, enter the access code from the email here:"
+msgstr ""
+
+#: classes/ui/dataui.php:108 classes/ui/themes/neverland/dataui.php:108
+msgid "Step 3:"
+msgstr "Krok 3:"
+
+#: classes/ui/dataui.php:111 classes/ui/themes/neverland/dataui.php:111
+msgid "Thanks!"
+msgstr "Díky!"
+
+#: classes/ui/dataui.php:113 classes/ui/themes/neverland/dataui.php:113
 msgid "You will soon be represented in the extended statistics."
 msgstr ""
 
+#: classes/ui/dataui.php:128 classes/ui/themes/neverland/dataui.php:128
+msgid "Core"
+msgstr ""
+
+#: classes/ui/dataui.php:129 classes/ui/themes/neverland/dataui.php:129
+#, fuzzy
+msgid "Geographic"
+msgstr "Grafika"
+
+#: classes/ui/dataui.php:130 classes/ui/themes/neverland/dataui.php:130
+msgid "Social"
+msgstr ""
+
+#: classes/ui/dataui.php:141 classes/ui/themes/neverland/dataui.php:141
+#, php-format
+msgid ""
+"This data is held under <a href=\"%s\" target=\"_blank\">version %2.1f of "
+"the data usage terms</a>"
+msgstr ""
+
+#: classes/ui/dataui.php:148 classes/ui/themes/neverland/dataui.php:148
+#, php-format
+msgid "This is the information used to represent you in the %s."
+msgstr ""
+
+#: classes/ui/dataui.php:149 classes/ui/themes/neverland/dataui.php:149
+msgid "Please review and add/change details where appropriate."
+msgstr ""
+
+#: classes/ui/dataui.php:207 classes/ui/themes/neverland/dataui.php:207
+#, php-format
+msgid ""
+"I allow this data to be used under <a href=\"%s\" target=\"_blank\">version "
+"%2.1f of the data usage terms</a>"
+msgstr ""
+
+#: classes/ui/dataui.php:279 classes/ui/themes/neverland/dataui.php:279
+msgid "Nothing"
+msgstr ""
+
+#: classes/ui/dataui.php:280 classes/ui/themes/neverland/dataui.php:280
+msgid "Age (Years)"
+msgstr ""
+
+#: classes/ui/dataui.php:281 classes/ui/themes/neverland/dataui.php:281
+msgid "Birthday (Month and day)"
+msgstr ""
+
+#: classes/ui/dataui.php:282 classes/ui/themes/neverland/dataui.php:282
+msgid "Birthdate (Day/Month/Year)"
+msgstr ""
+
+#: classes/ui/dataui.php:285 classes/ui/themes/neverland/dataui.php:285
+msgid "Currently public:"
+msgstr ""
+
+#: classes/ui/dataui.php:304 classes/ui/themes/neverland/dataui.php:304
+msgid "This field is currently <b>private</b>"
+msgstr ""
+
+#: classes/ui/dataui.php:308 classes/ui/themes/neverland/dataui.php:308
+msgid "This field is currently <b>public</b>"
+msgstr ""
+
+#: classes/ui/dataui.php:319 classes/ui/themes/neverland/dataui.php:319
+msgid "This field is <b>always public</b>"
+msgstr ""
+
+#: classes/ui/developerprofileui.php:25 classes/ui/issueui.php:370
+#: classes/ui/issueui.php:374
+#: classes/ui/themes/neverland/developerprofileui.php:25
+#: classes/ui/themes/neverland/issueui.php:370
+#: classes/ui/themes/neverland/issueui.php:374
+msgid "Developer"
+msgstr "Vývojář"
+
+#: classes/ui/developerprofileui.php:32 classes/ui/optionsui.php:32
+#: classes/ui/themes/neverland/developerprofileui.php:32
+#: classes/ui/themes/neverland/optionsui.php:32
+msgid "Coming soon!"
+msgstr "Již brzy!"
+
+#: classes/ui/digestui.php:250 classes/ui/themes/neverland/digestui.php:312
+#, php-format
+msgid "%s by <a href=\"%s\">%s</a> and the <a href=\"%s\">%s team</a>, %s."
+msgstr ""
+
+#: classes/ui/digestui.php:259 classes/ui/themes/neverland/digestui.php:321
+msgid "All issues in <a href=\"/archive/\">archive</a> by Derek Kite."
+msgstr ""
+
+#: classes/ui/digestui.php:260 classes/ui/themes/neverland/digestui.php:322
+msgid "Powered by Enzyme"
+msgstr ""
+
+#: classes/ui/digestui.php:292
+#, fuzzy, php-format
+msgid "Subscribe to %s updates"
+msgstr "Přihlásit se k odebírání aktualizací KDE Commit-Digestu"
+
+#: classes/ui/digestui.php:293
+msgid "Send this issue by email..."
+msgstr ""
+
+#: classes/ui/digestui.php:294
+msgid "Share this issue on Twitter..."
+msgstr ""
+
+#: classes/ui/digestui.php:295
+msgid "Share this issue on Facebook..."
+msgstr ""
+
+#: classes/ui/digestui.php:296
+msgid "Share this issue on Identica..."
+msgstr ""
+
+#: classes/ui/indexui.php:33 classes/ui/themes/neverland/indexui.php:31
+msgid "Home"
+msgstr "Domů"
+
+#: classes/ui/issueui.php:97 classes/ui/themes/neverland/digestui.php:265
+#: classes/ui/themes/neverland/indexui.php:84
+#: classes/ui/themes/neverland/issueui.php:97
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:88
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:90
+#: templates/default/cache/e2/d5/7374cb483dae2046c0fc7ff359ab.php:84
+#: templates/neverland/cache/e3/73/23ebdfe2e66526ff9467bdf8c1a8.php:85
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:88
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:90
+msgid "One Year Ago"
+msgstr "Před rokem"
+
+#: classes/ui/issueui.php:100 classes/ui/themes/neverland/digestui.php:262
+#: classes/ui/themes/neverland/indexui.php:79
+#: classes/ui/themes/neverland/issueui.php:100
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:78
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:80
+#: templates/default/cache/e2/d5/7374cb483dae2046c0fc7ff359ab.php:73
+#: templates/neverland/cache/e3/73/23ebdfe2e66526ff9467bdf8c1a8.php:74
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:78
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:80
+msgid "Six Months Ago"
+msgstr "Před šesti měsíci"
+
+#: classes/ui/issueui.php:179 classes/ui/themes/neverland/issueui.php:179
+msgid "Issue cannot be found"
+msgstr ""
+
+#: classes/ui/issueui.php:271 classes/ui/themes/neverland/issueui.php:271
+#, php-format
+msgid "%d by %d developers, %d lines modified, %d new files"
+msgstr "%d od %d vývojářů, %d řádků upraveno, %d nových souborů"
+
+#: classes/ui/issueui.php:277 classes/ui/themes/neverland/issueui.php:277
+#, php-format
+msgid "%d by %d developers"
+msgstr "%d od %d vývojářů"
+
+#: classes/ui/issueui.php:282 classes/ui/statisticsui.php:27
+#: classes/ui/themes/neverland/issueui.php:282
+#: classes/ui/themes/neverland/statisticsui.php:27
+msgid "Statistics"
+msgstr "Statistika"
+
+#: classes/ui/issueui.php:287 classes/ui/issueui.php:362
+#: classes/ui/issueui.php:371 classes/ui/issueui.php:375
+#: classes/ui/themes/neverland/issueui.php:287
+#: classes/ui/themes/neverland/issueui.php:362
+#: classes/ui/themes/neverland/issueui.php:371
+#: classes/ui/themes/neverland/issueui.php:375
+msgid "Commits"
+msgstr ""
+
+#: classes/ui/issueui.php:291 classes/ui/themes/neverland/issueui.php:291
+msgid "Open Bugs"
+msgstr ""
+
+#: classes/ui/issueui.php:295 classes/ui/themes/neverland/issueui.php:295
+msgid "Open Wishes"
+msgstr ""
+
+#: classes/ui/issueui.php:299 classes/ui/themes/neverland/issueui.php:299
+msgid "Bugs Opened"
+msgstr "Chyb otevřeno"
+
+#: classes/ui/issueui.php:300 classes/ui/issueui.php:304
+#: classes/ui/themes/neverland/issueui.php:300
+#: classes/ui/themes/neverland/issueui.php:304
+#, php-format
+msgid "%d in the last 7 days"
+msgstr "%d za posledních 7 dnů"
+
+#: classes/ui/issueui.php:303 classes/ui/issueui.php:436
+#: classes/ui/themes/neverland/issueui.php:303
+#: classes/ui/themes/neverland/issueui.php:436
+msgid "Bugs Closed"
+msgstr "Chyb zavřeno"
+
+#: classes/ui/issueui.php:311 classes/ui/themes/neverland/issueui.php:311
+msgid "Commit Summary"
+msgstr ""
+
+#: classes/ui/issueui.php:318 classes/ui/themes/neverland/issueui.php:318
+msgid "Internationalization (i18n) Status"
+msgstr ""
+
+#: classes/ui/issueui.php:324 classes/ui/themes/neverland/issueui.php:324
+msgid "Bug Killers"
+msgstr ""
+
+#: classes/ui/issueui.php:326 classes/ui/themes/neverland/issueui.php:326
+msgid "Bug Killers and Buzz"
+msgstr ""
+
+#: classes/ui/issueui.php:335 classes/ui/themes/neverland/issueui.php:335
+msgid "Commit Countries"
+msgstr ""
+
+#: classes/ui/issueui.php:342 classes/ui/themes/neverland/issueui.php:342
+msgid "Commit Demographics"
+msgstr ""
+
+#: classes/ui/issueui.php:361 classes/ui/themes/neverland/issueui.php:361
+msgid "Module"
+msgstr "Modul"
+
+#: classes/ui/issueui.php:369 classes/ui/themes/neverland/issueui.php:369
+msgid "Lines"
+msgstr ""
+
+#: classes/ui/issueui.php:373 classes/ui/themes/neverland/issueui.php:373
+msgid "Files"
+msgstr "Soubory"
+
+#: classes/ui/issueui.php:411 classes/ui/themes/neverland/issueui.php:411
+msgid "Language"
+msgstr "Jazyk"
+
+#: classes/ui/issueui.php:412 classes/ui/themes/neverland/issueui.php:412
+msgid "Percentage Complete"
+msgstr ""
+
+#: classes/ui/issueui.php:435 classes/ui/issueui.php:495
+#: classes/ui/themes/neverland/issueui.php:435
+#: classes/ui/themes/neverland/issueui.php:495
+msgid "Person"
+msgstr "Osoba"
+
+#: classes/ui/issueui.php:473 classes/ui/themes/neverland/issueui.php:473
+msgid "Program"
+msgstr "Program"
+
+#: classes/ui/issueui.php:474 classes/ui/issueui.php:496
+#: classes/ui/themes/neverland/issueui.php:474
+#: classes/ui/themes/neverland/issueui.php:496
+msgid "Buzz"
+msgstr ""
+
+#: classes/ui/issueui.php:535 classes/ui/themes/neverland/issueui.php:535
+msgid "Sex"
+msgstr "Pohlaví"
+
+#: classes/ui/issueui.php:544 classes/ui/themes/neverland/issueui.php:544
+msgid "Age"
+msgstr "Věk"
+
+#: classes/ui/issueui.php:567 classes/ui/themes/neverland/issueui.php:567
+msgid "Contents"
+msgstr "Obsah"
+
+#: classes/ui/issueui.php:598 classes/ui/themes/neverland/issueui.php:600
+#, php-format
+msgid "Jump to %s / %s"
+msgstr ""
+
+#: classes/ui/issueui.php:619 classes/ui/themes/neverland/issueui.php:621
+#, php-format
+msgid "There are %d selections this week"
+msgstr ""
+
+#: classes/ui/issueui.php:660 classes/ui/themes/neverland/issueui.php:662
+msgid "No commits found"
+msgstr ""
+
+#: classes/ui/issueui.php:669 classes/ui/themes/neverland/issueui.php:673
+#, fuzzy, php-format
+msgid "Thanks for reading the %s!"
+msgstr "Díky za čtení KDE Commit-Digestu!"
+
+#: classes/ui/issueui.php:720 classes/ui/themes/neverland/issueui.php:726
+#, php-format
+msgid "Go to the previous digest issue (%s)"
+msgstr ""
+
+#: classes/ui/issueui.php:725 classes/ui/themes/neverland/issueui.php:731
+#, php-format
+msgid "Go to the next digest issue (%s)"
+msgstr ""
+
+#: classes/ui/issueui.php:731 classes/ui/themes/neverland/issueui.php:744
+#, php-format
+msgid "Issue %d"
+msgstr ""
+
+#: classes/ui/issueui.php:738 classes/ui/themes/neverland/issueui.php:751
 #, php-format
 msgid "by %s"
 msgstr ""
 
-msgid "filter?"
-msgstr "filtrovat?"
+#: classes/ui/issueui.php:747 classes/ui/themes/neverland/issueui.php:761
+#, php-format
+msgid "Located at %s"
+msgstr ""
 
-msgid "Русский язык (Russian)"
-msgstr "Русский язык (ruština)"
+#: classes/ui/issueui.php:775 classes/ui/themes/neverland/issueui.php:786
+msgid "Contributors"
+msgstr "Přispěvatelé"
+
+#: classes/ui/listui.php:35 classes/ui/themes/neverland/digestui.php:249
+#: classes/ui/themes/neverland/indexui.php:61
+#: classes/ui/themes/neverland/listui.php:35
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:42
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:44
+#: templates/default/cache/e2/d5/7374cb483dae2046c0fc7ff359ab.php:49
+#: templates/neverland/cache/e3/73/23ebdfe2e66526ff9467bdf8c1a8.php:50
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:42
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:44
+msgid "Issues"
+msgstr ""
+
+#: classes/ui/listui.php:45 classes/ui/themes/neverland/listui.php:45
+msgid "Sort by latest digest..."
+msgstr ""
+
+#: classes/ui/listui.php:51 classes/ui/themes/neverland/listui.php:51
+msgid "Sort by earliest digest..."
+msgstr ""
+
+#: classes/ui/moreinfoui.php:36 classes/ui/moreinfoui.php:130
+#: classes/ui/themes/neverland/moreinfoui.php:36
+msgid "More Info"
+msgstr "Více informací"
+
+#: classes/ui/moreinfoui.php:110 classes/ui/moreinfoui.php:115
+#: classes/ui/themes/neverland/moreinfoui.php:110
+#: classes/ui/themes/neverland/moreinfoui.php:115
+#, php-format
+msgid "Go to revision %s"
+msgstr ""
+
+#: classes/ui/moreinfoui.php:132
+msgid "(Back to digest)"
+msgstr ""
+
+#: classes/ui/moreinfoui.php:146
+#: classes/ui/themes/neverland/moreinfoui.php:151
+#, php-format
+msgid "%s in %s"
+msgstr "%s v %s"
+
+#: classes/ui/moreinfoui.php:175
+#: classes/ui/themes/neverland/moreinfoui.php:180
+msgid "Added"
+msgstr "Přidáno"
+
+#: classes/ui/moreinfoui.php:176
+#: classes/ui/themes/neverland/moreinfoui.php:181
+msgid "Modified"
+msgstr "Změněno"
+
+#: classes/ui/moreinfoui.php:177
+#: classes/ui/themes/neverland/moreinfoui.php:182
+msgid "Deleted"
+msgstr "Smazáno"
+
+#: classes/ui/moreinfoui.php:178
+#: classes/ui/themes/neverland/moreinfoui.php:183
+msgid "Ignored"
+msgstr ""
+
+#: classes/ui/moreinfoui.php:179
+#: classes/ui/themes/neverland/moreinfoui.php:184
+msgid "Conflicted"
+msgstr ""
+
+#: classes/ui/moreinfoui.php:183
+#: classes/ui/themes/neverland/moreinfoui.php:188
+msgid "File Changes"
+msgstr "Změny souborů"
+
+#: classes/ui/moreinfoui.php:207
+#: classes/ui/themes/neverland/moreinfoui.php:212
+#, php-format
+msgid "%d files"
+msgstr "%d souborů"
+
+#: classes/ui/moreinfoui.php:235
+#: classes/ui/themes/neverland/moreinfoui.php:242
+#, php-format
+msgid "%d files changed in total"
+msgstr "celkem %d souborů změněno"
+
+#: classes/ui/optionsui.php:25 classes/ui/themes/neverland/optionsui.php:25
+msgid "Options"
+msgstr "Možnosti"
+
+#: classes/ui/themes/neverland/digestui.php:198
+#: templates/default/cache/54/94/4b95c93f1e679da0bd783dc80633.php:24
+#: templates/neverland/cache/fe/c7/b4db095159432f56d0439db8b989.php:24
+msgid "This issue has not been published yet"
+msgstr ""
+
+#: classes/ui/themes/neverland/digestui.php:199
+#: templates/default/cache/54/94/4b95c93f1e679da0bd783dc80633.php:27
+#: templates/neverland/cache/fe/c7/b4db095159432f56d0439db8b989.php:27
+msgid "Publish"
+msgstr ""
+
+#: classes/ui/themes/neverland/digestui.php:245
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:31
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:33
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:31
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:33
+msgid "Front Page"
+msgstr "Úvodní stránka"
+
+#: classes/ui/themes/neverland/digestui.php:252
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:54
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:56
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:54
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:56
+msgid "Latest Issue"
+msgstr "Poslední vydání"
+
+#: classes/ui/themes/neverland/digestui.php:268
+#: classes/ui/themes/neverland/indexui.php:89
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:98
+#: templates/default/cache/26/75/03e094728e55bdb7fc07a98949c6.php:100
+#: templates/default/cache/e2/d5/7374cb483dae2046c0fc7ff359ab.php:95
+#: templates/neverland/cache/e3/73/23ebdfe2e66526ff9467bdf8c1a8.php:96
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:98
+#: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:100
+msgid "Random Digest"
+msgstr ""
+
+#: classes/ui/themes/neverland/indexui.php:52
+#: templates/default/cache/e2/d5/7374cb483dae2046c0fc7ff359ab.php:24
+#: templates/neverland/cache/e3/73/23ebdfe2e66526ff9467bdf8c1a8.php:25
+msgid "Welcome"
+msgstr "Vítejte"
+
+#: classes/ui/themes/neverland/indexui.php:53
+#, php-format
+msgid "...to the %s, a weekly overview of the development activity in KDE."
+msgstr ""
+
+#: classes/ui/themes/neverland/indexui.php:56
+#: templates/default/cache/e2/d5/7374cb483dae2046c0fc7ff359ab.php:40
+#: templates/neverland/cache/e3/73/23ebdfe2e66526ff9467bdf8c1a8.php:41
+msgid "Read the latest issue!"
+msgstr ""
+
+#: classes/ui/themes/neverland/issueui.php:726
+msgid "Previous digest"
+msgstr ""
+
+#: classes/ui/themes/neverland/issueui.php:731
+msgid "Next digest"
+msgstr ""
+
+#: classes/ui/themes/neverland/issueui.php:791
+#, php-format
+msgid "How to contribute to %s..."
+msgstr ""
+
+#: classes/ui/themes/neverland/moreinfoui.php:110
+msgid "Previous revision"
+msgstr ""
+
+#: classes/ui/themes/neverland/moreinfoui.php:115
+msgid "Next revision"
+msgstr ""
+
+#: classes/ui/themes/neverland/moreinfoui.php:136
+#, php-format
+msgid "Go back to digest for %s"
+msgstr ""
+
+#: templates/default/cache/08/0a/cc34fe2506607531c84399e3e959.php:87
+#: templates/neverland/cache/e1/e1/e2331ab4ffad8ad56ea60b8435f2.php:79
+msgid "Issue %number%: %date%"
+msgstr ""
+
+#: templates/default/cache/45/2c/62920cc0efc1cd4b4c357ec20468.php:36
+#: templates/neverland/cache/c9/ce/511f29e6d43cd7db2231d6f9069b.php:36
+msgid ""
+"For %archive_issues% issues, %archive_author% produced the KDE-CVS Digest. "
+"Here are the archives of his digests:"
+msgstr ""
+
+#: templates/default/cache/b4/74/0d19790c1973395bdbaa5b33e437.php:20
+#: templates/neverland/cache/b0/ac/bf13ee441867e5b824a3bd0248e8.php:20
+msgid "This Week..."
+msgstr "Tento týden..."
+
+#: templates/default/cache/e2/d5/7374cb483dae2046c0fc7ff359ab.php:29
+#: templates/neverland/cache/e3/73/23ebdfe2e66526ff9467bdf8c1a8.php:30
+msgid ""
+"...to the %PROJECT_NAME%, a weekly overview of the development activity in "
+"KDE."
+msgstr ""
+
+#~ msgid "(type)"
+#~ msgstr "(typ)"
+
+#~ msgid "Afrikaans (Afrikaans)"
+#~ msgstr "Afrikaans (afrikánština)"
+
+#~ msgid "Click to zoom out..."
+#~ msgstr "Klikněte pro oddálení..."
+
+#~ msgid ""
+#~ "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny "
+#~ "Allen</a>, 2006-2010"
+#~ msgstr ""
+#~ "KDE Commit-Digest od <a href=\"mailto:danny@commit-digest.org\">Dannyho "
+#~ "Allena</a>, 2006-2010"
+
+#~ msgid ""
+#~ "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny "
+#~ "Allen</a>, 2006-2012"
+#~ msgstr ""
+#~ "KDE Commit-Digest od <a href=\"mailto:danny@commit-digest.org\">Dannyho "
+#~ "Allena</a>, 2006-2012"
+
+#~ msgid "KOffice"
+#~ msgstr "KOffice"
+
+#~ msgid "Magyar (Hungarian)"
+#~ msgstr "Magyar (maďarština)"
+
+#~ msgid "Message"
+#~ msgstr "Zpráva"
+
+#~ msgid "Optimize"
+#~ msgstr "Optimalizovat"
+
+#~ msgid "Polski (Polish)"
+#~ msgstr "Polski (polština)"
+
+#~ msgid "Processed %s"
+#~ msgstr "Zpracováno %s"
+
+#~ msgid "Svenska (Swedish)"
+#~ msgstr "Svenska (švédština)"
+
+#~ msgid "Ukrainian (Ukrainian)"
+#~ msgstr "Ukrainian (ukrajinština)"
+
+#~ msgid "View as list..."
+#~ msgstr "Zobrazit jako seznam..."
+
+#~ msgid "View as map..."
+#~ msgstr "Zobrazit jako mapu..."
+
+#~ msgid "filter?"
+#~ msgstr "filtrovat?"
+
+#~ msgid "Русский язык (Russian)"
+#~ msgstr "Русский язык (ruština)"
