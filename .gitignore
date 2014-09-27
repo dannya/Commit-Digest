@@ -4,3 +4,7 @@
 /resources
 /src/css/min
 /src/js/min
+/.idea
+/*.iml
+/src/*.lock
+/src/templates/*/cache/*
