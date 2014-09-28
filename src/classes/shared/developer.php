@@ -399,8 +399,8 @@ class Developer {
       $keys['country']      = Digest::getCountries('basic');
     }
 
-    $keys['microblog_type'] = array('twitter'         => _('twitter.com'),
-                                    'identica'        => _('identi.ca'));
+    $keys['microblog_type'] = array('twitter'         => 'twitter.com',
+                                    'identica'        => 'identi.ca');
 
     // return...
     if ($context == 'all') {

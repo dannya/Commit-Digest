@@ -1,13 +1,14 @@
-# Kristóf Kiszel <ulysses@kubuntu.org>, 2010.
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2010, 2011.
+# Balázs Úr <urbalazs@gmail.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE Commit-Digest\n"
 "Report-Msgid-Bugs-To: danny@commit-digest.org\n"
-"POT-Creation-Date: 2014-09-27 20:00-0000\n"
-"PO-Revision-Date: 2014-09-27 20:11-0000\n"
+"POT-Creation-Date: 2014-09-28 20:23-0000\n"
+"PO-Revision-Date: 2014-09-28 20:41-0000\n"
 "Last-Translator: Danny Allen <danny@commit-digest.org>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
-"Language: hu_HU\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,7 +19,7 @@ msgstr ""
 "X-Generator: Poedit 1.6.9\n"
 "X-Poedit-SearchPath-0: C:\\www\\digest\\src\n"
 
-#: classes/shared/app.php:169
+#: classes/shared/app.php:168
 #, php-format
 msgid "You need to have the permission \"%s\" to view this section"
 msgstr ""
@@ -108,15 +109,16 @@ msgstr ""
 
 #: classes/shared/developer.php:332
 msgid "Account"
-msgstr ""
+msgstr "Fiók"
 
 #: classes/shared/developer.php:333
 msgid "Name"
 msgstr ""
 
 #: classes/shared/developer.php:334
+#, fuzzy
 msgid "Email"
-msgstr ""
+msgstr "Adminisztrátor e-mail"
 
 #: classes/shared/developer.php:335
 msgid "Nickname"
@@ -137,7 +139,7 @@ msgstr "Oktatás"
 
 #: classes/shared/developer.php:339
 msgid "Motivation"
-msgstr ""
+msgstr "Motiváció"
 
 #: classes/shared/developer.php:340
 msgid "Employer"
@@ -159,7 +161,7 @@ msgstr ""
 #: classes/shared/developer.php:345
 #, fuzzy
 msgid "Location"
-msgstr "Oktatás"
+msgstr "Adat helyek"
 
 #: classes/shared/developer.php:346
 msgid "Latitude"
@@ -170,12 +172,14 @@ msgid "Longitude"
 msgstr ""
 
 #: classes/shared/developer.php:349
+#, fuzzy
 msgid "Homepage URL"
-msgstr ""
+msgstr "Súgó URL"
 
 #: classes/shared/developer.php:350
+#, fuzzy
 msgid "Blog URL"
-msgstr ""
+msgstr "Súgó URL"
 
 #: classes/shared/developer.php:351
 msgid "Last.fm username"
@@ -217,7 +221,7 @@ msgstr "Önkéntes"
 
 #: classes/shared/developer.php:375 classes/specific/chart.php:47
 msgid "Commercial"
-msgstr ""
+msgstr "Kereskedelmi"
 
 #: classes/shared/developer.php:377
 msgid "Red"
@@ -287,14 +291,6 @@ msgstr "Észak-Amerika"
 msgid "South America"
 msgstr "Dél-Amerika"
 
-#: classes/shared/developer.php:402
-msgid "twitter.com"
-msgstr ""
-
-#: classes/shared/developer.php:403
-msgid "identi.ca"
-msgstr ""
-
 #: classes/shared/digest.php:122 classes/shared/digest.php:162
 #: classes/shared/digest.php:177 classes/shared/digest.php:202
 #: classes/shared/digest.php:230 classes/shared/digest.php:245
@@ -309,11 +305,11 @@ msgstr ""
 #: classes/shared/enzyme.php:575 classes/shared/enzyme.php:660
 #, php-format
 msgid "Query failed: %s"
-msgstr ""
+msgstr "A lekérdezés nem sikerült: %s"
 
 #: classes/shared/digest.php:521
 msgid "Issue"
-msgstr ""
+msgstr "Kiadás"
 
 #: classes/shared/digest.php:522 classes/ui/listui.php:37
 #: classes/ui/themes/neverland/digestui.php:258
@@ -325,155 +321,85 @@ msgstr ""
 msgid "Archive"
 msgstr "Archívum"
 
-#: classes/shared/digest.php:527
-msgid "English"
-msgstr "Angol"
-
-#: classes/shared/digest.php:528
+#: classes/shared/digest.php:555
 #, fuzzy
-msgid "Deutsch"
-msgstr "Német"
-
-#: classes/shared/digest.php:529
-#, fuzzy
-msgid "Français"
-msgstr "Francia"
-
-#: classes/shared/digest.php:530
-#, fuzzy
-msgid "Español"
-msgstr "Spanyol"
-
-#: classes/shared/digest.php:531
-msgid "Català"
-msgstr ""
-
-#: classes/shared/digest.php:532
-#, fuzzy
-msgid "Nederlands"
-msgstr "Holland"
-
-#: classes/shared/digest.php:533
-#, fuzzy
-msgid "Italiano"
-msgstr "Olasz"
-
-#: classes/shared/digest.php:534
-msgid "Pyccĸий"
-msgstr ""
-
-#: classes/shared/digest.php:535
-msgid "Polski"
-msgstr ""
-
-#: classes/shared/digest.php:536
-#, fuzzy
-msgid "Português"
-msgstr "Portugál"
-
-#: classes/shared/digest.php:537
-#, fuzzy
-msgid "Português Brasileiro"
-msgstr "Brazíliai portugál"
-
-#: classes/shared/digest.php:538
-msgid "Magyar"
-msgstr ""
-
-#: classes/shared/digest.php:539
-msgid "Українська"
-msgstr ""
-
-#: classes/shared/digest.php:540
-msgid "Čeština"
-msgstr ""
-
-#: classes/shared/digest.php:541
-msgid "Low Saxon"
-msgstr ""
-
-#: classes/shared/digest.php:544
-msgid "Svenska"
-msgstr ""
-
-#: classes/shared/digest.php:549
 msgid "Idea"
-msgstr ""
+msgstr "1. Ötlet"
 
-#: classes/shared/digest.php:550
+#: classes/shared/digest.php:556
 msgid "Contacting"
 msgstr ""
 
-#: classes/shared/digest.php:551
+#: classes/shared/digest.php:557
 msgid "More information needed"
 msgstr ""
 
-#: classes/shared/digest.php:553
+#: classes/shared/digest.php:559
 msgid "Needs proofreading"
 msgstr ""
 
-#: classes/shared/digest.php:554
+#: classes/shared/digest.php:560
 msgid "Ready for selection"
 msgstr ""
 
-#: classes/shared/digest.php:555
+#: classes/shared/digest.php:561
 #, fuzzy
 msgid "Selected"
-msgstr "Törölve"
+msgstr "6. Kijelölve"
 
-#: classes/shared/digest.php:599 classes/ui/moreinfoui.php:131
+#: classes/shared/digest.php:605 classes/ui/moreinfoui.php:131
 #: classes/ui/themes/neverland/moreinfoui.php:134
 #, php-format
 msgid "Revision %s"
-msgstr ""
+msgstr "Revízió: %s"
 
-#: classes/shared/digest.php:620 classes/shared/digest.php:643
+#: classes/shared/digest.php:626 classes/shared/digest.php:649
 #, php-format
 msgid "%s committed changes in %s:"
 msgstr ""
 
-#: classes/shared/digest.php:669 classes/shared/enzyme.php:1542
+#: classes/shared/digest.php:675 classes/shared/enzyme.php:1542
 #, php-format
 msgid "Bug %d: %s"
-msgstr ""
+msgstr "%d. hiba: %s"
 
-#: classes/shared/digest.php:673
+#: classes/shared/digest.php:679
 #, php-format
 msgid "%d days"
 msgstr "%d nap"
 
-#: classes/shared/digest.php:728
+#: classes/shared/digest.php:734
 #, php-format
 msgid "Diffs: %s"
 msgstr ""
 
-#: classes/shared/digest.php:731
+#: classes/shared/digest.php:737
 #, php-format
 msgid "(+ %d more)"
 msgstr ""
 
-#: classes/shared/digest.php:740 classes/shared/enzyme.php:331
+#: classes/shared/digest.php:746 classes/shared/enzyme.php:331
 msgid "Admin"
-msgstr ""
+msgstr "Adminisztrátor"
 
-#: classes/shared/digest.php:742 classes/shared/enzyme.php:335
+#: classes/shared/digest.php:748 classes/shared/enzyme.php:335
 #: classes/shared/enzyme.php:336
 msgid "Editor"
 msgstr "Szerkesztő"
 
-#: classes/shared/digest.php:744
+#: classes/shared/digest.php:750
 msgid "Feature editor"
-msgstr ""
+msgstr "Szolgáltatás szerkesztő"
 
-#: classes/shared/digest.php:746 classes/shared/enzyme.php:343
+#: classes/shared/digest.php:752 classes/shared/enzyme.php:343
 msgid "Reviewer"
-msgstr ""
+msgstr "Lektor"
 
-#: classes/shared/digest.php:748 classes/shared/enzyme.php:347
+#: classes/shared/digest.php:754 classes/shared/enzyme.php:347
 msgid "Classifier"
 msgstr ""
 
-#: classes/shared/digest.php:750 classes/shared/enzyme.php:351
+#: classes/shared/digest.php:756 classes/shared/enzyme.php:351
 #: classes/shared/enzyme.php:352
 msgid "Translator"
 msgstr "Fordító"
@@ -485,7 +411,7 @@ msgstr ""
 
 #: classes/shared/enzyme.php:85
 msgid "Accessibility"
-msgstr ""
+msgstr "Akadálymentesítés"
 
 #: classes/shared/enzyme.php:86
 msgid "Development Tools"
@@ -501,16 +427,15 @@ msgstr "Grafikai programok"
 
 #: classes/shared/enzyme.php:89
 msgid "KDE Base"
-msgstr ""
+msgstr "KDE Base"
 
 #: classes/shared/enzyme.php:90
 msgid "KDE-PIM"
-msgstr "KDE PIM"
+msgstr "KDE-PIM"
 
 #: classes/shared/enzyme.php:91
-#, fuzzy
 msgid "Office"
-msgstr "KOffice"
+msgstr "Irodai alkalmazások"
 
 #: classes/shared/enzyme.php:92
 msgid "Konqueror"
@@ -522,7 +447,7 @@ msgstr "Multimédia"
 
 #: classes/shared/enzyme.php:94
 msgid "Networking Tools"
-msgstr ""
+msgstr "Hálózati eszközök"
 
 #: classes/shared/enzyme.php:95
 msgid "User Interface"
@@ -546,12 +471,11 @@ msgstr "Hibajavítások"
 
 #: classes/shared/enzyme.php:111
 msgid "Features"
-msgstr ""
+msgstr "Szolgáltatások"
 
 #: classes/shared/enzyme.php:112
-#, fuzzy
 msgid "Optimization"
-msgstr "Beállítások"
+msgstr "Optimalizáció"
 
 #: classes/shared/enzyme.php:113
 msgid "Security"
@@ -559,7 +483,7 @@ msgstr "Biztonság"
 
 #: classes/shared/enzyme.php:126
 msgid "Path"
-msgstr ""
+msgstr "Elérési út"
 
 #: classes/shared/enzyme.php:127
 msgid "Repository"
@@ -571,11 +495,11 @@ msgstr "Projektnév"
 
 #: classes/shared/enzyme.php:184
 msgid "Admin Email"
-msgstr ""
+msgstr "Adminisztrátor e-mail"
 
 #: classes/shared/enzyme.php:188
 msgid "Enzyme URL"
-msgstr ""
+msgstr "Enzyme URL"
 
 #: classes/shared/enzyme.php:192
 msgid "Digest URL"
@@ -583,7 +507,7 @@ msgstr ""
 
 #: classes/shared/enzyme.php:196
 msgid "Help URL"
-msgstr ""
+msgstr "Súgó URL"
 
 #: classes/shared/enzyme.php:200
 msgid "Help Container Element"
@@ -591,11 +515,11 @@ msgstr ""
 
 #: classes/shared/enzyme.php:204
 msgid "SMTP Mail Server"
-msgstr ""
+msgstr "SMTP levél kiszolgáló"
 
 #: classes/shared/enzyme.php:208
 msgid "Show Insert"
-msgstr ""
+msgstr "Beszúrás megjelenítése"
 
 #: classes/shared/enzyme.php:209 classes/shared/enzyme.php:214
 #: classes/shared/enzyme.php:267
@@ -624,24 +548,27 @@ msgid "Web SVN viewer URL"
 msgstr ""
 
 #: classes/shared/enzyme.php:232
+#, fuzzy
 msgid "Web Bug Tracker URL"
-msgstr ""
+msgstr "Web hibakövető XML"
 
 #: classes/shared/enzyme.php:236
+#, fuzzy
 msgid "Web Bug Tracker (XML) URL"
-msgstr ""
+msgstr "Web hibakövető XML"
 
 #: classes/shared/enzyme.php:240
+#, fuzzy
 msgid "ReviewBoard URL"
-msgstr ""
+msgstr "Lektor"
 
 #: classes/shared/enzyme.php:244
 msgid "I18n Stats URL"
-msgstr ""
+msgstr "I18n állapot URL"
 
 #: classes/shared/enzyme.php:248
 msgid "I18n Teams URL"
-msgstr ""
+msgstr "I18n csapatok URL"
 
 #: classes/shared/enzyme.php:252
 msgid "Bug Stats URL"
@@ -665,23 +592,23 @@ msgstr ""
 
 #: classes/shared/enzyme.php:275
 msgid "Existing Archive"
-msgstr ""
+msgstr "Létező archívum"
 
 #: classes/shared/enzyme.php:279
 msgid "Existing Data"
-msgstr ""
+msgstr "Létező adat"
 
 #: classes/shared/enzyme.php:293
 msgid "Enzyme Settings"
-msgstr ""
+msgstr "Enzyme beállítások"
 
 #: classes/shared/enzyme.php:305
 msgid "Data Locations"
-msgstr ""
+msgstr "Adat helyek"
 
 #: classes/shared/enzyme.php:315
 msgid "Display Defaults"
-msgstr ""
+msgstr "Alapértelmezések megjelenítése"
 
 #: classes/shared/enzyme.php:319
 msgid "Legacy Import"
@@ -689,7 +616,7 @@ msgstr ""
 
 #: classes/shared/enzyme.php:332
 msgid "Enzyme Administrator"
-msgstr ""
+msgstr "Enzyme adminisztrátor"
 
 #: classes/shared/enzyme.php:333
 msgid ""
@@ -705,7 +632,7 @@ msgstr ""
 
 #: classes/shared/enzyme.php:339 classes/shared/enzyme.php:340
 msgid "Feature Editor"
-msgstr ""
+msgstr "Szolgáltatás szerkesztő"
 
 #: classes/shared/enzyme.php:341
 msgid ""
@@ -762,7 +689,7 @@ msgstr ""
 
 #: classes/shared/enzyme.php:881
 msgid "Not enough data to generate statistics."
-msgstr ""
+msgstr "Nincs elég adat a statisztika előállításához."
 
 #: classes/shared/enzyme.php:1004
 msgid "Inserted people stats"
@@ -774,7 +701,7 @@ msgstr ""
 
 #: classes/shared/enzyme.php:1032
 msgid "Extracting extended statistics..."
-msgstr ""
+msgstr "Kibővített statisztikák kibontása…"
 
 #: classes/shared/enzyme.php:1125
 msgid "Getting internationalization (i18n) stats..."
@@ -805,11 +732,11 @@ msgstr ""
 #: classes/shared/enzyme.php:1645
 #, php-format
 msgid "Reviewed by %s"
-msgstr ""
+msgstr "Lektorálta: %s"
 
 #: classes/shared/enzyme.php:1666
 msgid "Area"
-msgstr ""
+msgstr "Terület"
 
 #: classes/shared/enzyme.php:1669
 msgid "Type"
@@ -872,8 +799,9 @@ msgid "Close preview"
 msgstr ""
 
 #: classes/shared/media.php:270 classes/shared/media.php:280
+#, fuzzy
 msgid "Preview"
-msgstr ""
+msgstr "Lektor"
 
 #: classes/shared/ui.php:254
 #, php-format
@@ -891,7 +819,7 @@ msgstr "Ismeretlen"
 
 #: classes/specific/chart.php:54
 msgid "Under 18"
-msgstr ""
+msgstr "18 alatt"
 
 #: classes/specific/chart.php:55
 msgid "18 to 25"
@@ -923,7 +851,7 @@ msgstr "75-85"
 
 #: classes/specific/chart.php:62
 msgid "Over 85"
-msgstr ""
+msgstr "85 fölött"
 
 #: classes/specific/config.php:97
 msgid "Setup"
@@ -937,7 +865,7 @@ msgstr ""
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:109
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:111
 msgid "Contribute"
-msgstr ""
+msgstr "Közreműködés"
 
 #: classes/ui/contributeui.php:38
 #: classes/ui/themes/neverland/contributeui.php:38
@@ -950,17 +878,17 @@ msgstr ""
 #: classes/ui/contributeui.php:42
 #: classes/ui/themes/neverland/contributeui.php:42
 msgid "Time"
-msgstr ""
+msgstr "Idő"
 
 #: classes/ui/contributeui.php:49
 #: classes/ui/themes/neverland/contributeui.php:49
 msgid "Apply!"
-msgstr ""
+msgstr "Alkalmazás!"
 
 #: classes/ui/contributeui.php:61
 #: classes/ui/themes/neverland/contributeui.php:61
 msgid "Money"
-msgstr ""
+msgstr "Pénz"
 
 #: classes/ui/contributeui.php:63
 #: classes/ui/themes/neverland/contributeui.php:63
@@ -1029,7 +957,7 @@ msgstr ""
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:120
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:122
 msgid "Data"
-msgstr ""
+msgstr "Adat"
 
 #: classes/ui/dataui.php:65 classes/ui/themes/neverland/dataui.php:65
 #, php-format
@@ -1044,11 +972,12 @@ msgstr ""
 
 #: classes/ui/dataui.php:71 classes/ui/themes/neverland/dataui.php:71
 msgid "Step 1:"
-msgstr ""
+msgstr "1. lépés:"
 
 #: classes/ui/dataui.php:74 classes/ui/themes/neverland/dataui.php:74
+#, fuzzy
 msgid "Enter your developer account name:"
-msgstr ""
+msgstr "Adja meg az SVN fiók nevét:"
 
 #: classes/ui/dataui.php:78 classes/ui/themes/neverland/dataui.php:78
 msgid "Send!"
@@ -1066,7 +995,7 @@ msgstr ""
 
 #: classes/ui/dataui.php:92 classes/ui/themes/neverland/dataui.php:92
 msgid "Step 2:"
-msgstr ""
+msgstr "2. lépés:"
 
 #: classes/ui/dataui.php:96 classes/ui/themes/neverland/dataui.php:96
 msgid "Reply to the email, following the instructions carefully."
@@ -1082,11 +1011,11 @@ msgstr ""
 
 #: classes/ui/dataui.php:108 classes/ui/themes/neverland/dataui.php:108
 msgid "Step 3:"
-msgstr ""
+msgstr "3. lépés:"
 
 #: classes/ui/dataui.php:111 classes/ui/themes/neverland/dataui.php:111
 msgid "Thanks!"
-msgstr ""
+msgstr "Köszönet!"
 
 #: classes/ui/dataui.php:113 classes/ui/themes/neverland/dataui.php:113
 msgid "You will soon be represented in the extended statistics."
@@ -1102,8 +1031,9 @@ msgid "Geographic"
 msgstr "Grafikai programok"
 
 #: classes/ui/dataui.php:130 classes/ui/themes/neverland/dataui.php:130
+#, fuzzy
 msgid "Social"
-msgstr ""
+msgstr "Kereskedelmi"
 
 #: classes/ui/dataui.php:141 classes/ui/themes/neverland/dataui.php:141
 #, php-format
@@ -1222,7 +1152,7 @@ msgstr ""
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:88
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:90
 msgid "One Year Ago"
-msgstr ""
+msgstr "Egy évvel korábban"
 
 #: classes/ui/issueui.php:100 classes/ui/themes/neverland/digestui.php:262
 #: classes/ui/themes/neverland/indexui.php:79
@@ -1234,11 +1164,11 @@ msgstr ""
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:78
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:80
 msgid "Six Months Ago"
-msgstr ""
+msgstr "Hat hónappal ezelőtt"
 
 #: classes/ui/issueui.php:179 classes/ui/themes/neverland/issueui.php:179
 msgid "Issue cannot be found"
-msgstr ""
+msgstr "Nem található kiadás"
 
 #: classes/ui/issueui.php:271 classes/ui/themes/neverland/issueui.php:271
 #, php-format
@@ -1267,7 +1197,7 @@ msgstr ""
 
 #: classes/ui/issueui.php:291 classes/ui/themes/neverland/issueui.php:291
 msgid "Open Bugs"
-msgstr ""
+msgstr "Nyitott hibák"
 
 #: classes/ui/issueui.php:295 classes/ui/themes/neverland/issueui.php:295
 msgid "Open Wishes"
@@ -1275,7 +1205,7 @@ msgstr ""
 
 #: classes/ui/issueui.php:299 classes/ui/themes/neverland/issueui.php:299
 msgid "Bugs Opened"
-msgstr ""
+msgstr "Nyitott hibák"
 
 #: classes/ui/issueui.php:300 classes/ui/issueui.php:304
 #: classes/ui/themes/neverland/issueui.php:300
@@ -1288,7 +1218,7 @@ msgstr ""
 #: classes/ui/themes/neverland/issueui.php:303
 #: classes/ui/themes/neverland/issueui.php:436
 msgid "Bugs Closed"
-msgstr ""
+msgstr "Lezárt hibák"
 
 #: classes/ui/issueui.php:311 classes/ui/themes/neverland/issueui.php:311
 msgid "Commit Summary"
@@ -1320,7 +1250,7 @@ msgstr "Modul"
 
 #: classes/ui/issueui.php:369 classes/ui/themes/neverland/issueui.php:369
 msgid "Lines"
-msgstr ""
+msgstr "Sorok"
 
 #: classes/ui/issueui.php:373 classes/ui/themes/neverland/issueui.php:373
 msgid "Files"
@@ -1394,7 +1324,7 @@ msgstr ""
 #: classes/ui/issueui.php:731 classes/ui/themes/neverland/issueui.php:744
 #, php-format
 msgid "Issue %d"
-msgstr ""
+msgstr "%d. kiadás"
 
 #: classes/ui/issueui.php:738 classes/ui/themes/neverland/issueui.php:751
 #, php-format
@@ -1420,7 +1350,7 @@ msgstr "Közreműködők"
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:42
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:44
 msgid "Issues"
-msgstr ""
+msgstr "Kiadások"
 
 #: classes/ui/listui.php:45 classes/ui/themes/neverland/listui.php:45
 msgid "Sort by latest digest..."
@@ -1480,7 +1410,7 @@ msgstr ""
 #: classes/ui/moreinfoui.php:183
 #: classes/ui/themes/neverland/moreinfoui.php:188
 msgid "File Changes"
-msgstr ""
+msgstr "Fájl változások"
 
 #: classes/ui/moreinfoui.php:207
 #: classes/ui/themes/neverland/moreinfoui.php:212
@@ -1524,7 +1454,7 @@ msgstr ""
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:54
 #: templates/neverland/cache/fd/1d/987e7066d4ce31f0900de1524dd9.php:56
 msgid "Latest Issue"
-msgstr ""
+msgstr "Legutóbbi kiadás"
 
 #: classes/ui/themes/neverland/digestui.php:268
 #: classes/ui/themes/neverland/indexui.php:89
@@ -1541,7 +1471,7 @@ msgstr ""
 #: templates/default/cache/e2/d5/7374cb483dae2046c0fc7ff359ab.php:24
 #: templates/neverland/cache/e3/73/23ebdfe2e66526ff9467bdf8c1a8.php:25
 msgid "Welcome"
-msgstr ""
+msgstr "Üdvözöljük"
 
 #: classes/ui/themes/neverland/indexui.php:53
 #, php-format
@@ -1607,22 +1537,109 @@ msgstr ""
 #~ msgid "(type)"
 #~ msgstr "(típus)"
 
-#, fuzzy
-#~| msgid "Contents"
-#~ msgid "Converted %s"
-#~ msgstr "Tartalom"
+#~ msgid "Afrikaans (Afrikaans)"
+#~ msgstr "Afrikaans (Afrikaans)"
+
+#~ msgid "Czech (Čeština)"
+#~ msgstr "Cseh (Čeština)"
+
+#~ msgid "Deutsch (German)"
+#~ msgstr "Deutsch (Német)"
+
+#~ msgid "Downloading translations..."
+#~ msgstr "Fordítások letöltése…"
+
+#~ msgid "English"
+#~ msgstr "Angol"
+
+#~ msgid "Español (Spanish)"
+#~ msgstr "Español (Spanyol)"
+
+#~ msgid "Français (French)"
+#~ msgstr "Français (Francia)"
+
+#~ msgid "Getting available translations..."
+#~ msgstr "Elérhető fordítások beszerzése…"
+
+#~ msgid "Issue %d: %s"
+#~ msgstr "%d. kiadás: %s"
+
+#~ msgid "Italiano (Italian)"
+#~ msgstr "Italiano (Olasz)"
+
+#~ msgid ""
+#~ "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny "
+#~ "Allen</a>, 2006-2010"
+#~ msgstr ""
+#~ "KDE Commit-Digest: <a href=\"mailto:danny@commit-digest.org\">Danny "
+#~ "Allen</a>, 2006-2010."
+
+#~ msgid ""
+#~ "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny "
+#~ "Allen</a>, 2006-2011"
+#~ msgstr ""
+#~ "KDE Commit-Digest: <a href=\"mailto:danny@commit-digest.org\">Danny "
+#~ "Allen</a>, 2006-2011."
 
 #~ msgid "KOffice"
 #~ msgstr "KOffice"
 
+#~ msgid "Low Saxon (Low Saxon)"
+#~ msgstr "Low Saxon (Low Saxon)"
+
+#~ msgid "Magyar (Hungarian)"
+#~ msgstr "Magyar (Hungarian)"
+
 #~ msgid "Message"
 #~ msgstr "Üzenet"
 
+#~ msgid "Nederlands (Dutch)"
+#~ msgstr "Nederlands (Holland)"
+
+#~ msgid "Optimize"
+#~ msgstr "Optimalizálás"
+
 #~ msgid "Polski (Polish)"
-#~ msgstr "Lengyel"
+#~ msgstr "Polski (Lengyel)"
+
+#~ msgid "Português (Portuguese)"
+#~ msgstr "Português (Portugál)"
+
+#~ msgid "Português Brasileiro (Brazilian Portuguese)"
+#~ msgstr "Português Brasileiro (Brazíliai portugál)"
+
+#~ msgid "Query failed"
+#~ msgstr "A lekérdezés nem sikerült"
 
 #~ msgid "Svenska (Swedish)"
-#~ msgstr "Svéd"
+#~ msgstr "Svenska (Svéd)"
+
+#~ msgid "Ukrainian (Ukrainian)"
+#~ msgstr "Ukrainian (Ukrán)"
+
+#~ msgid "Update every %s minutes"
+#~ msgstr "Frissítés minden %s. percben"
+
+#~ msgid "Updating translation strings..."
+#~ msgstr "Fordítás karakterláncok frissítése…"
+
+#~ msgid "Uploading translation strings..."
+#~ msgstr "Fordítás karakterláncok feltöltése…"
+
+#~ msgid "View as list..."
+#~ msgstr "Megtekintés listaként…"
+
+#~ msgid "View as map..."
+#~ msgstr "Megtekintés térképként…"
+
+#~ msgid "Web Bug Tracker"
+#~ msgstr "Web hibakövető"
+
+#~ msgid "filter?"
+#~ msgstr "szűrő?"
+
+#~ msgid "Русский язык (Russian)"
+#~ msgstr "Русский язык (Orosz)"
 
 #~ msgid "Subversion"
 #~ msgstr "Subversion"

@@ -1,29 +1,28 @@
 # Translation of commit-digest.po to Catalan
-# Copyright (C) 2012-2014 This_file_is_part_of_KDE
+# Copyright (C) 2012 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@orange.es>, 2012.
-# Josep Ma. Ferrer <txemaq@gmail.com>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: commit-digest\n"
 "Report-Msgid-Bugs-To: danny@commit-digest.org\n"
-"POT-Creation-Date: 2014-09-27 20:00-0000\n"
-"PO-Revision-Date: 2014-09-27 20:10-0000\n"
+"POT-Creation-Date: 2014-09-28 20:23-0000\n"
+"PO-Revision-Date: 2014-09-28 20:41-0000\n"
 "Last-Translator: Danny Allen <danny@commit-digest.org>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
-"Language: ca\n"
+"Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 1.6.9\n"
 
-#: classes/shared/app.php:169
+#: classes/shared/app.php:168
 #, php-format
 msgid "You need to have the permission \"%s\" to view this section"
-msgstr "Cal que tingueu el permís «%s» per a veure aquesta secció"
+msgstr "Cal que tingueu el permís «%s» per a veure esta secció"
 
 #: classes/shared/date.php:39
 #, php-format
@@ -292,14 +291,6 @@ msgstr "Amèrica del Nord"
 msgid "South America"
 msgstr "Amèrica del Sud"
 
-#: classes/shared/developer.php:402
-msgid "twitter.com"
-msgstr ""
-
-#: classes/shared/developer.php:403
-msgid "identi.ca"
-msgstr ""
-
 #: classes/shared/digest.php:122 classes/shared/digest.php:162
 #: classes/shared/digest.php:177 classes/shared/digest.php:202
 #: classes/shared/digest.php:230 classes/shared/digest.php:245
@@ -330,162 +321,89 @@ msgstr "Qüestió"
 msgid "Archive"
 msgstr "Arxiu"
 
-#: classes/shared/digest.php:527
-msgid "English"
-msgstr "Anglès"
-
-#: classes/shared/digest.php:528
-#, fuzzy
-msgid "Deutsch"
-msgstr "Deutsch (alemany)"
-
-#: classes/shared/digest.php:529
-#, fuzzy
-msgid "Français"
-msgstr "Français (francès)"
-
-#: classes/shared/digest.php:530
-#, fuzzy
-msgid "Español"
-msgstr "Español (espanyol)"
-
-#: classes/shared/digest.php:531
-msgid "Català"
-msgstr ""
-
-#: classes/shared/digest.php:532
-#, fuzzy
-msgid "Nederlands"
-msgstr "Nederlands (holandès)"
-
-#: classes/shared/digest.php:533
-#, fuzzy
-msgid "Italiano"
-msgstr "Italiano (italià)"
-
-#: classes/shared/digest.php:534
-msgid "Pyccĸий"
-msgstr ""
-
-#: classes/shared/digest.php:535
-msgid "Polski"
-msgstr ""
-
-#: classes/shared/digest.php:536
-#, fuzzy
-msgid "Português"
-msgstr "Português (portuguès)"
-
-#: classes/shared/digest.php:537
-#, fuzzy
-msgid "Português Brasileiro"
-msgstr "Português Brasileiro (portuguès brasiler)"
-
-#: classes/shared/digest.php:538
-msgid "Magyar"
-msgstr ""
-
-#: classes/shared/digest.php:539
-msgid "Українська"
-msgstr ""
-
-#: classes/shared/digest.php:540
-#, fuzzy
-msgid "Čeština"
-msgstr "Čeština (txec)"
-
-#: classes/shared/digest.php:541
-#, fuzzy
-msgid "Low Saxon"
-msgstr "Low Saxon (baix saxó)"
-
-#: classes/shared/digest.php:544
-msgid "Svenska"
-msgstr ""
-
-#: classes/shared/digest.php:549
+#: classes/shared/digest.php:555
 #, fuzzy
 msgid "Idea"
 msgstr "1. Idea"
 
-#: classes/shared/digest.php:550
+#: classes/shared/digest.php:556
 #, fuzzy
 msgid "Contacting"
 msgstr "2. Contactar"
 
-#: classes/shared/digest.php:551
+#: classes/shared/digest.php:557
 #, fuzzy
 msgid "More information needed"
 msgstr "3. Es requereix més informació"
 
-#: classes/shared/digest.php:553
+#: classes/shared/digest.php:559
 #, fuzzy
 msgid "Needs proofreading"
 msgstr "4. Requereix correcció"
 
-#: classes/shared/digest.php:554
+#: classes/shared/digest.php:560
 #, fuzzy
 msgid "Ready for selection"
 msgstr "5. Preparat per a la selecció"
 
-#: classes/shared/digest.php:555
+#: classes/shared/digest.php:561
 #, fuzzy
 msgid "Selected"
 msgstr "6. Seleccionat"
 
-#: classes/shared/digest.php:599 classes/ui/moreinfoui.php:131
+#: classes/shared/digest.php:605 classes/ui/moreinfoui.php:131
 #: classes/ui/themes/neverland/moreinfoui.php:134
 #, php-format
 msgid "Revision %s"
 msgstr "Revisió %s"
 
-#: classes/shared/digest.php:620 classes/shared/digest.php:643
+#: classes/shared/digest.php:626 classes/shared/digest.php:649
 #, php-format
 msgid "%s committed changes in %s:"
 msgstr "%s canvis publicats a %s:"
 
-#: classes/shared/digest.php:669 classes/shared/enzyme.php:1542
+#: classes/shared/digest.php:675 classes/shared/enzyme.php:1542
 #, php-format
 msgid "Bug %d: %s"
 msgstr "Error %d: %s"
 
-#: classes/shared/digest.php:673
+#: classes/shared/digest.php:679
 #, php-format
 msgid "%d days"
 msgstr "%d dies"
 
-#: classes/shared/digest.php:728
+#: classes/shared/digest.php:734
 #, php-format
 msgid "Diffs: %s"
 msgstr "Diffs: %s"
 
-#: classes/shared/digest.php:731
+#: classes/shared/digest.php:737
 #, php-format
 msgid "(+ %d more)"
 msgstr "(+ %d més)"
 
-#: classes/shared/digest.php:740 classes/shared/enzyme.php:331
+#: classes/shared/digest.php:746 classes/shared/enzyme.php:331
 msgid "Admin"
 msgstr "Administrador"
 
-#: classes/shared/digest.php:742 classes/shared/enzyme.php:335
+#: classes/shared/digest.php:748 classes/shared/enzyme.php:335
 #: classes/shared/enzyme.php:336
 msgid "Editor"
 msgstr "Editor"
 
-#: classes/shared/digest.php:744
+#: classes/shared/digest.php:750
 msgid "Feature editor"
 msgstr "Editor de característiques"
 
-#: classes/shared/digest.php:746 classes/shared/enzyme.php:343
+#: classes/shared/digest.php:752 classes/shared/enzyme.php:343
 msgid "Reviewer"
 msgstr "Revisor"
 
-#: classes/shared/digest.php:748 classes/shared/enzyme.php:347
+#: classes/shared/digest.php:754 classes/shared/enzyme.php:347
 msgid "Classifier"
 msgstr "Classificador"
 
-#: classes/shared/digest.php:750 classes/shared/enzyme.php:351
+#: classes/shared/digest.php:756 classes/shared/enzyme.php:351
 #: classes/shared/enzyme.php:352
 msgid "Translator"
 msgstr "Traductor"
@@ -553,7 +471,7 @@ msgstr "Altres"
 
 #: classes/shared/enzyme.php:110
 msgid "Bug Fixes"
-msgstr "Correcció d'errors"
+msgstr "Correccions d'errors"
 
 #: classes/shared/enzyme.php:111
 msgid "Features"
@@ -585,7 +503,7 @@ msgstr "Correu electrònic de l'administrador"
 
 #: classes/shared/enzyme.php:188
 msgid "Enzyme URL"
-msgstr "URL de Enzyme"
+msgstr "URL d'Enzyme"
 
 #: classes/shared/enzyme.php:192
 msgid "Digest URL"
@@ -686,7 +604,7 @@ msgstr "Dades existents"
 
 #: classes/shared/enzyme.php:293
 msgid "Enzyme Settings"
-msgstr "Configuració de Enzyme"
+msgstr "Configuració d'Enzyme"
 
 #: classes/shared/enzyme.php:305
 msgid "Data Locations"
@@ -702,14 +620,14 @@ msgstr "Importació amb llegat"
 
 #: classes/shared/enzyme.php:332
 msgid "Enzyme Administrator"
-msgstr "Administrador de Enzyme"
+msgstr "Administrador d'Enzyme"
 
 #: classes/shared/enzyme.php:333
 msgid ""
 "Enzyme Administrators can manage all aspects of the system, including "
 "various import tools and user accounts."
 msgstr ""
-"Els administradors de Enzyme poden gestionar tots els aspectes del sistema, "
+"Els administradors d'Enzyme poden gestionar tots els aspectes del sistema, "
 "incloses vàries eines d'importació i els comptes d'usuari."
 
 #: classes/shared/enzyme.php:337
@@ -862,7 +780,7 @@ msgstr "Mostra només els canvis que he revisat"
 
 #: classes/shared/enzyme.php:1725 classes/shared/enzyme.php:1740
 msgid "Save"
-msgstr "Desa"
+msgstr "Guarda"
 
 #: classes/shared/enzyme.php:1726 classes/shared/enzyme.php:1741
 msgid "Cancel"
@@ -1102,13 +1020,13 @@ msgid ""
 "An email will then be sent from this domain to the email address your "
 "developer account is linked to."
 msgstr ""
-"S'enviarà un correu electrònic des d'aquest domini a l'adreça de correu "
+"S'enviarà un correu electrònic des d'este domini a l'adreça de correu "
 "electrònic vinculada al vostre compte de SVN."
 
 #: classes/ui/dataui.php:85 classes/ui/themes/neverland/dataui.php:85
 #, fuzzy
 msgid "Please allow up to 30 minutes for this email to be sent."
-msgstr "(Si us plau, espereu unes 48 hores per aquest correu electrònic)"
+msgstr "(Per favor, espereu unes 48 hores per este correu electrònic)"
 
 #: classes/ui/dataui.php:92 classes/ui/themes/neverland/dataui.php:92
 msgid "Step 2:"
@@ -1136,7 +1054,7 @@ msgstr "Gràcies!"
 
 #: classes/ui/dataui.php:113 classes/ui/themes/neverland/dataui.php:113
 msgid "You will soon be represented in the extended statistics."
-msgstr "Aviat estareu representat a les estadístiques esteses."
+msgstr "Prompte estareu representat a les estadístiques esteses."
 
 #: classes/ui/dataui.php:128 classes/ui/themes/neverland/dataui.php:128
 msgid "Core"
@@ -1219,7 +1137,7 @@ msgstr "Desenvolupador"
 #: classes/ui/themes/neverland/developerprofileui.php:32
 #: classes/ui/themes/neverland/optionsui.php:32
 msgid "Coming soon!"
-msgstr "Molt aviat!"
+msgstr "Molt prompte!"
 
 #: classes/ui/digestui.php:250 classes/ui/themes/neverland/digestui.php:312
 #, php-format
@@ -1243,22 +1161,22 @@ msgstr "Subscripció a les actualitzacions del KDE Commit-Digest"
 
 #: classes/ui/digestui.php:293
 msgid "Send this issue by email..."
-msgstr "Envia aquest resum per correu electrònic..."
+msgstr "Envia este resum per correu electrònic..."
 
 #: classes/ui/digestui.php:294
 #, fuzzy
 msgid "Share this issue on Twitter..."
-msgstr "Comparteix aquest resum pel Twitter..."
+msgstr "Comparteix este resum pel Twitter..."
 
 #: classes/ui/digestui.php:295
 #, fuzzy
 msgid "Share this issue on Facebook..."
-msgstr "Comparteix aquest resum pel Facebook..."
+msgstr "Comparteix este resum pel Facebook..."
 
 #: classes/ui/digestui.php:296
 #, fuzzy
 msgid "Share this issue on Identica..."
-msgstr "Comparteix aquest resum pel Twitter..."
+msgstr "Comparteix este resum pel Twitter..."
 
 #: classes/ui/indexui.php:33 classes/ui/themes/neverland/indexui.php:31
 msgid "Home"
@@ -1290,7 +1208,7 @@ msgstr "Fa sis mesos"
 
 #: classes/ui/issueui.php:179 classes/ui/themes/neverland/issueui.php:179
 msgid "Issue cannot be found"
-msgstr "No s'ha pogut trobar aquesta qüestió"
+msgstr "No s'ha pogut trobar esta qüestió"
 
 #: classes/ui/issueui.php:271 classes/ui/themes/neverland/issueui.php:271
 #, php-format
@@ -1422,7 +1340,7 @@ msgstr "Salta a %s / %s"
 #: classes/ui/issueui.php:619 classes/ui/themes/neverland/issueui.php:621
 #, php-format
 msgid "There are %d selections this week"
-msgstr "Aquesta setmana hi ha %d seleccions"
+msgstr "Esta setmana hi ha %d seleccions"
 
 #: classes/ui/issueui.php:660 classes/ui/themes/neverland/issueui.php:662
 msgid "No commits found"
@@ -1647,13 +1565,13 @@ msgid ""
 "For %archive_issues% issues, %archive_author% produced the KDE-CVS Digest. "
 "Here are the archives of his digests:"
 msgstr ""
-"Durant %d qüestions, %s ha produït el resum CVS del KDE. Aquí teniu els "
+"Durant %d qüestions, %s ha produït el resum CVS del KDE. Ací teniu els "
 "arxius dels seus resums:"
 
 #: templates/default/cache/b4/74/0d19790c1973395bdbaa5b33e437.php:20
 #: templates/neverland/cache/b0/ac/bf13ee441867e5b824a3bd0248e8.php:20
 msgid "This Week..."
-msgstr "Aquesta setmana..."
+msgstr "Esta setmana..."
 
 #: templates/default/cache/e2/d5/7374cb483dae2046c0fc7ff359ab.php:29
 #: templates/neverland/cache/e3/73/23ebdfe2e66526ff9467bdf8c1a8.php:30
@@ -1703,14 +1621,29 @@ msgstr ""
 #~ "No s'ha pogut connectar a la base de dades: assegureu-vos d'ajustar els "
 #~ "valors correctes a la capçalera de %s/autoload.php"
 
+#~ msgid "Czech (Čeština)"
+#~ msgstr "Čeština (txec)"
+
+#~ msgid "Deutsch (German)"
+#~ msgstr "Deutsch (alemany)"
+
 #~ msgid "Digg this issue..."
-#~ msgstr "Digg aquesta qüestió..."
+#~ msgstr "Digg esta qüestió..."
 
 #~ msgid "Downloaded %s (%s)"
 #~ msgstr "S'ha descarregat %s (%s)"
 
 #~ msgid "Downloading translations..."
 #~ msgstr "S'estan descarregant les traduccions..."
+
+#~ msgid "English"
+#~ msgstr "Anglés"
+
+#~ msgid "Español (Spanish)"
+#~ msgstr "Español (espanyol)"
+
+#~ msgid "Français (French)"
+#~ msgstr "Français (francés)"
 
 #~ msgid "Getting available translations..."
 #~ msgstr "S'estan obtenint les traduccions disponibles..."
@@ -1720,12 +1653,15 @@ msgstr ""
 #~ "data collected for KDE statistics purposes, unless further permission is "
 #~ "granted."
 #~ msgstr ""
-#~ "M'he compromès a mantenir la vostra informació confidencial, i a "
+#~ "M'he compromés a mantindre la vostra informació confidencial, i a "
 #~ "utilitzar les dades recollides només amb fins estadístics del KDE, a "
-#~ "menys que se'm concedeixi un permís addicional."
+#~ "menys que se'm concedisca un permís addicional."
 
 #~ msgid "Issue %d: %s"
 #~ msgstr "Qüestió %d: %s"
+
+#~ msgid "Italiano (Italian)"
+#~ msgstr "Italiano (italià)"
 
 #~ msgid ""
 #~ "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny "
@@ -1744,11 +1680,17 @@ msgstr ""
 #~ msgid "KOffice"
 #~ msgstr "KOffice"
 
+#~ msgid "Low Saxon (Low Saxon)"
+#~ msgstr "Low Saxon (baix saxó)"
+
 #~ msgid "Magyar (Hungarian)"
-#~ msgstr "Magyar (hongarès)"
+#~ msgstr "Magyar (hongarés)"
 
 #~ msgid "Message"
 #~ msgstr "Missatge"
+
+#~ msgid "Nederlands (Dutch)"
+#~ msgstr "Nederlands (holandés)"
 
 #~ msgid "No commits found, maybe your filter is too restrictive..."
 #~ msgstr "No s'han trobat canvis, potser el filtre és massa restrictiu..."
@@ -1757,7 +1699,13 @@ msgstr ""
 #~ msgstr "Optimitzacions"
 
 #~ msgid "Polski (Polish)"
-#~ msgstr "Polski (polonès)"
+#~ msgstr "Polski (polonés)"
+
+#~ msgid "Português (Portuguese)"
+#~ msgstr "Português (portugués)"
+
+#~ msgid "Português Brasileiro (Brazilian Portuguese)"
+#~ msgstr "Português Brasileiro (portugués brasiler)"
 
 #~ msgid "Processed %s"
 #~ msgstr "S'han processat %s"
@@ -1769,7 +1717,7 @@ msgstr ""
 #~ msgstr "Svenska (suec)"
 
 #~ msgid "Ukrainian (Ukrainian)"
-#~ msgstr "Ukrainian (ucraïnès)"
+#~ msgstr "Ukrainian (ucraïnés)"
 
 #~ msgid "Update every %s minutes"
 #~ msgstr "Actualitza cada %s minuts"

@@ -4,10 +4,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: commit-digest\n"
 "Report-Msgid-Bugs-To: danny@commit-digest.org\n"
-"POT-Creation-Date: 2014-09-27 20:00-0000\n"
-"PO-Revision-Date: 2014-09-27 20:11-0000\n"
+"POT-Creation-Date: 2014-09-28 20:23-0000\n"
+"PO-Revision-Date: 2014-09-28 20:41-0000\n"
 "Last-Translator: Danny Allen <danny@commit-digest.org>\n"
-"Language-Team: Low Saxon <kde-i18n-doc@kde.org>\n"
+"Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
 "Language: nds\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Poedit 1.6.9\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: classes/shared/app.php:169
+#: classes/shared/app.php:168
 #, php-format
 msgid "You need to have the permission \"%s\" to view this section"
 msgstr ""
@@ -284,14 +284,6 @@ msgstr "Noordamerika"
 msgid "South America"
 msgstr "Söödamerika"
 
-#: classes/shared/developer.php:402
-msgid "twitter.com"
-msgstr ""
-
-#: classes/shared/developer.php:403
-msgid "identi.ca"
-msgstr ""
-
 #: classes/shared/digest.php:122 classes/shared/digest.php:162
 #: classes/shared/digest.php:177 classes/shared/digest.php:202
 #: classes/shared/digest.php:230 classes/shared/digest.php:245
@@ -322,153 +314,85 @@ msgstr "Utgaav"
 msgid "Archive"
 msgstr "Archiev"
 
-#: classes/shared/digest.php:527
-msgid "English"
-msgstr "Engelsch"
-
-#: classes/shared/digest.php:528
-#, fuzzy
-msgid "Deutsch"
-msgstr "Deutsch (Hoochdüütsch)"
-
-#: classes/shared/digest.php:529
-#, fuzzy
-msgid "Français"
-msgstr "Français (Franzöösch))"
-
-#: classes/shared/digest.php:530
-#, fuzzy
-msgid "Español"
-msgstr "Español (Spaansch)"
-
-#: classes/shared/digest.php:531
-msgid "Català"
-msgstr ""
-
-#: classes/shared/digest.php:532
-#, fuzzy
-msgid "Nederlands"
-msgstr "Nederlands (Nedderlannsch)"
-
-#: classes/shared/digest.php:533
-msgid "Italiano"
-msgstr ""
-
-#: classes/shared/digest.php:534
-msgid "Pyccĸий"
-msgstr ""
-
-#: classes/shared/digest.php:535
-msgid "Polski"
-msgstr ""
-
-#: classes/shared/digest.php:536
-msgid "Português"
-msgstr ""
-
-#: classes/shared/digest.php:537
-msgid "Português Brasileiro"
-msgstr ""
-
-#: classes/shared/digest.php:538
-msgid "Magyar"
-msgstr ""
-
-#: classes/shared/digest.php:539
-msgid "Українська"
-msgstr ""
-
-#: classes/shared/digest.php:540
-msgid "Čeština"
-msgstr ""
-
-#: classes/shared/digest.php:541
-msgid "Low Saxon"
-msgstr ""
-
-#: classes/shared/digest.php:544
-msgid "Svenska"
-msgstr ""
-
-#: classes/shared/digest.php:549
+#: classes/shared/digest.php:555
 msgid "Idea"
 msgstr ""
 
-#: classes/shared/digest.php:550
+#: classes/shared/digest.php:556
 msgid "Contacting"
 msgstr ""
 
-#: classes/shared/digest.php:551
+#: classes/shared/digest.php:557
 msgid "More information needed"
 msgstr ""
 
-#: classes/shared/digest.php:553
+#: classes/shared/digest.php:559
 msgid "Needs proofreading"
 msgstr ""
 
-#: classes/shared/digest.php:554
+#: classes/shared/digest.php:560
 msgid "Ready for selection"
 msgstr ""
 
-#: classes/shared/digest.php:555
+#: classes/shared/digest.php:561
 #, fuzzy
 msgid "Selected"
 msgstr "Wegdaan"
 
-#: classes/shared/digest.php:599 classes/ui/moreinfoui.php:131
+#: classes/shared/digest.php:605 classes/ui/moreinfoui.php:131
 #: classes/ui/themes/neverland/moreinfoui.php:134
 #, fuzzy, php-format
 msgid "Revision %s"
 msgstr "%s in %s"
 
-#: classes/shared/digest.php:620 classes/shared/digest.php:643
+#: classes/shared/digest.php:626 classes/shared/digest.php:649
 #, php-format
 msgid "%s committed changes in %s:"
 msgstr ""
 
-#: classes/shared/digest.php:669 classes/shared/enzyme.php:1542
+#: classes/shared/digest.php:675 classes/shared/enzyme.php:1542
 #, php-format
 msgid "Bug %d: %s"
 msgstr "Fehler %d: %s"
 
-#: classes/shared/digest.php:673
+#: classes/shared/digest.php:679
 #, php-format
 msgid "%d days"
 msgstr "%d Daag"
 
-#: classes/shared/digest.php:728
+#: classes/shared/digest.php:734
 #, php-format
 msgid "Diffs: %s"
 msgstr ""
 
-#: classes/shared/digest.php:731
+#: classes/shared/digest.php:737
 #, php-format
 msgid "(+ %d more)"
-msgstr ""
+msgstr "(+ %d mehr)"
 
-#: classes/shared/digest.php:740 classes/shared/enzyme.php:331
+#: classes/shared/digest.php:746 classes/shared/enzyme.php:331
 msgid "Admin"
 msgstr "Pleger"
 
-#: classes/shared/digest.php:742 classes/shared/enzyme.php:335
+#: classes/shared/digest.php:748 classes/shared/enzyme.php:335
 #: classes/shared/enzyme.php:336
 msgid "Editor"
 msgstr "Bewerker"
 
-#: classes/shared/digest.php:744
+#: classes/shared/digest.php:750
 #, fuzzy
 msgid "Feature editor"
 msgstr "Markmalen"
 
-#: classes/shared/digest.php:746 classes/shared/enzyme.php:343
+#: classes/shared/digest.php:752 classes/shared/enzyme.php:343
 msgid "Reviewer"
 msgstr "Nakiek"
 
-#: classes/shared/digest.php:748 classes/shared/enzyme.php:347
+#: classes/shared/digest.php:754 classes/shared/enzyme.php:347
 msgid "Classifier"
 msgstr "Klassifikater"
 
-#: classes/shared/digest.php:750 classes/shared/enzyme.php:351
+#: classes/shared/digest.php:756 classes/shared/enzyme.php:351
 #: classes/shared/enzyme.php:352
 msgid "Translator"
 msgstr "Översetter"
@@ -503,9 +427,8 @@ msgid "KDE-PIM"
 msgstr "KDE-PIM"
 
 #: classes/shared/enzyme.php:91
-#, fuzzy
 msgid "Office"
-msgstr "KOffice"
+msgstr "Kontoor"
 
 #: classes/shared/enzyme.php:92
 msgid "Konqueror"
@@ -544,9 +467,8 @@ msgid "Features"
 msgstr "Markmalen"
 
 #: classes/shared/enzyme.php:112
-#, fuzzy
 msgid "Optimization"
-msgstr "Optimeren"
+msgstr "Verbetern"
 
 #: classes/shared/enzyme.php:113
 msgid "Security"
@@ -1609,6 +1531,21 @@ msgstr ""
 #~ msgid "Converted %s"
 #~ msgstr "Inholt"
 
+#~ msgid "Czech (Čeština)"
+#~ msgstr "Tschechsch (Čeština)"
+
+#~ msgid "Deutsch (German)"
+#~ msgstr "Deutsch (Hoochdüütsch)"
+
+#~ msgid "English"
+#~ msgstr "Engelsch"
+
+#~ msgid "Español (Spanish)"
+#~ msgstr "Español (Spaansch)"
+
+#~ msgid "Français (French)"
+#~ msgstr "Français (Franzöösch))"
+
 #~ msgid "Issue %d: %s"
 #~ msgstr "Utgaav %d: %s"
 
@@ -1618,6 +1555,9 @@ msgstr ""
 #~ msgid "Message"
 #~ msgstr "Naricht"
 
+#~ msgid "Nederlands (Dutch)"
+#~ msgstr "Nederlands (Nedderlannsch)"
+
 #~ msgid "Optimize"
 #~ msgstr "Optimeren"
 
@@ -1626,3 +1566,6 @@ msgstr ""
 
 #~ msgid "filter?"
 #~ msgstr "Filter?"
+
+#~ msgid "Русский язык (Russian)"
+#~ msgstr "Русский язык (Russ'sch)"

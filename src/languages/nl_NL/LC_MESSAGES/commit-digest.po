@@ -1,13 +1,13 @@
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2011.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2011, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE Commit-Digest\n"
 "Report-Msgid-Bugs-To: danny@commit-digest.org\n"
 "POT-Creation-Date: 2014-09-27 20:00-0000\n"
-"PO-Revision-Date: 2014-09-27 20:12-0000\n"
+"PO-Revision-Date: 2014-09-28 20:41-0000\n"
 "Last-Translator: Danny Allen <danny@commit-digest.org>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
-"Language: en_US\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -395,7 +395,7 @@ msgstr "Tsjechisch (Čeština)"
 #: classes/shared/digest.php:541
 #, fuzzy
 msgid "Low Saxon"
-msgstr "Low Saxon (Nederduits)"
+msgstr "Nedersaksisch (Nederduits)"
 
 #: classes/shared/digest.php:544
 msgid "Svenska"
@@ -1730,10 +1730,10 @@ msgstr ""
 
 #~ msgid ""
 #~ "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny "
-#~ "Allen</a>, 2006-2012"
+#~ "Allen</a>, 2006-2011"
 #~ msgstr ""
 #~ "KDE Commit-Digest door <a href=\"mailto:danny@commit-digest.org\">Danny "
-#~ "Allen</a>, 2006-2012"
+#~ "Allen</a>, 2006-2011"
 
 #~ msgid "KOffice"
 #~ msgstr "KOffice"

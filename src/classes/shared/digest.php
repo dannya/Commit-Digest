@@ -524,24 +524,30 @@ class Digest {
 
 
   public static function getLanguages() {
-    return array('en_US'  => _('English'),
-                 'de_DE'  => _('Deutsch'),
-                 'fr_FR'  => _('Français'),
-                 'es_ES'  => _('Español'),
-                 'ca_ES'  => _('Català'),
-                 'nl_NL'  => _('Nederlands'),
-                 'it_IT'  => _('Italiano'),
-                 'ru_RU'  => _('Pyccĸий'),
-                 'pl_PL'  => _('Polski'),
-                 'pt_PT'  => _('Português'),
-                 'pt_BR'  => _('Português Brasileiro'),
-                 'hu_HU'  => _('Magyar'),
-                 'uk_UA'  => _('Українська'),
-                 'cs_CZ'  => _('Čeština'),
-                 'nds'    => _('Low Saxon'));
+    $languages = array(
+      'en_US'  => 'English',
+      'de_DE'  => 'Deutsch',
+      'fr_FR'  => 'Français',
+      'es_ES'  => 'Español',
+      'ca_ES'  => 'Català',
+      'nl_NL'  => 'Nederlands',
+      'it_IT'  => 'Italiano',
+      'ru_RU'  => 'Pyccĸий',
+      'pl_PL'  => 'Polski',
+      'pt_PT'  => 'Português',
+      'pt_BR'  => 'Português Brasileiro',
+      'hu_HU'  => 'Magyar',
+      'uk_UA'  => 'Українська',
+      'cs_CZ'  => 'Čeština',
+      'nds'    => 'Low Saxon',
+    );
 
-    // not yet ready for inclusion, here for translation purposes
-    return array('sv_SE'  => _('Svenska'));
+    // show test language if not live site
+    if (!LIVE_SITE) {
+      $languages['test'] = 'Test language';
+    }
+
+    return $languages;
   }
 
 

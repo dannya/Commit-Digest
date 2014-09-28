@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE Commit-Digest\n"
 "Report-Msgid-Bugs-To: danny@commit-digest.org\n"
-"POT-Creation-Date: 2014-09-27 20:00-0000\n"
-"PO-Revision-Date: 2014-09-27 20:12-0000\n"
+"POT-Creation-Date: 2014-09-28 20:23-0000\n"
+"PO-Revision-Date: 2014-09-28 20:41-0000\n"
 "Last-Translator: Danny Allen <danny@commit-digest.org>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Poedit 1.6.9\n"
 "X-Poedit-SearchPath-0: C:\\www\\digest\\src\n"
 
-#: classes/shared/app.php:169
+#: classes/shared/app.php:168
 #, php-format
 msgid "You need to have the permission \"%s\" to view this section"
 msgstr "Tem de ter as permissões \"%s\" para ver esta secção"
@@ -293,14 +293,6 @@ msgstr "América do Norte"
 msgid "South America"
 msgstr "América do Sul"
 
-#: classes/shared/developer.php:402
-msgid "twitter.com"
-msgstr ""
-
-#: classes/shared/developer.php:403
-msgid "identi.ca"
-msgstr ""
-
 #: classes/shared/digest.php:122 classes/shared/digest.php:162
 #: classes/shared/digest.php:177 classes/shared/digest.php:202
 #: classes/shared/digest.php:230 classes/shared/digest.php:245
@@ -331,162 +323,89 @@ msgstr "Publicação"
 msgid "Archive"
 msgstr "Pacote"
 
-#: classes/shared/digest.php:527
-msgid "English"
-msgstr "Inglês"
-
-#: classes/shared/digest.php:528
-#, fuzzy
-msgid "Deutsch"
-msgstr "Alemão"
-
-#: classes/shared/digest.php:529
-#, fuzzy
-msgid "Français"
-msgstr "Francês"
-
-#: classes/shared/digest.php:530
-#, fuzzy
-msgid "Español"
-msgstr "Espanhol"
-
-#: classes/shared/digest.php:531
-msgid "Català"
-msgstr ""
-
-#: classes/shared/digest.php:532
-#, fuzzy
-msgid "Nederlands"
-msgstr "Holandês"
-
-#: classes/shared/digest.php:533
-#, fuzzy
-msgid "Italiano"
-msgstr "Italiano"
-
-#: classes/shared/digest.php:534
-msgid "Pyccĸий"
-msgstr ""
-
-#: classes/shared/digest.php:535
-msgid "Polski"
-msgstr ""
-
-#: classes/shared/digest.php:536
-#, fuzzy
-msgid "Português"
-msgstr "Português"
-
-#: classes/shared/digest.php:537
-#, fuzzy
-msgid "Português Brasileiro"
-msgstr "Português do Brasil"
-
-#: classes/shared/digest.php:538
-msgid "Magyar"
-msgstr ""
-
-#: classes/shared/digest.php:539
-msgid "Українська"
-msgstr ""
-
-#: classes/shared/digest.php:540
-#, fuzzy
-msgid "Čeština"
-msgstr "Checo (Čeština)"
-
-#: classes/shared/digest.php:541
-#, fuzzy
-msgid "Low Saxon"
-msgstr "Baixa-Saxónia (Saxão)"
-
-#: classes/shared/digest.php:544
-msgid "Svenska"
-msgstr ""
-
-#: classes/shared/digest.php:549
+#: classes/shared/digest.php:555
 #, fuzzy
 msgid "Idea"
 msgstr "1. Ideia"
 
-#: classes/shared/digest.php:550
+#: classes/shared/digest.php:556
 #, fuzzy
 msgid "Contacting"
 msgstr "2. Contactos"
 
-#: classes/shared/digest.php:551
+#: classes/shared/digest.php:557
 #, fuzzy
 msgid "More information needed"
 msgstr "3. Mais informações necessárias"
 
-#: classes/shared/digest.php:553
+#: classes/shared/digest.php:559
 #, fuzzy
 msgid "Needs proofreading"
 msgstr "4. Necessita de revisão"
 
-#: classes/shared/digest.php:554
+#: classes/shared/digest.php:560
 #, fuzzy
 msgid "Ready for selection"
 msgstr "5. Pronto para a selecção"
 
-#: classes/shared/digest.php:555
+#: classes/shared/digest.php:561
 #, fuzzy
 msgid "Selected"
 msgstr "6. Seleccionado"
 
-#: classes/shared/digest.php:599 classes/ui/moreinfoui.php:131
+#: classes/shared/digest.php:605 classes/ui/moreinfoui.php:131
 #: classes/ui/themes/neverland/moreinfoui.php:134
 #, php-format
 msgid "Revision %s"
 msgstr "Revisão %s"
 
-#: classes/shared/digest.php:620 classes/shared/digest.php:643
+#: classes/shared/digest.php:626 classes/shared/digest.php:649
 #, php-format
 msgid "%s committed changes in %s:"
 msgstr "%s enviou alterações em %s:"
 
-#: classes/shared/digest.php:669 classes/shared/enzyme.php:1542
+#: classes/shared/digest.php:675 classes/shared/enzyme.php:1542
 #, php-format
 msgid "Bug %d: %s"
 msgstr "Erro %d: %s"
 
-#: classes/shared/digest.php:673
+#: classes/shared/digest.php:679
 #, php-format
 msgid "%d days"
 msgstr "%d dias"
 
-#: classes/shared/digest.php:728
+#: classes/shared/digest.php:734
 #, php-format
 msgid "Diffs: %s"
 msgstr "Diferenças: %s"
 
-#: classes/shared/digest.php:731
+#: classes/shared/digest.php:737
 #, php-format
 msgid "(+ %d more)"
 msgstr "(+ mais %d)"
 
-#: classes/shared/digest.php:740 classes/shared/enzyme.php:331
+#: classes/shared/digest.php:746 classes/shared/enzyme.php:331
 msgid "Admin"
 msgstr "Administração"
 
-#: classes/shared/digest.php:742 classes/shared/enzyme.php:335
+#: classes/shared/digest.php:748 classes/shared/enzyme.php:335
 #: classes/shared/enzyme.php:336
 msgid "Editor"
 msgstr "Editor"
 
-#: classes/shared/digest.php:744
+#: classes/shared/digest.php:750
 msgid "Feature editor"
 msgstr "Editor de funcionalidades"
 
-#: classes/shared/digest.php:746 classes/shared/enzyme.php:343
+#: classes/shared/digest.php:752 classes/shared/enzyme.php:343
 msgid "Reviewer"
 msgstr "Revisão"
 
-#: classes/shared/digest.php:748 classes/shared/enzyme.php:347
+#: classes/shared/digest.php:754 classes/shared/enzyme.php:347
 msgid "Classifier"
 msgstr "Classificador"
 
-#: classes/shared/digest.php:750 classes/shared/enzyme.php:351
+#: classes/shared/digest.php:756 classes/shared/enzyme.php:351
 #: classes/shared/enzyme.php:352
 msgid "Translator"
 msgstr "Tradutor"
@@ -1703,6 +1622,12 @@ msgstr ""
 #~ "Não foi possível ligar à base de dados: certifique-se que definiu os "
 #~ "valores correctos no topo do '%s/autoload.php'"
 
+#~ msgid "Czech (Čeština)"
+#~ msgstr "Checo (Čeština)"
+
+#~ msgid "Deutsch (German)"
+#~ msgstr "Alemão"
+
 #~ msgid "Digg this issue..."
 #~ msgstr "Fazer Digg desta publicação..."
 
@@ -1711,6 +1636,15 @@ msgstr ""
 
 #~ msgid "Downloading translations..."
 #~ msgstr "A obter as traduções..."
+
+#~ msgid "English"
+#~ msgstr "Inglês"
+
+#~ msgid "Español (Spanish)"
+#~ msgstr "Espanhol"
+
+#~ msgid "Français (French)"
+#~ msgstr "Francês"
 
 #~ msgid "Getting available translations..."
 #~ msgstr "A obter as traduções disponíveis..."
@@ -1727,6 +1661,9 @@ msgstr ""
 #~ msgid "Issue %d: %s"
 #~ msgstr "Publicação %d: %s"
 
+#~ msgid "Italiano (Italian)"
+#~ msgstr "Italiano"
+
 #~ msgid ""
 #~ "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny "
 #~ "Allen</a>, 2006-2010"
@@ -1736,19 +1673,25 @@ msgstr ""
 
 #~ msgid ""
 #~ "KDE Commit-Digest by <a href=\"mailto:danny@commit-digest.org\">Danny "
-#~ "Allen</a>, 2006-2012"
+#~ "Allen</a>, 2006-2011"
 #~ msgstr ""
 #~ "Resumo de Envios do KDE por <a href=\"mailto:danny@commit-digest.org"
-#~ "\">Danny Allen</a>, 2006-2012"
+#~ "\">Danny Allen</a>, 2006-2011"
 
 #~ msgid "KOffice"
 #~ msgstr "KOffice"
+
+#~ msgid "Low Saxon (Low Saxon)"
+#~ msgstr "Baixa-Saxónia (Saxão)"
 
 #~ msgid "Magyar (Hungarian)"
 #~ msgstr "Magyar (Húngaro)"
 
 #~ msgid "Message"
 #~ msgstr "Mensagem"
+
+#~ msgid "Nederlands (Dutch)"
+#~ msgstr "Holandês"
 
 #~ msgid "No commits found, maybe your filter is too restrictive..."
 #~ msgstr ""
@@ -1760,6 +1703,12 @@ msgstr ""
 
 #~ msgid "Polski (Polish)"
 #~ msgstr "Polaco"
+
+#~ msgid "Português (Portuguese)"
+#~ msgstr "Português"
+
+#~ msgid "Português Brasileiro (Brazilian Portuguese)"
+#~ msgstr "Português do Brasil"
 
 #~ msgid "Processed %s"
 #~ msgstr "Foi processado o %s"
