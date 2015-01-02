@@ -315,7 +315,7 @@ class DigestUi {
                 Config::$meta['author'],
                 'mailto:digest@kde.org',
                 Config::$app['name'],
-                '2006-2014'
+                '2006-2015'
               ) .
               '<br />' .
               _('All issues in <a href="/archive/">archive</a> by Derek Kite.') .

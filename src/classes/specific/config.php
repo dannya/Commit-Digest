@@ -2,7 +2,7 @@
 
 /*-------------------------------------------------------+
  | Enzyme
- | Copyright 2010-2014 Danny Allen <danny@enzyme-project.org>
+ | Copyright 2010-2015 Danny Allen <danny@enzyme-project.org>
  | http://www.enzyme-project.org/
  +--------------------------------------------------------+
  | This program is released as free software under the
@@ -22,7 +22,7 @@ final class Config {
   // define app constants
   public static $app        = array('id'          => 'commit-digest',
                                     'name'        => 'KDE Commit-Digest',
-                                    'version'     => '1.40');
+                                    'version'     => '1.42');
 
 
   // define meta information
